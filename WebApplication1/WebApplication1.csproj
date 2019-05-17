@@ -131,7 +131,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\daterangepicker.css" />
-    <Content Include="Content\img\DailyPhotosTakenGraph.PNG" />
+    <Content Include="Content\img\DailyPhotoTaken.PNG" />
     <Content Include="Content\img\ImpactDashboard.PNG" />
     <Content Include="Content\img\Logo_Med.png" />
     <Content Include="Content\img\Mumu.jpg" />
