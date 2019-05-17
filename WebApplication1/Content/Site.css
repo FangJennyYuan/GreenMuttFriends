@@ -1,4 +1,26 @@
-﻿body {
+﻿/* colors */
+.dark-color {
+    background-color: #2B3543;
+}
+
+.primary-color {
+    color: #5FBD73;
+}
+
+.secondary-color {
+    color: #1C2C8C;
+}
+
+.third-color {
+    color: #5F4892;
+}
+
+.highlight-color {
+    color: #71BDD3;
+}
+
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -22,3 +44,4 @@ select,
 textarea {
     max-width: 280px;
 }
+
