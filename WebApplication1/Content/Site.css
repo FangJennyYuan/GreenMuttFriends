@@ -48,6 +48,8 @@ textarea {
 /*Main Nav Menu*/
 .navbar-dark .navbar-nav .nav-link {
     color: white;
+    font-size: 1.4em;
+    margin-left: 1.2em;
 }
 .navbar-dark .navbar-nav .nav-link:hover {
     color: #71BDD3;
