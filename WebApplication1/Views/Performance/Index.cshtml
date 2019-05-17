@@ -2,3 +2,21 @@
 @{
     ViewBag.Title = "Performance Dashboard";
 }
+@Scripts.Render("~/Scripts/jquery-3.4.1.js")
+@Scripts.Render("~/Scripts/moment.js")
+@Scripts.Render("~/Scripts/daterangepicker.js")
+
+<h1>
+    Performance Dashboard
+</h1>
+<input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
+
+<script>
+    $(function () {
+        $('input[name="daterange"]').daterangepicker({
+            opens: 'left'
+        }, function (start, end, label) {
+            console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+        });
+    });
+</script>
