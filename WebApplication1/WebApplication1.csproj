@@ -138,6 +138,7 @@
     <Content Include="Content\img\Logo_Med.png" />
     <Content Include="Content\img\Mumu.jpg" />
     <Content Include="Content\img\UsersToday.PNG" />
+    <Content Include="Content\img\WeekofMay.PNG" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
