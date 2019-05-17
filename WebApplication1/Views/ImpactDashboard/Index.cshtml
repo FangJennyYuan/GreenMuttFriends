@@ -5,8 +5,8 @@
 
 <h1>Impact Dashboard</h1>
 <div class="row">
-    <div class="col">
-        Week
+    <div class="col" >
+        <button type="button" onclick="myWeekFunction()"> Week</button>
     </div>
     <div class="col">
         Month
@@ -18,4 +18,17 @@
         Date
     </div>
 </div>
+<div id="Week">
+    <img src="~/Content/img/WeekofMay.PNG" class="mx-auto d-block img-fluid " />
+</div>
 
+<script>
+    function myWeekFunction() {
+        var x = document.getElementById("Week");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
