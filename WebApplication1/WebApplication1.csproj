@@ -131,6 +131,7 @@
     <Content Include="Content\img\DailyPhotosTakenGraph.PNG" />
     <Content Include="Content\img\ImpactDashboard.PNG" />
     <Content Include="Content\img\Mumu.jpg" />
+    <Content Include="Content\img\PerformanceDashboard.PNG" />
     <Content Include="Content\img\UsersToday.PNG" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
