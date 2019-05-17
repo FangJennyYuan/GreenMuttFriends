@@ -51,6 +51,7 @@ textarea {
     font-size: 1.4em;
     margin-left: 1.2em;
 }
+
 .navbar-dark .navbar-nav .nav-link:hover {
     color: #71BDD3;
     text-decoration: underline;
@@ -75,6 +76,7 @@ h2 {
     line-height: 1.7em;
     margin-top: .5em;
 }
+
 h3 {
     font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
     font-size: 1.1em;
@@ -83,3 +85,15 @@ h3 {
     font-weight: 700;
     line-height: 1.2em;
 } 
+
+/*Buttons*/
+.btn-outline-success {
+    color: #71BDD3;
+    border-color: #71BDD3;
+}
+.btn-outline-success:hover {
+    background-color: #71BDD3;
+}
+.btn-outline-success:not(:disabled):not(.disabled):active, .btn-outline-success:not(:disabled):not(.disabled).active, .show > .btn-outline-success.dropdown-toggle {
+    background-color: #71BDD3;
+}
