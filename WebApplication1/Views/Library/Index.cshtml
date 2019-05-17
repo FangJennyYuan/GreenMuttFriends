@@ -3,9 +3,28 @@
     ViewBag.Title = "Library Dashboard";
 }
 
+<br />
 <h2>Library Dashboard</h2>
+<br />
 
 <div class="row">
+    <!-- Dropdown to select clinic -->
+    <div class="col-3">
+        <form>
+            <select name="cars" class="custom-select">
+                <option selected>All Clinics</option>
+                <option value="batagarawa">Batagarawa Clinic</option>
+                <option value="ijora">Ijora Clinic</option>
+                <option value="katsina">Katsina Clinic</option>
+                <option value="mashegu">Mashegu Clinic</option>
+                <option value="rawayau">Rawayau Clinic</option>
+            </select>
+        </form>
+    </div>
+
+    <!-- Date selector -->
+    <div class="col"></div>
+
 
     <!-- Checkboxes to select valid/invalid -->
     <div class="col-md-3">
@@ -23,6 +42,8 @@
 
 
 </div>
+
+<br />
 
 <!-- Tab menu to select view -->
 <div class="container">
@@ -42,3 +63,5 @@
         <div class="tab-pane container fade" id="list">List view goes here...</div>
     </div>
 </div>
+
+<br />
