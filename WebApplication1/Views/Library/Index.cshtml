@@ -2,6 +2,9 @@
 @{
     ViewBag.Title = "Library Dashboard";
 }
+@Scripts.Render("~/Scripts/jquery-3.4.1.js")
+@Scripts.Render("~/Scripts/moment.js")
+@Scripts.Render("~/Scripts/daterangepicker.js")
 
 <br />
 <h2>Library Dashboard</h2>
@@ -9,7 +12,7 @@
 
 <div class="row">
     <!-- Dropdown to select clinic -->
-    <div class="col-3">
+    <div class="col">
         <form>
             <select name="cars" class="custom-select">
                 <option selected>All Clinics</option>
@@ -23,11 +26,23 @@
     </div>
 
     <!-- Date selector -->
-    <div class="col"></div>
+    <div class="col">
+        <input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
+
+        <script>
+            $(function () {
+                $('input[name="daterange"]').daterangepicker({
+                    opens: 'left'
+                }, function (start, end, label) {
+                    console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+                });
+            });
+        </script>
+    </div>
 
 
     <!-- Checkboxes to select valid/invalid -->
-    <div class="col-md-3">
+    <div class="col">
         <div class="form-check-inline">
             <label class="form-check-label">
                 <input type="checkbox" class="form-check-input" value="" checked>valid
