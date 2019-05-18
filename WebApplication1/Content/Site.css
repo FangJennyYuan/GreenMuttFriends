@@ -35,12 +35,13 @@ body {
 @media (min-width: 1400px) {
     .container-fluid {
         max-width: 1400px;
+        padding:20px;
     }
 }
 
+
     /* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
+   will truncate terms that are too long to fit in the left column */
     .dl-horizontal dt {
         white-space: normal;
     }
@@ -136,3 +137,10 @@ body {
             color: #71BDD3;
             text-decoration: underline;
         }
+
+
+@media (max-width: 576px) {
+    .clinic_filter .filter-name {
+        width: 100%;
+    }
+}
