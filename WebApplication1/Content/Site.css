@@ -97,6 +97,7 @@ h3 {
     font-weight: 700;
     line-height: 1.2em;
     color: #737572;
+    margin-top: .8em;
 }
 
     /*Buttons*/
@@ -163,4 +164,8 @@ h3 {
     .clinic_filter .filter-name {
         width: 100%;
     }
+}
+.filtered_by_date {
+    color: #5FBD73;
+    border-bottom: .12rem solid
 }
