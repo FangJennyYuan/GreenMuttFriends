@@ -31,6 +31,13 @@ body {
     padding-right: 15px;
 }
 
+/*Responsive container with limits on max width*/
+@media (min-width: 1400px) {
+    .container-fluid {
+        max-width: 1400px;
+    }
+}
+
     /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
