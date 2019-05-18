@@ -13,7 +13,11 @@ namespace WebApplication1.Controllers
         // GET: Library
         public ActionResult Index()
         {
-            return View();
+            var myViewModel = new LibraryViewModel();
+
+            myViewModel.PhotoViewModel = PhotoBackend.Instance.Index();
+
+            return View(myViewModel);
         }
 
         public ActionResult PhotoDetail()
