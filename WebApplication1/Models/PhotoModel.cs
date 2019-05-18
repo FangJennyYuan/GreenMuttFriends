@@ -14,6 +14,9 @@ namespace WebApplication1.Models
         // The Clinic Name
         public string ClinicName { get; set; }
 
+        // Whether the app gave the photo a valid result (true) or not (false)
+        public bool ResultIsValid { get; set; }
+
         // The total serum bilirubin result, as a string
         public string Bilirubin { get; set; }
 
@@ -63,6 +66,7 @@ namespace WebApplication1.Models
             }
 
             ClinicName = data.ClinicName;
+            ResultIsValid = data.ResultIsValid;
             Bilirubin = data.Bilirubin;
             RecordedDateTime = data.RecordedDateTime;
             PhoneNumber = data.PhoneNumber;
