@@ -22,7 +22,14 @@
                 Photo ID: @Model.ID
             </h3>
             <h3>
-                @Model.Bilirubin Total Serum Bilirubin
+                @if (Model.ResultIsValid)
+                {
+                    <text>@Model.Bilirubin Total Serum Bilirubin</text>
+                }
+                else
+                {
+                    <text>invalid result</text>
+                }
             </h3>
             Time: @Model.RecordedDateTime
             <br />
