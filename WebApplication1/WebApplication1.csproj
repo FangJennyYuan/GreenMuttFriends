@@ -217,6 +217,7 @@
     <Content Include="Views\Library\Index.cshtml" />
     <Content Include="Views\ImpactDashboard\Index.cshtml" />
     <Content Include="Views\Performance\Index.cshtml" />
+    <Content Include="Views\Library\PhotoDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

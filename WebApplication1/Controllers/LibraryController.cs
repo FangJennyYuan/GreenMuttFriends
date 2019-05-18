@@ -13,5 +13,10 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
+
+        public ActionResult PhotoDetail()
+        {
+            return View();
+        }
     }
 }
