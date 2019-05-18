@@ -116,7 +116,7 @@
                             <th>Photo ID</th>
                             <th>Clinic</th>
                             <th>Total Serum Bilirubin</th>
-                            <th>Time (UTC)</th>
+                            <th>Date/Time (UTC)</th>
                             <th>Phone</th>
                             <th>User ID</th>
                             <th>Device</th>
@@ -124,76 +124,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><a href="/Library/PhotoDetail">123-49</a></td>
-                            <td>Ijora Clinic</td>
-                            <td>15</td>
-                            <td>5/17/2019 10:00 am</td>
-                            <td>815-991-1111</td>
-                            <td>81</td>
-                            <td>Samsung Buddy</td>
-                            <td>4.1</td>
-                        </tr>
-                        <tr>
-                            <td><a href="/Library/PhotoDetail">123-49</a></td>
-                            <td>Ijora Clinic</td>
-                            <td>15</td>
-                            <td>5/17/2019 10:00 am</td>
-                            <td>815-991-1111</td>
-                            <td>81</td>
-                            <td>Samsung Buddy</td>
-                            <td>4.1</td>
-                        </tr>
-                        <tr>
-                            <td><a href="/Library/PhotoDetail">123-49</a></td>
-                            <td>Ijora Clinic</td>
-                            <td>15</td>
-                            <td>5/17/2019 10:00 am</td>
-                            <td>815-991-1111</td>
-                            <td>81</td>
-                            <td>Samsung Buddy</td>
-                            <td>4.1</td>
-                        </tr>
-                        <tr>
-                            <td><a href="/Library/PhotoDetail">123-49</a></td>
-                            <td>Ijora Clinic</td>
-                            <td>15</td>
-                            <td>5/17/2019 10:00 am</td>
-                            <td>815-991-1111</td>
-                            <td>81</td>
-                            <td>Samsung Buddy</td>
-                            <td>4.1</td>
-                        </tr>
-                        <tr>
-                            <td><a href="/Library/PhotoDetail">123-49</a></td>
-                            <td>Ijora Clinic</td>
-                            <td>15</td>
-                            <td>5/17/2019 10:00 am</td>
-                            <td>815-991-1111</td>
-                            <td>81</td>
-                            <td>Samsung Buddy</td>
-                            <td>4.1</td>
-                        </tr>
-                        <tr>
-                            <td><a href="/Library/PhotoDetail">123-49</a></td>
-                            <td>Ijora Clinic</td>
-                            <td>15</td>
-                            <td>5/17/2019 10:00 am</td>
-                            <td>815-991-1111</td>
-                            <td>81</td>
-                            <td>Samsung Buddy</td>
-                            <td>4.1</td>
-                        </tr>
-                        <tr>
-                            <td><a href="/Library/PhotoDetail">123-49</a></td>
-                            <td>Ijora Clinic</td>
-                            <td>15</td>
-                            <td>5/17/2019 10:00 am</td>
-                            <td>815-991-1111</td>
-                            <td>81</td>
-                            <td>Samsung Buddy</td>
-                            <td>4.1</td>
-                        </tr>
+                        @{ 
+                            foreach(var item in Model.PhotoViewModel.PhotoList)
+                            {
+                                <tr>
+                                    <td>@Html.ActionLink(item.ID, "PhotoDetail", new { id = item.ID }, new { @class = "small" })</td>
+                                    <td>@item.ClinicName</td>
+                                    <td>@item.Bilirubin Total Serum Bilirubin</td>
+                                    <td>@item.RecordedDateTime.ToShortDateString() @item.RecordedDateTime.ToShortTimeString()</td>
+                                    <td>@item.PhoneNumber</td>
+                                    <td>@item.UserID</td>
+                                    <td>@item.DeviceType</td>
+                                    <td>@item.OSVersion</td>
+                                </tr>
+                            }
+                        }
                     </tbody>
                 </table>
             </div>
