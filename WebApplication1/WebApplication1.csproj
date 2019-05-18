@@ -137,6 +137,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\daterangepicker.css" />
     <Content Include="Content\img\AvgPhotosTakenByDevice_May19to25_All.png" />
+    <Content Include="Content\img\AvgPhotosTakenByDevice_May19to25_Ijowa.png" />
     <Content Include="Content\img\clinic_Ijowa.png" />
     <Content Include="Content\img\clinic_Katsina.png" />
     <Content Include="Content\img\clinic_Mashegu.png" />
