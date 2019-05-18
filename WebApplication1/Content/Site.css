@@ -15,6 +15,10 @@
     color: #5F4892;
 }
 
+.fourth-color {
+    color: #71BDD3;
+}
+
 .highlight-color {
     color: #71BDD3;
 }
@@ -109,6 +113,7 @@ body {
         }
 
     /* Filters */
+    /*Date filters*/
     .date_filter {
         font-size: 1.35em;
     }
@@ -137,7 +142,21 @@ body {
             color: #71BDD3;
             text-decoration: underline;
         }
-
+/*Clinic filters*/
+.clinic_filter .filter-name {
+    font-size:1.35em;
+    margin-top:.4em;     
+}
+.clinic_filter .span2 {
+    font-weight:700;
+    font-size:1.05em;
+}
+    .clinic_filter .span2 span:hover {
+        border-bottom: .12rem solid
+    }
+    .clinic_filter .span2 span:active {
+        border-bottom: .12rem solid
+    }
 
 @media (max-width: 576px) {
     .clinic_filter .filter-name {
