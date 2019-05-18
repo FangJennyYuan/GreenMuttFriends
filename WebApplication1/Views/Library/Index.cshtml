@@ -92,7 +92,14 @@
                                             <br />
                                             @item.PhoneNumber
                                             <br />
-                                            @item.Bilirubin Total Serum Bilirubin
+                                            @if (item.ResultIsValid)
+                                            {
+                                                <text>@item.Bilirubin Total Serum Bilirubin</text>
+                                            }
+                                            else
+                                            {
+                                                <text>invalid result</text>
+                                            }
                                             <br />
                                             @item.RecordedDateTime.ToShortDateString() @item.RecordedDateTime.ToShortTimeString() UTC
                                         </figcaption>
@@ -131,7 +138,16 @@
                                 <tr>
                                     <td>@Html.ActionLink(item.ID, "PhotoDetail", new { id = item.ID }, new { @class = "small" })</td>
                                     <td>@item.ClinicName</td>
-                                    <td>@item.Bilirubin Total Serum Bilirubin</td>
+                                    <td>
+                                        @if (item.ResultIsValid)
+                                        {
+                                            <text>@item.Bilirubin Total Serum Bilirubin</text>
+                                        }
+                                        else
+                                        {
+                                            <text>invalid result</text>
+                                        }
+                                    </td>
                                     <td>@item.RecordedDateTime.ToShortDateString() @item.RecordedDateTime.ToShortTimeString()</td>
                                     <td>@item.PhoneNumber</td>
                                     <td>@item.UserID</td>
