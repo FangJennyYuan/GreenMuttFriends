@@ -101,7 +101,23 @@ namespace WebApplication1.Backend
         /// </summary>
         public void Initialize()
         {
-            //TODO: Add sample data here
+            // Ijora Clinic data for scenario
+            dataset.Add(new PhotoModel { ClinicName = "Ijora Clinic", Bilirubin = "15", RecordedDateTime = DateTime.UtcNow, PhoneNumber = "815-991-1111", UserID = "003", DeviceType = "Samsung Buddy", OSVersion = "4.1" });
+            dataset.Add(new PhotoModel { ClinicName = "Ijora Clinic", Bilirubin = null, RecordedDateTime = DateTime.UtcNow, PhoneNumber = "815-992-0000", UserID = "010", DeviceType = "Samsung Buddy", OSVersion = "3.4" });
+            dataset.Add(new PhotoModel { ClinicName = "Ijora Clinic", Bilirubin = null, RecordedDateTime = DateTime.UtcNow, PhoneNumber = "815-992-0000", UserID = "010", DeviceType = "Samsung Buddy", OSVersion = "3.4" });
+            dataset.Add(new PhotoModel { ClinicName = "Ijora Clinic", Bilirubin = "25", RecordedDateTime = DateTime.UtcNow, PhoneNumber = "815-991-1111", UserID = "003", DeviceType = "Samsung Buddy", OSVersion = "4.1" });
+
+            // Other clinic data
+            dataset.Add(new PhotoModel { ClinicName = "Katsina Clinic", Bilirubin = "25", RecordedDateTime = DateTime.UtcNow, PhoneNumber = "719-991-1447", UserID = "005", DeviceType = "Tecno Mobile", OSVersion = "5.0" });
+            dataset.Add(new PhotoModel { ClinicName = "Katsina Clinic", Bilirubin = "10", RecordedDateTime = DateTime.UtcNow, PhoneNumber = "719-991-1447", UserID = "005", DeviceType = "Tecno Mobile", OSVersion = "5.0" });
+            dataset.Add(new PhotoModel { ClinicName = "Katsina Clinic", Bilirubin = "15", RecordedDateTime = DateTime.UtcNow, PhoneNumber = "719-991-1447", UserID = "005", DeviceType = "Tecno Mobile", OSVersion = "5.0" });
+            dataset.Add(new PhotoModel { ClinicName = "Mashegu Clinic", Bilirubin = "5", RecordedDateTime = DateTime.UtcNow, PhoneNumber = "815-901-1334", UserID = "006", DeviceType = "Samsung Buddy", OSVersion = "4.1" });
+            dataset.Add(new PhotoModel { ClinicName = "Mashegu Clinic", Bilirubin = "10", RecordedDateTime = DateTime.UtcNow, PhoneNumber = "815-901-1334", UserID = "006", DeviceType = "Samsung Buddy", OSVersion = "4.1" });
+            dataset.Add(new PhotoModel { ClinicName = "Mashegu Clinic", Bilirubin = "25", RecordedDateTime = DateTime.UtcNow, PhoneNumber = "815-901-1334", UserID = "006", DeviceType = "Samsung Buddy", OSVersion = "4.1" });
+
+
+            
+
         }
     }
 }
