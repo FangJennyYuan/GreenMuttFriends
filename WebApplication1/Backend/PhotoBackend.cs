@@ -84,9 +84,9 @@ namespace WebApplication1.Backend
         ///  Returns the List of Photos
         /// </summary>
         /// <returns></returns>
-        public LibraryViewModel Index()
+        public PhotoViewModel Index()
         {
-            var myData = new LibraryViewModel();
+            var myData = new PhotoViewModel();
             myData.PhotoList = repository.Index();
 
             return myData;

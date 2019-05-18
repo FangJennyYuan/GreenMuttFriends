@@ -7,9 +7,7 @@ namespace WebApplication1.Models
 {
     public class LibraryViewModel
     {
-        /// <summary>
-        /// List of Photos
-        /// </summary>
-        public List<PhotoModel> PhotoList { get; set; } = new List<PhotoModel>();
+        // List of Photos
+        public PhotoViewModel PhotoViewModel { get; set; }
     }
 }
