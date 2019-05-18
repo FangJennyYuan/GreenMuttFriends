@@ -9,7 +9,23 @@
 <h1>
     Performance Dashboard
 </h1>
-<input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
+
+<div class="row">
+    <div class="col">
+        <button type="button date_filter" onclick="myWeekFunction()"> Week</button>
+    </div>
+    <div class="col">
+        <button type="button date_filter" onclick="myWeekFunction()"> Month</button>
+    </div>
+    <div class="col">
+        <button type="button date_filter" onclick="myWeekFunction()"> All</button>
+    </div>
+    <div class="col">
+        Date
+        <input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
+    </div>
+</div>
+
 
 <script>
     $(function () {
