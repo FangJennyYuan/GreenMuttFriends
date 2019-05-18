@@ -169,3 +169,11 @@ h3 {
     color: #5FBD73;
     border-bottom: .12rem solid
 }
+
+/*Graph Formating on Performance Page*/
+.performance_graphs .photos_taken{
+     max-height: 400px;
+}
+.performance_graphs p {
+    color: #737572;
+}
