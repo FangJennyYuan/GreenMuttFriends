@@ -31,94 +31,108 @@ body {
     padding-right: 15px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
+/*Responsive container with limits on max width*/
+@media (min-width: 1400px) {
+    .container-fluid {
+        max-width: 1400px;
+    }
+}
+
+    /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
-.dl-horizontal dt {
-    white-space: normal;
-}
+    .dl-horizontal dt {
+        white-space: normal;
+    }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
+    /* Set width on the form input elements since they're 100% wide by default */
+    input,
+    select,
+    textarea {
+        max-width: 280px;
+    }
 
-/*Main Nav Menu*/
-.navbar-dark .navbar-nav .nav-link {
-    color: white;
-    font-size: 1.4em;
-    margin-left: 1.2em;
-}
+    /*Main Nav Menu*/
+    .navbar-dark .navbar-nav .nav-link {
+        color: white;
+        font-size: 1.4em;
+        margin-left: 1.2em;
+    }
 
-.navbar-dark .navbar-nav .nav-link:hover {
-    color: #71BDD3;
-    text-decoration: underline;
-}
+        .navbar-dark .navbar-nav .nav-link:hover {
+            color: #71BDD3;
+            text-decoration: underline;
+        }
 
-/*Headers*/
-h1 {
-    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-    font-size: 2em;
-    font-style: normal;
-    font-variant: normal;
-    line-height: 2.1em;
-    margin-top:2em;
-}
+    /*Headers*/
+    h1 {
+        font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+        font-size: 2em;
+        font-style: normal;
+        font-variant: normal;
+        line-height: 2.1em;
+        margin-top: 2em;
+    }
 
-h2 {
-    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-    font-size: 1.6em;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 700;
-    line-height: 1.7em;
-    margin-top: .5em;
-}
+    h2 {
+        font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+        font-size: 1.6em;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 700;
+        line-height: 1.7em;
+        margin-top: .5em;
+    }
 
-h3 {
-    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-    font-size: 1.1em;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 700;
-    line-height: 1.2em;
-} 
+    h3 {
+        font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+        font-size: 1.1em;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 700;
+        line-height: 1.2em;
+    }
 
-/*Buttons*/
-.btn-outline-success {
-    color: #71BDD3;
-    border-color: #71BDD3;
-}
-.btn-outline-success:hover {
-    background-color: #71BDD3;
-}
-.btn-outline-success:not(:disabled):not(.disabled):active, .btn-outline-success:not(:disabled):not(.disabled).active, .show > .btn-outline-success.dropdown-toggle {
-    background-color: #71BDD3;
-}
+    /*Buttons*/
+    .btn-outline-success {
+        color: #71BDD3;
+        border-color: #71BDD3;
+    }
 
-/* Filters */
-.date_filter{
-    font-size:1.35em;
-}
-.date_filter button {
-    border: none;
-    background: none;
-}
-.date_filter button:hover {
-    color: #71BDD3;
-    text-decoration: underline;
-}
-.date_filter input {
-    width: 90%;
-}
-.date_filter button:focus {
-    outline: 1px solid #fff;
-    outline-offset: -4px;
-}
-.date_filter button:focus {
-    transform: scale(0.99);
-    color: #71BDD3;
-    text-decoration: underline;
-}
+        .btn-outline-success:hover {
+            background-color: #71BDD3;
+        }
+
+        .btn-outline-success:not(:disabled):not(.disabled):active, .btn-outline-success:not(:disabled):not(.disabled).active, .show > .btn-outline-success.dropdown-toggle {
+            background-color: #71BDD3;
+        }
+
+    /* Filters */
+    .date_filter {
+        font-size: 1.35em;
+    }
+
+        .date_filter button {
+            border: none;
+            background: none;
+        }
+
+            .date_filter button:hover {
+                color: #71BDD3;
+                text-decoration: underline;
+            }
+
+        .date_filter input {
+            width: 90%;
+        }
+
+        .date_filter button:focus {
+            outline: 1px solid #fff;
+            outline-offset: -4px;
+        }
+
+        .date_filter button:focus {
+            transform: scale(0.99);
+            color: #71BDD3;
+            text-decoration: underline;
+        }
