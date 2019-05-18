@@ -10,6 +10,17 @@
 
 <h1>Library Dashboard</h1>
 
+<p>
+    to photo detail page:
+    @{
+        foreach (var item in Model.PhotoViewModel.PhotoList)
+        {
+            <br />
+            @Html.ActionLink(item.ID, "PhotoDetail", new { id = item.ID }, new { @class = "small" })
+        }
+    }
+</p>
+
 <div class="row">
     <!-- Dropdown to select clinic -->
     <div class="col">

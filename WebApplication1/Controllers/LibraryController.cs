@@ -20,9 +20,19 @@ namespace WebApplication1.Controllers
             return View(myViewModel);
         }
 
-        public ActionResult PhotoDetail()
+        public ActionResult PhotoDetail(string id = null)
         {
-            return View();
+
+            // If no ID passed in, jump to the Index page
+            if (id == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            var myData = PhotoBackend.Instance.Read(id);
+            return View(myData);
+
+  //          return View();
         }
     }
 }

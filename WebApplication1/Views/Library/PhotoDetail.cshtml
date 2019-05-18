@@ -1,10 +1,13 @@
-﻿
+﻿@model WebApplication1.Models.PhotoModel
+
 @{
     ViewBag.Title = "PhotoDetail";
 }
 
-<h1>Library Dashboard<br />
-    Photo Details</h1>
+<h1>
+    Library Dashboard<br />
+    Photo Details
+</h1>
 
 <div class="container">
     <div class="row">
@@ -13,16 +16,24 @@
         </div>
         <div class="col">
             <h2>
-                Ijora Clinic
+                @Model.ClinicName
             </h2>
-            <h2>
-                Photo ID 123-19
-            </h2>
-            Time: 5/17/2019 5:00 pm UTC<br />
-            Phone: 234-815-991-1111<br />
-            User ID: 81<br />
-            Device: Samsung Buddy<br />
-            OS: Android 4.1<br />
+            <h3>
+                Photo ID: @Model.ID
+            </h3>
+            <h3>
+                @Model.Bilirubin Total Serum Bilirubin
+            </h3>
+            Time: @Model.RecordedDateTime
+            <br />
+            Phone: @Model.PhoneNumber
+            <br />
+            User ID: @Model.UserID
+            <br />
+            Device: @Model.DeviceType
+            <br />
+            OS: @Model.OSVersion
+            <br />
 
         </div>
         <div col="col-2">
