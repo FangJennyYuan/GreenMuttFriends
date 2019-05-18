@@ -74,134 +74,32 @@
 
     <!-- Tab panes -->
     <div class="tab-content">
+
         <!-- Gallery view -->
         <div class="tab-pane container active" id="gallery">
             <div class="container">
                 <div class="row">
-                    <br />
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <figure class="figure">
-                            <a href="/Library/PhotoDetail">
-                                <img src="~/Content/img/Mumu.jpg" class="figure-img img-fluid rounded" alt="Placeholder for test strip" width="180">
-                                <figcaption class="figure-caption text-center">
-                                    815-991-1111
-                                    <br />
-                                    15 Total Serum Bilirubin
-                                    <br />
-                                    5/17/2019 5:00 pm UTC
-                                </figcaption>
-                            </a>
-                        </figure>
-                    </div>
-
-                    <div class="col">
-                        <figure class="figure">
-                            <a href="/Library/PhotoDetail">
-                                <img src="~/Content/img/Mumu.jpg" class="figure-img img-fluid rounded" alt="Placeholder for test strip" width="180">
-                                <figcaption class="figure-caption text-center">
-                                    815-991-1111
-                                    <br />
-                                    15 Total Serum Bilirubin
-                                    <br />
-                                    5/17/2019 5:00 pm UTC
-                                </figcaption>
-                            </a>
-                        </figure>
-                    </div>
-
-                    <div class="col">
-                        <figure class="figure">
-                            <a href="/Library/PhotoDetail">
-                                <img src="~/Content/img/Mumu.jpg" class="figure-img img-fluid rounded" alt="Placeholder for test strip" width="180">
-                                <figcaption class="figure-caption text-center">
-                                    815-991-1111
-                                    <br />
-                                    15 Total Serum Bilirubin
-                                    <br />
-                                    5/17/2019 5:00 pm UTC
-                                </figcaption>
-                            </a>
-                        </figure>
-                    </div>
-
-                    <div class="col">
-                        <figure class="figure">
-                            <a href="/Library/PhotoDetail">
-                                <img src="~/Content/img/Mumu.jpg" class="figure-img img-fluid rounded" alt="Placeholder for test strip" width="180">
-                                <figcaption class="figure-caption text-center">
-                                    815-991-1111
-                                    <br />
-                                    15 Total Serum Bilirubin
-                                    <br />
-                                    5/17/2019 5:00 pm UTC
-                                </figcaption>
-                            </a>
-                        </figure>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col">
-                        <figure class="figure">
-                            <a href="/Library/PhotoDetail">
-                                <img src="~/Content/img/Mumu.jpg" class="figure-img img-fluid rounded" alt="Placeholder for test strip" width="180">
-                                <figcaption class="figure-caption text-center">
-                                    815-991-1111
-                                    <br />
-                                    15 Total Serum Bilirubin
-                                    <br />
-                                    5/17/2019 5:00 pm UTC
-                                </figcaption>
-                            </a>
-                        </figure>
-                    </div>
-
-                    <div class="col">
-                        <figure class="figure">
-                            <a href="/Library/PhotoDetail">
-                                <img src="~/Content/img/Mumu.jpg" class="figure-img img-fluid rounded" alt="Placeholder for test strip" width="180">
-                                <figcaption class="figure-caption text-center">
-                                    815-991-1111
-                                    <br />
-                                    15 Total Serum Bilirubin
-                                    <br />
-                                    5/17/2019 5:00 pm UTC
-                                </figcaption>
-                            </a>
-                        </figure>
-                    </div>
-
-                    <div class="col">
-                        <figure class="figure">
-                            <a href="/Library/PhotoDetail">
-                                <img src="~/Content/img/Mumu.jpg" class="figure-img img-fluid rounded" alt="Placeholder for test strip" width="180">
-                                <figcaption class="figure-caption text-center">
-                                    815-991-1111
-                                    <br />
-                                    15 Total Serum Bilirubin
-                                    <br />
-                                    5/17/2019 5:00 pm UTC
-                                </figcaption>
-                            </a>
-                        </figure>
-                    </div>
-
-                    <div class="col">
-                        <figure class="figure">
-                            <a href="/Library/PhotoDetail">
-                                <img src="~/Content/img/Mumu.jpg" class="figure-img img-fluid rounded" alt="Placeholder for test strip" width="180">
-                                <figcaption class="figure-caption text-center">
-                                    815-991-1111
-                                    <br />
-                                    15 Total Serum Bilirubin
-                                    <br />
-                                    5/17/2019 5:00 pm UTC
-                                </figcaption>
-                            </a>
-                        </figure>
-                    </div>
+                    @{
+                        foreach (var item in Model.PhotoViewModel.PhotoList)
+                        {
+                            <div class="col-xs-12 col-md-6 col-lg-3">
+                                <figure class="figure">
+                                    <a href="@Url.Action("PhotoDetail", new { id = item.ID })">
+                                        <img src="~/Content/img/Mumu.jpg" class="figure-img img-fluid rounded" alt="Placeholder for test strip" width="180">
+                                        <figcaption class="figure-caption text-center">
+                                            @item.ClinicName
+                                            <br />
+                                            @item.PhoneNumber
+                                            <br />
+                                            @item.Bilirubin Total Serum Bilirubin
+                                            <br />
+                                            @item.RecordedDateTime.ToShortDateString() @item.RecordedDateTime.ToShortTimeString() UTC
+                                        </figcaption>
+                                    </a>
+                                </figure>
+                            </div>
+                        }
+                    }
                 </div>
             </div>
 
@@ -306,15 +204,3 @@
 </div>
 
 <br />
-
-<!--TODO: delete this section once above views are updated to reflect mock data-->
-<p>
-    to test photo detail page:
-    @{
-        foreach (var item in Model.PhotoViewModel.PhotoList)
-        {
-            <br />
-            @Html.ActionLink(item.ID, "PhotoDetail", new { id = item.ID }, new { @class = "small" })
-        }
-    }
-</p>
