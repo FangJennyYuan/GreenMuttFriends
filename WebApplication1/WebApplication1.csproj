@@ -126,6 +126,7 @@
     </Compile>
     <Compile Include="Models\LibraryViewModel.cs" />
     <Compile Include="Models\PhotoModel.cs" />
+    <Compile Include="Models\PhotoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
