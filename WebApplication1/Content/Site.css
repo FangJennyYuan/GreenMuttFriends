@@ -89,14 +89,15 @@ body {
         margin-top: .5em;
     }
 
-    h3 {
-        font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-        font-size: 1.1em;
-        font-style: normal;
-        font-variant: normal;
-        font-weight: 700;
-        line-height: 1.2em;
-    }
+h3 {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-size: 1.4em;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 1.2em;
+    color: #737572;
+}
 
     /*Buttons*/
     .btn-outline-success {

@@ -25,6 +25,7 @@
         <input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
     </div>
 </div>
+
 <div class="row clinic_filter mt-2">
     <div class="span3 ml-4 mr-2 filter-name">
         <span >Filter by:</span>
@@ -45,15 +46,22 @@
         <img class="img-valign" src="~/Content/img/clinic_Rawayau.png" alt="Rawayau" />
         <span class="secondary-color">Rawayau Clinic</span>
     </div>
+</div>
 
+<div class="row">
+    <div class="col">
+        <h3> Photos Taken <span class="date"> from May 19 to May 25th </span></h3>
+        <img class="img-fluid photos_taken" src="~/Content/img/PhotosTaken_May19to25_All.png" />
     </div>
+</div>
 
-    <script>
-        $(function () {
-            $('input[name="daterange"]').daterangepicker({
-                opens: 'left'
-            }, function (start, end, label) {
-                console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-            });
+
+<script>
+    $(function () {
+        $('input[name="daterange"]').daterangepicker({
+            opens: 'left'
+        }, function (start, end, label) {
+            console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
         });
-    </script>
+    });
+</script>
