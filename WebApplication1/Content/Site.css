@@ -97,3 +97,28 @@ h3 {
 .btn-outline-success:not(:disabled):not(.disabled):active, .btn-outline-success:not(:disabled):not(.disabled).active, .show > .btn-outline-success.dropdown-toggle {
     background-color: #71BDD3;
 }
+
+/* Filters */
+.date_filter{
+    font-size:1.35em;
+}
+.date_filter button {
+    border: none;
+    background: none;
+}
+.date_filter button:hover {
+    color: #71BDD3;
+    text-decoration: underline;
+}
+.date_filter input {
+    width: 90%;
+}
+.date_filter button:focus {
+    outline: 1px solid #fff;
+    outline-offset: -4px;
+}
+.date_filter button:focus {
+    transform: scale(0.99);
+    color: #71BDD3;
+    text-decoration: underline;
+}
