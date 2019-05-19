@@ -63,17 +63,12 @@
 
 <script>
 
-    function getTodaysDate() {
-        var d = new Date();
-        var date = d.toDateString();
-        document.getElementById("date_input").value = date;
-    }
 
-    function getLastWeeksDate() {
-        var start = moment().startOf('month');
-        var end = moment().endOf('month');
-        $('#daterange').data('daterangepicker').setStartDate(start);
-        $('#daterange').data('daterangepicker').setEndDate(end);
+    /** Update Photos Taken Title and Avg Photos Axis */
+   function updateGraphTitlesWithDate( start , end ) {
+        var startS = "from " + start.format('LL');
+        var endS = " to " + end.format('LL');
+        $(".date").text(startS + endS);
     }
 
 
@@ -83,8 +78,8 @@
             startDate: moment().subtract(6, 'days'),
             endDate: moment()
         }, function (start, end, label) {
-            
-            console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+            updateGraphTitlesWithDate( start, end );
+            //console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
         });
     });
 
