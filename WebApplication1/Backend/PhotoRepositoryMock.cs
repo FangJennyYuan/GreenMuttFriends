@@ -131,8 +131,18 @@ namespace WebApplication1.Backend
             dataset.Add(new PhotoModel { ClinicName = "Mashegu Clinic", ResultIsValid = true, Bilirubin = "10", RecordedDateTime = new DateTime(2019, 5, 16, 9, 42, 12),
                 PhoneNumber = "815-901-1334", UserID = "006", DeviceType = "Samsung Buddy", OSVersion = "4.1" });
             dataset.Add(new PhotoModel { ClinicName = "Mashegu Clinic", ResultIsValid = true, Bilirubin = "25", RecordedDateTime = new DateTime(2019, 5, 17, 8, 53, 43),
-                PhoneNumber = "815-901-1334", UserID = "006", DeviceType = "Samsung Buddy", OSVersion = "4.1" });            
+                PhoneNumber = "815-901-1334", UserID = "006", DeviceType = "Samsung Buddy", OSVersion = "4.1" });
 
+            // Sort dataset by RecordedDateTime
+            orderByDate();
+        }
+
+        /// <summary>
+        /// Sorts the dataset to order by RecordedDateTime (descending)
+        /// </summary>
+        private void orderByDate()
+        {
+            dataset.Sort((x, y) => y.RecordedDateTime.CompareTo(x.RecordedDateTime));
         }
     }
 }
