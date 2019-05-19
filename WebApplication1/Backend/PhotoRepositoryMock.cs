@@ -134,13 +134,13 @@ namespace WebApplication1.Backend
                 PhoneNumber = "815-901-1334", UserID = "006", DeviceType = "Samsung Buddy", OSVersion = "4.1" });
 
             // Sort dataset by RecordedDateTime
-            orderByDate();
+            OrderByDate();
         }
 
         /// <summary>
         /// Sorts the dataset to order by RecordedDateTime (descending)
         /// </summary>
-        private void orderByDate()
+        private void OrderByDate()
         {
             dataset.Sort((x, y) => y.RecordedDateTime.CompareTo(x.RecordedDateTime));
         }
