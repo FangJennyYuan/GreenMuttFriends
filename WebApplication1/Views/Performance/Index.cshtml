@@ -12,10 +12,10 @@
 
 <div class="row date_filter mt-3">
     <div class="col-lg-1">
-        <button type="button" id="week" onclick="myWeekFunction()"> Week</button>
+        <button type="button" id="week" onclick="getWeeksDate()"> Week</button>
     </div>
     <div class="col-lg-1 mr-3">
-        <button type="button" id="month" onclick="getLastMonthsDate()"> Month</button>
+        <button type="button" id="month" onclick="getMonthsDate()"> Month</button>
     </div>
     <div class="col-lg-1">
         <button type="button" id="all_date" onclick="myWeekFunction()"> All</button>
@@ -62,17 +62,23 @@
 </div>
 
 <script>
-
-
-    /** Get Last Months Date */
-    function getLastMonthsDate() {
-        var start = moment().startOf('month');
-        var end = moment().endOf('month');
+    /** Get Weeks Date */
+    function getWeeksDate() {
+        var start = moment().subtract(6, 'days')
+        var end = moment();
         $('#date_input').data('daterangepicker').setStartDate(start);
         $('#date_input').data('daterangepicker').setEndDate(end);
         updateGraphTitlesWithDate(start, end);
     }
 
+    /** Get Current Months Date */
+    function getMonthsDate() {
+        var start = moment().startOf('month');
+        var end = moment();
+        $('#date_input').data('daterangepicker').setStartDate(start);
+        $('#date_input').data('daterangepicker').setEndDate(end);
+        updateGraphTitlesWithDate(start, end);
+    }
 
     /** Update Photos Taken Title and Avg Photos Axis */
    function updateGraphTitlesWithDate( start , end ) {
