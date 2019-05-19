@@ -3,21 +3,29 @@
     ViewBag.Title = "Index";
 }
 
+@Scripts.Render("~/Scripts/jquery-3.4.1.js")
+@Scripts.Render("~/Scripts/moment.js")
+@Scripts.Render("~/Scripts/daterangepicker.js")
+@Scripts.Render("~/Scripts/calendar.js")
+
 <h1>Impact Dashboard</h1>
-<div class="row">
-    <div class="col" >
-        <button type="button" onclick="myWeekFunction()"> Week</button>
+
+<div class="row date_filter mt-3">
+    <div class="col-lg-1">
+        <button type="button" id="week" onclick="myWeekFunction()"> Week</button>
     </div>
-    <div class="col">
-        Month
+    <div class="col-lg-1 mr-3">
+        <button type="button" id="month" onclick="getMonthsDate()"> Month</button>
     </div>
-    <div class="col">
-        All
+    <div class="col-lg-1">
+        <button type="button" id="all_date" onclick="getYearsDate()"> All</button>
     </div>
-    <div class="col">
+    <div class="col-lg-4">
         Date
+        <input type="text" id="date_input" name="daterange" value="" />
     </div>
 </div>
+
 <div id="Week">
     <img src="~/Content/img/WeekofMay.PNG" class="mx-auto d-block img-fluid " />
 </div>
@@ -30,5 +38,7 @@
         } else {
             x.style.display = "none";
         }
+        //populates the calendar and titles with the date class
+        getWeeksDate();
     }
 </script>
