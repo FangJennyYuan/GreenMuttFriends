@@ -18,7 +18,7 @@
         <button type="button" id="month" onclick="getMonthsDate()"> Month</button>
     </div>
     <div class="col-lg-1">
-        <button type="button" id="all_date" onclick="myWeekFunction()"> All</button>
+        <button type="button" id="all_date" onclick="getYearsDate()"> All</button>
     </div>
     <div class="col-lg-4">
         Date
@@ -64,7 +64,7 @@
 <script>
     /** Get Weeks Date */
     function getWeeksDate() {
-        var start = moment().subtract(6, 'days')
+        var start = moment().subtract(6, 'days');
         var end = moment();
         $('#date_input').data('daterangepicker').setStartDate(start);
         $('#date_input').data('daterangepicker').setEndDate(end);
@@ -80,6 +80,14 @@
         updateGraphTitlesWithDate(start, end);
     }
 
+    /** Get Years Date */
+    function getYearsDate() {
+        var start = moment().startOf('year');
+        var end = moment();
+        $('#date_input').data('daterangepicker').setStartDate(start);
+        $('#date_input').data('daterangepicker').setEndDate(end);
+        updateGraphTitlesWithDate(start, end);
+    }
     /** Update Photos Taken Title and Avg Photos Axis */
    function updateGraphTitlesWithDate( start , end ) {
         var startS = "from " + start.format('LL');
