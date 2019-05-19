@@ -5,6 +5,7 @@
 @Scripts.Render("~/Scripts/jquery-3.4.1.js")
 @Scripts.Render("~/Scripts/moment.js")
 @Scripts.Render("~/Scripts/daterangepicker.js")
+@Scripts.Render("~/Scripts/calendar.js")
 
 <h1>
     Performance Dashboard
@@ -29,7 +30,7 @@
 
 <div class="row clinic_filter mt-2">
     <div class="span3 ml-4 mr-2 filter-name">
-        <span >Filter by:</span>
+        <span>Filter by:</span>
     </div>
     <div class="span2 mr-2">
         <img class="img-valign" src="~/Content/img/clinic_Ijowa.png" alt="Ijowa" />
@@ -57,54 +58,6 @@
     <div class="col">
         <h3> Avg Photos Taken <span class="graph_filtered_by"> by Device </span></h3>
         <img class="img-fluid photos_taken" src="~/Content/img/AvgPhotosTakenByDevice_May19to25_All.png" />
-        <p class="align-bottom ml-5 pl-4 text-center" > Avg # of Photos <span class="date"> from May 19th to May 25th</span></p>
+        <p class="align-bottom ml-5 pl-4 text-center"> Avg # of Photos <span class="date"> from May 19th to May 25th</span></p>
     </div>
 </div>
-
-<script>
-    /** Get Weeks Date */
-    function getWeeksDate() {
-        var start = moment().subtract(6, 'days');
-        var end = moment();
-        $('#date_input').data('daterangepicker').setStartDate(start);
-        $('#date_input').data('daterangepicker').setEndDate(end);
-        updateGraphTitlesWithDate(start, end);
-    }
-
-    /** Get Current Months Date */
-    function getMonthsDate() {
-        var start = moment().startOf('month');
-        var end = moment();
-        $('#date_input').data('daterangepicker').setStartDate(start);
-        $('#date_input').data('daterangepicker').setEndDate(end);
-        updateGraphTitlesWithDate(start, end);
-    }
-
-    /** Get Years Date */
-    function getYearsDate() {
-        var start = moment().startOf('year');
-        var end = moment();
-        $('#date_input').data('daterangepicker').setStartDate(start);
-        $('#date_input').data('daterangepicker').setEndDate(end);
-        updateGraphTitlesWithDate(start, end);
-    }
-    /** Update Photos Taken Title and Avg Photos Axis */
-   function updateGraphTitlesWithDate( start , end ) {
-        var startS = "from " + start.format('LL');
-        var endS = " to " + end.format('LL');
-        $(".date").text(startS + endS);
-    }
-
-
-    $(function () {
-        $('input[name="daterange"]').daterangepicker({
-            opens: 'left',
-            startDate: moment().subtract(6, 'days'),
-            endDate: moment()
-        }, function (start, end, label) {
-            updateGraphTitlesWithDate( start, end );
-            //console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-        });
-    });
-
-</script>
