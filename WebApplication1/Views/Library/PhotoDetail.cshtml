@@ -31,7 +31,9 @@
                     <text>Invalid result</text>
                 }
             </h3>
-            Time: @Model.RecordedDateTime
+            Date: @Model.RecordedDateTime.ToShortDateString() 
+            <br />
+            Time: @Model.RecordedDateTime.ToShortTimeString() UTC
             <br />
             Phone: @Model.PhoneNumber
             <br />
