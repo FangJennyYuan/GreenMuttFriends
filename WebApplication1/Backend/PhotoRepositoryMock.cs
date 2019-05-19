@@ -57,7 +57,7 @@ namespace WebApplication1.Backend
         public PhotoModel Update(PhotoModel data)
         {
             // Get the first instance of the record
-            var myData = dataset.First(m => m.ID == data.ID);
+            var myData = Read(data.ID);
             if (myData == null)
             {
                 return null;
@@ -77,7 +77,7 @@ namespace WebApplication1.Backend
         public Boolean Delete(String id)
         {
             // Get the first instance of the record
-            var myData = dataset.First(m => m.ID == id);
+            var myData = Read(id);
             if (myData == null)
             {
                 return false;
