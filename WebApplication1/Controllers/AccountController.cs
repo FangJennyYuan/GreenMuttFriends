@@ -13,5 +13,18 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
+
+        public ActionResult Login(string id = null)
+        {
+            var myAccountModel = Backend.AccountBackend.Instance.GetActiveUser();
+            Backend.AccountBackend.Instance.LoginUser(myAccountModel);
+            return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult Logout(string id = null)
+        {
+
+            return View();
+        }
     }
 }
