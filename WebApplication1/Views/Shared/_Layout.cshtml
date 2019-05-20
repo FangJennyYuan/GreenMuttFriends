@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -17,7 +18,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto nav-link ml-3">
-                <li >@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })</li>
+                <li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })</li>
                 <li>@Html.ActionLink("Impact", "Index", "ImpactDashboard", null, new { @class = "nav-link" })</li>
                 <li>@Html.ActionLink("Performance", "Index", "Performance", null, new { @class = "nav-link" })</li>
                 <li>@Html.ActionLink("Library", "Index", "Library", null, new { @class = "nav-link" })</li>
@@ -26,6 +27,16 @@
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
+            @{
+                var ShowUserName = "Login";
+                var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
+                if (myAccountModel.isAccountLoggedIn)
+                {
+                    ShowUserName = myAccountModel.AccountName;
+                }
+            }
+            @Html.ActionLink(ShowUserName, "Login", "Account", null, new { @class = "nav-link" })
+
         </div>
     </nav>
 
