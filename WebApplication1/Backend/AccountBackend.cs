@@ -111,5 +111,19 @@ namespace WebApplication1.Backend
             repository.Update(data);
             return true;
         }
+
+        public bool ToggleUser(AccountModel data)
+        {
+            var myData = repository.Read(data.ID);
+            if (myData.isAccountLoggedIn)
+            {
+                LogoutUser(data);
+            }
+            else
+            {
+                LoginUser(data);
+            }
+            return true;
+        }
     }
 }
