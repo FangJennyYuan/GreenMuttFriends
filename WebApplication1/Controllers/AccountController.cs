@@ -17,14 +17,15 @@ namespace WebApplication1.Controllers
         public ActionResult Login(string id = null)
         {
             var myAccountModel = Backend.AccountBackend.Instance.GetActiveUser();
-            Backend.AccountBackend.Instance.LoginUser(myAccountModel);
+            Backend.AccountBackend.Instance.ToggleUser(myAccountModel);
             return RedirectToAction("Index", "Home");
         }
 
         public ActionResult Logout(string id = null)
         {
-
-            return View();
+            var myAccountModel = Backend.AccountBackend.Instance.GetActiveUser();
+            Backend.AccountBackend.Instance.ToggleUser(myAccountModel);
+            return RedirectToAction("Index", "Home");
         }
     }
 }
