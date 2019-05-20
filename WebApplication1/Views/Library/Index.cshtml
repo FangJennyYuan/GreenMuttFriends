@@ -69,12 +69,25 @@
 
         <!-- Gallery view -->
         <div class="tab-pane container active" id="gallery">
+            <div class="row">
+                <div class="col-lg-8 ml-2">
+                    <h4>
+                        <span class="count-photos">@Model.PhotoViewModel.PhotoList.Count</span>
+                        Photos for
+                        <span class="filtered-by-clinic"> All Clinics </span> and
+                        <span class="filtered-by-date"> All Dates </span>
+                    </h4>
+                </div>
+                <div class="col">
+                    <button class="btn btn-success my-2 my-sm-0"><i class="fa fa-download"></i> Download</button>
+                </div>
+            </div>
             <div class="container">
                 <div class="row">
                     @{
                         foreach (var item in Model.PhotoViewModel.PhotoList)
                         {
-                            <div class="col-xs-12 col-md-6 col-lg-3 library-gallery @item.ClinicName" >
+                            <div class="col-xs-12 col-md-6 col-lg-3 library-gallery @item.ClinicName">
                                 <figure class="figure">
                                     <a href="@Url.Action("PhotoDetail", new { id = item.ID })">
                                         <img src="~/Content/img/Mumu.jpg" class="figure-img img-fluid rounded" alt="Placeholder for test strip" width="180">
@@ -107,16 +120,20 @@
 
         <!-- List view -->
         <div class="tab-pane container fade" id="list">
-            <div class="col-lg-8 ml-2">
-                <h4>
-                    <span class="count-photos">@Model.PhotoViewModel.PhotoList.Count</span>
-                    Photos for
-                    <span class="filtered-by-clinic"> All Clinics </span> and
-                    <span class="filtered-by-date"> All Dates </span>
-                </h4>
+            <div class="row">
+                <div class="col-lg-8 ml-2">
+                    <h4>
+                        <span class="count-photos">@Model.PhotoViewModel.PhotoList.Count</span>
+                        Photos for
+                        <span class="filtered-by-clinic"> All Clinics </span> and
+                        <span class="filtered-by-date"> All Dates </span>
+                    </h4>
+                </div>
+                <div class="col">
+                    <input id="library-search" onkeyup="searchLibraryTable()" class="form-control m-3" type="search" placeholder="Search" aria-label="Search">
+                </div>
             </div>
-            <input id="library-search" onkeyup="searchLibraryTable()" class="form-control m-3" type="search" placeholder="Search" aria-label="Search">
-            <div class="table-responsive">
+                <div class="table-responsive">
                 <table class="table table-striped" id="library-table">
                     <thead class="thead-light">
                         <tr>

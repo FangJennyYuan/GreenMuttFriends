@@ -28,6 +28,7 @@ namespace WebApplication1
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/daterangepicker.css",
+                      "~/Content/font-awesome.css",
                       "~/Content/site.css"));
         }
     }
