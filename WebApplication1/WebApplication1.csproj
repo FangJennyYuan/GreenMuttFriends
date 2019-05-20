@@ -116,7 +116,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Backend\IAccountRepository.cs" />
     <Compile Include="Backend\IPhotoRepository.cs" />
+    <Compile Include="Backend\AccountBackend.cs" />
     <Compile Include="Backend\PhotoBackend.cs" />
+    <Compile Include="Backend\AccountRepository.cs" />
     <Compile Include="Backend\PhotoRepositoryMock.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImpactDashboardController.cs" />
