@@ -46,7 +46,7 @@ $(function () {
 
 /*Update range on library calendar*/
 $(function () {
-    $('input[name="daterange-library"]').daterangepicker({
+    $('input[name="daterange_library"]').daterangepicker({
         opens: 'left',
         startDate: moment().subtract(6, 'days'),
         endDate: moment()
