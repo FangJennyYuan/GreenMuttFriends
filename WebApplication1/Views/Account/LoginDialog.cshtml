@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron-fluid">
+    <h1>Add Login here</h1>
+</div>
+<div class="row">
+    <div class="col-lg-8 main-border">
+        <img src="~/Content/img/PhotosTaken_MainPage.png" class="img-fluid ml-1"  />
+    </div>
+    <div class="col-lg-3 main-border ml-4 d-flex flex-wrap align-items-center" >
+        <img src="~/Content/img/UsersToday_MainPage.PNG" class="img-fluid center-block" style="max-height: 140px;"/>
+    </div>
+
+
+    @Html.ActionLink("Login","Login","Account",null,new { @class="btn btn-large btn-default"})
+</div>
