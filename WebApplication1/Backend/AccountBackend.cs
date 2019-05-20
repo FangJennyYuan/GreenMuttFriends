@@ -95,5 +95,21 @@ namespace WebApplication1.Backend
             var myData = repository.Index().FirstOrDefault();
             return myData;
         }
+
+        public bool LoginUser(AccountModel data)
+        {
+            var myData = repository.Read(data.ID);
+            data.isAccountLoggedIn = true;
+            repository.Update(data);
+            return true;
+        }
+
+        public bool LogoutUser(AccountModel data)
+        {
+            var myData = repository.Read(data.ID);
+            data.isAccountLoggedIn = false;
+            repository.Update(data);
+            return true;
+        }
     }
 }
