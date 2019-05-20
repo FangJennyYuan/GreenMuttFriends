@@ -6,13 +6,29 @@
     <h1>Add Login here</h1>
 </div>
 <div class="row">
-    <div class="col-lg-8 main-border">
-        <img src="~/Content/img/PhotosTaken_MainPage.png" class="img-fluid ml-1"  />
-    </div>
-    <div class="col-lg-3 main-border ml-4 d-flex flex-wrap align-items-center" >
-        <img src="~/Content/img/UsersToday_MainPage.PNG" class="img-fluid center-block" style="max-height: 140px;"/>
-    </div>
 
 
-    @Html.ActionLink("Login","Login","Account",null,new { @class="btn btn-large btn-default"})
+
+
+
 </div>
+
+
+<form name="loginform" id="loginform" action="https://themes.getbootstrap.com/wp-login.php" method="post">
+
+    <div class="form-group">
+        <label for="user_login">Email</label>
+        <input type="text" name="log" id="user_login" class="form-control" value="" size="20">
+    </div>
+    <div class="form-group">
+        <label for="user_pass">Password</label>
+        <a class="form-sublink" href="https://themes.getbootstrap.com/my-account/lost-password/">Forgot password?</a>
+        <input type="password" name="pwd" id="user_pass" class="form-control" value="" size="20">
+    </div>
+
+    <p class="login-remember"><label><input name="rememberme" type="checkbox" id="rememberme" value="forever"> Remember Me</label></p>
+    <div class="form-group">
+        @Html.ActionLink("Login", "Login", "Account", null, new { @class = "btn btn-large btn-primary" })
+    </div>
+
+</form>
