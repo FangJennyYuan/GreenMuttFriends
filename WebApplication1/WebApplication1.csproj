@@ -114,6 +114,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Backend\IAccountRepository.cs" />
     <Compile Include="Backend\IPhotoRepository.cs" />
     <Compile Include="Backend\PhotoBackend.cs" />
     <Compile Include="Backend\PhotoRepositoryMock.cs" />
@@ -125,6 +126,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\LibraryViewModel.cs" />
+    <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\PhotoModel.cs" />
     <Compile Include="Models\PhotoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
