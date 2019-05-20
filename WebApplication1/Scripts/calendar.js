@@ -32,7 +32,7 @@ function updateGraphTitlesWithDate(start, end) {
     $(".date").text(startS + endS);
 }
 
-/*Update range on calendar*/
+/*Update range on calendar for performance and impact*/
 $(function () {
     $('input[name="daterange"]').daterangepicker({
         opens: 'left',
@@ -40,7 +40,6 @@ $(function () {
         endDate: moment()
     }, function (start, end, label) {
         updateGraphTitlesWithDate(start, end);
-        searchLibraryTablebyValue(start);
     });
 });
 
