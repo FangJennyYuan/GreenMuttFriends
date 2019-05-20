@@ -47,7 +47,7 @@ $(function () {
 $(function () {
     $('input[name="daterange-library"]').daterangepicker({
         opens: 'left',
-        startDate: moment().subtract(6, 'days'),
+        startDate: moment().startOf('year'),
         endDate: moment()
     }, function (start, end, label) {
         updateGraphTitlesWithDate(start, end);
