@@ -144,6 +144,7 @@
     <Content Include="Content\daterangepicker.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\img\AvgInstalls.PNG" />
     <Content Include="Content\img\AvgPhotosTakenByDevice_May19to25_All.png" />
     <Content Include="Content\img\AvgPhotosTakenByDevice_May19to25_Ijowa.png" />
     <Content Include="Content\img\clinic_Ijowa.png" />
