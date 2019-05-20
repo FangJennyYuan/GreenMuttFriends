@@ -131,7 +131,7 @@ h3 {
             }
 
         .date_filter input {
-            width: 90%;
+            width: 75%;
         }
 
         .date_filter button:focus {

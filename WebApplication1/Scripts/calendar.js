@@ -2,8 +2,8 @@
 function getWeeksDate() {
     var start = moment().subtract(6, 'days');
     var end = moment();
-    $('#date_input').data('daterangepicker').setStartDate(start);
-    $('#date_input').data('daterangepicker').setEndDate(end);
+    $('#date-input').data('daterangepicker').setStartDate(start);
+    $('#date-input').data('daterangepicker').setEndDate(end);
     updateGraphTitlesWithDate(start, end);
 }
 
@@ -11,8 +11,8 @@ function getWeeksDate() {
 function getMonthsDate() {
     var start = moment().startOf('month');
     var end = moment();
-    $('#date_input').data('daterangepicker').setStartDate(start);
-    $('#date_input').data('daterangepicker').setEndDate(end);
+    $('#date-input').data('daterangepicker').setStartDate(start);
+    $('#date-input').data('daterangepicker').setEndDate(end);
     updateGraphTitlesWithDate(start, end);
 }
 
@@ -20,8 +20,8 @@ function getMonthsDate() {
 function getYearsDate() {
     var start = moment().startOf('year');
     var end = moment();
-    $('#date_input').data('daterangepicker').setStartDate(start);
-    $('#date_input').data('daterangepicker').setEndDate(end);
+    $('#date-input').data('daterangepicker').setStartDate(start);
+    $('#date-input').data('daterangepicker').setEndDate(end);
     updateGraphTitlesWithDate(start, end);
 }
 /** Update Photos Taken Title and Avg Photos Axis */
@@ -31,7 +31,7 @@ function updateGraphTitlesWithDate(start, end) {
     $(".date").text(startS + endS);
 }
 
-
+/*Update range on calendar*/
 $(function () {
     $('input[name="daterange"]').daterangepicker({
         opens: 'left',
@@ -39,6 +39,5 @@ $(function () {
         endDate: moment()
     }, function (start, end, label) {
         updateGraphTitlesWithDate(start, end);
-        //console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
     });
 });
