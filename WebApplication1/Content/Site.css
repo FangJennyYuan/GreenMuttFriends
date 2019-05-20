@@ -99,7 +99,13 @@ h3 {
     color: #737572;
     margin-top: .8em;
 }
-
+h4 {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    font-size: 1em;
+    font-weight: 700;
+    color: #737572;
+    margin-top: .8em;
+}
     /*Buttons*/
     .btn-outline-success {
         color: #71BDD3;

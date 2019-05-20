@@ -12,6 +12,7 @@ function searchLibraryTablebyValue(value) {
     $("#library-table tr").each(function (index) {
         if (index !== 0) {
             $row = $(this);
+
             var id = $row.text();
             if (id.indexOf(value) !== -1) {
                 $row.show();

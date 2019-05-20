@@ -61,7 +61,6 @@ function searchLibraryTablebyDateRange(start, end) {
         if (index !== 0) {
             $row = $(this);
             var id = $row.find("#date-time-col").text();
-            console.log("what " + id);
             var dateSearch = new Date(id);
             if (dateSearch >= start && dateSearch <= end) {
                 $row.show();

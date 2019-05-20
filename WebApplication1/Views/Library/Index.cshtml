@@ -107,8 +107,15 @@
 
         <!-- List view -->
         <div class="tab-pane container fade" id="list">
-            <input type="text" id="library-search" onkeyup="searchLibraryTable()" placeholder="Search photos" title="Search photos">
-
+            <div class="col-lg-8 ml-2">
+                <h4>
+                    <span class="count-photos">@Model.PhotoViewModel.PhotoList.Count</span>
+                    Photos for
+                    <span class="filtered-by-clinic"> All Clinics </span> and
+                    <span class="filtered-by-date"> All Dates </span>
+                </h4>
+            </div>
+            <input id="library-search" onkeyup="searchLibraryTable()" class="form-control m-3" type="search" placeholder="Search" aria-label="Search">
             <div class="table-responsive">
                 <table class="table table-striped" id="library-table">
                     <thead class="thead-light">
