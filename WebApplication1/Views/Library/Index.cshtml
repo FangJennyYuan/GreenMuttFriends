@@ -69,7 +69,7 @@
 
         <!-- Gallery view -->
         <div class="tab-pane container active" id="gallery">
-            <div class="row">
+            <div class="row m-2">
                 <div class="col-lg-8 ml-2">
                     <h4>
                         <span class="count-photos">@Model.PhotoViewModel.PhotoList.Count</span>
@@ -79,7 +79,7 @@
                     </h4>
                 </div>
                 <div class="col">
-                    <button class="btn btn-success my-2 my-sm-0"><i class="fa fa-download"></i> Download</button>
+                    <button class="btn btn-success float-right mr-2 my-2 my-sm-0"><i class="fa fa-download"></i> Download</button>
                 </div>
             </div>
             <div class="container">
@@ -120,7 +120,7 @@
 
         <!-- List view -->
         <div class="tab-pane container fade" id="list">
-            <div class="row">
+            <div class="row m-2">
                 <div class="col-lg-8 ml-2">
                     <h4>
                         <span class="count-photos">@Model.PhotoViewModel.PhotoList.Count</span>
@@ -130,7 +130,10 @@
                     </h4>
                 </div>
                 <div class="col">
-                    <input id="library-search" onkeyup="searchLibraryTable()" class="form-control m-3" type="search" placeholder="Search" aria-label="Search">
+                    <input id="library-search" onkeyup="searchLibraryTable()" class="form-control " type="search" placeholder="Search" aria-label="Search">
+                </div>
+                <div class="col">
+                    <button class="btn btn-success float-right mr-2 my-2 my-sm-0"><i class="fa fa-download"></i> Download</button>
                 </div>
             </div>
                 <div class="table-responsive">
