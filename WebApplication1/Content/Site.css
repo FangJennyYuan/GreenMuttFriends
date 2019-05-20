@@ -106,25 +106,38 @@ h4 {
     color: #737572;
     margin-top: .8em;
 }
-    /*Buttons*/
-    .btn-outline-success {
-        color: #71BDD3;
-        border-color: #71BDD3;
-    }
+/*Buttons*/
+.btn-outline-success {
+    color: #71BDD3;
+    border-color: #71BDD3;
+}
 
-        .btn-outline-success:hover {
-            background-color: #71BDD3;
-        }
+.btn-outline-success:hover {
+    background-color: #71BDD3;
+}
 
-        .btn-outline-success:not(:disabled):not(.disabled):active, .btn-outline-success:not(:disabled):not(.disabled).active, .show > .btn-outline-success.dropdown-toggle {
-            background-color: #71BDD3;
-        }
+.btn-outline-success:not(:disabled):not(.disabled):active, .btn-outline-success:not(:disabled):not(.disabled).active, .show > .btn-outline-success.dropdown-toggle {
+    background-color: #71BDD3;
+}
 
-    /* Filters */
-    /*Date filters*/
-    .date-filter {
-        font-size: 1.35em;
-    }
+.btn-success {
+    background: rgb(113, 189, 211, .8);
+    border: rgb(113, 189, 211);
+    color: white;
+}
+.btn-success:hover {
+    background: rgb(113, 189, 211);
+    
+}
+.btn-success:not(:disabled):not(.disabled):active, .btn-success:not(:disabled):not(.disabled).active, .show > .btn-success.dropdown-toggle {
+    background: rgb(113, 189, 211);
+}
+
+/* Filters */
+/*Date filters*/
+.date-filter {
+    font-size: 1.35em;
+}
 
         .date-filter button {
             border: none;
