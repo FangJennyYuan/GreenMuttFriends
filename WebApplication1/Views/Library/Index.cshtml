@@ -30,7 +30,7 @@
     <!-- Date selector -->
     <div class="col-lg-5 date-filter">
         Date
-        <input type="text" id="date-input" name="daterange_library" value="" class="ml-2" />
+        <input type="text" id="date-input" name="daterange-library" value="" class="ml-2" />
     </div>
 
     <!-- Checkboxes to select valid/invalid -->
@@ -110,7 +110,7 @@
             <input type="text" id="library-search" onkeyup="searchLibraryTable()" placeholder="Search photos" title="Search photos">
 
             <div class="table-responsive">
-                <table class="table table-striped" id="library_table">
+                <table class="table table-striped" id="library-table">
                     <thead class="thead-light">
                         <tr>
                             <th>Photo ID</th>
@@ -140,7 +140,7 @@
                                             <text>Invalid result</text>
                                         }
                                     </td>
-                                    <td class="date-time-col">@item.RecordedDateTime.ToShortDateString() @item.RecordedDateTime.ToShortTimeString()</td>
+                                    <td id="date-time-col">@item.RecordedDateTime.ToShortDateString() @item.RecordedDateTime.ToShortTimeString()</td>
                                     <td>@item.PhoneNumber</td>
                                     <td>@item.UserID</td>
                                     <td>@item.DeviceType</td>

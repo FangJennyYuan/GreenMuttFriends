@@ -45,7 +45,7 @@ $(function () {
 
 /*Update range on library calendar*/
 $(function () {
-    $('input[name="daterange_library"]').daterangepicker({
+    $('input[name="daterange-library"]').daterangepicker({
         opens: 'left',
         startDate: moment().subtract(6, 'days'),
         endDate: moment()
@@ -61,6 +61,7 @@ function searchLibraryTablebyDateRange(start, end) {
         if (index !== 0) {
             $row = $(this);
             var id = $row.find("#date-time-col").text();
+            console.log("what " + id);
             var dateSearch = new Date(id);
             if (dateSearch >= start && dateSearch <= end) {
                 $row.show();
