@@ -37,7 +37,7 @@
     <div class="col">
         <div class="form-check-inline">
             <label class="form-check-label">
-                <input type="checkbox" class="form-check-input" value="" checked>valid
+                <input type="checkbox" class="form-check-input" value="" checked onclick="searchLibraryTablebyInvalid()">valid
             </label>
         </div>
         <div class="form-check-inline">
@@ -157,7 +157,7 @@
                                 <tr>
                                     <td>@Html.ActionLink(item.ID, "PhotoDetail", new { id = item.ID }, new { @class = "small" })</td>
                                     <td>@item.ClinicName</td>
-                                    <td>
+                                    <td id="@item.ResultIsValid" >
                                         @if (item.ResultIsValid)
                                         {
                                             <text>@item.Bilirubin Total Serum Bilirubin</text>

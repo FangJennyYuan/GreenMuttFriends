@@ -24,3 +24,18 @@ function searchLibraryTablebyValue(value) {
     });
 }
 
+
+/*Search Library table for a Date Range*/
+function searchLibraryTablebyInvalid(value) {
+    $("#library-table tr").each(function (index) {
+        if (index !== 0) {
+            $row = $(this);
+            var id = $row.find("#invalid").text();
+            if (id.indexOf(value) !== -1 {
+                $row.show();
+            }
+            else {
+                $row.hide();
+            }
+        }
+    });
