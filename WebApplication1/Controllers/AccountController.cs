@@ -14,6 +14,11 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+        public ActionResult LoginDialog()
+        {
+            return View();
+        }
+
         public ActionResult Login(string id = null)
         {
             var myAccountModel = Backend.AccountBackend.Instance.GetActiveUser();
