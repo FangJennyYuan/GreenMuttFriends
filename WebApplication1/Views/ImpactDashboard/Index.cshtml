@@ -15,7 +15,7 @@
         <button type="button" id="week" onclick="myWeekFunction()"> Week</button>
     </div>
     <div class="col-lg-1 mr-3">
-        <button type="button" id="month" onclick="getMonthsDate()"> Month</button>
+        <button type="button" id="month" onclick="myMonthFunction()"> Month</button>
     </div>
     <div class="col-lg-1">
         <button type="button" id="all-date" onclick="getYearsDate()"> All</button>
@@ -26,13 +26,13 @@
     </div>
 </div>
 
-<div id="Week">
+<div id="Graph">
     <img src="~/Content/img/WeekofMay.PNG" class="mx-auto d-block img-fluid " />
 </div>
 
 <script>
     function myWeekFunction() {
-        var x = document.getElementById("Week");
+        var x = document.getElementById("Graph");
         if (x.style.display === "none") {
             x.style.display = "block";
         } else {
@@ -40,5 +40,10 @@
         }
         //populates the calendar and titles with the date class
         getWeeksDate();
+    }
+
+    function myMonthFunction() {
+        $("#Graph img").attr("src", "/Content/img/MonthofMay.PNG");
+        getMonthsDate();
     }
 </script>
