@@ -147,6 +147,7 @@
     <Content Include="Content\img\AvgInstalls.PNG" />
     <Content Include="Content\img\AvgPhotosTakenByDevice_May19to25_All.png" />
     <Content Include="Content\img\AvgPhotosTakenByDevice_May19to25_Ijowa.png" />
+    <Content Include="Content\img\AvgUsers.PNG" />
     <Content Include="Content\img\clinic_Ijowa.png" />
     <Content Include="Content\img\clinic_Katsina.png" />
     <Content Include="Content\img\clinic_Mashegu.png" />
