@@ -9,7 +9,7 @@ function searchLibraryTable() {
 
 /*Search Library table for a Value*/
 function searchLibraryTablebyValue(value) {
-    $("#library_table tr").each(function (index) {
+    $("#library-table tr").each(function (index) {
         if (index !== 0) {
             $row = $(this);
             var id = $row.text();
