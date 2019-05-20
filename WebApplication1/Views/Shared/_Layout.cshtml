@@ -28,14 +28,17 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
             @{
-                var ShowUserName = "Login";
                 var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
                 if (myAccountModel.isAccountLoggedIn)
                 {
-                    ShowUserName = myAccountModel.AccountName;
+                    var ShowUserName = myAccountModel.AccountName;
+                    @Html.ActionLink(ShowUserName, "Login", "Account", null, new { @class = "nav-link" })
+                }
+                else
+                {
+                    @Html.ActionLink("Login", "LoginDialog", "Account", null, new { @class = "nav-link" })
                 }
             }
-            @Html.ActionLink(ShowUserName, "Login", "Account", null, new { @class = "nav-link" })
 
         </div>
     </nav>
