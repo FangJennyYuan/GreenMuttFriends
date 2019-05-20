@@ -197,3 +197,14 @@ h4 {
     color: #737572;
     font-size:.85em;
 }
+.main-border {
+    border: rgb(227,227,227);
+    border-style: solid;
+    border-width: thick;
+}
+
+.center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
