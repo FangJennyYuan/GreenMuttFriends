@@ -24,6 +24,7 @@ function getYearsDate() {
     $('#date-input').data('daterangepicker').setEndDate(end);
     updateGraphTitlesWithDate(start, end);
 }
+
 /** Update Photos Taken Title and Avg Photos Axis */
 function updateGraphTitlesWithDate(start, end) {
     var startS = "from " + start.format('LL');
