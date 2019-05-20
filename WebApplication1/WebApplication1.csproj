@@ -120,6 +120,7 @@
     <Compile Include="Backend\PhotoBackend.cs" />
     <Compile Include="Backend\AccountRepository.cs" />
     <Compile Include="Backend\PhotoRepositoryMock.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImpactDashboardController.cs" />
     <Compile Include="Controllers\LibraryController.cs" />
@@ -251,6 +252,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Account\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
