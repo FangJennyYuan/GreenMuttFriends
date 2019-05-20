@@ -7,6 +7,7 @@
 @Scripts.Render("~/Scripts/jquery-3.4.1.js")
 @Scripts.Render("~/Scripts/moment.js")
 @Scripts.Render("~/Scripts/daterangepicker.js")
+@Scripts.Render("~/Scripts/calendar.js")
 
 <h1>Library Dashboard</h1>
 
@@ -27,20 +28,9 @@
 
     <!-- Date selector -->
     <div class="col">
-        Date 
-        <input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
-
-        <script>
-            $(function () {
-                $('input[name="daterange"]').daterangepicker({
-                    opens: 'left'
-                }, function (start, end, label) {
-                    console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-                });
-            });
-        </script>
+        Date
+        <input type="text" id="date_input" name="daterange" value="" class="ml-2" />
     </div>
-
 
     <!-- Checkboxes to select valid/invalid -->
     <div class="col">
@@ -132,8 +122,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @{ 
-                            foreach(var item in Model.PhotoViewModel.PhotoList)
+                        @{
+                            foreach (var item in Model.PhotoViewModel.PhotoList)
                             {
                                 <tr>
                                     <td>@Html.ActionLink(item.ID, "PhotoDetail", new { id = item.ID }, new { @class = "small" })</td>
