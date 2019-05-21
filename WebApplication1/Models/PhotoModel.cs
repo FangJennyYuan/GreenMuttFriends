@@ -35,6 +35,9 @@ namespace WebApplication1.Models
         // App Version as a string
         public string OSVersion { get; set; }
 
+        // URL of Image associated with this photo
+        public string ImageURL { get; set; }
+
         /// <summary>
         /// Constructor for Photo Model
         /// Calls to Initialize to set initial settings
@@ -73,6 +76,7 @@ namespace WebApplication1.Models
             UserID = data.UserID;
             DeviceType = data.DeviceType;
             OSVersion = data.OSVersion;
+            ImageURL = data.ImageURL;
 
             return true;
         }
