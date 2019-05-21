@@ -23,22 +23,22 @@
                 <li>@Html.ActionLink("Performance", "Index", "Performance", null, new { @class = "nav-link" })</li>
                 <li>@Html.ActionLink("Library", "Index", "Library", null, new { @class = "nav-link" })</li>
             </ul>
-            <form class="form-inline my-2 my-lg-0 mr-3">
+            <form class=" navbar-nav nav-link ml-3 form-inline">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                @{
+                    var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
+                    if (myAccountModel.isAccountLoggedIn)
+                    {
+                        var ShowUserName = myAccountModel.AccountName;
+                        @Html.ActionLink(ShowUserName, "Login", "Account", null, new { @class = "nav-link" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Login", "LoginDialog", "Account", null, new { @class = "nav-link" })
+                    }
+                }
             </form>
-            @{
-                var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
-                if (myAccountModel.isAccountLoggedIn)
-                {
-                    var ShowUserName = myAccountModel.AccountName;
-                    @Html.ActionLink(ShowUserName, "Login", "Account", null, new { @class = "nav-link" })
-                }
-                else
-                {
-                    @Html.ActionLink("Login", "LoginDialog", "Account", null, new { @class = "nav-link" })
-                }
-            }
 
         </div>
     </nav>
