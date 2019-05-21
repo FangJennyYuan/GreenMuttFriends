@@ -103,35 +103,49 @@ namespace WebApplication1.Backend
         {
             // Ijora Clinic data for scenario
             dataset.Add(new PhotoModel { ClinicName = "Ijora Clinic", ResultIsValid = true, Bilirubin = "15", RecordedDateTime = new DateTime(2019, 5, 18, 16, 32, 3),
-                PhoneNumber = "815-991-1111", UserID = "003", DeviceType = "Samsung Buddy", OSVersion = "4.1" });
+                PhoneNumber = "815-991-1111", UserID = "003", DeviceType = "Samsung Buddy", OSVersion = "4.1",
+                ImageURL ="/Content/img/Mumu.jpg" });
             dataset.Add(new PhotoModel { ClinicName = "Ijora Clinic", ResultIsValid = false, RecordedDateTime = new DateTime(2019, 5, 10, 12, 0, 52),
-                PhoneNumber = "815-992-0000", UserID = "010", DeviceType = "Samsung Buddy", OSVersion = "3.4" });
+                PhoneNumber = "815-992-0000", UserID = "010", DeviceType = "Samsung Buddy", OSVersion = "3.4",
+                ImageURL ="/Content/img/Mumu.jpg" });
             dataset.Add(new PhotoModel { ClinicName = "Ijora Clinic", ResultIsValid = false, RecordedDateTime = new DateTime(2019, 5, 1, 17, 12, 5),
-                PhoneNumber = "815-992-0000", UserID = "010", DeviceType = "Samsung Buddy", OSVersion = "3.4" });
+                PhoneNumber = "815-992-0000", UserID = "010", DeviceType = "Samsung Buddy", OSVersion = "3.4",
+                ImageURL ="/Content/img/Mumu.jpg" });
             dataset.Add(new PhotoModel { ClinicName = "Ijora Clinic", ResultIsValid = true, Bilirubin = "25", RecordedDateTime = new DateTime(2019, 4, 27, 10, 8, 49),
-                PhoneNumber = "815-991-1111", UserID = "003", DeviceType = "Samsung Buddy", OSVersion = "4.1" });
+                PhoneNumber = "815-991-1111", UserID = "003", DeviceType = "Samsung Buddy", OSVersion = "4.1",
+                ImageURL ="/Content/img/Mumu.jpg" });
             dataset.Add(new PhotoModel { ClinicName = "Ijora Clinic", ResultIsValid = true, Bilirubin = "15", RecordedDateTime = new DateTime(2019, 4, 28, 7, 3, 12),
-                PhoneNumber = "815-991-1111", UserID = "003", DeviceType = "Samsung Buddy", OSVersion = "4.1" });
+                PhoneNumber = "815-991-1111", UserID = "003", DeviceType = "Samsung Buddy", OSVersion = "4.1",
+                ImageURL = "/Content/img/Mumu.jpg" });
             dataset.Add(new PhotoModel { ClinicName = "Ijora Clinic", ResultIsValid = false, RecordedDateTime = new DateTime(2019, 5, 2, 20, 5, 34),
-                PhoneNumber = "815-992-0000", UserID = "010", DeviceType = "Samsung Buddy", OSVersion = "3.4" });
+                PhoneNumber = "815-992-0000", UserID = "010", DeviceType = "Samsung Buddy", OSVersion = "3.4",
+                ImageURL = "/Content/img/Mumu.jpg" });
             dataset.Add(new PhotoModel { ClinicName = "Ijora Clinic", ResultIsValid = false,  RecordedDateTime = new DateTime(2019, 4, 19, 11, 54, 8),
-                PhoneNumber = "815-992-0000", UserID = "010", DeviceType = "Samsung Buddy", OSVersion = "3.4" });
+                PhoneNumber = "815-992-0000", UserID = "010", DeviceType = "Samsung Buddy", OSVersion = "3.4",
+                ImageURL = "/Content/img/Mumu.jpg" });
             dataset.Add(new PhotoModel { ClinicName = "Ijora Clinic", ResultIsValid = true, Bilirubin = "20", RecordedDateTime = new DateTime(2019, 5, 12, 13, 30, 3),
-                PhoneNumber = "815-991-1111", UserID = "003", DeviceType = "Samsung Buddy", OSVersion = "4.1" });
+                PhoneNumber = "815-991-1111", UserID = "003", DeviceType = "Samsung Buddy", OSVersion = "4.1",
+                ImageURL = "/Content/img/Mumu.jpg" });
 
             // Other clinic data
             dataset.Add(new PhotoModel { ClinicName = "Katsina Clinic", ResultIsValid = true, Bilirubin = "25", RecordedDateTime = new DateTime(2019, 5, 14, 12, 37, 43),
-                PhoneNumber = "719-991-1447", UserID = "005", DeviceType = "Tecno Mobile", OSVersion = "5.0" });
+                PhoneNumber = "719-991-1447", UserID = "005", DeviceType = "Tecno Mobile", OSVersion = "5.0",
+                ImageURL = "/Content/img/Mumu.jpg" });
             dataset.Add(new PhotoModel { ClinicName = "Katsina Clinic", ResultIsValid = true, Bilirubin = "10", RecordedDateTime = new DateTime(2019, 5, 18, 15, 22, 19),
-                PhoneNumber = "719-991-1447", UserID = "005", DeviceType = "Tecno Mobile", OSVersion = "5.0" });
+                PhoneNumber = "719-991-1447", UserID = "005", DeviceType = "Tecno Mobile", OSVersion = "5.0",
+                ImageURL = "/Content/img/Mumu.jpg" });
             dataset.Add(new PhotoModel { ClinicName = "Katsina Clinic", ResultIsValid = true, Bilirubin = "15", RecordedDateTime = new DateTime(2019, 4, 22, 16, 0, 54),
-                PhoneNumber = "719-991-1447", UserID = "005", DeviceType = "Tecno Mobile", OSVersion = "5.0" });
+                PhoneNumber = "719-991-1447", UserID = "005", DeviceType = "Tecno Mobile", OSVersion = "5.0",
+                ImageURL = "/Content/img/Mumu.jpg" });
             dataset.Add(new PhotoModel { ClinicName = "Mashegu Clinic", ResultIsValid = true, Bilirubin = "5", RecordedDateTime = new DateTime(2019, 4, 29, 1, 12, 32),
-                PhoneNumber = "815-901-1334", UserID = "006", DeviceType = "Samsung Buddy", OSVersion = "4.1" });
+                PhoneNumber = "815-901-1334", UserID = "006", DeviceType = "Samsung Buddy", OSVersion = "4.1",
+                ImageURL = "/Content/img/Mumu.jpg" });
             dataset.Add(new PhotoModel { ClinicName = "Mashegu Clinic", ResultIsValid = true, Bilirubin = "10", RecordedDateTime = new DateTime(2019, 5, 16, 9, 42, 12),
-                PhoneNumber = "815-901-1334", UserID = "006", DeviceType = "Samsung Buddy", OSVersion = "4.1" });
+                PhoneNumber = "815-901-1334", UserID = "006", DeviceType = "Samsung Buddy", OSVersion = "4.1",
+                ImageURL = "/Content/img/Mumu.jpg" });
             dataset.Add(new PhotoModel { ClinicName = "Mashegu Clinic", ResultIsValid = true, Bilirubin = "25", RecordedDateTime = new DateTime(2019, 5, 17, 8, 53, 43),
-                PhoneNumber = "815-901-1334", UserID = "006", DeviceType = "Samsung Buddy", OSVersion = "4.1" });
+                PhoneNumber = "815-901-1334", UserID = "006", DeviceType = "Samsung Buddy", OSVersion = "4.1",
+                ImageURL = "/Content/img/Mumu.jpg" });
 
             // Sort dataset by RecordedDateTime
             OrderByDate();
