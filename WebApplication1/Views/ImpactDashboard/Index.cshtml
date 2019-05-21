@@ -7,8 +7,11 @@
 @Scripts.Render("~/Scripts/moment.js")
 @Scripts.Render("~/Scripts/daterangepicker.js")
 @Scripts.Render("~/Scripts/calendar.js")
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 
 <h1>Impact Dashboard</h1>
+
+
 
 <div class="row date-filter mt-3">
     <div class="col-lg-1">
@@ -27,20 +30,52 @@
 </div>
 
 
-<div class="row mt-3">
+<div class="row mt-3 flexbox">
     <div class="col">
-        <img src="~/Content/img/Improvement.PNG" class="mx-auto d-block img-fluid " />
+        <img src="~/Content/img/Improvement.PNG" class="mx-auto d-block img-fluid" />
+    </div>
+    <div class="col-1">
+        <label for="id-of-input" class="custom-checkbox ">
+            <input type="checkbox" id="id-of-input" />
+            <i class="glyphicon glyphicon-star-empty"></i>
+            <i class="glyphicon glyphicon-star"></i>
+        </label>
     </div>
     <div class="col">
         <img src="~/Content/img/AvgUsers.PNG" class="mx-auto d-block img-fluid " />
     </div>
+    <div class="col-1">
+        <label for="id-of-input1" class="custom-checkbox ">
+            <input type="checkbox" id="id-of-input1"/>
+            <i class="glyphicon glyphicon-star-empty"></i>
+            <i class="glyphicon glyphicon-star"></i>
+        </label>
+    </div>
     <div class="col">
         <img src="~/Content/img/AvgInstalls.PNG" class="mx-auto d-block img-fluid " />
+    </div>
+    <div class="col-1">
+        <label for="id-of-input2" class="custom-checkbox ">
+            <input type="checkbox" id="id-of-input2"/>
+            <i class="glyphicon glyphicon-star-empty"></i>
+            <i class="glyphicon glyphicon-star"></i>
+        </label>
     </div>
 </div>
 
 <div id="Graph">
-    <img src="~/Content/img/WeekofMay.PNG" class="mx-auto d-block img-fluid " />
+    <div class="row">
+        <div class="col">
+            <img src="~/Content/img/WeekofMay.PNG" class="mx-auto d-block img-fluid " />
+        </div>
+        <div class="col-1">
+            <label for="id-of-input3" class="custom-checkbox ">
+                <input type="checkbox" id="id-of-input3" />
+                <i class="glyphicon glyphicon-star-empty"></i>
+                <i class="glyphicon glyphicon-star"></i>
+            </label>
+        </div>
+    </div>
 </div>
 
 <script>

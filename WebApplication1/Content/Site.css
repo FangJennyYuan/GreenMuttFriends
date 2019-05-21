@@ -208,3 +208,46 @@ h4 {
     margin-left: auto;
     margin-right: auto;
 }
+
+
+/*Favourite*/
+
+label {
+    /* Presentation */
+    font-size: 48px
+}
+
+    /* Required Styling */
+
+    label input[type="checkbox"] {
+        display: none;
+    }
+
+.custom-checkbox {
+    position: relative;
+    cursor: pointer;
+}
+
+    .custom-checkbox .glyphicon {
+        color: gold;
+        position: absolute;
+        left: -1.25em;
+        font-size: 0.75em;
+    }
+
+    .custom-checkbox .glyphicon-star-empty {
+        color: gray;
+    }
+
+    .custom-checkbox .glyphicon-star {
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .custom-checkbox:hover .glyphicon-star {
+        opacity: 0.5;
+    }
+
+    .custom-checkbox input[type="checkbox"]:checked ~ .glyphicon-star {
+        opacity: 1;
+    }
