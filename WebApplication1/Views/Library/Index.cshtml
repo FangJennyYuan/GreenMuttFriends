@@ -9,6 +9,7 @@
 @Scripts.Render("~/Scripts/daterangepicker.js")
 @Scripts.Render("~/Scripts/calendar.js")
 @Scripts.Render("~/Scripts/librarysearch.js")
+@Scripts.Render("~/Scripts/umd/popper.min.js") <!--Needed for dropdown button-->
 
 <h1>Library Dashboard</h1>
 
@@ -78,8 +79,16 @@
                         <span class="filtered-by-date"> All Dates </span>
                     </h4>
                 </div>
-                <div class="col">
-                    <button class="btn btn-success float-right mr-2 my-2 my-sm-0"><i class="fa fa-download"></i> Download</button>
+                <div class="col text-right">
+                    <div class="dropdown show">
+                        <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-download"></i> Download
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Data</a>
+                            <a class="dropdown-item" href="#">Images</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="container">
@@ -133,10 +142,18 @@
                     <input id="library-search" onkeyup="searchLibraryTable()" class="form-control " type="search" placeholder="Search" aria-label="Search">
                 </div>
                 <div class="col">
-                    <button class="btn btn-success float-right mr-2 my-2 my-sm-0"><i class="fa fa-download"></i> Download</button>
+                    <div class="dropdown show">
+                        <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-download"></i> Download
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Data</a>
+                            <a class="dropdown-item" href="#">Images</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-                <div class="table-responsive">
+            <div class="table-responsive">
                 <table class="table table-striped" id="library-table">
                     <thead class="thead-light">
                         <tr>
@@ -157,7 +174,7 @@
                                 <tr>
                                     <td>@Html.ActionLink(item.ID, "PhotoDetail", new { id = item.ID }, new { @class = "small" })</td>
                                     <td>@item.ClinicName</td>
-                                    <td id="@item.ResultIsValid" >
+                                    <td id="@item.ResultIsValid">
                                         @if (item.ResultIsValid)
                                         {
                                             <text>@item.Bilirubin Total Serum Bilirubin</text>
