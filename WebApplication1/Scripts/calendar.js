@@ -25,7 +25,7 @@ function getYearsDate() {
     updateGraphTitlesWithDate(start, end);
 }
 
-/** Get current clinic selection */
+/** Get Current Clinic Selection */
 function getClinicSelection() {
     var clinic = "";
     $(".clinic-photos option:selected").each(function () {
@@ -34,8 +34,9 @@ function getClinicSelection() {
     return clinic;
 }
 
-/** Check if clinic is selected*/
-function isInClinic( columnValue ) {
+/** Check if Clinic is Selected*/
+function isInClinic(columnValue) {
+
     var selected = getClinicSelection();
     var selectedClinic = $.trim(selected);
     var clinic = $.trim(columnValue);
@@ -55,17 +56,26 @@ function updateGraphTitlesWithDate(start, end) {
     $(".date").text(startS + endS);
 }
 
-
-/* Update result title with correct date range selected*/
-function updateResultTitleWithDate(start, end) {
-    var startS = "from " + start.format('LL');
-    var endS = " to " + end.format('LL');
-    $(".filtered-by-date").text(startS + endS);
+/** Add Start and End attributes to be Recognized by Other Filters */
+function addDateAttributes(start, end) {
     $(".filtered-by-date").attr("datestart", start.format("M/D/YYYY"));
     $(".filtered-by-date").attr("dateend", end.format("M/D/YYYY"));
 }
 
-/*Update range on calendar for performance and impact*/
+/** Update Result Title with Correct Date Range Selected*/
+function updateResultTitleWithDate(start, end, resultCount) {
+    //Update title with date
+    var startS = "from " + start.format('LL');
+    var endS = " to " + end.format('LL');
+    $(".filtered-by-date").text(startS + endS);
+
+    //Update title with result count
+    $(".count-photos").text(resultCount);
+
+    addDateAttributes(start, end);
+}
+
+/**Update Range on Calendar for Performance and Impact*/
 $(function () {
     $('input[name="daterange"]').daterangepicker({
         opens: 'left',
@@ -76,20 +86,22 @@ $(function () {
     });
 });
 
-/*Update range on library calendar*/
+/**Update Date Range on Library Calendar*/
 $(function () {
     $('input[name="daterange-library"]').daterangepicker({
         opens: 'left',
         startDate: moment().startOf('month'),
         endDate: moment()
     }, function (start, end, label) {
-        updateResultTitleWithDate(start, end);
         var resultCount = searchLibraryTablebyDateRange(start, end);
+        updateResultTitleWithDate(start, end, resultCount);
+
         });
-    updateResultTitleWithDate(moment().startOf('month'), moment());
+    var resultCount = searchLibraryTablebyDateRange(moment().startOf('month'), moment());
+    updateResultTitleWithDate(moment().startOf('month'), moment(), resultCount);
 });
 
-/*Search Library table for a Date Range*/
+/**Search Library table for a Date Range*/
 function searchLibraryTablebyDateRange(start, end) {
     var resultCount = 0;
 
