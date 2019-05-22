@@ -25,12 +25,35 @@ function getYearsDate() {
     updateGraphTitlesWithDate(start, end);
 }
 
+/** Get current clinic selection */
+function getClinicSelection() {
+    var clinic = "";
+    $(".clinic-photos option:selected").each(function () {
+        clinic = $(this).text() + " ";
+    });
+    return clinic;
+}
+
+/** Check if clinic is selected*/
+function isInClinic( columnValue ) {
+    var selected = getClinicSelection();
+    var clinic = $.trim(columnValue);
+
+    if (clinic == selected) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 /** Update Photos Taken Title and Avg Photos Axis */
 function updateGraphTitlesWithDate(start, end) {
     var startS = "from " + start.format('LL');
     var endS = " to " + end.format('LL');
     $(".date").text(startS + endS);
 }
+
 
 /* Update result title with correct date range selected*/
 function updateResultTitleWithDate(start, end) {
@@ -39,7 +62,6 @@ function updateResultTitleWithDate(start, end) {
     $(".filtered-by-date").text(startS + endS);
     $(".filtered-by-date").attr("datestart", start.format("M/D/YYYY"));
     $(".filtered-by-date").attr("dateend", end.format("M/D/YYYY"));
-
 }
 
 /*Update range on calendar for performance and impact*/
@@ -73,8 +95,16 @@ function searchLibraryTablebyDateRange(start, end) {
             $row = $(this);
             var id = $row.find("#date-time-col").text();
             var dateSearch = new Date(id);
+
+            var idClinic = $row.find("#clinic-col").text();
+
             if (dateSearch >= start && dateSearch <= end) {
-                $row.show();
+                if (getClinicSelection(idClinic)) {
+                    $row.show();
+                }
+                else {
+                    $row.hide();
+                }
             }
             else {
                 $row.hide();
