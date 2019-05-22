@@ -212,42 +212,29 @@ h4 {
 
 /*Favourite*/
 
-label {
-    /* Presentation */
-    font-size: 48px
-}
-
     /* Required Styling */
-
-    label input[type="checkbox"] {
+    .favorite-graph input[type="checkbox"] {
         display: none;
     }
 
-.custom-checkbox {
-    position: relative;
-    cursor: pointer;
-}
 
-    .custom-checkbox .glyphicon {
+    .favorite-graph .favorited {
         color: gold;
-        position: absolute;
-        left: -1.25em;
-        font-size: 0.75em;
     }
 
-    .custom-checkbox .glyphicon-star-empty {
+    .favorite-graph .not-favorited {
         color: gray;
     }
 
-    .custom-checkbox .glyphicon-star {
+    .favorite-graph .favorited {
         opacity: 0;
         transition: opacity 0.2s ease-in-out;
     }
 
-    .custom-checkbox:hover .glyphicon-star {
+    .favorite-graph:hover .favorited {
         opacity: 0.5;
     }
 
-    .custom-checkbox input[type="checkbox"]:checked ~ .glyphicon-star {
+    .favorite-graph input[type="checkbox"]:checked ~ .favorited {
         opacity: 1;
     }
