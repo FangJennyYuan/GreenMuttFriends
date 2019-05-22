@@ -32,6 +32,12 @@ function updateGraphTitlesWithDate(start, end) {
     $(".date").text(startS + endS);
 }
 
+function updateResultTitleWithDate(start, end) {
+    var startS = "from " + start.format('LL');
+    var endS = " to " + end.format('LL');
+    $(".filtered-by-date").text(startS + endS);
+}
+
 /*Update range on calendar for performance and impact*/
 $(function () {
     $('input[name="daterange"]').daterangepicker({
@@ -50,9 +56,10 @@ $(function () {
         startDate: moment().startOf('month'),
         endDate: moment()
     }, function (start, end, label) {
-        updateGraphTitlesWithDate(start, end);
+        updateResultTitleWithDate(start, end);
         searchLibraryTablebyDateRange(start, end);
-    });
+        });
+    updateResultTitleWithDate(moment().startOf('month'), moment());
 });
 
 /*Search Library table for a Date Range*/
