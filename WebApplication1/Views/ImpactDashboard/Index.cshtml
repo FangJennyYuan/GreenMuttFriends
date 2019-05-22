@@ -12,7 +12,7 @@
 @Scripts.Render("~/Scripts/daterangepicker.js")
 @Scripts.Render("~/Scripts/calendar.js")
 @Scripts.Render("~/Scripts/AppUserScript.js")
-
+@Scripts.Render("~/Scripts/NumAppInstall.js")
 <h1>Impact Dashboard</h1>
 
 
@@ -95,9 +95,23 @@
     </div>
 </div>
 
-<div class="col" id="viz"></div>
+<div id="viz"></div>
 
-<div class="col" id="viz1"></div>
+<div class="row">
+    <div class="col">
+        <h2>
+            Number of App Installs from May 19 to May 25th
+        </h2>
+    </div>
+    <div class="col-1">
+        <label for="id-of-input4" class="custom-checkbox favorite-graph">
+            <input type="checkbox" id="id-of-input4" class="favorites" />
+            <i class="fa fa-star fa-stack-1x favorited"></i>
+            <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
+        </label>
+    </div>
+</div>
+<div id="viz1"></div>
 
 <script>
     var visualization = d3plus.viz()
@@ -108,16 +122,18 @@
         .text("clinic")       // key to use for display text
         .x("Date")
         .y("value")
+        .height(600)
         .draw()
 
-    var visualization1 = d3plus.viz()
+    var visualization = d3plus.viz()
         .container("#viz1")
-        .data(AppUsersdata)
+        .data(NumAppInstallData)
         .type("line")
         .id("clinic")         // key for which our data is unique on
         .text("clinic")       // key to use for display text
         .x("Date")
         .y("value")
+        .height(600)
         .draw()
 
 
