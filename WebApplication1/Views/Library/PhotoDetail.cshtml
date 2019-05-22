@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "PhotoDetail";
 }
+@Scripts.Render("~/Scripts/umd/popper.min.js") <!--Needed for dropdown button-->
 
 <h1>
     Library Dashboard<br />
@@ -31,7 +32,7 @@
                     <text>Invalid result</text>
                 }
             </h3>
-            Date: @Model.RecordedDateTime.ToShortDateString() 
+            Date: @Model.RecordedDateTime.ToShortDateString()
             <br />
             Time: @Model.RecordedDateTime.ToShortTimeString() WAT
             <br />
@@ -50,7 +51,16 @@
                 <a href="/Library" class="btn btn-outline-info">Back</a><br />
             </p>
             <p>
-                <button class="btn btn-success"><i class="fa fa-download"></i> Download</button>
+                <div class="dropdown show">
+                    <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-download"></i> Download
+                    </a>
+
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Data</a>
+                        <a class="dropdown-item" href="#">Image</a>
+                    </div>
+                </div>
             </p>
             <p>
                 <a href="mailto:?subject=Bilirubin%20Photo%20Result&body=@Request.Url.ToString()" class="btn btn-success"><i class="fa fa-envelope-o"></i> Email link</a>
