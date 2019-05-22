@@ -25,6 +25,30 @@ function getYearsDate() {
     updateGraphTitlesWithDate(start, end);
 }
 
+/** Get Current Clinic Selection */
+function getClinicSelection() {
+    var clinic = "";
+    $(".clinic-photos option:selected").each(function () {
+        clinic = $(this).text() + " ";
+    });
+    return clinic;
+}
+
+/** Check if Clinic is Selected*/
+function isInClinic(columnValue) {
+
+    var selected = getClinicSelection();
+    var selectedClinic = $.trim(selected);
+    var clinic = $.trim(columnValue);
+
+    if (clinic == selectedClinic || selectedClinic == "All Clinics") {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
 /** Update Photos Taken Title and Avg Photos Axis */
 function updateGraphTitlesWithDate(start, end) {
     var startS = "from " + start.format('LL');
@@ -32,7 +56,26 @@ function updateGraphTitlesWithDate(start, end) {
     $(".date").text(startS + endS);
 }
 
-/*Update range on calendar for performance and impact*/
+/** Add Start and End attributes to be Recognized by Other Filters */
+function addDateAttributes(start, end) {
+    $(".filtered-by-date").attr("datestart", start.format("M/D/YYYY"));
+    $(".filtered-by-date").attr("dateend", end.format("M/D/YYYY"));
+}
+
+/** Update Result Title with Correct Date Range Selected*/
+function updateResultTitleWithDate(start, end, resultCount) {
+    //Update title with date
+    var startS = "from " + start.format('LL');
+    var endS = " to " + end.format('LL');
+    $(".filtered-by-date").text(startS + endS);
+
+    //Update title with result count
+    $(".count-photos").text(resultCount);
+
+    addDateAttributes(start, end);
+}
+
+/**Update Range on Calendar for Performance and Impact*/
 $(function () {
     $('input[name="daterange"]').daterangepicker({
         opens: 'left',
@@ -43,31 +86,46 @@ $(function () {
     });
 });
 
-/*Update range on library calendar*/
+/**Update Date Range on Library Calendar*/
 $(function () {
     $('input[name="daterange-library"]').daterangepicker({
         opens: 'left',
         startDate: moment().startOf('month'),
         endDate: moment()
     }, function (start, end, label) {
-        updateGraphTitlesWithDate(start, end);
-        searchLibraryTablebyDateRange(start, end);
-    });
+        var resultCount = searchLibraryTablebyDateRange(start, end);
+        updateResultTitleWithDate(start, end, resultCount);
+
+        });
+    var resultCount = searchLibraryTablebyDateRange(moment().startOf('month'), moment());
+    updateResultTitleWithDate(moment().startOf('month'), moment(), resultCount);
 });
 
-/*Search Library table for a Date Range*/
+/**Search Library table for a Date Range*/
 function searchLibraryTablebyDateRange(start, end) {
+    var resultCount = 0;
+
     $("#library-table tr").each(function (index) {
         if (index !== 0) {
+
             $row = $(this);
-            var id = $row.find("#date-time-col").text();
-            var dateSearch = new Date(id);
+            var idDate = $row.find("#date-time-col").text();
+            var dateSearch = new Date(idDate);
+            var idClinic = $row.find("#clinic-col").text();
+
             if (dateSearch >= start && dateSearch <= end) {
-                $row.show();
+                if (isInClinic(idClinic)) {
+                    $row.show();
+                    resultCount++;
+                }
+                else {
+                    $row.hide();
+                }
             }
             else {
                 $row.hide();
             }
         }
     });
+    return resultCount;
 }
