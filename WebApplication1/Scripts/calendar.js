@@ -84,24 +84,27 @@ $(function () {
         endDate: moment()
     }, function (start, end, label) {
         updateResultTitleWithDate(start, end);
-        searchLibraryTablebyDateRange(start, end);
+        var resultCount = searchLibraryTablebyDateRange(start, end);
         });
     updateResultTitleWithDate(moment().startOf('month'), moment());
 });
 
 /*Search Library table for a Date Range*/
 function searchLibraryTablebyDateRange(start, end) {
+    var resultCount = 0;
+
     $("#library-table tr").each(function (index) {
         if (index !== 0) {
-            $row = $(this);
-            var id = $row.find("#date-time-col").text();
-            var dateSearch = new Date(id);
 
+            $row = $(this);
+            var idDate = $row.find("#date-time-col").text();
+            var dateSearch = new Date(idDate);
             var idClinic = $row.find("#clinic-col").text();
 
             if (dateSearch >= start && dateSearch <= end) {
                 if (isInClinic(idClinic)) {
                     $row.show();
+                    resultCount++;
                 }
                 else {
                     $row.hide();
@@ -112,4 +115,5 @@ function searchLibraryTablebyDateRange(start, end) {
             }
         }
     });
+    return resultCount;
 }
