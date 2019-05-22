@@ -37,10 +37,10 @@ function getClinicSelection() {
 /** Check if clinic is selected*/
 function isInClinic( columnValue ) {
     var selected = getClinicSelection();
+    var selectedClinic = $.trim(selected);
     var clinic = $.trim(columnValue);
 
-    if (clinic == $.trim(selected)) {
-        console.log(clinic);
+    if (clinic == selectedClinic || selectedClinic == "All Clinics") {
         return true;
     }
     else {

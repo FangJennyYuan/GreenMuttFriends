@@ -73,13 +73,13 @@ function searchLibraryTablebyClinic(value) {
             //Get clinic from row
             var idClinic = $row.find("#clinic-col").text();
             var clinic = $.trim(idClinic);
-            var searchValue = $.trim(value);
+            var selectedClinic = $.trim(value);
 
             //Get date from row
             var idDate = $row.find("#date-time-col").text();
             
             //Check if both clinic and date match
-            if (clinic == searchValue) {
+            if (clinic == selectedClinic || selectedClinic == "All Clinics") {
                 if (inDateRange(idDate)) {
                     $row.show();
                     resultCount++;
