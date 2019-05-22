@@ -43,18 +43,50 @@ $(function () {
 
 });
 
-/*Search library table for a Clinic*/
+/*Check Date Range Selected*/
+function inDateRange(date) {
+
+    //Date range selected
+    var dateStart = $(".filtered-by-date").attr("datestart");
+    var start = moment(dateStart, "M/D/YYYY");
+    var dateEnd = $(".filtered-by-date").attr("dateend");
+    var end = moment(dateEnd, "M/D/YYYY");
+
+    //Convert to search string to date
+    var dateSearch = moment(date, "M/D/YYYY");
+
+    if (dateSearch >= start && dateSearch <= end) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+/*Search library table for a Clinic, Apply Date Range Filter As Well*/
 function searchLibraryTablebyClinic(value) {
     var resultCount = 0;
     $("#library-table tr").each(function (index) {
         if (index !== 0) {
             $row = $(this);
-            var id = $row.find("#clinic-col").text();
-            var clinic = $.trim(id);
+
+            //Get clinic from row
+            var idClinic = $row.find("#clinic-col").text();
+            var clinic = $.trim(idClinic);
             var searchValue = $.trim(value);
+
+            //Get date from row
+            var idDate = $row.find("#date-time-col").text();
+            
+            //Check if both clinic and date match
             if (clinic == searchValue) {
-                $row.show();
-                resultCount++;
+                if (inDateRange(idDate)) {
+                    $row.show();
+                    resultCount++;
+                }
+                else {
+                    $row.hide();
+                }
             }
             else {
                 $row.hide();

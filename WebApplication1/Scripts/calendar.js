@@ -32,12 +32,6 @@ function updateGraphTitlesWithDate(start, end) {
     $(".date").text(startS + endS);
 }
 
-function updateResultTitleWithDate(start, end) {
-    var startS = "from " + start.format('LL');
-    var endS = " to " + end.format('LL');
-    $(".filtered-by-date").text(startS + endS);
-}
-
 /*Update range on calendar for performance and impact*/
 $(function () {
     $('input[name="daterange"]').daterangepicker({
