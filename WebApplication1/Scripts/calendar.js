@@ -39,7 +39,8 @@ function isInClinic( columnValue ) {
     var selected = getClinicSelection();
     var clinic = $.trim(columnValue);
 
-    if (clinic == selected) {
+    if (clinic == $.trim(selected)) {
+        console.log(clinic);
         return true;
     }
     else {
@@ -99,7 +100,7 @@ function searchLibraryTablebyDateRange(start, end) {
             var idClinic = $row.find("#clinic-col").text();
 
             if (dateSearch >= start && dateSearch <= end) {
-                if (getClinicSelection(idClinic)) {
+                if (isInClinic(idClinic)) {
                     $row.show();
                 }
                 else {
