@@ -7,9 +7,9 @@
 @Scripts.Render("~/Scripts/jquery-3.4.1.js")
 @Scripts.Render("~/Scripts/moment.js")
 @Scripts.Render("~/Scripts/daterangepicker.js")
+@Scripts.Render("~/Scripts/umd/popper.min.js") <!--Needed for dropdown button-->
 @Scripts.Render("~/Scripts/calendar.js")
 @Scripts.Render("~/Scripts/librarysearch.js")
-@Scripts.Render("~/Scripts/umd/popper.min.js") <!--Needed for dropdown button-->
 
 <h1>Library Dashboard</h1>
 
@@ -17,7 +17,7 @@
     <!-- Dropdown to select clinic -->
     <div class="col">
         <form>
-            <select name="cars" class="custom-select">
+            <select name="clinics" class="custom-select clinic-photos">
                 <option selected>All Clinics</option>
                 <option value="batagarawa">Batagarawa Clinic</option>
                 <option value="ijora">Ijora Clinic</option>
@@ -173,7 +173,7 @@
                             {
                                 <tr>
                                     <td>@Html.ActionLink(item.ID, "PhotoDetail", new { id = item.ID }, new { @class = "small" })</td>
-                                    <td>@item.ClinicName</td>
+                                    <td id="clinic-col">@item.ClinicName</td>
                                     <td id="@item.ResultIsValid">
                                         @if (item.ResultIsValid)
                                         {
