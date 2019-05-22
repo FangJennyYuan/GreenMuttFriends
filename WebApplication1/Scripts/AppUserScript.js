@@ -33,12 +33,3 @@
 
 ]
 
-var visualization = d3plus.viz()
-    .container("#viz")
-    .data(AppUsersdata)
-    .type("line")
-    .id("clinic")         // key for which our data is unique on
-    .text("clinic")       // key to use for display text
-    .x("Date")
-    .y("value")
-    .draw();
