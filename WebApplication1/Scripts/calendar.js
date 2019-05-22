@@ -32,6 +32,16 @@ function updateGraphTitlesWithDate(start, end) {
     $(".date").text(startS + endS);
 }
 
+/* Update result title with correct date range selected*/
+function updateResultTitleWithDate(start, end) {
+    var startS = "from " + start.format('LL');
+    var endS = " to " + end.format('LL');
+    $(".filtered-by-date").text(startS + endS);
+    $(".filtered-by-date").attr("datestart", start.format("M/D/YYYY"));
+    $(".filtered-by-date").attr("dateend", end.format("M/D/YYYY"));
+
+}
+
 /*Update range on calendar for performance and impact*/
 $(function () {
     $('input[name="daterange"]').daterangepicker({
