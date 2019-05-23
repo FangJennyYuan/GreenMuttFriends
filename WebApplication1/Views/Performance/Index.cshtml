@@ -73,7 +73,6 @@
 
 
 <script>
-
     var photosData = [
     @{
         foreach (var item in Model)
@@ -82,7 +81,14 @@
             @outputString
         }
     }
-    ]
+    ],
+        start = new Date("05/17/2019"),
+        end = new Date("05/23/2019"),
+        currentPhotoData = photosData.filter(d => {
+            var date = new Date(d.Date);
+            console.log(date);
+            return (start <= date && date <= end);
+        });
 
     var attributes = [
         { "clinic": "Ijora Clinic", "hex": "#5FBD73" },
@@ -93,7 +99,7 @@
 
     var visualization = d3plus.viz()
         .container("#photos_taken_chart")
-        .data(photosData)
+        .data(currentPhotoData)
         .type("line")
         .id("clinic")         // key for which our data is unique on
         .text("clinic")       // key to use for display text
