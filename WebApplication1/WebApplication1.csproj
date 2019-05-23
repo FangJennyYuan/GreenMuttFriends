@@ -115,10 +115,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Backend\IAccountRepository.cs" />
+    <Compile Include="Backend\IUserRepository.cs" />
     <Compile Include="Backend\IPhotoRepository.cs" />
     <Compile Include="Backend\AccountBackend.cs" />
+    <Compile Include="Backend\UserBackend.cs" />
     <Compile Include="Backend\PhotoBackend.cs" />
     <Compile Include="Backend\AccountRepository.cs" />
+    <Compile Include="Backend\UserRepositoryMock.cs" />
     <Compile Include="Backend\PhotoRepositoryMock.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -131,6 +134,8 @@
     <Compile Include="Models\AppUserDataModel.cs" />
     <Compile Include="Models\LibraryViewModel.cs" />
     <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\PhotoModel.cs" />
     <Compile Include="Models\PhotoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
