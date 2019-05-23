@@ -1,4 +1,12 @@
-﻿@{
+﻿@using WebApplication1.Models;
+@model List<AppUserDataModel>
+<!doctype html>
+<meta charset="utf-8">
+
+<script src="//d3plus.org/js/d3.js"></script>
+<script src="//d3plus.org/js/d3plus.js"></script>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -6,24 +14,48 @@
     <h1>Main</h1>
     @*<img src="../Content/img/Mumu.jpg" alt="Mumu" style="width:500px;height:600px;">*@
 </div>
+
 <div class="row">
-    <div class="col-lg-8 main-border">
-        <img src="~/Content/img/PhotosTaken_MainPage.png" class="img-fluid ml-1" />
+    <div class="col-8">
+        <img src="~/Content/img/PhotosTaken_MainPage.png" class="img-fluid ml-1" style="height:200px" />
     </div>
-    <div class="col-lg-3 main-border ml-4 d-flex flex-wrap align-items-center">
-        <img src="~/Content/img/UsersToday_MainPage.PNG" class="img-fluid center-block" style="max-height: 140px;" />
-    </div>
+
     @{
         var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
-        if (myAccountModel.isFavouriteLoggedIn)
+        if (myAccountModel.isAccountLoggedIn)
         {
-            <div class="col-lg-3 main-border ml-4 d-flex flex-wrap align-items-center">
-                <img src="~/Content/img/UsersToday_MainPage.PNG" class="img-fluid center-block" style="max-height: 140px;" />
+            <div class="col-1">
+                <label for="id-of-input5" class="custom-checkbox favorite-graph">
+                    <input type="checkbox" id="id-of-input5" class="favorites" />
+                    <i class="fa fa-star fa-stack-1x favorited"></i>
+                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
+                </label>
             </div>
         }
         else
         {
-           
+
+        }
+    }
+
+    <div class="col " valign="bottom">
+        <img src="~/Content/img/UsersToday_MainPage.PNG" class="img-fluid mx-auto d-block" style="height:150px" /> 
+    </div>
+
+    @{
+        if (myAccountModel.isAccountLoggedIn)
+        {
+            <div class="col-1">
+                <label for="id-of-input6" class="custom-checkbox favorite-graph">
+                    <input type="checkbox" id"id-of-input6" class="favorites" />
+                    <i class="fa fa-star fa-stack-1x favorited"></i>
+                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
+                </label>
+            </div>
+        }
+        else
+        {
+
         }
     }
 
@@ -46,3 +78,4 @@
         </a>
     </div>
 </div>
+
