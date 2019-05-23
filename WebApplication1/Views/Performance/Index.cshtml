@@ -41,8 +41,8 @@
         <span>Filter by:</span>
     </div>
     <div class="span2 mr-2">
-        <img class="img-valign" src="~/Content/img/clinic_Ijowa.png" alt="Ijowa" />
-        <span class="primary-color">Ijowa Clinic</span>
+        <img class="img-valign" src="~/Content/img/clinic_Ijowa.png" alt="Ijora" />
+        <span class="primary-color">Ijora Clinic</span>
     </div>
     <div class="span2 mr-2">
         <img class="img-valign" src="~/Content/img/clinic_Katsina.png" alt="Katsina" />
@@ -87,7 +87,13 @@
     }
     ]
 
-    photosData.sort((a, b) => (a.Date > b.Date) ? 1 : -1)
+    console.log(photosData);
+    var attributes = [
+        { "clinic": "Ijora Clinic", "hex": "#5FBD73" },
+        { "clinic": "Katsina Clinic", "hex": "#5F4892" },
+        { "clinic": "Mashegu Clinic", "hex": "#71BDD3" },
+        { "clinic": "Rawayau Clinic", "hex": "#1C2C8C" }
+    ]
 
     var visualization = d3plus.viz()
         .container("#photos_taken_chart")
@@ -97,6 +103,8 @@
         .text("clinic")       // key to use for display text
         .x("Date")
         .y("value")
+        .attrs(attributes)
+        .color("hex")
         .height(500)
         .draw()
     
