@@ -11,8 +11,5 @@ namespace WebApplication1.Models
         /// List of Users
         /// </summary>
         public List<UserModel> UserList { get; set; } = new List<UserModel>();
-
-        public List<AppUserDataModel> AppUserList { get; set; } = new List<AppUserDataModel>();
-        public List<AppInstallsDataModel> AppInstallList { get; set; } = new List<AppInstallsDataModel>();
     }
 }
