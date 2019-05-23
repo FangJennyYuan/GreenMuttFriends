@@ -40,33 +40,70 @@
     <div class="col">
         <img src="~/Content/img/Improvement.PNG" class="mx-auto d-block img-fluid" />
     </div>
-    <div class="col-1">
-        <label for="id-of-input" class="custom-checkbox favorite-graph">
-            <input type="checkbox" id="id-of-input" class="favorites" />
-            <i class="fa fa-star fa-stack-1x favorited"></i>
-            <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-        </label>
-    </div>
+
+    @{
+        var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
+        if (myAccountModel.isAccountLoggedIn)
+        {
+            <div class="col-1">
+                <label for="id-of-input" class="custom-checkbox favorite-graph">
+                    <input type="checkbox" id="id-of-input" class="favorites" />
+                    <i class="fa fa-star fa-stack-1x favorited"></i>
+                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
+                </label>
+            </div>
+        }
+        else
+        {
+
+        }
+    }
+
     <div class="col">
         <img src="~/Content/img/AvgUsers.PNG" class="mx-auto d-block img-fluid " />
     </div>
-    <div class="col-1">
-        <label for="id-of-input1" class="custom-checkbox favorite-graph">
-            <input type="checkbox" id="id-of-input1" class="favorites" />
-            <i class="fa fa-star fa-stack-1x favorited"></i>
-            <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-        </label>
-    </div>
+
+
+    @{
+        if (myAccountModel.isAccountLoggedIn)
+        {
+            <div class="col-1">
+                <label for="id-of-input1" class="custom-checkbox favorite-graph">
+                    <input type="checkbox" id="id-of-input1" class="favorites" />
+                    <i class="fa fa-star fa-stack-1x favorited"></i>
+                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
+                </label>
+            </div>
+        }
+        else
+        {
+
+        }
+    }
+
+
     <div class="col">
         <img src="~/Content/img/AvgInstalls.PNG" class="mx-auto d-block img-fluid " />
     </div>
-    <div class="col-1">
-        <label for="id-of-input2" class="custom-checkbox favorite-graph">
-            <input type="checkbox" id="id-of-input2" class="favorites" />
-            <i class="fa fa-star fa-stack-1x favorited"></i>
-            <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-        </label>
-    </div>
+
+
+    @{
+        if (myAccountModel.isAccountLoggedIn)
+        {
+            <div class="col-1">
+                <label for="id-of-input2" class="custom-checkbox favorite-graph">
+                    <input type="checkbox" id="id-of-input2" class="favorites" />
+                    <i class="fa fa-star fa-stack-1x favorited"></i>
+                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
+                </label>
+            </div>
+        }
+        else
+        {
+
+        }
+    }
+
 </div>
 
 <div id="Graph">
@@ -74,13 +111,23 @@
         <div class="col">
             <img src="~/Content/img/WeekofMay.PNG" class="mx-auto d-block img-fluid " />
         </div>
-        <div class="col-1">
-            <label for="id-of-input3" class="custom-checkbox favorite-graph">
-                <input type="checkbox" id="id-of-input3" class="favorites" />
-                <i class="fa fa-star fa-stack-1x favorited"></i>
-                <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-            </label>
-        </div>
+        @{
+            if (myAccountModel.isAccountLoggedIn)
+            {
+                <div class="col-1">
+                    <label for="id-of-input3" class="custom-checkbox favorite-graph">
+                        <input type="checkbox" id="id-of-input3" class="favorites" />
+                        <i class="fa fa-star fa-stack-1x favorited"></i>
+                        <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
+                    </label>
+                </div>
+
+            }
+            else
+            {
+
+            }
+        }
     </div>
 </div>
 
@@ -88,13 +135,22 @@
     <div class="col">
         <h2>App Users from May 19 to May 25th</h2>
     </div>
-    <div class="col-1">
-        <label for="id-of-input4" class="custom-checkbox favorite-graph">
-            <input type="checkbox" id="id-of-input4" class="favorites" />
-            <i class="fa fa-star fa-stack-1x favorited"></i>
-            <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-        </label>
-    </div>
+    @{
+        if (myAccountModel.isAccountLoggedIn)
+        {
+            <div class="col-1">
+                <label for="id-of-input4" class="custom-checkbox favorite-graph">
+                    <input type="checkbox" id="id-of-input4" class="favorites" />
+                    <i class="fa fa-star fa-stack-1x favorited"></i>
+                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
+                </label>
+            </div>
+        }
+        else
+        {
+
+        }
+    }
 </div>
 
 <div id="viz"></div>
@@ -105,13 +161,22 @@
             Number of App Installs from May 19 to May 25th
         </h2>
     </div>
-    <div class="col-1">
-        <label for="id-of-input4" class="custom-checkbox favorite-graph">
-            <input type="checkbox" id="id-of-input4" class="favorites" />
-            <i class="fa fa-star fa-stack-1x favorited"></i>
-            <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-        </label>
-    </div>
+    @{
+        if (myAccountModel.isAccountLoggedIn)
+        {
+            <div class="col-1">
+                <label for="id-of-input4" class="custom-checkbox favorite-graph">
+                    <input type="checkbox" id="id-of-input4" class="favorites" />
+                    <i class="fa fa-star fa-stack-1x favorited"></i>
+                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
+                </label>
+            </div>
+        }
+        else
+        {
+
+        }
+    }
 </div>
 <div id="viz1"></div>
 
