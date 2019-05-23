@@ -168,6 +168,14 @@
     <Content Include="Content\img\PhotosTaken_MainPage.png" />
     <Content Include="Content\img\PhotosTaken_May19to25_All.png" />
     <Content Include="Content\img\PhotosTaken_May19to25_Ijowa.png" />
+    <Content Include="Content\img\photo\t1.png" />
+    <Content Include="Content\img\photo\t2.png" />
+    <Content Include="Content\img\photo\t3.png" />
+    <Content Include="Content\img\photo\t4.png" />
+    <Content Include="Content\img\photo\t5.png" />
+    <Content Include="Content\img\photo\t6.png" />
+    <Content Include="Content\img\photo\tblur1.png" />
+    <Content Include="Content\img\photo\tblur2.png" />
     <Content Include="Content\img\UsersToday.PNG" />
     <Content Include="Content\img\UsersToday_MainPage.png" />
     <Content Include="Content\img\WeekofMay.PNG" />
