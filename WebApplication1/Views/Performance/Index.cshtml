@@ -1,4 +1,12 @@
-﻿
+﻿@using WebApplication1.Models;
+@model LibraryViewModel
+
+<!doctype html>
+<meta charset="utf-8">
+
+<script src="//d3plus.org/js/d3.js"></script>
+<script src="//d3plus.org/js/d3plus.js"></script>
+
 @{
     ViewBag.Title = "Performance Dashboard";
 }
@@ -53,7 +61,7 @@
 <div class="row mt-3 performance-graphs">
     <div class="col-lg-8 ml-2">
         <h3> Photos Taken <span class="graph-filtered-by date"> from May 19th to May 25th </span></h3>
-        <img class="img-fluid photos_taken" src="~/Content/img/PhotosTaken_May19to25_All.png" />
+        <div id="photos_taken_chart"></div>
     </div>
     <div class="col">
         <h3> Avg Photos Taken <span class="graph-filtered-by"> by Device </span></h3>
@@ -61,3 +69,36 @@
         <p class="align-bottom ml-5 pl-4 text-center"> Avg # of Photos <span class="date"> from May 19th to May 25th</span></p>
     </div>
 </div>
+
+
+
+<script>
+
+    var photosData = [
+    @{
+        foreach (var item in Model.PhotoViewModel.PhotoList)
+        {
+            if (item.ResultIsValid)
+                {
+                var outputString = Html.Raw("{ clinic: \"" + item.ClinicName + "\", Date: \"" + item.RecordedDateTime.ToShortDateString() + "\", value: " + item.Bilirubin + "},");
+                @outputString
+                }
+            }
+    }
+    ]
+
+    photosData.sort((a, b) => (a.Date > b.Date) ? 1 : -1)
+
+    var visualization = d3plus.viz()
+        .container("#photos_taken_chart")
+        .data(photosData)
+        .type("line")
+        .id("clinic")         // key for which our data is unique on
+        .text("clinic")       // key to use for display text
+        .x("Date")
+        .y("value")
+        .height(500)
+        .draw()
+    
+
+</script>
