@@ -12,8 +12,11 @@ namespace WebApplication1.Models
         public string ID { get; set; } = Guid.NewGuid().ToString();
 
         // The user's Clinic Name
-        public string ClinicName { get; set; }
+        public string Clinic { get; set; }
 
+        public DateTime Date { get; set; }
+
+        public int Value { get; set; }
         /// <summary>
         /// Constructor for User Model
         /// Calls to Initialize to set initial settings
@@ -44,9 +47,16 @@ namespace WebApplication1.Models
                 return false;
             }
 
-            ClinicName = data.ClinicName;
+            Clinic = data.Clinic;
+            Date = data.Date;
+            Value = data.Value;
 
             return true;
+        }
+
+        internal object Remove(UserModel dataset)
+        {
+            throw new NotImplementedException();
         }
     }
 }

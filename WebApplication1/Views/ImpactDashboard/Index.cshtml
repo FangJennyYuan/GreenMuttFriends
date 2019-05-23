@@ -1,5 +1,9 @@
 ﻿@using WebApplication1.Models;
-@model List<AppUserDataModel>
+@model UserViewModel
+
+
+
+
 <!doctype html>
 <meta charset="utf-8">
 
@@ -119,12 +123,16 @@
 
     var AppUsersdata = [
 
-
     @{
-        foreach (var item in Model)
+        foreach (var item in Model.UserViewModel.UserList)
         {
-            var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", Date: \"" + item.Date.ToShortDateString() + "\", value: " + item.Value + "},");
-            @outputString
+            if (item.ResultIsValid)
+            {
+                var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", Date: \"" + item.Date.ToShortDateString() + "\", value: " + item.Value + "},");
+                @outputString
+            }
+
+
         }
     }
     ]

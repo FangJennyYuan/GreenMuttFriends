@@ -44,8 +44,8 @@ namespace WebApplication1.Backend
         public UserModel Read(String id)
         {
             // Get the first instance of the record
-            var myData = dataset.First(m => m.ID == id);
-            return myData;
+            var dataset = dataset.First(m => m.ID == id);
+            return dataset;
         }
 
         /// <summary>
@@ -57,13 +57,13 @@ namespace WebApplication1.Backend
         public UserModel Update(UserModel data)
         {
             // Get the first instance of the record
-            var myData = Read(data.ID);
-            if (myData == null)
+            var dataset = Read(data.ID);
+            if (dataset == null)
             {
                 return null;
             }
 
-            myData.Update(data);
+            dataset.Update(data);
             return data;
         }
 
@@ -77,14 +77,14 @@ namespace WebApplication1.Backend
         public Boolean Delete(String id)
         {
             // Get the first instance of the record
-            var myData = Read(id);
-            if (myData == null)
+            var dataset = Read(id);
+            if (dataset == null)
             {
                 return false;
             }
 
-            var myResult = dataset.Remove(myData);
-            return myResult;
+            var myResult = dataset.Remove(dataset);
+            return true;
         }
 
         /// <summary>
@@ -101,8 +101,37 @@ namespace WebApplication1.Backend
         /// </summary>
         public void Initialize()
         {
-            dataset.Add(new UserModel { ClinicName = "Ijora Clinic"});
+            dataset.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/19/2019"), Value = 10 });
+            dataset.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/20/2019"), Value = 8 });
+            dataset.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/21/2019"), Value = 7 });
+            dataset.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/22/2019"), Value = 8 });
+            dataset.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/23/2019"), Value = 6 });
+            dataset.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/24/2019"), Value = 8 });
+            dataset.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/25/2019"), Value = 9 });
 
+            dataset.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/19/2019"), Value = 12 });
+            dataset.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/20/2019"), Value = 4 });
+            dataset.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/21/2019"), Value = 8 });
+            dataset.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/22/2019"), Value = 8 });
+            dataset.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/23/2019"), Value = 7 });
+            dataset.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/24/2019"), Value = 9 });
+            dataset.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/25/2019"), Value = 8 });
+
+            dataset.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/19/2019"), Value = 8 });
+            dataset.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/20/2019"), Value = 9 });
+            dataset.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/21/2019"), Value = 7 });
+            dataset.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/22/2019"), Value = 10 });
+            dataset.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/23/2019"), Value = 8 });
+            dataset.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/24/2019"), Value = 8 });
+            dataset.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/25/2019"), Value = 9 });
+
+            dataset.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/19/2019"), Value = 8 });
+            dataset.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/20/2019"), Value = 10 });
+            dataset.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/21/2019"), Value = 11 });
+            dataset.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/22/2019"), Value = 11 });
+            dataset.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/23/2019"), Value = 12 });
+            dataset.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/24/2019"), Value = 14 });
+            dataset.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/25/2019"), Value = 15 });
         }
     }
 }
