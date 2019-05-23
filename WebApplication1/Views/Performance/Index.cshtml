@@ -107,7 +107,10 @@
         .type("line")
         .id("clinic")         // key for which our data is unique on
         .text("clinic")       // key to use for display text
-        .x("Date")
+        .x({
+            "value": "Date",
+            "grid": { "color": "#ffffff" }
+        })
         .y("value")
         .attrs(attributes)
         .color("hex")
@@ -115,7 +118,12 @@
             "family": "'Century Gothic', Helvetica, Arial, sans-serif",
             "size": 15
         })
-        .axes({ "background": { "color": "#ffffff" } })
+        .axes({
+            "background": {
+                "color": "#ffffff",
+                "stroke": { "width": 0 }
+            }
+        })
         .format({
             "text": function (text, params) {
                 if (text === "value") {
