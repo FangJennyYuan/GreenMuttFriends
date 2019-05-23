@@ -1,5 +1,5 @@
 ﻿@using WebApplication1.Models;
-@model LibraryViewModel
+@model List<TotalPhotosTakenModel>
 
 <!doctype html>
 <meta charset="utf-8">
@@ -76,18 +76,14 @@
 
     var photosData = [
     @{
-        foreach (var item in Model.PhotoViewModel.PhotoList)
+        foreach (var item in Model)
         {
-            if (item.ResultIsValid)
-                {
-                var outputString = Html.Raw("{ clinic: \"" + item.ClinicName + "\", Date: \"" + item.RecordedDateTime.ToShortDateString() + "\", value: " + item.Bilirubin + "},");
-                @outputString
-                }
-            }
+            var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", Date: \"" + item.Date.ToShortDateString() + "\", value: " + item.Value + "},");
+            @outputString
+        }
     }
     ]
 
-    console.log(photosData);
     var attributes = [
         { "clinic": "Ijora Clinic", "hex": "#5FBD73" },
         { "clinic": "Katsina Clinic", "hex": "#5F4892" },
@@ -107,6 +103,6 @@
         .color("hex")
         .height(500)
         .draw()
-    
+
 
 </script>
