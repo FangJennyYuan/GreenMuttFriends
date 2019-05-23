@@ -17,6 +17,8 @@ namespace WebApplication1.Models
         // Whether the user is logged in or not
         public bool isAccountLoggedIn { get; set; } = false;
 
+        public bool isFavouriteLoggedIn { get; set; } = false;
+
         /// <summary>
         /// Constructor for Account Model
         /// Calls to Initialize to set initial settings

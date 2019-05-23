@@ -1,4 +1,4 @@
-﻿    var AppUsersdata = [
+﻿    var AppUsersdataOld = [
         {clinic: "Rawayau Clinic", Date: "05/19/2019", value: 10 },
         {clinic: "Rawayau Clinic", Date: "05/20/2019", value: 8 },
         {clinic: "Rawayau Clinic", Date: "05/21/2019", value: 7 },
