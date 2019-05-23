@@ -134,6 +134,7 @@
     <Compile Include="Models\AppUserDataModel.cs" />
     <Compile Include="Models\LibraryViewModel.cs" />
     <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Models\TotalPhotosTakenModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Models\PhotoModel.cs" />
