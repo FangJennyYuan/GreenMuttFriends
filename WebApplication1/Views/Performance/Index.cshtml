@@ -111,10 +111,20 @@
         .y("value")
         .attrs(attributes)
         .color("hex")
-       .font({
-         "family": "'Century Gothic', Helvetica, Arial, sans-serif",
-         "size": 15
-       })
+        .font({
+            "family": "'Century Gothic', Helvetica, Arial, sans-serif",
+            "size": 15
+        })
+        .axes({ "background": { "color": "#ffffff" } })
+        .format({
+            "text": function (text, params) {
+                if (text === "value") {
+                    return "Total Photos Taken";
+                } else {
+                    return d3plus.string.title(text, params);
+                }
+            }
+        })
         .height(500)
         .draw()
 
