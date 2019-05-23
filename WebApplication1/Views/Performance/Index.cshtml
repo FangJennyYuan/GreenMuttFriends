@@ -77,15 +77,15 @@
     @{
         foreach (var item in Model)
         {
-            var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", Date: \"" + item.Date.ToShortDateString() + "\", value: " + item.Value + "},");
+            var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", Date: \"" + item.Date.ToShortDateString() + "\", value: " + item.Value + ", width: 3 },");
             @outputString
         }
     }
     ],
-        start = new Date("05/17/2019"),
-        end = new Date("05/23/2019"),
+        start = moment().subtract(7, 'days'),
+        end = moment(),
         currentPhotoData = photosData.filter(d => {
-            var date = new Date(d.Date);
+            var date = new moment(d.Date);
             console.log(date);
             return (start <= date && date <= end);
         });
@@ -99,14 +99,40 @@
 
     var visualization = d3plus.viz()
         .container("#photos_taken_chart")
-        .data(currentPhotoData)
+        .data({
+            "value": currentPhotoData,
+            "stroke": { "width": 3 }
+
+        })
         .type("line")
         .id("clinic")         // key for which our data is unique on
         .text("clinic")       // key to use for display text
-        .x("Date")
+        .x({
+            "value": "Date",
+            "grid": { "color": "#ffffff" }
+        })
         .y("value")
         .attrs(attributes)
         .color("hex")
+        .font({
+            "family": "'Century Gothic', Helvetica, Arial, sans-serif",
+            "size": 15
+        })
+        .axes({
+            "background": {
+                "color": "#ffffff",
+                "stroke": { "width": 0 }
+            }
+        })
+        .format({
+            "text": function (text, params) {
+                if (text === "value") {
+                    return "Total Photos Taken";
+                } else {
+                    return d3plus.string.title(text, params);
+                }
+            }
+        })
         .height(500)
         .draw()
 
