@@ -23,13 +23,13 @@
         {clinic: "Katsina Clinic", Date: "05/24/2019", value: 8 },
         {clinic: "Katsina Clinic", Date: "05/25/2019", value: 9 },
 
-        {clinic: "Ijowa Clinic", Date: "05/19/2019", value: 8 },
-        {clinic: "Ijowa Clinic", Date: "05/20/2019", value: 10 },
-        {clinic: "Ijowa Clinic", Date: "05/21/2019", value: 11 },
-        {clinic: "Ijowa Clinic", Date: "05/22/2019", value: 11 },
-        {clinic: "Ijowa Clinic", Date: "05/23/2019", value: 12 },
-        {clinic: "Ijowa Clinic", Date: "05/24/2019", value: 14 },
-        {clinic: "Ijowa Clinic", Date: "05/25/2019", value: 15 },
+        {clinic: "Ijora Clinic", Date: "05/19/2019", value: 8 },
+        {clinic: "Ijora Clinic", Date: "05/20/2019", value: 10 },
+        {clinic: "Ijora Clinic", Date: "05/21/2019", value: 11 },
+        {clinic: "Ijora Clinic", Date: "05/22/2019", value: 11 },
+        {clinic: "Ijora Clinic", Date: "05/23/2019", value: 12 },
+        {clinic: "Ijora Clinic", Date: "05/24/2019", value: 14 },
+        {clinic: "Ijora Clinic", Date: "05/25/2019", value: 15 },
 
 ]
 
