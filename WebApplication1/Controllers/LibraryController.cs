@@ -31,8 +31,6 @@ namespace WebApplication1.Controllers
 
             var myData = PhotoBackend.Instance.Read(id);
             return View(myData);
-
-  //          return View();
         }
     }
 }
