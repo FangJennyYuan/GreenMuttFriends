@@ -73,6 +73,7 @@
 
 
 <script>
+    //Pull Photos Data
     var photosData = [
     @{
         foreach (var item in Model)
@@ -90,6 +91,10 @@
             return (start <= date && date <= end);
         });
 
+    //Sort Data by Clinic
+    currentPhotoData.sort((a, b) => (a.clinic > b.clinic) ? 1 : ((b.clinic > a.clinic) ? -1 : 0)); 
+
+    //Create color attributes for chart
     var attributes = [
         { "clinic": "Ijora Clinic", "hex": "#5FBD73" },
         { "clinic": "Katsina Clinic", "hex": "#5F4892" },
@@ -97,6 +102,7 @@
         { "clinic": "Rawayau Clinic", "hex": "#1C2C8C" }
     ]
 
+    //Draw Photos Taken Chart
     var visualization = d3plus.viz()
         .container("#photos_taken_chart")
         .data({

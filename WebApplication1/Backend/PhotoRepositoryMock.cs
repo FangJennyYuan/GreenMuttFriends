@@ -1008,6 +1008,118 @@ namespace WebApplication1.Backend
                 OSVersion = "4.1",
                 ImageURL = "/Content/img/photo/tblur14.png"
             });
+
+            dataset.Add(new PhotoModel
+            {
+                ClinicName = "Mashegu Clinic",
+                ResultIsValid = true,
+                Bilirubin = "15",
+                RecordedDateTime = new DateTime(2019, 5, 19, 10, 2, 43),
+                PhoneNumber = "860-209-8891",
+                UserID = "020",
+                DeviceType = "Tecno Mobile",
+                OSVersion = "5.0",
+                ImageURL = "/Content/img/photo/t4.png"
+            });
+
+            dataset.Add(new PhotoModel
+            {
+                ClinicName = "Mashegu Clinic",
+                ResultIsValid = true,
+                Bilirubin = "15",
+                RecordedDateTime = new DateTime(2019, 5, 22, 12, 50, 3),
+                PhoneNumber = "860-209-8891",
+                UserID = "020",
+                DeviceType = "Tecno Mobile",
+                OSVersion = "5.1",
+                ImageURL = "/Content/img/photo/t2.png"
+            });
+            dataset.Add(new PhotoModel
+            {
+                ClinicName = "Mashegu Clinic",
+                ResultIsValid = true,
+                Bilirubin = "25",
+                RecordedDateTime = new DateTime(2019, 5, 23, 9, 21, 3),
+                PhoneNumber = "860-209-8891",
+                UserID = "020",
+                DeviceType = "Tecno Mobile",
+                OSVersion = "5.1",
+                ImageURL = "/Content/img/photo/t6.png"
+            });
+
+            dataset.Add(new PhotoModel
+            {
+                ClinicName = "Mashegu Clinic",
+                ResultIsValid = true,
+                Bilirubin = "15",
+                RecordedDateTime = new DateTime(2019, 5, 18, 12, 50, 3),
+                PhoneNumber = "860-209-8891",
+                UserID = "020",
+                DeviceType = "Tecno Mobile",
+                OSVersion = "5.1",
+                ImageURL = "/Content/img/photo/t2.png"
+            });
+
+            dataset.Add(new PhotoModel
+            {
+                ClinicName = "Mashegu Clinic",
+                ResultIsValid = true,
+                Bilirubin = "25",
+                RecordedDateTime = new DateTime(2019, 5, 17, 10, 5, 0),
+                PhoneNumber = "860-209-8891",
+                UserID = "020",
+                DeviceType = "Tecno Mobile",
+                OSVersion = "5.1",
+                ImageURL = "/Content/img/photo/t6.png"
+            });
+            dataset.Add(new PhotoModel
+            {
+                ClinicName = "Ijora Clinic",
+                ResultIsValid = true,
+                Bilirubin = "15",
+                RecordedDateTime = new DateTime(2019, 5, 17, 13, 2, 43),
+                PhoneNumber = "815-991-1111",
+                UserID = "003",
+                DeviceType = "Samsung Buddy",
+                OSVersion = "4.1",
+                ImageURL = "/Content/img/photo/t3.png"
+            });
+            dataset.Add(new PhotoModel
+            {
+                ClinicName = "Ijora Clinic",
+                ResultIsValid = true,
+                Bilirubin = "30",
+                RecordedDateTime = new DateTime(2019, 5, 18, 16, 32, 21),
+                PhoneNumber = "815-991-1111",
+                UserID = "003",
+                DeviceType = "Samsung Buddy",
+                OSVersion = "4.1",
+                ImageURL = "/Content/img/photo/t6.png"
+            });
+            dataset.Add(new PhotoModel
+            {
+                ClinicName = "Ijora Clinic",
+                ResultIsValid = true,
+                Bilirubin = "15",
+                RecordedDateTime = new DateTime(2019, 5, 19, 13, 2, 41),
+                PhoneNumber = "815-991-1111",
+                UserID = "003",
+                DeviceType = "Samsung Buddy",
+                OSVersion = "4.1",
+                ImageURL = "/Content/img/photo/t3.png"
+            });
+            dataset.Add(new PhotoModel
+            {
+                ClinicName = "Ijora Clinic",
+                ResultIsValid = true,
+                Bilirubin = "20",
+                RecordedDateTime = new DateTime(2019, 5, 20, 13, 00, 6),
+                PhoneNumber = "815-991-1111",
+                UserID = "003",
+                DeviceType = "Samsung Buddy",
+                OSVersion = "4.1",
+                ImageURL = "/Content/img/photo/t5.png"
+            });
             // Sort dataset by RecordedDateTime
             OrderByDate();
         }
