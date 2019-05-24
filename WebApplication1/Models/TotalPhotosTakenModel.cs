@@ -15,5 +15,8 @@ namespace WebApplication1.Models
 
         // The total photos taken
         public int Value { get; set; }
+
+        //Total distinct users
+        public int UserCount { get; set; }
     }
 }
