@@ -87,7 +87,7 @@
             else{
                 photosTakenAmp = item.Value;
             }
-            var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", Date: \"" + item.Date.ToShortDateString() + "\", value: " + photosTakenAmp + ", width: 3 },");
+            var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", Date: \"" + item.Date.ToShortDateString() + "\", value: " + photosTakenAmp + ", userCount: " + item.UserCount + " },");
             @outputString
         }
     }
@@ -117,7 +117,6 @@
         .data({
             "value": currentPhotoData,
             "stroke": { "width": 3 }
-
         })
         .type("line")
         .id("clinic")         // key for which our data is unique on
@@ -148,6 +147,7 @@
                 }
             }
         })
+        .tooltip(["date", "value", "userCount"])
         .height(485)
         .draw()
 
