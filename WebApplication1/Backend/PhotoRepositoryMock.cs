@@ -946,7 +946,7 @@ namespace WebApplication1.Backend
                 UserID = "010",
                 DeviceType = "Samsung Buddy",
                 OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur14.png"
+                ImageURL = "/Content/img/photo/tblur1.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -958,7 +958,7 @@ namespace WebApplication1.Backend
                 UserID = "019",
                 DeviceType = "Samsung Buddy",
                 OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/tblur14.png"
+                ImageURL = "/Content/img/photo/tblur1.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -1006,7 +1006,7 @@ namespace WebApplication1.Backend
                 UserID = "019",
                 DeviceType = "Samsung Buddy",
                 OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/tblur14.png"
+                ImageURL = "/Content/img/photo/tblur1.png"
             });
 
             dataset.Add(new PhotoModel
