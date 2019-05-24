@@ -115,9 +115,38 @@
 
 
 <script>
+
     //Pull Photos Data on Week
     $("#week").click(
         function () {
+            currentPhotoData = getDatabyDate(moment().subtract(7, 'days'), moment());
+            console.log(currentPhotoData);
+
+            //Remove old graph
+            $("#photos_taken_chart").empty();
+
+            //Draw new Graph
+            drawPhotosTakenGraph(currentPhotoData);
+        }
+    );
+
+    //Pull Photos Data on Month
+    $("#month").click(
+        function () {
+            currentPhotoData = getDatabyDate(moment().startOf('month'), moment());
+            console.log(currentPhotoData);
+
+            //Remove old graph
+            $("#photos_taken_chart").empty();
+
+            //Draw new Graph
+            drawPhotosTakenGraph(currentPhotoData);
+        }
+    );
+    //Default view
+    $('#week').trigger('click');
+
+    function getDatabyDate(start, end) {
             photosData = [
             @{
                 foreach (var item in Model)
@@ -136,23 +165,14 @@
                 }
             }
             ],
-                start = moment().subtract(7, 'days'),
-                end = moment(),
-                currentPhotoData = photosData.filter(d => {
-                    var date = new moment(d.Date);
-                    return (start <= date && date <= end);
-                });
-            console.log(currentPhotoData);
+            start = start,
+            end = end,
+            currentPhotoData = photosData.filter(d => {
+                var date = new moment(d.Date);
+                return (start <= date && date <= end);
+            });
+        return currentPhotoData;
+    };
 
-            //Remove old graph
-            $("#photos_taken_chart").empty();
-
-            //Draw new Graph
-            drawPhotosTakenGraph(currentPhotoData);
-        }
-    );
-
-    //Default view
-    $('#week').trigger('click');
     
 </script>
