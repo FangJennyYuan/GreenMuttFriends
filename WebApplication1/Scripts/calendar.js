@@ -83,7 +83,8 @@ $(function () {
         endDate: moment()
     }, function (start, end, label) {
         updateGraphTitlesWithDate(start, end);
-    });
+        });
+    updateGraphTitlesWithDate(moment().subtract(6, 'days'), moment());
 });
 
 /**Update Date Range on Library Calendar*/

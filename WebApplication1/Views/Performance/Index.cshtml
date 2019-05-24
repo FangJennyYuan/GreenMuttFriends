@@ -14,6 +14,7 @@
 @Scripts.Render("~/Scripts/moment.js")
 @Scripts.Render("~/Scripts/daterangepicker.js")
 @Scripts.Render("~/Scripts/calendar.js")
+@Scripts.Render("~/Scripts/photostakengraph.js")
 
 <h1>
     Performance Dashboard
@@ -114,103 +115,44 @@
 
 
 <script>
-    //Pull Photos Data
-    var photosData = [
-    @{
-        foreach (var item in Model)
-        {
-            var photosTakenAmp = 0;
-            //Just amplifying Ijora Clinic Results For Demo
-            if(item.Clinic == "Ijora Clinic")
-            {
-                photosTakenAmp = Convert.ToInt32(item.Value * 1.2);
-            }
-            else{
-                photosTakenAmp = item.Value;
-            }
-            var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", Date: \"" + item.Date.ToShortDateString() + "\", value: " + photosTakenAmp + ", userCount: " + item.UserCount + " },");
-            @outputString
-        }
-    }
-    ],
-        start = moment().subtract(7, 'days'),
-        end = moment(),
-        currentPhotoData = photosData.filter(d => {
-            var date = new moment(d.Date);
-            return (start <= date && date <= end);
-        });
-
+    //Pull Photos Data on Week
     $("#week").click(
         function () {
-
-            photosData.filter(function (d) {
-                console.log("Clicked " + d.Date);
-                return d.Date > "5/20/2019";
-            });
-        }
-
-    );
-
-    //Sort Data by Clinic
-    currentPhotoData.sort((a, b) => (a.clinic > b.clinic) ? 1 : ((b.clinic > a.clinic) ? -1 : 0)); 
-
-    //Create color attributes for chart
-    var attributes = [
-        { "clinic": "Ijora Clinic", "hex": "#5FBD73" },
-        { "clinic": "Katsina Clinic", "hex": "#6A5599" },
-        { "clinic": "Mashegu Clinic", "hex": "#71BDD3" },
-        { "clinic": "Rawayau Clinic", "hex": "#1C2C8C" }
-    ]
-
-    //Draw Photos Taken Chart
-    var visualization = d3plus.viz()
-        .container("#photos_taken_chart")
-        .data({
-            "value": currentPhotoData,
-            "stroke": { "width": 3 }
-        })
-        .type("line")
-        .id("clinic")         // key for which our data is unique on
-        .text("clinic")       // key to use for display text
-        .x({
-            "value": "Date",
-            "grid": { "color": "#ffffff" }
-        })
-        .y("value")
-        .attrs(attributes)
-        .color("hex")
-        .font({
-            "family": "'Century Gothic', Helvetica, Arial, sans-serif",
-            "size": 15
-        })
-        .axes({
-            "background": {
-                "color": "#ffffff",
-                "stroke": { "width": 0 }
-            }
-        })
-        .format({
-            "text": function (text, params) {
-                if (text === "value") {
-                    return "Total Photos Taken";
-                } else if (text === "userCount") {
-                    return "Active Users";
-                } else {
-                    return d3plus.string.title(text, params);
+            photosData = [
+            @{
+                foreach (var item in Model)
+                {
+                    var photosTakenAmp = 0;
+                    //Just amplifying Ijora Clinic Results For Demo
+                    if(item.Clinic == "Ijora Clinic")
+                    {
+                        photosTakenAmp = Convert.ToInt32(item.Value * 1.6);
+                    }
+                    else{
+                        photosTakenAmp = item.Value;
+                    }
+                    var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", Date: \"" + item.Date.ToShortDateString() + "\", value: " + photosTakenAmp + ", userCount: " + item.UserCount + " },");
+                    @outputString
                 }
             }
-        })
-        .tooltip(["date", "value", "userCount"])
-        .ui([{
-            "method": "y",
-            "value": ["value", "userCount"]
-        }])
-        .legend({
-            "filters": true,
-            "labels": true
-        })
-        .height(485)
-        .draw()
+            ],
+                start = moment().subtract(7, 'days'),
+                end = moment(),
+                currentPhotoData = photosData.filter(d => {
+                    var date = new moment(d.Date);
+                    return (start <= date && date <= end);
+                });
+            console.log(currentPhotoData);
 
+            //Remove old graph
+            $("#photos_taken_chart").empty();
 
+            //Draw new Graph
+            drawPhotosTakenGraph(currentPhotoData);
+        }
+    );
+
+    //Default view
+    $('#week').trigger('click');
+    
 </script>
