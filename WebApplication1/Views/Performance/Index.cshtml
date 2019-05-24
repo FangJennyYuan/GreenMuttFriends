@@ -60,11 +60,52 @@
 
 <div class="row mt-3 performance-graphs">
     <div class="col-lg-7 ml-2">
-        <h3> Photos Taken <span class="graph-filtered-by date"> from May 19th to May 25th </span></h3>
+        <div class="row">
+            <div class="col">
+                <h3> Photos Taken <span class="graph-filtered-by date"> from May 19th to May 25th </span></h3>
+            </div>
+            <div class="col-1">
+                @{
+                    var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
+                    if (myAccountModel.isAccountLoggedIn)
+                    {
+                        <label for="id-of-input7" class="custom-checkbox favorite-graph">
+                            <input type="checkbox" id="id-of-input7" class="favorites" />
+                            <i class="fa fa-star fa-stack-1x favorited"></i>
+                            <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
+                        </label>
+                    }
+                    else
+                    {
+
+                    }
+                }
+            </div>
+        </div>
         <div id="photos_taken_chart"></div>
     </div>
     <div class="col">
-        <h3> Avg Photos Taken <span class="graph-filtered-by"> by Device </span></h3>
+        <div class="row">
+            <div class="col">
+                <h3> Avg Photos Taken <span class="graph-filtered-by"> by Device </span></h3>
+            </div>
+            <div class="col-1">
+                @{
+                    if (myAccountModel.isAccountLoggedIn)
+                    {
+                        <label for="id-of-input8" class="custom-checkbox favorite-graph">
+                            <input type="checkbox" id="id-of-input8" class="favorites" />
+                            <i class="fa fa-star fa-stack-1x favorited"></i>
+                            <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
+                        </label>
+                    }
+                    else
+                    {
+
+                    }
+                }
+            </div>
+        </div>
         <img class="img-fluid photos_taken" src="~/Content/img/AvgPhotosTakenByDevice_May19to25_All.png" />
         <p class="align-bottom ml-5 pl-4 text-center"> Avg # of Photos <span class="date"> from May 19th to May 25th</span></p>
     </div>
