@@ -137,9 +137,19 @@
         end = moment(),
         currentPhotoData = photosData.filter(d => {
             var date = new moment(d.Date);
-            console.log(date);
             return (start <= date && date <= end);
         });
+
+    $("#week").click(
+        function () {
+
+            photosData.filter(function (d) {
+                console.log("Clicked " + d.Date);
+                return d.Date > "5/20/2019";
+            });
+        }
+
+    );
 
     //Sort Data by Clinic
     currentPhotoData.sort((a, b) => (a.clinic > b.clinic) ? 1 : ((b.clinic > a.clinic) ? -1 : 0)); 
@@ -195,6 +205,10 @@
             "method": "y",
             "value": ["value", "userCount"]
         }])
+        .legend({
+            "filters": true,
+            "labels": true
+        })
         .height(485)
         .draw()
 
