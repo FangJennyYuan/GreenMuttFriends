@@ -183,6 +183,8 @@
             "text": function (text, params) {
                 if (text === "value") {
                     return "Total Photos Taken";
+                } else if (text === "userCount") {
+                    return "Active Users";
                 } else {
                     return d3plus.string.title(text, params);
                 }
