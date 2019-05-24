@@ -59,7 +59,7 @@
 </div>
 
 <div class="row mt-3 performance-graphs">
-    <div class="col-lg-8 ml-2">
+    <div class="col-lg-7 ml-2">
         <h3> Photos Taken <span class="graph-filtered-by date"> from May 19th to May 25th </span></h3>
         <div id="photos_taken_chart"></div>
     </div>
@@ -73,11 +73,21 @@
 
 
 <script>
+    //Pull Photos Data
     var photosData = [
     @{
         foreach (var item in Model)
         {
-            var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", Date: \"" + item.Date.ToShortDateString() + "\", value: " + item.Value + ", width: 3 },");
+            var photosTakenAmp = 0;
+            //Just amplifying Ijora Clinic Results For Demo
+            if(item.Clinic == "Ijora Clinic")
+            {
+                photosTakenAmp = Convert.ToInt32(item.Value * 1.2);
+            }
+            else{
+                photosTakenAmp = item.Value;
+            }
+            var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", Date: \"" + item.Date.ToShortDateString() + "\", value: " + photosTakenAmp + ", width: 3 },");
             @outputString
         }
     }
@@ -90,13 +100,18 @@
             return (start <= date && date <= end);
         });
 
+    //Sort Data by Clinic
+    currentPhotoData.sort((a, b) => (a.clinic > b.clinic) ? 1 : ((b.clinic > a.clinic) ? -1 : 0)); 
+
+    //Create color attributes for chart
     var attributes = [
         { "clinic": "Ijora Clinic", "hex": "#5FBD73" },
-        { "clinic": "Katsina Clinic", "hex": "#5F4892" },
+        { "clinic": "Katsina Clinic", "hex": "#6A5599" },
         { "clinic": "Mashegu Clinic", "hex": "#71BDD3" },
         { "clinic": "Rawayau Clinic", "hex": "#1C2C8C" }
     ]
 
+    //Draw Photos Taken Chart
     var visualization = d3plus.viz()
         .container("#photos_taken_chart")
         .data({
@@ -133,7 +148,7 @@
                 }
             }
         })
-        .height(500)
+        .height(485)
         .draw()
 
 
