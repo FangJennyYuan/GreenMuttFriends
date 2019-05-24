@@ -37,13 +37,13 @@ namespace WebApplication1.Controllers
             myData.Add(new AppUserDataModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/24/2019"), Value = 8 });
             myData.Add(new AppUserDataModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/25/2019"), Value = 9 });
 
-            myData.Add(new AppUserDataModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/19/2019"), Value = 8 });
-            myData.Add(new AppUserDataModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/20/2019"), Value = 10 });
-            myData.Add(new AppUserDataModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/21/2019"), Value = 11 });
-            myData.Add(new AppUserDataModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/22/2019"), Value = 11 });
-            myData.Add(new AppUserDataModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/23/2019"), Value = 12 });
-            myData.Add(new AppUserDataModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/24/2019"), Value = 14 });
-            myData.Add(new AppUserDataModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/25/2019"), Value = 15 });
+            myData.Add(new AppUserDataModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/19/2019"), Value = 8 });
+            myData.Add(new AppUserDataModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/20/2019"), Value = 10 });
+            myData.Add(new AppUserDataModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/21/2019"), Value = 11 });
+            myData.Add(new AppUserDataModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/22/2019"), Value = 11 });
+            myData.Add(new AppUserDataModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/23/2019"), Value = 12 });
+            myData.Add(new AppUserDataModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/24/2019"), Value = 14 });
+            myData.Add(new AppUserDataModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/25/2019"), Value = 15 });
 
             return View(myData);
         }
