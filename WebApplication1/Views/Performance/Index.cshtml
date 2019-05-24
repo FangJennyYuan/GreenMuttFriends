@@ -191,6 +191,10 @@
             }
         })
         .tooltip(["date", "value", "userCount"])
+        .ui([{
+            "method": "y",
+            "value": ["value", "userCount"]
+        }])
         .height(485)
         .draw()
 
