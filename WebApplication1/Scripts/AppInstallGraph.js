@@ -1,4 +1,4 @@
-﻿function drawAppUsersGraph(NumAppInstallData) {
+﻿function drawInstallGraph(NumAppInstallData) {
     var attributes = [
         { "clinic": "Ijora Clinic", "hex": "#5FBD73" },
         { "clinic": "Katsina Clinic", "hex": "#6A5599" },

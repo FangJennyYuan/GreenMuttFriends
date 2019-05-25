@@ -1,4 +1,4 @@
-﻿function drawAppUsersGraph(AppUsersdata) {
+﻿function drawAppUsersGraph(AppUsersdata, viz) {
     var attributes = [
         { "clinic": "Ijora Clinic", "hex": "#5FBD73" },
         { "clinic": "Katsina Clinic", "hex": "#6A5599" },
@@ -6,7 +6,7 @@
         { "clinic": "Rawayau Clinic", "hex": "#1C2C8C" }
     ]
     var visualization = d3plus.viz()
-        .container("#viz")
+        .container(viz)
         .data({
             "value": AppUsersdata,
             "stroke": { "width": 3 }
