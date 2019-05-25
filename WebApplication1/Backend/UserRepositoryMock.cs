@@ -11,7 +11,7 @@ namespace WebApplication1.Backend
     /// </summary>
     public class UserRepositoryMock : IUserRepository
     {
-        public List<UserModel> dataset = new List<UserModel>();
+        public List<UserModel> MyData = new List<UserModel>();
 
         /// <summary>
         /// Constructor for User Repository
@@ -31,7 +31,7 @@ namespace WebApplication1.Backend
         /// <returns>return the passed in log item</returns>
         public UserModel Create(UserModel data)
         {
-            dataset.Add(data);
+            MyData.Add(data);
             return data;
         }
 
@@ -44,8 +44,8 @@ namespace WebApplication1.Backend
         public UserModel Read(String id)
         {
             // Get the first instance of the record
-            var myData = dataset.First(m => m.ID == id);
-            return myData;
+            var dataset = MyData.First(m => m.ID == id);
+            return dataset;
         }
 
         /// <summary>
@@ -57,13 +57,13 @@ namespace WebApplication1.Backend
         public UserModel Update(UserModel data)
         {
             // Get the first instance of the record
-            var myData = Read(data.ID);
-            if (myData == null)
+            var dataset = Read(data.ID);
+            if (dataset == null)
             {
                 return null;
             }
 
-            myData.Update(data);
+            dataset.Update(data);
             return data;
         }
 
@@ -77,14 +77,13 @@ namespace WebApplication1.Backend
         public Boolean Delete(String id)
         {
             // Get the first instance of the record
-            var myData = Read(id);
-            if (myData == null)
+            var dataset = Read(id);
+            if (dataset == null)
             {
                 return false;
             }
-
-            var myResult = dataset.Remove(myData);
-            return myResult;
+            
+            return true;
         }
 
         /// <summary>
@@ -93,7 +92,7 @@ namespace WebApplication1.Backend
         /// <returns>a list of all the items in the data store</returns>
         public List<UserModel> Index()
         {
-            return dataset;
+            return MyData;
         }
 
         /// <summary>
@@ -101,8 +100,39 @@ namespace WebApplication1.Backend
         /// </summary>
         public void Initialize()
         {
-            dataset.Add(new UserModel { ClinicName = "Ijora Clinic"});
 
+
+            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/19/2019"), Value = 10 });
+            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/20/2019"), Value = 8 });
+            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/21/2019"), Value = 7 });
+            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/22/2019"), Value = 8 });
+            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/23/2019"), Value = 6 });
+            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/24/2019"), Value = 8 });
+            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/25/2019"), Value = 9 });
+
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/19/2019"), Value = 12 });
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/20/2019"), Value = 4 });
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/21/2019"), Value = 8 });
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/22/2019"), Value = 8 });
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/23/2019"), Value = 7 });
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/24/2019"), Value = 9 });
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/25/2019"), Value = 8 });
+
+            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/19/2019"), Value = 8 });
+            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/20/2019"), Value = 9 });
+            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/21/2019"), Value = 7 });
+            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/22/2019"), Value = 10 });
+            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/23/2019"), Value = 8 });
+            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/24/2019"), Value = 8 });
+            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/25/2019"), Value = 9 });
+
+            MyData.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/19/2019"), Value = 8 });
+            MyData.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/20/2019"), Value = 10 });
+            MyData.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/21/2019"), Value = 11 });
+            MyData.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/22/2019"), Value = 11 });
+            MyData.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/23/2019"), Value = 12 });
+            MyData.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/24/2019"), Value = 14 });
+            MyData.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/25/2019"), Value = 15 });
         }
     }
 }
