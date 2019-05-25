@@ -42,67 +42,76 @@
         <img src="~/Content/img/Improvement.PNG" class="mx-auto d-block img-fluid" />
     </div>
     @{var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
-        if (myAccountModel.isAccountLoggedIn){
+        if (myAccountModel.isAccountLoggedIn)
+        {
             <div class="col-1">
                 <label for="id-of-input" class="custom-checkbox favorite-graph">
                     <input type="checkbox" id="id-of-input" class="favorites" />
                     <i class="fa fa-star fa-stack-1x favorited"></i>
                     <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                 </label>
-            </div>}else{}}
+            </div>}
+        else { }}
 
     <div class="col">
         <img src="~/Content/img/AvgUsers.PNG" class="mx-auto d-block img-fluid " />
     </div>
-    @{if (myAccountModel.isAccountLoggedIn){
+    @{if (myAccountModel.isAccountLoggedIn)
+        {
             <div class="col-1">
                 <label for="id-of-input1" class="custom-checkbox favorite-graph">
                     <input type="checkbox" id="id-of-input1" class="favorites" />
                     <i class="fa fa-star fa-stack-1x favorited"></i>
                     <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                 </label>
-            </div>}else{}}
+            </div>}
+        else { }}
     <div class="col">
         <img src="~/Content/img/AvgInstalls.PNG" class="mx-auto d-block img-fluid " />
     </div>
-    @{if (myAccountModel.isAccountLoggedIn){
+    @{if (myAccountModel.isAccountLoggedIn)
+        {
             <div class="col-1">
                 <label for="id-of-input2" class="custom-checkbox favorite-graph">
                     <input type="checkbox" id="id-of-input2" class="favorites" />
                     <i class="fa fa-star fa-stack-1x favorited"></i>
                     <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                 </label>
-            </div>}else{}}
+            </div>}
+        else { }}
 </div>
 
-<div id="Graph">
-    <div class="row">
-        <div class="col">
-            <img src="~/Content/img/WeekofMay.PNG" class="mx-auto d-block img-fluid " />
-        </div>
-        @{if (myAccountModel.isAccountLoggedIn) {
-                <div class="col-1">
-                    <label for="id-of-input3" class="custom-checkbox favorite-graph">
-                        <input type="checkbox" id="id-of-input3" class="favorites" />
-                        <i class="fa fa-star fa-stack-1x favorited"></i>
-                        <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-                    </label>
-                </div>}else{}}
+
+<div class="row">
+    <div class="col">
+        <h3> Photos Taken <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
     </div>
+    @{if (myAccountModel.isAccountLoggedIn)
+        {
+            <div class="col-1">
+                <label for="id-of-input3" class="custom-checkbox favorite-graph">
+                    <input type="checkbox" id="id-of-input3" class="favorites" />
+                    <i class="fa fa-star fa-stack-1x favorited"></i>
+                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
+                </label>
+            </div>}
+        else { }}
 </div>
 
 <div class="row">
     <div class="col">
         <h3> App Users <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
     </div>
-    @{if (myAccountModel.isAccountLoggedIn){
+    @{if (myAccountModel.isAccountLoggedIn)
+        {
             <div class="col-1">
                 <label for="id-of-input4" class="custom-checkbox favorite-graph">
                     <input type="checkbox" id="id-of-input4" class="favorites" />
                     <i class="fa fa-star fa-stack-1x favorited"></i>
                     <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                 </label>
-            </div>}else{}}
+            </div>}
+        else { }}
 </div>
 
 <div id="viz"></div>
@@ -111,19 +120,21 @@
     <div class="col">
         <h3> Number of App Installs <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
     </div>
-    @{if (myAccountModel.isAccountLoggedIn){
+    @{if (myAccountModel.isAccountLoggedIn)
+        {
             <div class="col-1">
                 <label for="id-of-input4" class="custom-checkbox favorite-graph">
                     <input type="checkbox" id="id-of-input4" class="favorites" />
                     <i class="fa fa-star fa-stack-1x favorited"></i>
                     <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                 </label>
-            </div>}else{}}
+            </div>}
+        else { }}
 </div>
 <div id="viz1"></div>
 
 <script>
-    var AppUsersdata = [
+    var AppUsersData = [
     @{
         foreach (var item in Model.UserViewModel.UserList)
         {
@@ -133,6 +144,7 @@
     }
     ]
 
-    $('#week').click(drawAppUsersGraph(AppUsersdata, "#viz"));
+    $('#week').click(drawAppUsersGraph(AppUsersData, "#viz"));
     $('#week').click(drawAppUsersGraph(NumAppInstallData, "#viz1"));
+    
 </script>
