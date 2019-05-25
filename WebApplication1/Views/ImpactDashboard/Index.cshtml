@@ -22,10 +22,10 @@
 
 <div class="row date-filter mt-3">
     <div class="col-lg-1">
-        <button type="button" id="week" onclick="myWeekFunction()"> Week</button>
+        <button type="button" id="week" onclick="getWeeksDate()"> Week</button>
     </div>
     <div class="col-lg-1 mr-3">
-        <button type="button" id="month" onclick="myMonthFunction()"> Month</button>
+        <button type="button" id="month" onclick="getMonthsDate()"> Month</button>
     </div>
     <div class="col-lg-1">
         <button type="button" id="all-date" onclick="getYearsDate()"> All</button>
@@ -41,70 +41,38 @@
     <div class="col">
         <img src="~/Content/img/Improvement.PNG" class="mx-auto d-block img-fluid" />
     </div>
-
-    @{
-        var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
-        if (myAccountModel.isAccountLoggedIn)
-        {
+    @{var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
+        if (myAccountModel.isAccountLoggedIn){
             <div class="col-1">
                 <label for="id-of-input" class="custom-checkbox favorite-graph">
                     <input type="checkbox" id="id-of-input" class="favorites" />
                     <i class="fa fa-star fa-stack-1x favorited"></i>
                     <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                 </label>
-            </div>
-        }
-        else
-        {
-
-        }
-    }
+            </div>}else{}}
 
     <div class="col">
         <img src="~/Content/img/AvgUsers.PNG" class="mx-auto d-block img-fluid " />
     </div>
-
-
-    @{
-        if (myAccountModel.isAccountLoggedIn)
-        {
+    @{if (myAccountModel.isAccountLoggedIn){
             <div class="col-1">
                 <label for="id-of-input1" class="custom-checkbox favorite-graph">
                     <input type="checkbox" id="id-of-input1" class="favorites" />
                     <i class="fa fa-star fa-stack-1x favorited"></i>
                     <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                 </label>
-            </div>
-        }
-        else
-        {
-
-        }
-    }
-
-
+            </div>}else{}}
     <div class="col">
         <img src="~/Content/img/AvgInstalls.PNG" class="mx-auto d-block img-fluid " />
     </div>
-
-
-    @{
-        if (myAccountModel.isAccountLoggedIn)
-        {
+    @{if (myAccountModel.isAccountLoggedIn){
             <div class="col-1">
                 <label for="id-of-input2" class="custom-checkbox favorite-graph">
                     <input type="checkbox" id="id-of-input2" class="favorites" />
                     <i class="fa fa-star fa-stack-1x favorited"></i>
                     <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                 </label>
-            </div>
-        }
-        else
-        {
-
-        }
-    }
-
+            </div>}else{}}
 </div>
 
 <div id="Graph">
@@ -112,77 +80,49 @@
         <div class="col">
             <img src="~/Content/img/WeekofMay.PNG" class="mx-auto d-block img-fluid " />
         </div>
-        @{
-            if (myAccountModel.isAccountLoggedIn)
-            {
+        @{if (myAccountModel.isAccountLoggedIn) {
                 <div class="col-1">
                     <label for="id-of-input3" class="custom-checkbox favorite-graph">
                         <input type="checkbox" id="id-of-input3" class="favorites" />
                         <i class="fa fa-star fa-stack-1x favorited"></i>
                         <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                     </label>
-                </div>
-
-            }
-            else
-            {
-
-            }
-        }
+                </div>}else{}}
     </div>
 </div>
 
 <div class="row">
     <div class="col">
-        <h2>App Users from May 19 to May 25th</h2>
+        <h3> App Users <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
     </div>
-    @{
-        if (myAccountModel.isAccountLoggedIn)
-        {
+    @{if (myAccountModel.isAccountLoggedIn){
             <div class="col-1">
                 <label for="id-of-input4" class="custom-checkbox favorite-graph">
                     <input type="checkbox" id="id-of-input4" class="favorites" />
                     <i class="fa fa-star fa-stack-1x favorited"></i>
                     <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                 </label>
-            </div>
-        }
-        else
-        {
-
-        }
-    }
+            </div>}else{}}
 </div>
 
 <div id="viz"></div>
 
 <div class="row">
     <div class="col">
-        <h2>
-            Number of App Installs from May 19 to May 25th
-        </h2>
+        <h3> Number of App Installs <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
     </div>
-    @{
-        if (myAccountModel.isAccountLoggedIn)
-        {
+    @{if (myAccountModel.isAccountLoggedIn){
             <div class="col-1">
                 <label for="id-of-input4" class="custom-checkbox favorite-graph">
                     <input type="checkbox" id="id-of-input4" class="favorites" />
                     <i class="fa fa-star fa-stack-1x favorited"></i>
                     <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                 </label>
-            </div>
-        }
-        else
-        {
-
-        }
-    }
+            </div>}else{}}
 </div>
 <div id="viz1"></div>
 
 <script>
-
     var AppUsersdata = [
     @{
         foreach (var item in Model.UserViewModel.UserList)
@@ -195,21 +135,4 @@
 
     $('#week').click(drawAppUsersGraph(AppUsersdata, "#viz"));
     $('#week').click(drawAppUsersGraph(NumAppInstallData, "#viz1"));
-
-
-    function myWeekFunction() {
-        var x = document.getElementById("Graph");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-        //populates the calendar and titles with the date class
-        getWeeksDate();
-    }
-
-    function myMonthFunction() {
-        $("#Graph img").attr("src", "/Content/img/MonthofMay.PNG");
-        getMonthsDate();
-    }
 </script>
