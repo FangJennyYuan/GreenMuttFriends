@@ -7,7 +7,6 @@
 @Scripts.Render("~/Scripts/jquery-3.4.1.js")
 @Scripts.Render("~/Scripts/moment.js")
 @Scripts.Render("~/Scripts/daterangepicker.js")
-@Scripts.Render("~/Scripts/umd/popper.min.js") <!--Needed for dropdown button-->
 @Scripts.Render("~/Scripts/calendar.js")
 @Scripts.Render("~/Scripts/librarysearch.js")
 
@@ -80,15 +79,9 @@
                     </h4>
                 </div>
                 <div class="col text-right">
-                    <div class="dropdown show">
-                        <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-download"></i> Download
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Data</a>
-                            <a class="dropdown-item" href="#">Images</a>
-                        </div>
-                    </div>
+                    <a class="btn btn-success" href="@Url.Action("ExportToCSV", "Library")">
+                        <i class="fa fa-download"></i> Download
+                    </a>
                 </div>
             </div>
             <div class="container">
@@ -134,7 +127,7 @@
                     <h4>
                         <span class="count-photos">@Model.PhotoViewModel.PhotoList.Count</span>
                         Photos for
-                        <span class="filtered-by-clinic"> All Clinics </span> 
+                        <span class="filtered-by-clinic"> All Clinics </span>
                         <span class="filtered-by-date"> from All Dates </span>
                     </h4>
                 </div>
@@ -142,15 +135,9 @@
                     <input id="library-search" onkeyup="searchLibraryTable()" class="form-control " type="search" placeholder="Search" aria-label="Search">
                 </div>
                 <div class="col">
-                    <div class="dropdown show">
-                        <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-download"></i> Download
-                        </a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Data</a>
-                            <a class="dropdown-item" href="#">Images</a>
-                        </div>
-                    </div>
+                    <a class="btn btn-success" href="@Url.Action("ExportToCSV", "Library")">
+                        <i class="fa fa-download"></i> Download
+                    </a>
                 </div>
             </div>
             <div class="table-responsive">
