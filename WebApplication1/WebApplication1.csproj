@@ -138,6 +138,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AppUserDataModel.cs" />
+    <Compile Include="Models\ImpactViewModel .cs" />
     <Compile Include="Models\LibraryViewModel.cs" />
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\TotalPhotosTakenModel.cs" />
