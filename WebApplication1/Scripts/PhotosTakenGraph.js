@@ -2,7 +2,13 @@
 function drawPhotosTakenGraph( currentPhotoData ) {
 
     //Sort Data by Clinic
-    currentPhotoData.sort((a, b) => (a.clinic > b.clinic) ? 1 : ((b.clinic > a.clinic) ? -1 : 0));
+    currentPhotoData.sort((a, b) => (a.clinic > b.clinic ) ? 1 : ((b.clinic > a.clinic) ? -1 : 0));
+
+    //Cast strings to dates
+    currentPhotoData.forEach(function (arrayItem) {
+        var d = moment(arrayItem.Date, "M/D/YYYY").format('L');
+        arrayItem.Date = d;
+    });
 
     //Create color attributes for chart
     var attributes = [
