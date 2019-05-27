@@ -122,17 +122,16 @@ function filterLibraryTable() {
     var showValid = document.getElementById('valid-checkbox').checked;
     var showInvalid = document.getElementById('invalid-checkbox').checked;
 
-    //Get value of clinic
-    var clinic = $(".clinic-photos").value;
+    //Get value of clinic from filter
+    var clinic = $(".clinic-photos :selected").text();
+    console.log(clinic);
 
     $("#library-table tr").each(function (index) {
         if (index !== 0) {
             $row = $(this);
 
             //Get clinic from row
-            var idClinic = $row.find("#clinic-col").text();
-            var clinic = $.trim(idClinic);
-            var selectedClinic = $.trim(clinic);
+            var rowClinic = $row.find("#clinic-col").text();
 
             //Get date from row
             var idDate = $row.find("#date-time-col").text();
@@ -141,7 +140,7 @@ function filterLibraryTable() {
             var result = $row.find("#result-col").text();
 
             //Check if both clinic and date match
-            if (clinic == selectedClinic || selectedClinic == "All Clinics") {
+            if (clinic == rowClinic || clinic == "All Clinics") {
                 if (inDateRange(idDate)) {
 
                     //Filter hits based on valid/invalid checkboxes
@@ -185,6 +184,6 @@ function filterLibraryTable() {
             }
         }
     });
-    //Update result label
+    //Update result label with count and clinic selected
     updateResultTitle(resultCount, clinic);
 };
