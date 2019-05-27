@@ -95,3 +95,96 @@ function searchLibraryTablebyClinic(value) {
     });
     return resultCount;
  };
+
+
+//Filter results when invalid checkbox is clicked
+$(function () {
+    $("#invalid-checkbox").click(function () {
+        filterLibraryTable();
+    });
+
+});
+
+//Filter results when valid checkbox is clicked
+$(function () {
+    $("#valid-checkbox").click(function () {
+        filterLibraryTable();
+    });
+
+});
+
+
+/*Filter table results based on values of clinic, date, and valid/invalid inputs*/
+function filterLibraryTable() {
+    var resultCount = 0;
+
+    //Confirm whether valid/invalid checkboxes are checked
+    var showValid = document.getElementById('valid-checkbox').checked;
+    var showInvalid = document.getElementById('invalid-checkbox').checked;
+
+    //Get value of clinic
+    var clinic = $(".clinic-photos").value;
+
+    $("#library-table tr").each(function (index) {
+        if (index !== 0) {
+            $row = $(this);
+
+            //Get clinic from row
+            var idClinic = $row.find("#clinic-col").text();
+            var clinic = $.trim(idClinic);
+            var selectedClinic = $.trim(clinic);
+
+            //Get date from row
+            var idDate = $row.find("#date-time-col").text();
+
+            //Get bilirubin result from row
+            var result = $row.find("#result-col").text();
+
+            //Check if both clinic and date match
+            if (clinic == selectedClinic || selectedClinic == "All Clinics") {
+                if (inDateRange(idDate)) {
+
+                    //Filter hits based on valid/invalid checkboxes
+                    //Show all results
+                    if (showInvalid && showValid) {
+                        $row.show();
+                        resultCount++;
+                    }
+                    //Show valid results only
+                    else if (!showInvalid && showValid) {
+                        if (result.includes("Invalid")) {
+                            $row.hide();
+                        }
+                        else {
+                            $row.show();
+                            resultCount++;
+                        }
+                    }
+                    //Show invalid results only
+                    else if (showInvalid && !showValid) {
+                        if (result.includes("Invalid")) {
+                            $row.show();
+                            resultCount++;
+                        }
+                        else {
+                            $row.hide();
+                        }
+                    }
+                    //Hide all results
+                    else if (!showInvalid && !showValid) {
+                        $row.hide();
+                    }
+
+                }
+                else {
+                    $row.hide();
+                }
+            }
+            else {
+                $row.hide();
+            }
+        }
+    });
+    //Update result label
+    updateResultTitle(resultCount, clinic);
+};
