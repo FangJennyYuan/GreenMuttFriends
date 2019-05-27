@@ -66,6 +66,11 @@ function inDateRange(date) {
 /*Search library table for a Clinic, Apply Date Range Filter As Well*/
 function searchLibraryTablebyClinic(value) {
     var resultCount = 0;
+
+    //Confirm whether valid/invalid checkboxes are checked
+    var showValid = document.getElementById('valid-checkbox').checked;
+    var showInvalid = document.getElementById('invalid-checkbox').checked;
+
     $("#library-table tr").each(function (index) {
         if (index !== 0) {
             $row = $(this);
@@ -77,12 +82,45 @@ function searchLibraryTablebyClinic(value) {
 
             //Get date from row
             var idDate = $row.find("#date-time-col").text();
+
+            //Get bilirubin result from row
+            var result = $row.find("#result-col").text();
             
             //Check if both clinic and date match
             if (clinic == selectedClinic || selectedClinic == "All Clinics") {
                 if (inDateRange(idDate)) {
-                    $row.show();
-                    resultCount++;
+
+                    //Filter hits based on valid/invalid checkboxes
+                    //Show all results
+                    if (showInvalid && showValid) {
+                        $row.show();
+                        resultCount++;
+                    }
+                    //Show valid results only
+                    else if (!showInvalid && showValid) {
+                        if (result.includes("Invalid")) {
+                            $row.hide();
+                        }
+                        else {
+                            $row.show();
+                            resultCount++;
+                        }
+                    }
+                    //Show invalid results only
+                    else if (showInvalid && !showValid) {
+                        if (result.includes("Invalid")) {
+                            $row.show();
+                            resultCount++;
+                        }
+                        else {
+                            $row.hide();
+                        }
+                    }
+                    //Hide all results
+                    else if (!showInvalid && !showValid) {
+                        $row.hide();
+                    }
+
                 }
                 else {
                     $row.hide();
@@ -124,7 +162,6 @@ function filterLibraryTable() {
 
     //Get value of clinic from filter
     var clinic = $(".clinic-photos :selected").text();
-    console.log(clinic);
 
     $("#library-table tr").each(function (index) {
         if (index !== 0) {
