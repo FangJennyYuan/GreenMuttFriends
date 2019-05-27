@@ -139,6 +139,7 @@ function searchLibraryTablebyClinic(value) {
 $(function () {
     $("#invalid-checkbox").click(function () {
         filterLibraryTable();
+        filterLibraryGallery();
     });
 
 });
@@ -231,4 +232,67 @@ function filterLibraryTable() {
     });
     //Update result label with count and clinic selected
     updateResultTitle(resultCount, clinic);
+};
+
+/*Filter table results based on values of clinic, date, and valid/invalid inputs*/
+function filterLibraryGallery() {
+    //Confirm whether valid/invalid checkboxes are checked
+    var showValid = document.getElementById('valid-checkbox').checked;
+    var showInvalid = document.getElementById('invalid-checkbox').checked;
+
+    //Get value of clinic from filter
+    var clinic = $(".clinic-photos :selected").text();
+
+    $("#view-gal #item-gal").each(function () {
+        $myItem = $(this);
+
+        //Get clinic from myItem
+        var myItemClinic = $myItem.find("#clinic-gal").text().trim();
+
+        //Get date from myItem
+        var idDate = $myItem.find("#date-time-gal").text().trim();
+
+        //Get bilirubin result from myItem
+        var result = $myItem.find("#result-gal").text().trim();
+
+        //Check if both clinic and date match
+        if (clinic == myItemClinic || clinic == "All Clinics") {
+            if (inDateRange(idDate)) {
+
+                //Filter hits based on valid/invalid checkboxes
+                //Show all results
+                if (showInvalid && showValid) {
+                    $myItem.show();
+                }
+                //Show valid results only
+                else if (!showInvalid && showValid) {
+                    if (result.includes("Invalid")) {
+                        $myItem.hide();
+                    }
+                    else {
+                        $myItem.show();
+                    }
+                }
+                //Show invalid results only
+                else if (showInvalid && !showValid) {
+                    if (result.includes("Invalid")) {
+                        $myItem.show();
+                    }
+                    else {
+                        $myItem.hide();
+                    }
+                }
+                //Hide all results
+                else if (!showInvalid && !showValid) {
+                    $myItem.hide();
+                }
+            }
+            else {
+                $myItem.hide();
+            }
+        }
+        else {
+            $myItem.hide();
+        }
+    });
 };
