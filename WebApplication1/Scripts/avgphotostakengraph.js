@@ -1,11 +1,11 @@
 ﻿
-
-function drawAvgPhotosTakenGraph( currentPhotoData ) {
+function drawAvgPhotosTakenGraph(currentPhotoData, start, end) {
     //Calculate totals
     totals = calulateTotals(currentPhotoData);
 
     //Calulate averages
-    average = calculateAverages(totals);
+    days = getDateRange(start, end);
+    average = calculateAverages(totals, days);
 
     //Create color attributes for chart
     var attributes = [
@@ -16,7 +16,7 @@ function drawAvgPhotosTakenGraph( currentPhotoData ) {
         { "device": "Samsung", "hex": "#4C975C" },
         { "device": "Tecno Mobile", "hex": "#ADDDB7" }
     ]
-
+    
     var visualization = d3plus.viz()
         .container("#avg_photos_taken_chart")
         .data(average)
@@ -94,21 +94,23 @@ function calulateTotals(currentPhotoData) {
 
 
 //Returns an array with averages for current data
-function calculateAverages( totals ) {
+function calculateAverages( totals , days ) {
     var average = [];
 
     totals.forEach(function (arrayItem) {
-        rand = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
+        //TODO: Remove in Production
+        //Just added some randomization to make graph look good for now
+        rand = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+        avg = (arrayItem.value / days);
+
         average.push({
-            year: 2018,
             clinic: arrayItem.clinic,
-            value: (arrayItem.value / arrayItem.count) + rand,
+            value: avg - rand,
             device: "Samsung"
         });
         average.push({
-            year: 2018,
             clinic: arrayItem.clinic,
-            value: (arrayItem.value / arrayItem.count),
+            value: rand,
             device: "Tecno Mobile"
         });
     });
@@ -125,4 +127,13 @@ function containsClinic(obj, list) {
         }
     }
     return -1;
+}
+
+
+//Get range in days 
+function getDateRange(start, end) {
+    var date1 = moment(start, "MM/DD/YYYY");
+    var date2 = moment(end, "MM/DD/YYYY");
+    var diff = date2.diff(date1, 'days');
+    return diff;
 }
