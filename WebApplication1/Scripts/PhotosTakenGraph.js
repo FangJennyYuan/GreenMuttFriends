@@ -6,8 +6,8 @@ function drawPhotosTakenGraph( currentPhotoData ) {
 
     //Cast strings to dates
     currentPhotoData.forEach(function (arrayItem) {
-        var d = moment(arrayItem.Date, "M/D/YYYY").format('L');
-        arrayItem.Date = d;
+        var d = moment(arrayItem.date, "MM/DD/YYYY").format('L');
+        arrayItem.date = d;
     });
 
     //Create color attributes for chart
@@ -29,8 +29,9 @@ function drawPhotosTakenGraph( currentPhotoData ) {
         .id("clinic")         // key for which our data is unique on
         .text("clinic")       // key to use for display text
         .x({
-            "value": "Date",
-            "grid": { "color": "#ffffff" }
+            "value": "date",
+            "grid": { "color": "#ffffff" },
+            "zerofill": true
         })
         .y("value")
         .attrs(attributes)
@@ -65,6 +66,9 @@ function drawPhotosTakenGraph( currentPhotoData ) {
             "filters": true,
             "labels": true
         })
-        .height(485)
+        .height(495)
+        .time({
+            "value": "date"
+        })
         .draw()
 }
