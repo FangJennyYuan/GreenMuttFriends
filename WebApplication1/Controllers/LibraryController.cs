@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Models;
 using WebApplication1.Backend;
+using CsvHelper;
+
 
 namespace WebApplication1.Controllers
 {
@@ -31,6 +33,26 @@ namespace WebApplication1.Controllers
 
             var myData = PhotoBackend.Instance.Read(id);
             return View(myData);
+        }
+
+        public ActionResult ExportToCSV()
+        {
+            var myViewModel = new LibraryViewModel();
+            myViewModel.PhotoViewModel = PhotoBackend.Instance.Index();
+            var myData = myViewModel.PhotoViewModel.PhotoList;
+
+            var ms = new System.IO.MemoryStream();
+            var sw = new System.IO.StreamWriter(ms);
+            var csvOut = new CsvWriter(sw);
+
+            csvOut.WriteRecords(myData);
+
+            sw.Flush();
+
+            ms.Position = 0;
+
+            string filename = "Photo_Data_" + DateTime.Now.ToShortDateString() + ".csv";
+            return File(ms, "text/csv", filename);
         }
     }
 }

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using WebApplication1.Models;
@@ -101,6 +103,9 @@ namespace WebApplication1.Backend
         /// </summary>
         public void Initialize()
         {
+            // Read in data from csv
+            ReadCSVData();
+
             // Ijora Clinic data for scenario
             dataset.Add(new PhotoModel { ClinicName = "Ijora Clinic", ResultIsValid = true, Bilirubin = "15", RecordedDateTime = new DateTime(2019, 5, 18, 16, 32, 3),
                 PhoneNumber = "815-991-1111", UserID = "003", DeviceType = "Samsung Buddy", OSVersion = "4.1",
@@ -1237,6 +1242,42 @@ namespace WebApplication1.Backend
         private void OrderByDate()
         {
             dataset.Sort((x, y) => y.RecordedDateTime.CompareTo(x.RecordedDateTime));
+        }
+
+        /// <summary>
+        /// Adds new PhotoModel objects to dataset based on input from csv file
+        /// </summary>
+        private void ReadCSVData()
+        {
+            try
+            {
+                string path = HttpContext.Current.Server.MapPath("~/App_Data/photo_data.csv");
+                using (var reader = new StreamReader(path))
+                using (var csv = new CsvReader(reader))
+                {
+                    var records = csv.GetRecords<PhotoModel>();
+
+                    foreach (var item in records)
+                    {
+                        dataset.Add(new PhotoModel
+                        {
+                            ClinicName = item.ClinicName,
+                            ResultIsValid = item.ResultIsValid,
+                            Bilirubin = item.Bilirubin,
+                            RecordedDateTime = item.RecordedDateTime,
+                            PhoneNumber = item.PhoneNumber,
+                            UserID = item.UserID,
+                            DeviceType = item.DeviceType,
+                            OSVersion = item.OSVersion,
+                            ImageURL = item.ImageURL
+                        });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception: {0}", ex.Message);
+            }
         }
     }
 }

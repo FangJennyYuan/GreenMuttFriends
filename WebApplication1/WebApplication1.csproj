@@ -138,6 +138,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AppUserDataModel.cs" />
+    <Compile Include="Models\ImpactViewModel .cs" />
     <Compile Include="Models\LibraryViewModel.cs" />
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\TotalPhotosTakenModel.cs" />
@@ -190,7 +191,7 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\AppUserScript.js" />
+    <Content Include="Scripts\AppUsersGraph.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -225,6 +226,8 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="App_Data\photo_data.csv" />
+    <Content Include="App_Data\user_data.csv" />
     <None Include="Properties\PublishProfiles\VisibleImpact - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -246,6 +249,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\AppInstallGraph.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
@@ -279,9 +283,7 @@
     <Content Include="Views\Library\PhotoDetail.cshtml" />
     <Content Include="Views\Account\LoginDialog.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

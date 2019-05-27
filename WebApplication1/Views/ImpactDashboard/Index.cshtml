@@ -1,5 +1,5 @@
 ﻿@using WebApplication1.Models;
-@model List<AppUserDataModel>
+@model ImpactViewModel
 <!doctype html>
 <meta charset="utf-8">
 
@@ -13,18 +13,19 @@
 @Scripts.Render("~/Scripts/moment.js")
 @Scripts.Render("~/Scripts/daterangepicker.js")
 @Scripts.Render("~/Scripts/calendar.js")
-@Scripts.Render("~/Scripts/AppUserScript.js")
 @Scripts.Render("~/Scripts/NumAppInstall.js")
+@Scripts.Render("~/Scripts/AppUsersGraph.js")
+@Scripts.Render("~/Scripts/AppInstallGraph.js")
 <h1>Impact Dashboard</h1>
 
 
 
 <div class="row date-filter mt-3">
     <div class="col-lg-1">
-        <button type="button" id="week" onclick="myWeekFunction()"> Week</button>
+        <button type="button" id="week" onclick="getWeeksDate()"> Week</button>
     </div>
     <div class="col-lg-1 mr-3">
-        <button type="button" id="month" onclick="myMonthFunction()"> Month</button>
+        <button type="button" id="month" onclick="getMonthsDate()"> Month</button>
     </div>
     <div class="col-lg-1">
         <button type="button" id="all-date" onclick="getYearsDate()"> All</button>
@@ -40,9 +41,7 @@
     <div class="col">
         <img src="~/Content/img/Improvement.PNG" class="mx-auto d-block img-fluid" />
     </div>
-
-    @{
-        var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
+    @{var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
         if (myAccountModel.isAccountLoggedIn)
         {
             <div class="col-1">
@@ -51,21 +50,13 @@
                     <i class="fa fa-star fa-stack-1x favorited"></i>
                     <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                 </label>
-            </div>
-        }
-        else
-        {
-
-        }
-    }
+            </div>}
+        else { }}
 
     <div class="col">
         <img src="~/Content/img/AvgUsers.PNG" class="mx-auto d-block img-fluid " />
     </div>
-
-
-    @{
-        if (myAccountModel.isAccountLoggedIn)
+    @{if (myAccountModel.isAccountLoggedIn)
         {
             <div class="col-1">
                 <label for="id-of-input1" class="custom-checkbox favorite-graph">
@@ -73,22 +64,12 @@
                     <i class="fa fa-star fa-stack-1x favorited"></i>
                     <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                 </label>
-            </div>
-        }
-        else
-        {
-
-        }
-    }
-
-
+            </div>}
+        else { }}
     <div class="col">
         <img src="~/Content/img/AvgInstalls.PNG" class="mx-auto d-block img-fluid " />
     </div>
-
-
-    @{
-        if (myAccountModel.isAccountLoggedIn)
+    @{if (myAccountModel.isAccountLoggedIn)
         {
             <div class="col-1">
                 <label for="id-of-input2" class="custom-checkbox favorite-graph">
@@ -96,47 +77,32 @@
                     <i class="fa fa-star fa-stack-1x favorited"></i>
                     <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                 </label>
-            </div>
-        }
-        else
-        {
-
-        }
-    }
-
+            </div>}
+        else { }}
 </div>
 
-<div id="Graph">
-    <div class="row">
-        <div class="col">
-            <img src="~/Content/img/WeekofMay.PNG" class="mx-auto d-block img-fluid " />
-        </div>
-        @{
-            if (myAccountModel.isAccountLoggedIn)
-            {
-                <div class="col-1">
-                    <label for="id-of-input3" class="custom-checkbox favorite-graph">
-                        <input type="checkbox" id="id-of-input3" class="favorites" />
-                        <i class="fa fa-star fa-stack-1x favorited"></i>
-                        <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-                    </label>
-                </div>
 
-            }
-            else
-            {
-
-            }
-        }
+<div class="row">
+    <div class="col">
+        <h3> Photos Taken <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
     </div>
+    @{if (myAccountModel.isAccountLoggedIn)
+        {
+            <div class="col-1">
+                <label for="id-of-input3" class="custom-checkbox favorite-graph">
+                    <input type="checkbox" id="id-of-input3" class="favorites" />
+                    <i class="fa fa-star fa-stack-1x favorited"></i>
+                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
+                </label>
+            </div>}
+        else { }}
 </div>
 
 <div class="row">
     <div class="col">
-        <h2>App Users from May 19 to May 25th</h2>
+        <h3> App Users <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
     </div>
-    @{
-        if (myAccountModel.isAccountLoggedIn)
+    @{if (myAccountModel.isAccountLoggedIn)
         {
             <div class="col-1">
                 <label for="id-of-input4" class="custom-checkbox favorite-graph">
@@ -144,25 +110,17 @@
                     <i class="fa fa-star fa-stack-1x favorited"></i>
                     <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                 </label>
-            </div>
-        }
-        else
-        {
-
-        }
-    }
+            </div>}
+        else { }}
 </div>
 
 <div id="viz"></div>
 
 <div class="row">
     <div class="col">
-        <h2>
-            Number of App Installs from May 19 to May 25th
-        </h2>
+        <h3> Number of App Installs <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
     </div>
-    @{
-        if (myAccountModel.isAccountLoggedIn)
+    @{if (myAccountModel.isAccountLoggedIn)
         {
             <div class="col-1">
                 <label for="id-of-input4" class="custom-checkbox favorite-graph">
@@ -170,23 +128,15 @@
                     <i class="fa fa-star fa-stack-1x favorited"></i>
                     <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                 </label>
-            </div>
-        }
-        else
-        {
-
-        }
-    }
+            </div>}
+        else { }}
 </div>
 <div id="viz1"></div>
 
 <script>
-
-    var AppUsersdata = [
-
-
+    var AppUsersData = [
     @{
-        foreach (var item in Model)
+        foreach (var item in Model.UserViewModel.UserList)
         {
             var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", Date: \"" + item.Date.ToShortDateString() + "\", value: " + item.Value + "},");
             @outputString
@@ -194,104 +144,7 @@
     }
     ]
 
-    var attributes = [
-        { "clinic": "Ijora Clinic", "hex": "#5FBD73" },
-        { "clinic": "Katsina Clinic", "hex": "#6A5599" },
-        { "clinic": "Mashegu Clinic", "hex": "#71BDD3" },
-        { "clinic": "Rawayau Clinic", "hex": "#1C2C8C" }
-    ]
-    var visualization = d3plus.viz()
-        .container("#viz")
-        .data({
-            "value": AppUsersdata,
-            "stroke": { "width": 3 }
-
-        })
-        .type("line")
-        .id("clinic")         // key for which our data is unique on
-        .text("clinic")       // key to use for display text
-        .x({
-            "value": "Date",
-            "grid": { "color": "#ffffff" }
-        })
-        .y("value")
-        .attrs(attributes)
-        .color("hex")
-        .font({
-            "family": "'Century Gothic', Helvetica, Arial, sans-serif",
-            "size": 15
-        })
-        .axes({
-            "background": {
-                "color": "#ffffff",
-                "stroke": { "width": 0 }
-            }
-        })
-        .format({
-            "text": function (text, params) {
-                if (text === "value") {
-                    return "Total App Users";
-                } else {
-                    return d3plus.string.title(text, params);
-                }
-            }
-        })
-        .height(600)
-        .draw()
-
-    var visualization = d3plus.viz()
-        .container("#viz1")
-        .data({
-            "value": NumAppInstallData,
-            "stroke": { "width": 3 }
-
-        })
-        .type("line")
-        .id("clinic")         // key for which our data is unique on
-        .text("clinic")       // key to use for display text
-        .x({
-            "value": "Date",
-            "grid": { "color": "#ffffff" }
-        })
-        .y("value")
-        .attrs(attributes)
-        .color("hex")
-        .font({
-            "family": "'Century Gothic', Helvetica, Arial, sans-serif",
-            "size": 15
-        })
-        .axes({
-            "background": {
-                "color": "#ffffff",
-                "stroke": { "width": 0 }
-            }
-        })
-        .format({
-            "text": function (text, params) {
-                if (text === "value") {
-                    return "Total Installs";
-                } else {
-                    return d3plus.string.title(text, params);
-                }
-            }
-        })
-        .height(600)
-        .draw()
-
-
-    function myWeekFunction() {
-        var x = document.getElementById("Graph");
-        if (x.style.display === "none") {
-            x.style.display = "block";
-        } else {
-            x.style.display = "none";
-        }
-        //populates the calendar and titles with the date class
-        getWeeksDate();
-    }
-
-    function myMonthFunction() {
-        $("#Graph img").attr("src", "/Content/img/MonthofMay.PNG");
-        getMonthsDate();
-    }
+    $('#week').click(drawAppUsersGraph(AppUsersData, "#viz"));
+    $('#week').click(drawAppUsersGraph(NumAppInstallData, "#viz1"));
+    
 </script>
