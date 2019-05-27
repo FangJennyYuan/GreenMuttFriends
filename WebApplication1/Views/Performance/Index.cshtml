@@ -13,8 +13,8 @@
 @Scripts.Render("~/Scripts/jquery-3.4.1.js")
 @Scripts.Render("~/Scripts/moment.js")
 @Scripts.Render("~/Scripts/daterangepicker.js")
-@Scripts.Render("~/Scripts/calendar.js")
 @Scripts.Render("~/Scripts/photostakengraph.js")
+@Scripts.Render("~/Scripts/calendar.js")
 
 <h1>
     Performance Dashboard
@@ -119,32 +119,35 @@
     //Pull Photos Data on Week
     $("#week").click(
         function () {
-            currentPhotoData = getDatabyDate(moment().subtract(7, 'days'), moment());
-            console.log(currentPhotoData);
-
-            //Remove old graph
-            $("#photos_taken_chart").empty();
-
-            //Draw new Graph
-            drawPhotosTakenGraph(currentPhotoData);
+            start = moment().subtract(7, 'days');
+            end = moment();
+            drawPhotosTakenViz(start, end);
         }
     );
 
     //Pull Photos Data on Month
     $("#month").click(
         function () {
-            currentPhotoData = getDatabyDate(moment().startOf('month'), moment());
-            console.log(currentPhotoData);
-
-            //Remove old graph
-            $("#photos_taken_chart").empty();
-
-            //Draw new Graph
-            drawPhotosTakenGraph(currentPhotoData);
+            start = moment().startOf('month');
+            end = moment();
+            drawPhotosTakenViz(start, end);
         }
     );
+
     //Default view
-    $('#week').trigger('click');
+    $('#week').click(drawPhotosTakenViz(moment().subtract(7, 'days'), moment()));
+
+    function drawPhotosTakenViz(start, end) {
+        //Get data
+        currentPhotoData = getDatabyDate( start, end );
+        updateGraphTitlesWithDate(start, end );
+
+        //Remove old graph
+        $("#photos_taken_chart").empty();
+
+        //Draw new Graph
+        drawPhotosTakenGraph(currentPhotoData);
+    }
 
     function getDatabyDate(start, end) {
             photosData = [
@@ -155,12 +158,13 @@
                     //Just amplifying Ijora Clinic Results For Demo
                     if(item.Clinic == "Ijora Clinic")
                     {
-                        photosTakenAmp = Convert.ToInt32(item.Value * 1.6);
+                        photosTakenAmp = Convert.ToInt32(item.Value * 2.3);
                     }
                     else{
                         photosTakenAmp = item.Value;
                     }
-                    var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", Date: \"" + item.Date.ToShortDateString() + "\", value: " + photosTakenAmp + ", userCount: " + item.UserCount + " },");
+
+                    var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", date: \"" + item.Date.ToShortDateString() + "\", value: " + photosTakenAmp + ", userCount: " + item.UserCount + " },");
                     @outputString
                 }
             }
@@ -168,11 +172,11 @@
             start = start,
             end = end,
             currentPhotoData = photosData.filter(d => {
-                var date = new moment(d.Date);
+                var date = new moment(d.date);
                 return (start <= date && date <= end);
             });
         return currentPhotoData;
     };
 
-    
+
 </script>
