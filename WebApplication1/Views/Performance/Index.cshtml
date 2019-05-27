@@ -14,6 +14,7 @@
 @Scripts.Render("~/Scripts/moment.js")
 @Scripts.Render("~/Scripts/daterangepicker.js")
 @Scripts.Render("~/Scripts/photostakengraph.js")
+@Scripts.Render("~/Scripts/avgphotostakengraph.js")
 @Scripts.Render("~/Scripts/calendar.js")
 
 <h1>
@@ -107,7 +108,7 @@
                 }
             </div>
         </div>
-        <img class="img-fluid photos_taken" src="~/Content/img/AvgPhotosTakenByDevice_May19to25_All.png" />
+        <div id="avg_photos_taken_chart"></div>
         <p class="align-bottom ml-5 pl-4 text-center"> Avg # of Photos <span class="date"> from May 19th to May 25th</span></p>
     </div>
 </div>
@@ -147,6 +148,12 @@
 
         //Draw new Graph
         drawPhotosTakenGraph(currentPhotoData);
+
+        //Remove old graph
+        $("#avg_photos_taken_chart").empty();
+
+        //Draw new Graph
+        drawAvgPhotosTakenGraph(currentPhotoData);
     }
 
     function getDatabyDate(start, end) {
