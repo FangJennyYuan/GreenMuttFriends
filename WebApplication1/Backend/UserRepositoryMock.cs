@@ -126,13 +126,13 @@ namespace WebApplication1.Backend
             MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/24/2019"), Value = 8 });
             MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/25/2019"), Value = 9 });
 
-            MyData.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/19/2019"), Value = 8 });
-            MyData.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/20/2019"), Value = 10 });
-            MyData.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/21/2019"), Value = 11 });
-            MyData.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/22/2019"), Value = 11 });
-            MyData.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/23/2019"), Value = 12 });
-            MyData.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/24/2019"), Value = 14 });
-            MyData.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/25/2019"), Value = 15 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/19/2019"), Value = 8 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/20/2019"), Value = 10 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/21/2019"), Value = 11 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/22/2019"), Value = 11 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/23/2019"), Value = 12 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/24/2019"), Value = 14 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/25/2019"), Value = 15 });
         }
     }
 }
