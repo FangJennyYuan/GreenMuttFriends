@@ -85,29 +85,35 @@
                 </div>
             </div>
             <div class="container">
-                <div class="row">
+                <div class="row" id="view-gal">
                     @{
                         foreach (var item in Model.PhotoViewModel.PhotoList)
                         {
-                            <div class="col-xs-12 col-md-6 col-lg-3 library-gallery @item.ClinicName">
+                            <div class="col-xs-12 col-md-6 col-lg-3 library-gallery @item.ClinicName" id="item-gal">
                                 <figure class="figure">
                                     <a href="@Url.Action("PhotoDetail", new { id = item.ID })">
                                         <img src="@Html.DisplayFor(Model => item.ImageURL)" class="figure-img img-fluid rounded" alt="Photo of test strip submitted through app" width="180">
                                         <figcaption class="figure-caption text-center">
-                                            @item.ClinicName
+                                            <span id="clinic-gal">
+                                                @item.ClinicName
+                                            </span>
                                             <br />
                                             @item.PhoneNumber
                                             <br />
-                                            @if (item.ResultIsValid)
-                                            {
-                                                <text>@item.Bilirubin Total Serum Bilirubin</text>
-                                            }
-                                            else
-                                            {
-                                                <text>Invalid result</text>
-                                            }
+                                            <span id="result-gal">
+                                                @if (item.ResultIsValid)
+                                                {
+                                                    <text>@item.Bilirubin Total Serum Bilirubin</text>
+                                                }
+                                                else
+                                                {
+                                                    <text>Invalid result</text>
+                                                }
+                                            </span>
                                             <br />
-                                            @item.RecordedDateTime.ToShortDateString() @item.RecordedDateTime.ToShortTimeString() WAT
+                                            <span id="date-time-gal">
+                                                @item.RecordedDateTime.ToShortDateString() @item.RecordedDateTime.ToShortTimeString() WAT
+                                            </span>
                                         </figcaption>
                                     </a>
                                 </figure>
