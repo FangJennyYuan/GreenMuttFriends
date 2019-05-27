@@ -151,6 +151,14 @@ $(function () {
 
 });
 
+//Filter results when date range is changed
+$(function () {
+    $("#date-input").change(function () {
+        filterLibraryTable();
+    });
+
+});
+
 
 /*Filter table results based on values of clinic, date, and valid/invalid inputs*/
 function filterLibraryTable() {
