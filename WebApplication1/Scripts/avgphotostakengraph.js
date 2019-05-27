@@ -7,26 +7,29 @@ function drawAvgPhotosTakenGraph( currentPhotoData ) {
     //Calulate averages
     average = calculateAverages(totals);
 
-    
     //Create color attributes for chart
     var attributes = [
         { "clinic": "Ijora Clinic", "hex": "#5FBD73" },
         { "clinic": "Katsina Clinic", "hex": "#6A5599" },
         { "clinic": "Mashegu Clinic", "hex": "#71BDD3" },
         { "clinic": "Rawayau Clinic", "hex": "#1C2C8C" },
-        { "device": "Samsung", "hex": "#5FBD73" },
-        { "device": "Tecno Mobile", "hex": "#ADDDB7" },
+        { "device": "Samsung", "hex": "#4C975C" },
+        { "device": "Tecno Mobile", "hex": "#ADDDB7" }
     ]
 
     var visualization = d3plus.viz()
         .container("#avg_photos_taken_chart")
         .data(average)
         .type("bar")
-        .id("clinic")
-        .x({ "stacked": false, "value": "value" })
-        .y("year")
-        .time("year")
-        .timeline(false)
+        .id(["device", "clinic"])
+        .x({
+            "stacked": false,
+            "value": "value"
+        })
+        .y({
+            "scale": "discrete",
+            "value": "clinic"
+        })
         .attrs(attributes)
         .color("hex")
         .font({
@@ -53,13 +56,13 @@ function drawAvgPhotosTakenGraph( currentPhotoData ) {
         .tooltip(["clinic", "value"])
         .ui([{
             "method": "id",
-            "value": ["clinic", "device"]
+            "value": ["device", "clinic"]
         }])
         .legend({
             "filters": true,
             "labels": true
         })
-        .height(485)
+        .height(480)
         .draw()
 
 }
@@ -86,7 +89,6 @@ function calulateTotals(currentPhotoData) {
             });
         }
     });
-
     return totals;
 }
 
@@ -110,7 +112,6 @@ function calculateAverages( totals ) {
             device: "Tecno Mobile"
         });
     });
-
     return average;
 }
 
