@@ -137,8 +137,18 @@ namespace WebApplication1.Backend
             MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/24/2019"), Value = 14 });
             MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/25/2019"), Value = 15 });
 
+            // sort data in order by date
+            OrderByDate();
         }
 
+
+        /// <summary>
+        /// Sorts the dataset to order by Date (descending)
+        /// </summary>
+        private void OrderByDate()
+        {
+            MyData.Sort((x, y) => y.Date.CompareTo(x.Date));
+        }
 
         /// <summary>
         /// Adds new UserModel objects to dataset based on input from csv file
