@@ -39,6 +39,7 @@ $(function () {
         });
         var resultCount = searchLibraryTablebyClinic(clinic);
         updateResultTitle(resultCount, clinic);
+        filterLibraryGallery();
     });
 
 });
@@ -148,6 +149,7 @@ $(function () {
 $(function () {
     $("#valid-checkbox").click(function () {
         filterLibraryTable();
+        filterLibraryGallery();
     });
 
 });
@@ -156,10 +158,9 @@ $(function () {
 $(function () {
     $("#date-input").change(function () {
         filterLibraryTable();
+        filterLibraryGallery();
     });
-
 });
-
 
 /*Filter table results based on values of clinic, date, and valid/invalid inputs*/
 function filterLibraryTable() {
