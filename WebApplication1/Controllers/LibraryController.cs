@@ -54,5 +54,25 @@ namespace WebApplication1.Controllers
             string filename = "Photo_Data_" + DateTime.Now.ToShortDateString() + ".csv";
             return File(ms, "text/csv", filename);
         }
+
+        public ActionResult ExportOneToCSV(string id)
+        {
+            var onePhoto = PhotoBackend.Instance.Read(id);
+            List<PhotoModel> myData = new List<PhotoModel>();
+            myData.Add(onePhoto);
+
+            var ms = new System.IO.MemoryStream();
+            var sw = new System.IO.StreamWriter(ms);
+            var csvOut = new CsvWriter(sw);
+
+            csvOut.WriteRecords(myData);
+
+            sw.Flush();
+
+            ms.Position = 0;
+
+            string filename = "Photo_Data_" + DateTime.Now.ToShortDateString() + ".csv";
+            return File(ms, "text/csv", filename);
+        }
     }
 }
