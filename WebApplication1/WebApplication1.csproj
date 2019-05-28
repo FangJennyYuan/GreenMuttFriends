@@ -167,8 +167,11 @@
     <Content Include="Content\img\clinic_Mashegu.png" />
     <Content Include="Content\img\clinic_Rawayau.png" />
     <Content Include="Content\img\DailyPhotoTaken.PNG" />
+    <Content Include="Content\img\IjoraI.png" />
     <Content Include="Content\img\ImpactDashboard.PNG" />
     <Content Include="Content\img\Improvement.PNG" />
+    <Content Include="Content\img\KatsinaI.png" />
+    <Content Include="Content\img\MasheguI.png" />
     <Content Include="Content\img\MonthofMay.PNG" />
     <Content Include="Content\img\PerformanceDashboard.PNG" />
     <Content Include="Content\img\Logo_Med.png" />
@@ -184,6 +187,9 @@
     <Content Include="Content\img\photo\t6.png" />
     <Content Include="Content\img\photo\tblur1.png" />
     <Content Include="Content\img\photo\tblur2.png" />
+    <Content Include="Content\img\RawayauI.png" />
+    <Content Include="Content\img\SamsungI.png" />
+    <Content Include="Content\img\TecnoI.png" />
     <Content Include="Content\img\UsersToday.PNG" />
     <Content Include="Content\img\UsersToday_MainPage.png" />
     <Content Include="Content\img\WeekofMay.PNG" />
