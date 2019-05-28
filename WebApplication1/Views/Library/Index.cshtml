@@ -9,6 +9,7 @@
 @Scripts.Render("~/Scripts/daterangepicker.js")
 @Scripts.Render("~/Scripts/calendar.js")
 @Scripts.Render("~/Scripts/librarysearch.js")
+@Scripts.Render("~/Scripts/libraryfiltersaver.js")
 
 <h1>Library Dashboard</h1>
 
@@ -17,7 +18,7 @@
     <div class="col">
         <form>
             <select name="clinics" class="custom-select clinic-photos">
-                <option selected>All Clinics</option>
+                <option selected value="all">All Clinics</option>
                 <option value="batagarawa">Batagarawa Clinic</option>
                 <option value="ijora">Ijora Clinic</option>
                 <option value="katsina">Katsina Clinic</option>
