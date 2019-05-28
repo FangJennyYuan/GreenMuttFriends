@@ -16,6 +16,7 @@
 @Scripts.Render("~/Scripts/NumAppInstall.js")
 @Scripts.Render("~/Scripts/AppUsersGraph.js")
 @Scripts.Render("~/Scripts/AppInstallGraph.js")
+@Scripts.Render("~/Scripts/showGraph.js")
 <h1>Impact Dashboard</h1>
 
 
@@ -60,7 +61,7 @@
         {
             <div class="col-1">
                 <label for="id-of-input1" class="custom-checkbox favorite-graph">
-                    <input type="checkbox" id="id-of-input1" class="favorites" />
+                    <input type="checkbox" id="id-of-input1" class="favorites" onclick="showGraph(1)" />
                     <i class="fa fa-star fa-stack-1x favorited"></i>
                     <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                 </label>
@@ -81,6 +82,9 @@
         else { }}
 </div>
 
+<div id="image" style="display:none" onload="checkCookie(1)">
+    <img src="~/Content/img/PhotosTaken_MainPage.png" class="img-fluid ml-1 border" style="height:200px" />
+</div>
 
 <div class="row">
     <div class="col">
@@ -144,7 +148,21 @@
     }
     ]
 
+
+    $('#id-of-input1').click(function (e) {
+        if (e.target.checked) {
+            localStorage.checked = true;
+        } else {
+            localStorage.checked = false;
+        }
+    })
+
+    $(document).ready(function () {
+
+        document.querySelector('#id-of-input1').checked = localStorage.checked
+
+    });
+
     $('#week').click(drawAppUsersGraph(AppUsersData, "#viz"));
     $('#week').click(drawAppUsersGraph(NumAppInstallData, "#viz1"));
-    
 </script>

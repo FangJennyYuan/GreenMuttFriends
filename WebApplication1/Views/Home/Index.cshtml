@@ -5,6 +5,7 @@
 
 <script src="//d3plus.org/js/d3.js"></script>
 <script src="//d3plus.org/js/d3plus.js"></script>
+@Scripts.Render("~/Scripts/showGraph.js")
 
 @{
     ViewBag.Title = "Home Page";
@@ -26,7 +27,7 @@
         {
             <div class="col-1">
                 <label for="id-of-input5" class="custom-checkbox favorite-graph">
-                    <input type="checkbox" id="id-of-input5" class="favorites" />
+                    <input type="checkbox" id="id-of-input5" class="favorites" onclick="showGraph"/>
                     <i class="fa fa-star fa-stack-1x favorited"></i>
                     <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                 </label>
@@ -39,7 +40,7 @@
     }
 
     <div class="col  border" valign="bottom">
-        <img src="~/Content/img/UsersToday_MainPage.PNG" class="img-fluid mx-auto d-block " style="height:150px;margin-top:1.5em"  /> 
+        <img src="~/Content/img/UsersToday_MainPage.PNG" class="img-fluid mx-auto d-block " style="height:150px;margin-top:1.5em" />
     </div>
 
     @{
@@ -60,6 +61,11 @@
     }
 
 </div>
+
+<div id="image" style="display:none">
+    <img src="~/Content/img/PhotosTaken_MainPage.png" class="img-fluid ml-1 border" style="height:200px" />
+</div>
+
 
 <div class="jumbotron-fluid">
     <h1>More Dashboards</h1>
