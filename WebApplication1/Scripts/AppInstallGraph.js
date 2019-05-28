@@ -1,4 +1,4 @@
-﻿function drawInstallGraph(NumAppInstallData) {
+﻿function drawInstallGraph(NumAppInstallData, viz) {
     //Create color attributes for chart
     var attributes = [
         { "clinic": "Ijora Clinic", "hex": "#5FBD73", "image": "/Content/img/IjoraI.png" },
@@ -7,8 +7,8 @@
         { "clinic": "Rawayau Clinic", "hex": "#1C2C8C", "image": "/Content/img/RawayauI.png" }
     ]
 
-    var visualization = d3plus.viz()
-        .container("#viz1")
+    var vizInstall = d3plus.viz()
+        .container(viz)
         .data({
             "value": NumAppInstallData,
             "stroke": { "width": 3 }
@@ -18,7 +18,7 @@
         .id("clinic")         // key for which our data is unique on
         .text("clinic")       // key to use for display text
         .x({
-            "value": "Date",
+            "value": "date",
             "grid": { "color": "#ffffff" }
         })
         .y("value")
