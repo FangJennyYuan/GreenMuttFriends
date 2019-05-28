@@ -9,15 +9,15 @@ function drawAvgPhotosTakenGraph(currentPhotoData, start, end) {
 
     //Create color attributes for chart
     var attributes = [
-        { "clinic": "Ijora Clinic", "hex": "#5FBD73" },
-        { "clinic": "Katsina Clinic", "hex": "#6A5599" },
-        { "clinic": "Mashegu Clinic", "hex": "#71BDD3" },
-        { "clinic": "Rawayau Clinic", "hex": "#1C2C8C" },
-        { "device": "Samsung", "hex": "#4C975C" },
-        { "device": "Tecno Mobile", "hex": "#ADDDB7" }
+        { "clinic": "Ijora Clinic", "hex": "#5FBD73", "image": "IjoraI.png" },
+        { "clinic": "Katsina Clinic", "hex": "#6A5599", "image": "KatsinaI.png" },
+        { "clinic": "Mashegu Clinic", "hex": "#71BDD3", "image": "MasheguI.png"  },
+        { "clinic": "Rawayau Clinic", "hex": "#1C2C8C", "image": "RawayauI.png" },
+        { "device": "Samsung", "hex": "#4C975C", "image": "SamsungI.png" },
+        { "device": "Tecno Mobile", "hex": "#ADDDB7", "image": "TecnoI.png" }
     ]
     
-    var visualization = d3plus.viz()
+    var vizAvgPhotos = d3plus.viz()
         .container("#avg_photos_taken_chart")
         .data(average)
         .type("bar")
@@ -64,7 +64,7 @@ function drawAvgPhotosTakenGraph(currentPhotoData, start, end) {
         })
         .height(480)
         .draw()
-
+    
 }
 
 
@@ -100,12 +100,14 @@ function calculateAverages( totals , days ) {
     totals.forEach(function (arrayItem) {
         //TODO: Remove in Production
         //Just added some randomization to make graph look good for now
-        rand = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+        rand = Math.random() * (+3 - +1) + +1; 
         avg = (arrayItem.value / days);
+        avgLow = ((avg - rand < 0) ? 1 : avg - rand);
+
 
         average.push({
             clinic: arrayItem.clinic,
-            value: avg - rand,
+            value: avgLow,
             device: "Samsung"
         });
         average.push({
