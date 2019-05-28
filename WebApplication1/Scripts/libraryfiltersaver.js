@@ -19,8 +19,12 @@ $(document).ready(function () {
         }
     }
     if (sessionStorage.dateStart && sessionStorage.dateEnd) {
-        $('#date-input').data('daterangepicker').setStartDate(sessionStorage.dateStart);
-        $('#date-input').data('daterangepicker').setEndDate(sessionStorage.dateEnd);
+        var myStart = moment(sessionStorage.dateStart);
+        var myEnd = moment(sessionStorage.dateEnd);
+        $('#date-input').data('daterangepicker').setStartDate(myStart);
+        $('#date-input').data('daterangepicker').setEndDate(myEnd);
+        var resultCount = searchLibraryTablebyDateRange(myStart, myEnd);
+        updateResultTitleWithDate(myStart, myEnd, resultCount);
         needToFilter = true;
     }
     // Trigger page filters if updates have been made
