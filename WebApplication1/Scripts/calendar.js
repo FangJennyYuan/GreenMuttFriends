@@ -18,7 +18,7 @@ function getMonthsDate() {
 
 /** Get Years Date */
 function getYearsDate() {
-    var start = moment().startOf('year');
+    var start = moment("4/1/2019");
     var end = moment();
     $('#date-input').data('daterangepicker').setStartDate(start);
     $('#date-input').data('daterangepicker').setEndDate(end);
@@ -129,4 +129,12 @@ function searchLibraryTablebyDateRange(start, end) {
         }
     });
     return resultCount;
+}
+
+
+/* Apply button style to dates*/
+function applyButtonStyleDates(elem) {
+    $(".calendar-filter").removeClass("active-date-range");
+    parent = $(elem).parent();
+    parent.toggleClass("active-date-range");
 }
