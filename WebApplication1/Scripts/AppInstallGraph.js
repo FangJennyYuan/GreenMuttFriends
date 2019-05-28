@@ -6,8 +6,6 @@
         { "clinic": "Mashegu Clinic", "hex": "#71BDD3", "image": "/Content/img/MasheguI.png" },
         { "clinic": "Rawayau Clinic", "hex": "#1C2C8C", "image": "/Content/img/RawayauI.png" }
     ]
-    console.log("NumAppInstallData");
-    console.log(NumAppInstallData);
 
     var vizInstall = d3plus.viz()
         .container(viz)
@@ -23,7 +21,7 @@
             "value": "date",
             "grid": { "color": "#ffffff" }
         })
-        .y("installs")
+        .y("value")
         .attrs(attributes)
         .color("hex")
         .font({
@@ -40,9 +38,27 @@
             "text": function (text, params) {
                 if (text === "installs") {
                     return "Total Installs";
+                } else if (text === "value") {
+                    return "Total App Users";
+                } else if (text === "Y Axis") {
+                    return "Filter by ";
                 } else {
                     return d3plus.string.title(text, params);
                 }
+            }
+        })
+        .tooltip(["clinic", "value", "installs"])
+        .ui([
+            {
+                "method": "y",
+                "value": ["value", "installs"]
+            }
+        ])
+        .ui({
+            "position": "top",
+            "align": "left",
+            "font": {
+                "size": 19
             }
         })
         .legend({
@@ -54,6 +70,6 @@
             "style": "knockout",
             "value": "image"
         })
-        .height(600)
+        .height(550)
         .draw()
 }

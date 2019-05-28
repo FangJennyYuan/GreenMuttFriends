@@ -100,28 +100,11 @@
             </div>}
         else { }}
 </div>
+<div id="viz-photos-taken-impact"></div>
 
 <div class="row">
     <div class="col">
-        <h3> App Users <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
-    </div>
-    @{if (myAccountModel.isAccountLoggedIn)
-        {
-            <div class="col-1">
-                <label for="id-of-input4" class="custom-checkbox favorite-graph">
-                    <input type="checkbox" id="id-of-input4" class="favorites" />
-                    <i class="fa fa-star fa-stack-1x favorited"></i>
-                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-                </label>
-            </div>}
-        else { }}
-</div>
-
-<div id="viz-app-users"></div>
-
-<div class="row">
-    <div class="col">
-        <h3> Number of App Installs <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
+        <h3> App Usage and Installs <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
     </div>
     @{if (myAccountModel.isAccountLoggedIn)
         {
@@ -208,5 +191,6 @@
 
     //Defualt views
     $("#week").trigger('click');
+
 
 </script>

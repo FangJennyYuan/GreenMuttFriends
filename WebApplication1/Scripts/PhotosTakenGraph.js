@@ -62,6 +62,13 @@ function drawPhotosTakenGraph( currentPhotoData ) {
             "method": "y",
             "value": ["value", "userCount"]
         }])
+        .ui({
+            "position": "top",
+            "align": "left",
+            "font": {
+                "size": 19
+            }
+        })
         .height(495)
         .time({
             "value": "date"

@@ -58,6 +58,13 @@ function drawAvgPhotosTakenGraph(currentPhotoData, start, end) {
             "method": "id",
             "value": ["device", "clinic"]
         }])
+        .ui({
+            "position": "top",
+            "align": "left",
+            "font": {
+                "size": 19
+            }
+        })
         .legend({
             "size": 30,
             "filters": true,
