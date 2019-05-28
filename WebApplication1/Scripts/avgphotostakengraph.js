@@ -9,12 +9,12 @@ function drawAvgPhotosTakenGraph(currentPhotoData, start, end) {
 
     //Create color attributes for chart
     var attributes = [
-        { "clinic": "Ijora Clinic", "hex": "#5FBD73", "image": "IjoraI.png" },
-        { "clinic": "Katsina Clinic", "hex": "#6A5599", "image": "KatsinaI.png" },
-        { "clinic": "Mashegu Clinic", "hex": "#71BDD3", "image": "MasheguI.png"  },
-        { "clinic": "Rawayau Clinic", "hex": "#1C2C8C", "image": "RawayauI.png" },
-        { "device": "Samsung", "hex": "#4C975C", "image": "SamsungI.png" },
-        { "device": "Tecno Mobile", "hex": "#ADDDB7", "image": "TecnoI.png" }
+        { "clinic": "Ijora Clinic", "hex": "#5FBD73", "image": "/Content/img/IjoraI.png" },
+        { "clinic": "Katsina Clinic", "hex": "#6A5599", "image": "/Content/img/KatsinaI.png" },
+        { "clinic": "Mashegu Clinic", "hex": "#71BDD3", "image": "/Content/img/MasheguI.png"  },
+        { "clinic": "Rawayau Clinic", "hex": "#1C2C8C", "image": "/Content/img/RawayauI.png" },
+        { "device": "Samsung", "hex": "#4C975C", "image": "/Content/img/SamsungI.png" },
+        { "device": "Tecno Mobile", "hex": "#ADDDB7", "image": "/Content/img/TecnoI.png" }
     ]
     
     var vizAvgPhotos = d3plus.viz()
@@ -59,8 +59,13 @@ function drawAvgPhotosTakenGraph(currentPhotoData, start, end) {
             "value": ["device", "clinic"]
         }])
         .legend({
+            "size": 30,
             "filters": true,
             "labels": true
+        })
+        .icon({
+            "style": "knockout",
+            "value": "image"
         })
         .height(480)
         .draw()
