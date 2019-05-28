@@ -1,5 +1,7 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using WebApplication1.Models;
@@ -100,7 +102,8 @@ namespace WebApplication1.Backend
         /// </summary>
         public void Initialize()
         {
-
+            // Read in data from csv
+            ReadCSVData();
 
             MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/19/2019"), Value = 10 });
             MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/20/2019"), Value = 8 });
@@ -126,13 +129,55 @@ namespace WebApplication1.Backend
             MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/24/2019"), Value = 8 });
             MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/25/2019"), Value = 9 });
 
-            MyData.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/19/2019"), Value = 8 });
-            MyData.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/20/2019"), Value = 10 });
-            MyData.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/21/2019"), Value = 11 });
-            MyData.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/22/2019"), Value = 11 });
-            MyData.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/23/2019"), Value = 12 });
-            MyData.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/24/2019"), Value = 14 });
-            MyData.Add(new UserModel { Clinic = "Ijowa Clinic", Date = DateTime.Parse("05/25/2019"), Value = 15 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/19/2019"), Value = 8 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/20/2019"), Value = 10 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/21/2019"), Value = 11 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/22/2019"), Value = 11 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/23/2019"), Value = 12 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/24/2019"), Value = 14 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/25/2019"), Value = 15 });
+
+            // sort data in order by date
+            OrderByDate();
+        }
+
+
+        /// <summary>
+        /// Sorts the dataset to order by Date (descending)
+        /// </summary>
+        private void OrderByDate()
+        {
+            MyData.Sort((x, y) => y.Date.CompareTo(x.Date));
+        }
+
+        /// <summary>
+        /// Adds new UserModel objects to dataset based on input from csv file
+        /// </summary>
+        private void ReadCSVData()
+        {
+            try
+            {
+                string path = HttpContext.Current.Server.MapPath("~/App_Data/user_data.csv");
+                using (var reader = new StreamReader(path))
+                using (var csv = new CsvReader(reader))
+                {
+                    var records = csv.GetRecords<UserModel>();
+
+                    foreach (var item in records)
+                    {
+                        MyData.Add(new UserModel
+                        {
+                            Clinic = item.Clinic,
+                            Date = item.Date,
+                            Value = item.Value
+                        });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception: {0}", ex.Message);
+            }
         }
     }
 }
