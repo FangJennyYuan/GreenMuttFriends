@@ -17,52 +17,80 @@
 @Scripts.Render("~/Scripts/avgphotostakengraph.js")
 @Scripts.Render("~/Scripts/calendar.js")
 
-<h1>
-    Performance Dashboard
-</h1>
+<div>
+    <div class="row">
+        <div class="col-lg-8">
+            <h1>
+                Performance Dashboard
+            </h1>
+        </div>
+        
+        <div class="col mr-4 align-self-end">
+            <div class="row chart-filters ">
+                <div class="overviewcard col mr-2 align-self-end active-charts" id="overview-charts">
+                    <div class="overviewcard__icon">
+                        <i class="fa fa-camera-retro  filter-performance-ic img-valign" aria-hidden="true"></i>
+                        <span>Overview</span>
+                    </div>
+                </div>
+                <div class="overviewcard col mr-2" id="device-charts">
+                    <div class="overviewcard__icon">
+                        <i class="fa fa-server  filter-performance-ic img-valign" aria-hidden="true"></i>
+                        <span>User view</span>
+                    </div>
+                </div>
 
-<div class="row date-filter mt-3">
-    <div class="col-lg-1">
-        <button type="button" id="week" onclick="getWeeksDate()"> Week</button>
+            </div>
+        </div>
     </div>
-    <div class="col-lg-1 mr-3">
-        <button type="button" id="month" onclick="getMonthsDate()"> Month</button>
-    </div>
-    <div class="col-lg-1">
-        <button type="button" id="all-date" onclick="getYearsDate()"> All</button>
-    </div>
-    <div class="col-lg-4">
-        Date
-        <input type="text" id="date-input" name="daterange" value="" />
+
+
+    <div class="row date-filter mt-1">
+        <div class="overviewcard__icon ml-3">
+            <i class="fa fa-calendar  filter-performance-ic img-valign" aria-hidden="true"></i>
+        </div>
+        <div class="col-lg-1 mt-2 calendar-filter active-date-range">
+            <button type="button" id="week"  onclick="getWeeksDate()"> Week</button>
+        </div>
+        <div class="col-lg-1 mr-2 mt-2 calendar-filter">
+            <button type="button" id="month" onclick="getMonthsDate()"> Month</button>
+        </div>
+        <div class="col-lg-1 mt-2 calendar-filter">
+            <button type="button" id="all-date" class="calendar-filter" onclick="getYearsDate()"> All</button>
+        </div>
+        <div class="col-lg-4 mt-2">
+            Date
+            <input type="text" id="date-input" name="daterange" value="" />
+        </div>
 
     </div>
-</div>
+
 
 @*<div class="row clinic-filter mt-2">
     <div class="span3 ml-4 mr-2 filter-name">
-        <span>Filter by:</span>
+        <span>filter by:</span>
     </div>
     <div class="span2 mr-2">
-        <img class="img-valign" src="~/Content/img/clinic_Ijowa.png" alt="Ijora" />
-        <span class="primary-color">Ijora Clinic</span>
+        <i class="fa fa-camera icon-inactive" aria-hidden="true"></i>
+        <span class="primary-color">Photos Taken</span>
     </div>
     <div class="span2 mr-2">
-        <img class="img-valign" src="~/Content/img/clinic_Katsina.png" alt="Katsina" />
-        <span class="third-color">Katsina Clinic</span>
+        <i class="fa fa-camera icon-inactive" aria-hidden="true"></i>
+        <span class="third-color">Device Details</span>
     </div>
     <div class="span2 mr-2">
-        <img class="img-valign" src="~/Content/img/clinic_Mashegu.png" alt="Mashegu" />
-        <span class="fourth-color">Mashegu Clinic</span>
+        <img class="img-valign" src="~/content/img/clinic_mashegu.png" alt="mashegu" />
+        <span class="fourth-color">mashegu clinic</span>
     </div>
     <div class="span2 mr-2">
-        <img class="img-valign" src="~/Content/img/clinic_Rawayau.png" alt="Rawayau" />
-        <span class="secondary-color">Rawayau Clinic</span>
+        <img class="img-valign" src="~/content/img/clinic_rawayau.png" alt="rawayau" />
+        <span class="secondary-color">rawayau clinic</span>
     </div>
 </div>*@
 
-<div class="row mt-3 performance-graphs">
+<div class="row mt-3 performance-graphs white-background">
     <div class="col-lg-7 ml-2">
-        <div class="row">
+        <div class="row ">
             <div class="col">
                 <h3> Photos Taken <span class="graph-filtered-by date"> from May 19th to May 25th </span></h3>
             </div>
@@ -123,6 +151,7 @@
             start = moment().subtract(7, 'days');
             end = moment();
             drawPhotosTakenViz(start, end);
+            applyButtonStyleDates(this);
         }
     );
 
@@ -132,37 +161,50 @@
             start = moment().startOf('month');
             end = moment();
             drawPhotosTakenViz(start, end);
+            applyButtonStyleDates(this);
         }
     );
 
-    //Default view
-    $('#week').click(drawPhotosTakenViz(moment().subtract(7, 'days'), moment()));
+    //Pull Photos Data on Month
+    $("#all-date").click(
+        function () {
+            start = moment("4/1/2019");
+            end = moment();
+            drawPhotosTakenViz(start, end);
+            applyButtonStyleDates(this);
+        }
+    );
 
+    //Select a chart series
+    $(".overviewcard").click(function () {
+        //remove all other selected
+        $(".overviewcard").removeClass("active-charts");
+        $(this).toggleClass("active-charts");
+    });
+
+    //Draw overview graphs on performance page
     function drawPhotosTakenViz(start, end) {
         //Get data
         currentPhotoData = getDatabyDate( start, end );
         updateGraphTitlesWithDate(start, end );
 
-        //Remove old graph
+        //Remove old graph and add new
         $("#photos_taken_chart").empty();
-
-        //Draw new Graph
         drawPhotosTakenGraph(currentPhotoData);
 
-        //Remove old graph
+        //Remove old graph and add new
         $("#avg_photos_taken_chart").empty();
-
-        //Draw new Graph
         drawAvgPhotosTakenGraph(currentPhotoData, start, end);
     }
 
+    //Get data by date
     function getDatabyDate(start, end) {
             photosData = [
             @{
                 foreach (var item in Model)
                 {
                     var photosTakenAmp = 0;
-                    //Just amplifying Ijora Clinic Results For Demo
+                    //TODO: Remove in production, Just amplifying Ijora Clinic Results For Demo
                     if(item.Clinic == "Ijora Clinic")
                     {
                         photosTakenAmp = Convert.ToInt32(item.Value * 2.3);
@@ -185,5 +227,9 @@
         return currentPhotoData;
     };
 
+
+    //Default views
+    $("#overview-charts").trigger("click");
+    $('#week').click(drawPhotosTakenViz(moment().subtract(7, 'days'), moment()));
 
 </script>
