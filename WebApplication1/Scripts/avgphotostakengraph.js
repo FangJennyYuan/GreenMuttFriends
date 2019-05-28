@@ -1,23 +1,23 @@
 ﻿
-
-function drawAvgPhotosTakenGraph( currentPhotoData ) {
+function drawAvgPhotosTakenGraph(currentPhotoData, start, end) {
     //Calculate totals
     totals = calulateTotals(currentPhotoData);
 
     //Calulate averages
-    average = calculateAverages(totals);
+    days = getDateRange(start, end);
+    average = calculateAverages(totals, days);
 
     //Create color attributes for chart
     var attributes = [
-        { "clinic": "Ijora Clinic", "hex": "#5FBD73" },
-        { "clinic": "Katsina Clinic", "hex": "#6A5599" },
-        { "clinic": "Mashegu Clinic", "hex": "#71BDD3" },
-        { "clinic": "Rawayau Clinic", "hex": "#1C2C8C" },
-        { "device": "Samsung", "hex": "#4C975C" },
-        { "device": "Tecno Mobile", "hex": "#ADDDB7" }
+        { "clinic": "Ijora Clinic", "hex": "#5FBD73", "image": "/Content/img/IjoraI.png" },
+        { "clinic": "Katsina Clinic", "hex": "#6A5599", "image": "/Content/img/KatsinaI.png" },
+        { "clinic": "Mashegu Clinic", "hex": "#71BDD3", "image": "/Content/img/MasheguI.png"  },
+        { "clinic": "Rawayau Clinic", "hex": "#1C2C8C", "image": "/Content/img/RawayauI.png" },
+        { "device": "Samsung", "hex": "#4C975C", "image": "/Content/img/SamsungI.png" },
+        { "device": "Tecno Mobile", "hex": "#ADDDB7", "image": "/Content/img/TecnoI.png" }
     ]
-
-    var visualization = d3plus.viz()
+    
+    var vizAvgPhotos = d3plus.viz()
         .container("#avg_photos_taken_chart")
         .data(average)
         .type("bar")
@@ -59,12 +59,17 @@ function drawAvgPhotosTakenGraph( currentPhotoData ) {
             "value": ["device", "clinic"]
         }])
         .legend({
+            "size": 30,
             "filters": true,
             "labels": true
         })
+        .icon({
+            "style": "knockout",
+            "value": "image"
+        })
         .height(480)
         .draw()
-
+    
 }
 
 
@@ -94,21 +99,25 @@ function calulateTotals(currentPhotoData) {
 
 
 //Returns an array with averages for current data
-function calculateAverages( totals ) {
+function calculateAverages( totals , days ) {
     var average = [];
 
     totals.forEach(function (arrayItem) {
-        rand = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
+        //TODO: Remove in Production
+        //Just added some randomization to make graph look good for now
+        rand = Math.random() * (+3 - +1) + +1; 
+        avg = (arrayItem.value / days);
+        avgLow = ((avg - rand < 0) ? 1 : avg - rand);
+
+
         average.push({
-            year: 2018,
             clinic: arrayItem.clinic,
-            value: (arrayItem.value / arrayItem.count) + rand,
+            value: avgLow,
             device: "Samsung"
         });
         average.push({
-            year: 2018,
             clinic: arrayItem.clinic,
-            value: (arrayItem.value / arrayItem.count),
+            value: rand,
             device: "Tecno Mobile"
         });
     });
@@ -125,4 +134,13 @@ function containsClinic(obj, list) {
         }
     }
     return -1;
+}
+
+
+//Get range in days 
+function getDateRange(start, end) {
+    var date1 = moment(start, "MM/DD/YYYY");
+    var date2 = moment(end, "MM/DD/YYYY");
+    var diff = date2.diff(date1, 'days');
+    return diff;
 }
