@@ -27,7 +27,7 @@
         {
             <div class="col-1">
                 <label for="id-of-input5" class="custom-checkbox favorite-graph">
-                    <input type="checkbox" id="id-of-input5" class="favorites" onclick="showGraph"/>
+                    <input type="checkbox" id="id-of-input5" class="favorites"/>
                     <i class="fa fa-star fa-stack-1x favorited"></i>
                     <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                 </label>
@@ -85,3 +85,14 @@
     </div>
 </div>
 
+<script>
+    window.onload = function load() {
+        var checked = JSON.parse(localStorage.getItem('id-of-input1'));
+        console.log(checked);
+        if (checked) {
+            document.getElementById("image").style.display = "block";
+        } else {
+            document.getElementById("image").style.display = "none";
+        }
+    }
+</script>
