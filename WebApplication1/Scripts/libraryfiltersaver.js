@@ -1,25 +1,33 @@
 ﻿//Save library filter input to session storage, then reload saved filters when navigating back to page
 $(document).ready(function () {
     // If stored filters exist, reload their values onto page
+    var needToFilter = false;
     if (sessionStorage.clinic) {
         $(".clinic-photos").val(sessionStorage.clinic);
+        needToFilter = true;
     }
     if (sessionStorage.valid) {
         if (sessionStorage.valid == "false") {
             $('#valid-checkbox').prop('checked', false);
+            needToFilter = true;
         }
     }
     if (sessionStorage.invalid) {
         if (sessionStorage.invalid == "false") {
             $('#invalid-checkbox').prop('checked', false);
+            needToFilter = true;
         }
     }
     if (sessionStorage.dateStart && sessionStorage.dateEnd) {
         $('#date-input').data('daterangepicker').setStartDate(sessionStorage.dateStart);
         $('#date-input').data('daterangepicker').setEndDate(sessionStorage.dateEnd);
+        needToFilter = true;
     }
-    // "Click" to trigger the page filters
-    $(".clinic-photos").trigger('click');
+    // Trigger page filters if updates have been made
+    if (needToFilter) {
+        filterLibraryTable();
+        filterLibraryGallery();
+    }
 });
 
 // Save clinic filter state when change detected
