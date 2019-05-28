@@ -73,8 +73,8 @@ body {
     /*Main Nav Menu*/
     .navbar-dark .navbar-nav .nav-link {
         color: white;
-        font-size: 1.4em;
-        margin-left: 1.2em;
+        font-size: 1.3em;
+        margin-left: .7em;
     }
 
         .navbar-dark .navbar-nav .nav-link:hover {
@@ -102,23 +102,26 @@ body {
         margin-top: .5em;
     }
 
-h3 {
-    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-    font-size: 1.4em;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 700;
-    line-height: 1.2em;
-    color: #737572;
-    margin-top: .8em;
-}
-h4 {
-    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
-    font-size: 1em;
-    font-weight: 700;
-    color: #737572;
-    margin-top: .8em;
-}
+    h3 {
+        font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+        font-size: 1.4em;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 700;
+        line-height: 1.2em;
+        color: #737572;
+        margin-top: .8em;
+    }
+    h4 {
+        font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+        font-size: 1em;
+        font-weight: 700;
+        color: #737572;
+        margin-top: .8em;
+    }
+    .header-performance{
+        margin-top:-1em;
+    }
 /*Buttons*/
 .btn-outline-success {
     color: #71BDD3;
@@ -283,3 +286,29 @@ div .date-filter button:hover {
         color: #71BDD3;
         border: 2px solid #71BDD3;
     }
+
+/*Override default nav when small*/
+@media (max-width: 1173px) {
+
+    .navbar-dark .navbar-nav .nav-link {
+        font-size: 1.1em;
+        margin-left: .6em;
+    }
+    #logo-nav{
+        height:29px;
+    }
+    #search-nav {
+        font-size: .9em;
+        width: 150px;
+    }
+    #search-log-nav {
+        font-size: .9em;
+    }
+    #search-btn-nav {
+        width: 80px;
+        font-size: .9em;
+    }
+    #nav-home{
+        margin-left:-2em;
+    }
+}

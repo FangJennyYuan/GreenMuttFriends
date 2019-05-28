@@ -18,8 +18,8 @@
 @Scripts.Render("~/Scripts/calendar.js")
 
 <div>
-    <div class="row">
-        <div class="col-lg-8">
+    <div class="row header-performance">
+        <div class="col-lg-7">
             <h1>
                 Performance Dashboard
             </h1>
@@ -27,13 +27,13 @@
         
         <div class="col mr-4 align-self-end">
             <div class="row chart-filters ">
-                <div class="overviewcard col mr-2 align-self-end active-charts" id="overview-charts">
+                <div class="overviewcard col-lg-5 col-sm-4 ml-2 align-self-end active-charts" id="overview-charts">
                     <div class="overviewcard__icon">
                         <i class="fa fa-camera-retro  filter-performance-ic img-valign" aria-hidden="true"></i>
                         <span>Overview</span>
                     </div>
                 </div>
-                <div class="overviewcard col mr-2" id="device-charts">
+                <div class="overviewcard col-lg-5 col-sm-4 ml-2" id="device-charts">
                     <div class="overviewcard__icon">
                         <i class="fa fa-server  filter-performance-ic img-valign" aria-hidden="true"></i>
                         <span>User view</span>
@@ -49,13 +49,13 @@
         <div class="overviewcard__icon ml-3">
             <i class="fa fa-calendar  filter-performance-ic img-valign" aria-hidden="true"></i>
         </div>
-        <div class="col-lg-1 mt-2 calendar-filter active-date-range">
+        <div class="col-lg-1 col-sm-3 mt-2 calendar-filter active-date-range">
             <button type="button" id="week"  onclick="getWeeksDate()"> Week</button>
         </div>
-        <div class="col-lg-1 mr-2 mt-2 calendar-filter">
+        <div class="col-lg-1 col-sm-3 mr-2 mt-2 calendar-filter">
             <button type="button" id="month" onclick="getMonthsDate()"> Month</button>
         </div>
-        <div class="col-lg-1 mt-2 calendar-filter">
+        <div class="col-lg-1 col-sm-3 mt-2 calendar-filter">
             <button type="button" id="all-date" class="calendar-filter" onclick="getYearsDate()"> All</button>
         </div>
         <div class="col-lg-4 mt-2">
