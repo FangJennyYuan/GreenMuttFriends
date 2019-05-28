@@ -1,9 +1,10 @@
 ﻿function drawInstallGraph(NumAppInstallData) {
+    //Create color attributes for chart
     var attributes = [
-        { "clinic": "Ijora Clinic", "hex": "#5FBD73" },
-        { "clinic": "Katsina Clinic", "hex": "#6A5599" },
-        { "clinic": "Mashegu Clinic", "hex": "#71BDD3" },
-        { "clinic": "Rawayau Clinic", "hex": "#1C2C8C" }
+        { "clinic": "Ijora Clinic", "hex": "#5FBD73", "image": "/Content/img/IjoraI.png" },
+        { "clinic": "Katsina Clinic", "hex": "#6A5599", "image": "/Content/img/KatsinaI.png" },
+        { "clinic": "Mashegu Clinic", "hex": "#71BDD3", "image": "/Content/img/MasheguI.png" },
+        { "clinic": "Rawayau Clinic", "hex": "#1C2C8C", "image": "/Content/img/RawayauI.png" }
     ]
 
     var visualization = d3plus.viz()
@@ -41,6 +42,15 @@
                     return d3plus.string.title(text, params);
                 }
             }
+        })
+        .legend({
+            "size": 30,
+            "filters": true,
+            "labels": true
+        })
+        .icon({
+            "style": "knockout",
+            "value": "image"
         })
         .height(600)
         .draw()
