@@ -12,10 +12,10 @@ function drawPhotosTakenGraph( currentPhotoData ) {
 
     //Create color attributes for chart
     var attributes = [
-        { "clinic": "Ijora Clinic", "hex": "#5FBD73" },
-        { "clinic": "Katsina Clinic", "hex": "#6A5599" },
-        { "clinic": "Mashegu Clinic", "hex": "#71BDD3" },
-        { "clinic": "Rawayau Clinic", "hex": "#1C2C8C" }
+        { "clinic": "Ijora Clinic", "hex": "#5FBD73", "image": "/Content/img/IjoraI.png" },
+        { "clinic": "Katsina Clinic", "hex": "#6A5599", "image": "/Content/img/KatsinaI.png" },
+        { "clinic": "Mashegu Clinic", "hex": "#71BDD3", "image": "/Content/img/MasheguI.png" },
+        { "clinic": "Rawayau Clinic", "hex": "#1C2C8C", "image": "/Content/img/RawayauI.png" }
     ]
 
     //Draw Photos Taken Chart
@@ -62,13 +62,18 @@ function drawPhotosTakenGraph( currentPhotoData ) {
             "method": "y",
             "value": ["value", "userCount"]
         }])
-        .legend({
-            "filters": true,
-            "labels": true
-        })
         .height(495)
         .time({
             "value": "date"
+        })
+        .legend({
+            "size": 30,
+            "filters": true,
+            "labels": true
+        })
+        .icon({
+            "style": "knockout",
+            "value": "image"
         })
         .draw()
 }

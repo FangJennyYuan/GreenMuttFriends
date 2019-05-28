@@ -216,6 +216,7 @@
     <Content Include="Scripts\calendar.js" />
     <Content Include="Scripts\cookies.js" />
     <Content Include="Scripts\daterangepicker.js" />
+    <Content Include="Scripts\libraryfiltersaver.js" />
     <Content Include="Scripts\librarysearch.js" />
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />
