@@ -7,7 +7,7 @@
         { "clinic": "Rawayau Clinic", "hex": "#1C2C8C", "image": "/Content/img/RawayauI.png" }
     ]
 
-    var visualization = d3plus.viz()
+    var vizAppUser = d3plus.viz()
         .container(viz)
         .data({
             "value": AppUsersdata,
@@ -18,7 +18,7 @@
         .id("clinic")         // key for which our data is unique on
         .text("clinic")       // key to use for display text
         .x({
-            "value": "Date",
+            "value": "date",
             "grid": { "color": "#ffffff" }
         })
         .y("value")

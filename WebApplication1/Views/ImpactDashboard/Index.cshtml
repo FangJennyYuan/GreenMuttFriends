@@ -117,7 +117,7 @@
         else { }}
 </div>
 
-<div id="viz"></div>
+<div id="viz-app-users"></div>
 
 <div class="row">
     <div class="col">
@@ -134,7 +134,7 @@
             </div>}
         else { }}
 </div>
-<div id="viz1"></div>
+<div id="viz-num-app-installs"></div>
 
 <script>
 
@@ -143,9 +143,7 @@
         function () {
             start = moment().subtract(7, 'days');
             end = moment();
-            //TODO: add start and end parameters to graphing functions
-            drawAppUsersGraph(AppUsersData, "#viz");
-            drawAppUsersGraph(NumAppInstallData, "#viz1");
+            drawVizWithinDateRange(start, end);
             applyButtonStyleDates(this);
         }
     );
@@ -155,9 +153,7 @@
         function () {
             start = moment().startOf('month');
             end = moment();
-            //TODO: add start and end parameters to graphing functions
-            drawAppUsersGraph(AppUsersData, "#viz");
-            drawAppUsersGraph(NumAppInstallData, "#viz1");
+            drawVizWithinDateRange(start, end);
             applyButtonStyleDates(this);
         }
     );
@@ -167,25 +163,50 @@
         function () {
             start = moment("4/1/2019");
             end = moment();
-            //TODO: add start and end parameters to graphing functions
-            drawAppUsersGraph(AppUsersData, "#viz");
-            drawAppUsersGraph(NumAppInstallData, "#viz1");
+            drawVizWithinDateRange(start, end);
             applyButtonStyleDates(this);
         }
     );
 
-    var AppUsersData = [
-    @{
-        foreach (var item in Model.UserViewModel.UserList)
-        {
-            var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", Date: \"" + item.Date.ToShortDateString() + "\", value: " + item.Value + "},");
-            @outputString
-        }
+    //Draw impact graphs within a date range
+    function drawVizWithinDateRange(start, end) {
+        //Get data
+        dataInDateRange = getDatabyDate(start, end);
+        updateGraphTitlesWithDate(start, end);
+
+        //Remove old graph and add app users
+        $("#viz-app-users").empty();
+        drawAppUsersGraph(dataInDateRange, "#viz-app-users");
+
+        //Remove old graph and add new installs
+        $("#viz-num-app-installs").empty();
+        drawInstallGraph(dataInDateRange, "#viz-num-app-installs");
+
     }
-    ]
+
+
+    //Get data by date
+    function getDatabyDate(start, end) {
+            data = [
+            @{
+                foreach (var item in Model.UserViewModel.UserList){
+                    var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", date: \"" + item.Date.ToShortDateString() + "\", value: " + item.Value + "},");
+                    @outputString
+                }
+            }
+            ],
+            start = start,
+            end = end,
+            currentData = data.filter(d => {
+                var date = new moment(d.date);
+                return (start <= date && date <= end);
+            });
+        console.log("pulled from server");
+        console.log(currentData);
+        return currentData;
+    };
 
     //Defualt views
-    $('#week').click(drawAppUsersGraph(AppUsersData, "#viz"));
-    $('#week').click(drawAppUsersGraph(NumAppInstallData, "#viz1"));
+    $("#week").trigger('click');
 
 </script>
