@@ -71,7 +71,7 @@ namespace WebApplication1.Controllers
 
             ms.Position = 0;
 
-            string filename = "Photo_Data_" + DateTime.Now.ToShortDateString() + ".csv";
+            string filename = "Photo_Data_" + onePhoto.ID + ".csv";
             return File(ms, "text/csv", filename);
         }
     }
