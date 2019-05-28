@@ -202,7 +202,7 @@
             data = [
             @{
                 foreach (var item in Model.UserViewModel.UserList){
-                    var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", date: \"" + item.Date.ToShortDateString() + "\", value: " + item.Value + "},");
+                    var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", date: \"" + item.Date.ToShortDateString() + "\", value: " + item.Value + ", installs: "+ item.Installs + "},");
                     @outputString
                 }
             }

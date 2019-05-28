@@ -105,37 +105,72 @@ namespace WebApplication1.Backend
             // Read in data from csv
             ReadCSVData();
 
-            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/19/2019"), Value = 10 });
-            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/20/2019"), Value = 8 });
-            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/21/2019"), Value = 7 });
-            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/22/2019"), Value = 8 });
-            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/23/2019"), Value = 6 });
-            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/24/2019"), Value = 8 });
-            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/25/2019"), Value = 9 });
+            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/19/2019"), Value = 10, Installs = 4, ValidPhotoCount = 11, PhotoRetakeCount = 4 });
+            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/20/2019"), Value = 8, Installs = 3, ValidPhotoCount = 10, PhotoRetakeCount = 2 });
+            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/21/2019"), Value = 7, Installs = 2, ValidPhotoCount = 8, PhotoRetakeCount = 1 });
+            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/22/2019"), Value = 8, Installs = 2, ValidPhotoCount = 13, PhotoRetakeCount = 0 });
+            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/23/2019"), Value = 6, Installs = 4, ValidPhotoCount = 15, PhotoRetakeCount = 1 });
+            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/24/2019"), Value = 8, Installs = 2, ValidPhotoCount = 9, PhotoRetakeCount = 2 });
+            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/25/2019"), Value = 9, Installs = 1, ValidPhotoCount = 12, PhotoRetakeCount = 3 });
 
-            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/19/2019"), Value = 12 });
-            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/20/2019"), Value = 4 });
-            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/21/2019"), Value = 8 });
-            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/22/2019"), Value = 8 });
-            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/23/2019"), Value = 7 });
-            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/24/2019"), Value = 9 });
-            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/25/2019"), Value = 8 });
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/19/2019"), Value = 12, Installs = 1, ValidPhotoCount = 13, PhotoRetakeCount = 2 });
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/20/2019"), Value = 4, Installs = 0, ValidPhotoCount = 7, PhotoRetakeCount = 0 });
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/21/2019"), Value = 8, Installs = 1, ValidPhotoCount = 10, PhotoRetakeCount = 4 });
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/22/2019"), Value = 8, Installs = 0, ValidPhotoCount = 11, PhotoRetakeCount = 1 });
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/23/2019"), Value = 7, Installs = 3, ValidPhotoCount = 5, PhotoRetakeCount = 7 });
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/24/2019"), Value = 9, Installs = 5, ValidPhotoCount = 7, PhotoRetakeCount = 9 });
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/25/2019"), Value = 8, Installs = 4, ValidPhotoCount = 9, PhotoRetakeCount = 8 });
 
-            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/19/2019"), Value = 8 });
-            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/20/2019"), Value = 9 });
-            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/21/2019"), Value = 7 });
-            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/22/2019"), Value = 10 });
-            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/23/2019"), Value = 8 });
-            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/24/2019"), Value = 8 });
-            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/25/2019"), Value = 9 });
+            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/19/2019"), Value = 8, Installs = 2, ValidPhotoCount = 11, PhotoRetakeCount = 1 });
+            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/20/2019"), Value = 9, Installs = 1, ValidPhotoCount = 13, PhotoRetakeCount = 0 });
+            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/21/2019"), Value = 7, Installs = 3, ValidPhotoCount = 10, PhotoRetakeCount = 2 });
+            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/22/2019"), Value = 10, Installs = 1, ValidPhotoCount = 12, PhotoRetakeCount = 0 });
+            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/23/2019"), Value = 8, Installs = 2, ValidPhotoCount = 10, PhotoRetakeCount = 3 });
+            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/24/2019"), Value = 8, Installs = 3, ValidPhotoCount = 13, PhotoRetakeCount = 2 });
+            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/25/2019"), Value = 9, Installs = 3, ValidPhotoCount = 14, PhotoRetakeCount = 1 });
 
-            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/19/2019"), Value = 8 });
-            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/20/2019"), Value = 10 });
-            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/21/2019"), Value = 11 });
-            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/22/2019"), Value = 11 });
-            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/23/2019"), Value = 12 });
-            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/24/2019"), Value = 14 });
-            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/25/2019"), Value = 15 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/19/2019"), Value = 8, Installs = 3, ValidPhotoCount = 12, PhotoRetakeCount = 3 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/20/2019"), Value = 10, Installs = 4, ValidPhotoCount = 14, PhotoRetakeCount = 3 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/21/2019"), Value = 11, Installs = 3, ValidPhotoCount = 15, PhotoRetakeCount = 2 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/22/2019"), Value = 11, Installs = 2, ValidPhotoCount = 18, PhotoRetakeCount = 0 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/23/2019"), Value = 12, Installs = 4, ValidPhotoCount = 19, PhotoRetakeCount = 1 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/24/2019"), Value = 14, Installs = 5, ValidPhotoCount = 20, PhotoRetakeCount = 1 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/25/2019"), Value = 15, Installs = 5, ValidPhotoCount = 20, PhotoRetakeCount = 0 });
+
+            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/26/2019"), Value = 11, Installs = 3, ValidPhotoCount = 13, PhotoRetakeCount = 3 });
+            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/27/2019"), Value = 8, Installs = 2, ValidPhotoCount = 11, PhotoRetakeCount = 1 });
+            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/28/2019"), Value = 8, Installs = 3, ValidPhotoCount = 8, PhotoRetakeCount = 1 });
+            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/29/2019"), Value = 8, Installs = 1, ValidPhotoCount = 13, PhotoRetakeCount = 0 });
+            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/30/2019"), Value = 6, Installs = 4, ValidPhotoCount = 9, PhotoRetakeCount = 5 });
+            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/31/2019"), Value = 8, Installs = 2, ValidPhotoCount = 10, PhotoRetakeCount = 3 });
+            MyData.Add(new UserModel { Clinic = "Rawayau Clinic", Date = DateTime.Parse("05/01/2019"), Value = 9, Installs = 1, ValidPhotoCount = 11, PhotoRetakeCount = 3 });
+
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/26/2019"), Value = 11, Installs = 1, ValidPhotoCount = 13, PhotoRetakeCount = 3 });
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/27/2019"), Value = 4, Installs = 0, ValidPhotoCount = 7, PhotoRetakeCount = 0 });
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/28/2019"), Value = 8, Installs = 1, ValidPhotoCount = 10, PhotoRetakeCount = 4 });
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/29/2019"), Value = 8, Installs = 0, ValidPhotoCount = 11, PhotoRetakeCount = 1 });
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/30/2019"), Value = 8, Installs = 3, ValidPhotoCount = 5, PhotoRetakeCount = 7 });
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/31/2019"), Value = 9, Installs = 5, ValidPhotoCount = 7, PhotoRetakeCount = 9 });
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/01/2019"), Value = 8, Installs = 4, ValidPhotoCount = 10, PhotoRetakeCount = 8 });
+
+            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/26/2019"), Value = 8, Installs = 2, ValidPhotoCount = 11, PhotoRetakeCount = 1 });
+            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/27/2019"), Value = 9, Installs = 1, ValidPhotoCount = 13, PhotoRetakeCount = 0 });
+            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/28/2019"), Value = 8, Installs = 3, ValidPhotoCount = 10, PhotoRetakeCount = 3 });
+            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/29/2019"), Value = 10, Installs = 1, ValidPhotoCount = 11, PhotoRetakeCount = 2 });
+            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/30/2019"), Value = 8, Installs = 2, ValidPhotoCount = 10, PhotoRetakeCount = 1 });
+            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/31/2019"), Value = 8, Installs = 3, ValidPhotoCount = 13, PhotoRetakeCount = 3 });
+            MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/01/2019"), Value = 9, Installs = 3, ValidPhotoCount = 14, PhotoRetakeCount = 1 });
+
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/26/2019"), Value = 8, Installs = 3, ValidPhotoCount = 11, PhotoRetakeCount = 1 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/27/2019"), Value = 10, Installs = 4, ValidPhotoCount = 14, PhotoRetakeCount = 2 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/28/2019"), Value = 11, Installs = 3, ValidPhotoCount = 15, PhotoRetakeCount = 3 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/29/2019"), Value = 11, Installs = 2, ValidPhotoCount = 18, PhotoRetakeCount = 0 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/30/2019"), Value = 12, Installs = 4, ValidPhotoCount = 19, PhotoRetakeCount = 1 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/31/2019"), Value = 14, Installs = 5, ValidPhotoCount = 20, PhotoRetakeCount = 1 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/01/2019"), Value = 15, Installs = 5, ValidPhotoCount = 20, PhotoRetakeCount = 0 });
+
+
+
 
             // sort data in order by date
             OrderByDate();

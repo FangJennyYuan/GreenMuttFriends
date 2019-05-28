@@ -13,8 +13,22 @@ namespace WebApplication1.Models
 
         // The user's Clinic Name
         public string Clinic { get; set; }
+
+        //The date and time
         public DateTime Date { get; set; }
+
+        //The number of users
         public int Value { get; set; }
+
+        //The number of installs
+        public int Installs { get; set; }
+
+        //The count of valid photos succesfull
+        public int ValidPhotoCount { get; set; }
+
+        //The count of photo retakes
+        public int PhotoRetakeCount { get; set; }
+        
 
         /// <summary>
         /// Constructor for User Model
@@ -49,6 +63,9 @@ namespace WebApplication1.Models
             Clinic = data.Clinic;
             Date = data.Date;
             Value = data.Value;
+            Installs = data.Installs;
+            ValidPhotoCount = data.ValidPhotoCount;
+            PhotoRetakeCount = data.PhotoRetakeCount;
 
             return true;
         }

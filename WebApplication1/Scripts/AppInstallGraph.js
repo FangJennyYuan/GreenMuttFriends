@@ -6,6 +6,8 @@
         { "clinic": "Mashegu Clinic", "hex": "#71BDD3", "image": "/Content/img/MasheguI.png" },
         { "clinic": "Rawayau Clinic", "hex": "#1C2C8C", "image": "/Content/img/RawayauI.png" }
     ]
+    console.log("NumAppInstallData");
+    console.log(NumAppInstallData);
 
     var vizInstall = d3plus.viz()
         .container(viz)
@@ -21,7 +23,7 @@
             "value": "date",
             "grid": { "color": "#ffffff" }
         })
-        .y("value")
+        .y("installs")
         .attrs(attributes)
         .color("hex")
         .font({
@@ -36,7 +38,7 @@
         })
         .format({
             "text": function (text, params) {
-                if (text === "value") {
+                if (text === "installs") {
                     return "Total Installs";
                 } else {
                     return d3plus.string.title(text, params);
