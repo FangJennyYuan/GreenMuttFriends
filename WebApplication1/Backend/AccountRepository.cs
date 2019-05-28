@@ -103,6 +103,7 @@ namespace WebApplication1.Backend
         {
             // Ijora Clinic data for scenario
             dataset.Add(new AccountModel { AccountName = "Adaku", isAccountLoggedIn = false });
+            dataset.Add(new AccountModel { AccountName = "Dr. Wemberk", isAccountLoggedIn = false });
 
         }
     }
