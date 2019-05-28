@@ -20,22 +20,26 @@
 
 
 
-<div class="row date-filter mt-3">
-    <div class="col-lg-1">
+
+<div class="row date-filter mt-1">
+    <div class="overviewcard__icon ml-3">
+        <i class="fa fa-calendar  filter-performance-ic img-valign" aria-hidden="true"></i>
+    </div>
+    <div class="col-lg-1 mt-2 calendar-filter active-date-range">
         <button type="button" id="week" onclick="getWeeksDate()"> Week</button>
     </div>
-    <div class="col-lg-1 mr-3">
+    <div class="col-lg-1 mr-2 mt-2 calendar-filter">
         <button type="button" id="month" onclick="getMonthsDate()"> Month</button>
     </div>
-    <div class="col-lg-1">
-        <button type="button" id="all-date" onclick="getYearsDate()"> All</button>
+    <div class="col-lg-1 mt-2 calendar-filter">
+        <button type="button" id="all-date" class="calendar-filter" onclick="getYearsDate()"> All</button>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-4 mt-2">
         Date
         <input type="text" id="date-input" name="daterange" value="" />
     </div>
-</div>
 
+</div>
 
 <div class="row mt-3 flexbox">
     <div class="col">
@@ -134,6 +138,43 @@
 <div id="viz1"></div>
 
 <script>
+
+    //Pull Photos Data on Week
+    $("#week").click(
+        function () {
+            start = moment().subtract(7, 'days');
+            end = moment();
+            //TODO: add start and end parameters to graphing functions
+            drawAppUsersGraph(AppUsersData, "#viz");
+            drawAppUsersGraph(NumAppInstallData, "#viz1");
+            applyButtonStyleDates(this);
+        }
+    );
+
+    //Pull Photos Data on Month
+    $("#month").click(
+        function () {
+            start = moment().startOf('month');
+            end = moment();
+            //TODO: add start and end parameters to graphing functions
+            drawAppUsersGraph(AppUsersData, "#viz");
+            drawAppUsersGraph(NumAppInstallData, "#viz1");
+            applyButtonStyleDates(this);
+        }
+    );
+
+    //Pull Photos Data on Month
+    $("#all-date").click(
+        function () {
+            start = moment("4/1/2019");
+            end = moment();
+            //TODO: add start and end parameters to graphing functions
+            drawAppUsersGraph(AppUsersData, "#viz");
+            drawAppUsersGraph(NumAppInstallData, "#viz1");
+            applyButtonStyleDates(this);
+        }
+    );
+
     var AppUsersData = [
     @{
         foreach (var item in Model.UserViewModel.UserList)
@@ -144,7 +185,8 @@
     }
     ]
 
+    //Defualt views
     $('#week').click(drawAppUsersGraph(AppUsersData, "#viz"));
     $('#week').click(drawAppUsersGraph(NumAppInstallData, "#viz1"));
-    
+
 </script>
