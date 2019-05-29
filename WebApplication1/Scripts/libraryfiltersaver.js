@@ -65,7 +65,6 @@ $(function () {
 
 // Resets filters to default when reset button is clicked
 $(document).on('click', '#reset-button', function () {
-        console.log("clear");
         resetFilters();
 });
 
