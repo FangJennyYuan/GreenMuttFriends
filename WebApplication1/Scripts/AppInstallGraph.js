@@ -19,7 +19,8 @@
         .text("clinic")       // key to use for display text
         .x({
             "value": "date",
-            "grid": { "color": "#ffffff" }
+            "grid": { "color": "#ffffff" },
+            "zerofill": true
         })
         .y("value")
         .attrs(attributes)
@@ -70,6 +71,6 @@
             "style": "knockout",
             "value": "image"
         })
-        .height(550)
+        .height(500)
         .draw()
 }
