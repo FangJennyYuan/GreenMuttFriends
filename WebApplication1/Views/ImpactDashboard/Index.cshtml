@@ -177,7 +177,7 @@
             data = [
             @{
                 foreach (var item in Model.UserViewModel.UserList){
-                    var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", date: \"" + item.Date.ToShortDateString() + "\", value: " + item.Value + ", installs: "+ item.Installs + "},");
+                    var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", date: \"" + item.Date.ToShortDateString() + "\", value: " + item.Value + ", installs: "+ item.Installs + ", validphotos: " + item.ValidPhotoCount + ", invalidphotos: " + item.PhotoRetakeCount + " },");
                     @outputString
                 }
             }

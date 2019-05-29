@@ -13,16 +13,15 @@
         .data({
             "value": data,
             "stroke": { "width": 3 }
-
         })
         .type("bar")
-        .id("clinic")         // key for which our data is unique on
+        .id(["clinic", "date"])         // key for which our data is unique on
         .text("clinic")       // key to use for display text
         .x({
             "value": "date",
             "grid": { "color": "#ffffff" }
         })
-        .y("value")
+        .y({ "stacked": true, "value": "validphotos" })
         .attrs(attributes)
         .color("hex")
         .font({
@@ -37,22 +36,20 @@
         })
         .format({
             "text": function (text, params) {
-                if (text === "installs") {
-                    return "Total Installs";
-                } else if (text === "value") {
-                    return "Total App Users";
-                } else if (text === "Y Axis") {
-                    return "Filter by ";
+                if (text === "invalidphotos") {
+                    return "Total Photo Retakes";
+                } else if (text === "validphotos") {
+                    return "Total Valid Photos";
                 } else {
                     return d3plus.string.title(text, params);
                 }
             }
         })
-        .tooltip(["clinic", "value", "installs"])
+        .tooltip(["clinic", "validphotos", "invalidphotos"])
         .ui([
             {
                 "method": "y",
-                "value": ["value", "installs"]
+                "value": ["validphotos", "invalidphotos"]
             }
         ])
         .ui({
