@@ -57,7 +57,7 @@
                 }
             }
         })
-        .tooltip(["date", "validphotos", "invalidphotos"])
+        .tooltip([ "validphotos", "invalidphotos"])
         .time({
             "value": "date",
             "format": d3.time.format("%x")
@@ -75,7 +75,7 @@
                 "size": 19
             }
         })
-        .height(500)
+        .height(400)
         .draw()
 }
 

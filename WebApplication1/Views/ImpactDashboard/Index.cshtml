@@ -32,9 +32,11 @@
     </div>
 </div>
 
-<div class="row mt-3 flexbox">
+
+
+@*<div class="row mt-3 flexbox" style="height: 100px" >
     <div class="col">
-        <img src="~/Content/img/Improvement.PNG" class="mx-auto d-block img-fluid" />
+        <img src="~/Content/img/Improvement.PNG" class="mx-auto d-block img-fluid " style="max-height: 90px"/>
     </div>
     @{var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
         if (myAccountModel.isAccountLoggedIn)
@@ -49,7 +51,7 @@
         else { }}
 
     <div class="col">
-        <img src="~/Content/img/AvgUsers.PNG" class="mx-auto d-block img-fluid " />
+        <img src="~/Content/img/AvgUsers.PNG" class="mx-auto d-block img-fluid " style="max-height: 90px"/>
     </div>
     @{if (myAccountModel.isAccountLoggedIn)
         {
@@ -62,7 +64,7 @@
             </div>}
         else { }}
     <div class="col">
-        <img src="~/Content/img/AvgInstalls.PNG" class="mx-auto d-block img-fluid " />
+        <img src="~/Content/img/AvgInstalls.PNG" class="mx-auto d-block img-fluid " style="max-height: 90px"/>
     </div>
     @{if (myAccountModel.isAccountLoggedIn)
         {
@@ -74,14 +76,16 @@
                 </label>
             </div>}
         else { }}
-</div>
+</div>*@
 
 
-<div class="row">
-    <div class="col">
+<div class="row mt-3">
+    <div class="col-lg-9">
         <h3> Photos Taken <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
+        <div id="viz-photos-taken-impact"></div>
     </div>
-    @{if (myAccountModel.isAccountLoggedIn)
+    @{var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
+        if (myAccountModel.isAccountLoggedIn)
         {
             <div class="col-1">
                 <label for="id-of-input3" class="custom-checkbox favorite-graph">
@@ -91,16 +95,38 @@
                 </label>
             </div>}
         else { }}
+    <div class="col my-auto">
+        <div class="card impact-card">
+            <div class="card-body p-3 text-center">
+                <div class="text-right primary-color">
+                    6%
+                    <i class="fa fa-chevron-up"></i>
+                </div>
+                <div class="h1 m-0" id="total-photos">43</div>
+                <div class="text-muted mb-4">Photos Taken</div>
+            </div>
+        </div>
+        <div class="card impact-card">
+            <div class="card-body p-3 text-center">
+                <div class="text-right primary-color">
+                    9%
+                    <i class="fa fa-chevron-up"></i>
+                </div>
+                <div class="h1 m-0" id="valid-photos">39</div>
+                <div class="text-muted mb-4">Valid Photos</div>
+            </div>
+        </div>
+    </div>
 </div>
-<div id="viz-photos-taken-impact"></div>
 
 <div class="row">
-    <div class="col">
+    <div class="col-lg-9">
         <h3> App Usage and Installs <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
+        <div id="viz-num-app-installs"></div>
     </div>
     @{if (myAccountModel.isAccountLoggedIn)
         {
-            <div class="col-1" >
+            <div class="col-1">
                 <label for="id-of-input4" class="custom-checkbox favorite-graph">
                     <input type="checkbox" id="id-of-input4" class="favorites" />
                     <i class="fa fa-star fa-stack-1x favorited"></i>
@@ -108,8 +134,30 @@
                 </label>
             </div>}
         else { }}
+
+    <div class="col my-auto">
+        <div class="card impact-card">
+            <div class="card-body p-3 text-center">
+                <div class="text-right primary-color">
+                    4%
+                    <i class="fa fa-chevron-up"></i>
+                </div>
+                <div class="h1 m-0" id="active-users">9</div>
+                <div class="text-muted mb-4">Active Users</div>
+            </div>
+        </div>
+        <div class="card impact-card">
+            <div class="card-body p-3 text-center">
+                <div class="text-right primary-color">
+                    12%
+                    <i class="fa fa-chevron-up"></i>
+                </div>
+                <div class="h1 m-0" id="new-installs">10</div>
+                <div class="text-muted mb-4">New Installs</div>
+            </div>
+        </div>
+    </div>
 </div>
-<div id="viz-num-app-installs"></div>
 
 <script>
 
