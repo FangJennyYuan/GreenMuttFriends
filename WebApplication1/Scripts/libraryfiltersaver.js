@@ -62,3 +62,37 @@ $(function () {
         sessionStorage.invalid = $("#invalid-checkbox").prop('checked');
     });
 });
+
+// Resets filters to default when reset button is clicked
+$(document).on('click', '#reset-button', function () {
+        resetFilters();
+});
+
+// Restore filters to default state
+function resetFilters() {
+    // Reset clinic
+    $(".clinic-photos").val("all");
+
+    // Reset date filters
+    var myStart = moment(moment().startOf('month'));
+    var myEnd = moment();
+    $('#date-input').data('daterangepicker').setStartDate(myStart);
+    $('#date-input').data('daterangepicker').setEndDate(myEnd);
+    var resultCount = searchLibraryTablebyDateRange(myStart, myEnd);
+    updateResultTitleWithDate(myStart, myEnd, resultCount);
+
+    // Reset checkboxes
+    $('#invalid-checkbox').prop('checked', true);
+    $('#valid-checkbox').prop('checked', true);
+
+    // Filter results
+    filterLibraryTable();
+    filterLibraryGallery();
+
+    // Update saved filters in session storage
+    sessionStorage.clinic = $(".clinic-photos").val();
+    sessionStorage.dateStart = $(".filtered-by-date").attr("datestart");
+    sessionStorage.dateEnd = $(".filtered-by-date").attr("dateend");
+    sessionStorage.invalid = $("#invalid-checkbox").prop('checked');
+    sessionStorage.valid = $("#valid-checkbox").prop('checked');
+}

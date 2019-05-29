@@ -6,8 +6,6 @@
         { "clinic": "Mashegu Clinic", "hex": "#71BDD3", "image": "/Content/img/MasheguI.png" },
         { "clinic": "Rawayau Clinic", "hex": "#1C2C8C", "image": "/Content/img/RawayauI.png" }
     ]
-    console.log("NumAppInstallData");
-    console.log(NumAppInstallData);
 
     var vizInstall = d3plus.viz()
         .container(viz)
@@ -21,9 +19,10 @@
         .text("clinic")       // key to use for display text
         .x({
             "value": "date",
-            "grid": { "color": "#ffffff" }
+            "grid": { "color": "#ffffff" },
+            "zerofill": true
         })
-        .y("installs")
+        .y("value")
         .attrs(attributes)
         .color("hex")
         .font({
@@ -40,9 +39,27 @@
             "text": function (text, params) {
                 if (text === "installs") {
                     return "Total Installs";
+                } else if (text === "value") {
+                    return "Total App Users";
+                } else if (text === "Y Axis") {
+                    return "Filter by ";
                 } else {
                     return d3plus.string.title(text, params);
                 }
+            }
+        })
+        .tooltip(["clinic", "value", "installs"])
+        .ui([
+            {
+                "method": "y",
+                "value": ["value", "installs"]
+            }
+        ])
+        .ui({
+            "position": "top",
+            "align": "left",
+            "font": {
+                "size": 19
             }
         })
         .legend({
@@ -50,10 +67,14 @@
             "filters": true,
             "labels": true
         })
+        .time({
+            "value": "date",
+            "format": d3.time.format("%x")
+        })
         .icon({
             "style": "knockout",
             "value": "image"
         })
-        .height(600)
+        .height(500)
         .draw()
 }
