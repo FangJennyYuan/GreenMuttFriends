@@ -258,6 +258,7 @@
     <Content Include="Scripts\NumAppInstall.js" />
     <Content Include="Scripts\performancefiltering.js" />
     <Content Include="Scripts\photostakengraph.js" />
+    <Content Include="Scripts\photosvalidandinvalidgraph.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />

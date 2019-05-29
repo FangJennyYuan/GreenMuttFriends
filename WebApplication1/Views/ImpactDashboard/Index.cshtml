@@ -9,15 +9,7 @@
 @{
     ViewBag.Title = "Index";
 }
-@Scripts.Render("~/Scripts/jquery-3.4.1.js")
-@Scripts.Render("~/Scripts/moment.js")
-@Scripts.Render("~/Scripts/daterangepicker.js")
-@Scripts.Render("~/Scripts/calendar.js")
-@Scripts.Render("~/Scripts/NumAppInstall.js")
-@Scripts.Render("~/Scripts/AppUsersGraph.js")
-@Scripts.Render("~/Scripts/AppInstallGraph.js")
 <h1>Impact Dashboard</h1>
-
 
 
 
@@ -169,9 +161,9 @@
         dataInDateRange = getDatabyDate(start, end);
         updateGraphTitlesWithDate(start, end);
 
-        //Remove old graph and add app users
-        $("#viz-app-users").empty();
-        drawAppUsersGraph(dataInDateRange, "#viz-app-users");
+        //Remove old graph and add photos taken
+        $("#viz-photos-taken-impact").empty();
+        drawPhotosValidandInvalidGraph(dataInDateRange, "#viz-photos-taken-impact");
 
         //Remove old graph and add new installs
         $("#viz-num-app-installs").empty();
