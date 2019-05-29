@@ -73,7 +73,6 @@ $(document).on('click', '#reset-button', function () {
 function resetFilters() {
     // Reset clinic
     $(".clinic-photos").val("all");
-    sessionStorage.clinic = $(".clinic-photos").val();
 
     // Reset date filters
     var myStart = moment(moment().startOf('month'));
@@ -85,11 +84,16 @@ function resetFilters() {
 
     // Reset checkboxes
     $('#invalid-checkbox').prop('checked', true);
-    sessionStorage.invalid = $("#invalid-checkbox").prop('checked');
     $('#valid-checkbox').prop('checked', true);
-    sessionStorage.invalid = $("#valid-checkbox").prop('checked');
 
     // Filter results
     filterLibraryTable();
     filterLibraryGallery();
+
+    // Update saved filters in session storage
+    sessionStorage.clinic = $(".clinic-photos").val();
+    sessionStorage.dateStart = $(".filtered-by-date").attr("datestart");
+    sessionStorage.dateEnd = $(".filtered-by-date").attr("dateend");
+    sessionStorage.invalid = $("#invalid-checkbox").prop('checked');
+    sessionStorage.valid = $("#valid-checkbox").prop('checked');
 }
