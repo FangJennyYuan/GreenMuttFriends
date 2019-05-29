@@ -159,11 +159,12 @@
     function drawVizWithinDateRange(start, end) {
         //Get data
         dataInDateRange = getDatabyDate(start, end);
+        zerofilledData = zeroFillbyDate(dataInDateRange, start, end);
         updateGraphTitlesWithDate(start, end);
 
         //Remove old graph and add photos taken
         $("#viz-photos-taken-impact").empty();
-        drawPhotosValidandInvalidGraph(dataInDateRange, "#viz-photos-taken-impact");
+        drawPhotosValidandInvalidGraph(dataInDateRange, "#viz-photos-taken-impact", start, end);
 
         //Remove old graph and add new installs
         $("#viz-num-app-installs").empty();
@@ -188,13 +189,96 @@
                 var date = new moment(d.date);
                 return (start <= date && date <= end);
             });
-        console.log("pulled from server");
-        console.log(currentData);
         return currentData;
     };
 
     //Defualt views
     $("#week").trigger('click');
 
+
+    //Check if all date ranges have val if not fill it
+    function zeroFillbyDate(totals, start, end) {
+
+        //Iterate through date range and fill if zero
+        for (var d = moment(start, "MM/DD/YYYY"); d <= end; d.add(1, 'days')) {
+            
+
+            //If it exists add to total
+            containsDateV = containsDateInData(d.format('L'), totals);
+            if (containsDateV != -1) {
+                console.log(d);
+            } else {
+                //TODO: Remove in production, just for demo
+                randInv = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
+                randValid = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
+                randInstall = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
+
+                totals.push({
+                    clinic: "Katsina Clinic",
+                    date: d.format('L'),
+                    value: randVal,
+                    installs: randInstall,
+                    validphotos: randValid,
+                    invalidphotos: randInv
+                });
+
+                randInv = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+                randValid = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
+                randInstall = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
+
+                totals.push({
+                    clinic: "Ijora Clinic",
+                    date: d.format('L'),
+                    value: randVal,
+                    installs: randInstall,
+                    validphotos: randValid,
+                    invalidphotos: randInv
+                });
+
+                randInv = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+                randValid = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
+                randInstall = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
+
+                totals.push({
+                    clinic: "Mashegu Clinic",
+                    date: d.format('L'),
+                    value: randVal,
+                    installs: randInstall,
+                    validphotos: randValid,
+                    invalidphotos: randInv
+                });
+
+                randInv = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
+                randValid = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
+                randInstall = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
+
+                totals.push({
+                    clinic: "Rawayau Clinic",
+                    date: d.format('L'),
+                    value: randVal,
+                    installs: randInstall,
+                    validphotos: randValid,
+                    invalidphotos: randInv
+                });
+            }
+        }
+        return totals;
+    }
+
+
+    //Check if date is in data set
+    function containsDateInData(obj, list) {
+        var i;
+        for (i = 0; i < list.length; i++) {
+            if (list[i].date === obj.date) {
+                return i;
+            }
+        }
+        return -1;
+    }
 
 </script>

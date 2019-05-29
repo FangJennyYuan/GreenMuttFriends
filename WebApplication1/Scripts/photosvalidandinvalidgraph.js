@@ -1,4 +1,4 @@
-﻿function drawPhotosValidandInvalidGraph(data, viz) {
+﻿function drawPhotosValidandInvalidGraph(data, viz, start, end) {
     //Cast strings to dates
     data.forEach(function (arrayItem) {
         var d = moment(arrayItem.date, "MM/DD/YYYY").format('L');
@@ -7,7 +7,7 @@
 
     //Calculate totals
     totals = calulateTotalsbyDate(data);
-    console.log(totals);
+    
 
     //Create color attributes for chart
     var attributes = [
@@ -86,7 +86,7 @@ function calulateTotalsbyDate(data) {
     //Calculate total for time selected
     data.forEach(function (arrayItem) {
 
-        //If it exists add to average
+        //If it exists add to total
         containsDateV = containsDate(arrayItem, totals);
         if (containsDateV != -1) {
             totals[containsDateV].validphotos += arrayItem.validphotos;

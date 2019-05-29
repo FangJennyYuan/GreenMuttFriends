@@ -151,7 +151,7 @@ namespace WebApplication1.Backend
             MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/29/2019"), Value = 8, Installs = 0, ValidPhotoCount = 11, PhotoRetakeCount = 1 });
             MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/30/2019"), Value = 8, Installs = 3, ValidPhotoCount = 5, PhotoRetakeCount = 7 });
             MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/31/2019"), Value = 9, Installs = 5, ValidPhotoCount = 7, PhotoRetakeCount = 9 });
-            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/01/2019"), Value = 4, Installs = 4, ValidPhotoCount = 3, PhotoRetakeCount = 5 });
+            MyData.Add(new UserModel { Clinic = "Mashegu Clinic", Date = DateTime.Parse("05/01/2019"), Value = 4, Installs = 2, ValidPhotoCount = 3, PhotoRetakeCount = 5 });
 
             MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/26/2019"), Value = 6, Installs = 2, ValidPhotoCount = 8, PhotoRetakeCount = 1 });
             MyData.Add(new UserModel { Clinic = "Katsina Clinic", Date = DateTime.Parse("05/27/2019"), Value = 7, Installs = 1, ValidPhotoCount = 8, PhotoRetakeCount = 0 });
@@ -167,7 +167,7 @@ namespace WebApplication1.Backend
             MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/29/2019"), Value = 11, Installs = 2, ValidPhotoCount = 15, PhotoRetakeCount = 0 });
             MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/30/2019"), Value = 12, Installs = 4, ValidPhotoCount = 16, PhotoRetakeCount = 1 });
             MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/31/2019"), Value = 14, Installs = 5, ValidPhotoCount = 17, PhotoRetakeCount = 1 });
-            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/01/2019"), Value = 3, Installs = 5, ValidPhotoCount = 3, PhotoRetakeCount = 0 });
+            MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/01/2019"), Value = 3, Installs = 1, ValidPhotoCount = 3, PhotoRetakeCount = 0 });
 
 
 

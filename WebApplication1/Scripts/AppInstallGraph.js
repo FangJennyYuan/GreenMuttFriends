@@ -67,6 +67,10 @@
             "filters": true,
             "labels": true
         })
+        .time({
+            "value": "date",
+            "format": d3.time.format("%x")
+        })
         .icon({
             "style": "knockout",
             "value": "image"
