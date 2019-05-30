@@ -109,7 +109,7 @@
         <div class="card impact-card">
             <div class="card-body p-3 text-center">
                 <div class="text-right primary-color">
-                    9%
+                    <span id="valid-photos-perc">6%</span>
                     <i class="fa fa-chevron-up"></i>
                 </div>
                 <div class="h1 m-0" id="valid-photos">39</div>
@@ -140,17 +140,17 @@
         <div class="card impact-card">
             <div class="card-body p-3 text-center">
                 <div class="text-right primary-color">
-                    4%
+                    <span id="active-users-perc">6%</span>
                     <i class="fa fa-chevron-up"></i>
                 </div>
                 <div class="h1 m-0" id="active-users">9</div>
-                <div class="text-muted mb-4">Active Users</div>
+                <div class="text-muted mb-4">Avg Daily Users</div>
             </div>
         </div>
         <div class="card impact-card">
             <div class="card-body p-3 text-center">
                 <div class="text-right primary-color">
-                    12%
+                    <span id="new-installs-perc">6%</span>
                     <i class="fa fa-chevron-up"></i>
                 </div>
                 <div class="h1 m-0" id="new-installs">10</div>
@@ -220,12 +220,8 @@
         drawInstallGraph(dataInDateRange, "#viz-num-app-installs");
 
         //Update summary cards starting with photo count
-        photos = calculateTotalPhotoCount(dataInDateRange, start, end);
-        totalPhotos = photos[0];
-        percentChange = photos[1];
-        $("#total-photos").text(totalPhotos);
-        $("#total-photos-perc").html(percentChange + "% ");
-
+        setTotalPhotoCardsData(dataInDateRange, start, end);
+        setActiveUserCardsData(dataInDateRange, start, end)
     }
 
 
