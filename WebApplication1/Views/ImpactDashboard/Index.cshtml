@@ -56,8 +56,8 @@
     @{if (myAccountModel.isAccountLoggedIn)
         {
             <div class="col-1">
-                <label for="id-of-input1" class="custom-checkbox favorite-graph" onload="load()">
-                    <input type="checkbox" id="id-of-input1" class="favorites" onclick="save()"/>
+                <label for="id-of-input1" class="custom-checkbox favorite-graph">
+                    <input type="checkbox" id="id-of-input1" class="favorites" />
                     <i class="fa fa-star fa-stack-1x favorited"></i>
                     <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                 </label>
@@ -88,8 +88,8 @@
         if (myAccountModel.isAccountLoggedIn)
         {
             <div class="col-1">
-                <label for="id-of-input3" class="custom-checkbox favorite-graph">
-                    <input type="checkbox" id="id-of-input3" class="favorites" />
+                <label for="id-of-input3" class="custom-checkbox favorite-graph" onload="load()">
+                    <input type="checkbox" id="id-of-input3" class="favorites" onclick="save()"/>
                     <i class="fa fa-star fa-stack-1x favorited"></i>
                     <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                 </label>
@@ -162,15 +162,15 @@
 <script>
 
     window.onload = function load() {
-        var checked = JSON.parse(localStorage.getItem('id-of-input1'));
+        var checked = JSON.parse(localStorage.getItem('id-of-input3'));
         console.log(checked);
-        document.getElementById("id-of-input1").checked = checked;
+        document.getElementById("id-of-input3").checked = checked;
     }
 
     function save() {
-        var checkbox = document.getElementById('id-of-input1');
+        var checkbox = document.getElementById('id-of-input3');
         console.log(checkbox.checked);
-        localStorage.setItem('id-of-input1', checkbox.checked);
+        localStorage.setItem('id-of-input3', checkbox.checked);
     }
 
     //Pull Photos Data on Week
