@@ -9,15 +9,7 @@
 @{
     ViewBag.Title = "Index";
 }
-@Scripts.Render("~/Scripts/jquery-3.4.1.js")
-@Scripts.Render("~/Scripts/moment.js")
-@Scripts.Render("~/Scripts/daterangepicker.js")
-@Scripts.Render("~/Scripts/calendar.js")
-@Scripts.Render("~/Scripts/NumAppInstall.js")
-@Scripts.Render("~/Scripts/AppUsersGraph.js")
-@Scripts.Render("~/Scripts/AppInstallGraph.js")
 <h1>Impact Dashboard</h1>
-
 
 
 
@@ -40,9 +32,11 @@
     </div>
 </div>
 
-<div class="row mt-3 flexbox">
+
+
+@*<div class="row mt-3 flexbox" style="height: 100px" >
     <div class="col">
-        <img src="~/Content/img/Improvement.PNG" class="mx-auto d-block img-fluid" />
+        <img src="~/Content/img/Improvement.PNG" class="mx-auto d-block img-fluid " style="max-height: 90px"/>
     </div>
     @{var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
         if (myAccountModel.isAccountLoggedIn)
@@ -57,7 +51,7 @@
         else { }}
 
     <div class="col">
-        <img src="~/Content/img/AvgUsers.PNG" class="mx-auto d-block img-fluid " />
+        <img src="~/Content/img/AvgUsers.PNG" class="mx-auto d-block img-fluid " style="max-height: 90px"/>
     </div>
     @{if (myAccountModel.isAccountLoggedIn)
         {
@@ -70,7 +64,7 @@
             </div>}
         else { }}
     <div class="col">
-        <img src="~/Content/img/AvgInstalls.PNG" class="mx-auto d-block img-fluid " />
+        <img src="~/Content/img/AvgInstalls.PNG" class="mx-auto d-block img-fluid " style="max-height: 90px"/>
     </div>
     @{if (myAccountModel.isAccountLoggedIn)
         {
@@ -82,14 +76,16 @@
                 </label>
             </div>}
         else { }}
-</div>
+</div>*@
 
 
-<div class="row">
-    <div class="col">
+<div class="row mt-3">
+    <div class="col-lg-9">
         <h3> Photos Taken <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
+        <div id="viz-photos-taken-impact"></div>
     </div>
-    @{if (myAccountModel.isAccountLoggedIn)
+    @{var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
+        if (myAccountModel.isAccountLoggedIn)
         {
             <div class="col-1">
                 <label for="id-of-input3" class="custom-checkbox favorite-graph">
@@ -99,16 +95,38 @@
                 </label>
             </div>}
         else { }}
+    <div class="col my-auto">
+        <div class="card impact-card">
+            <div class="card-body p-3 text-center">
+                <div class="text-right primary-color" >
+                    <span id="total-photos-perc">6%</span>
+                    <i class="fa fa-chevron-up"></i>
+                </div>
+                <div class="h1 m-0" id="total-photos">43</div>
+                <div class="text-muted mb-4">Photos Taken</div>
+            </div>
+        </div>
+        <div class="card impact-card">
+            <div class="card-body p-3 text-center">
+                <div class="text-right primary-color">
+                    9%
+                    <i class="fa fa-chevron-up"></i>
+                </div>
+                <div class="h1 m-0" id="valid-photos">39</div>
+                <div class="text-muted mb-4">Valid Photos</div>
+            </div>
+        </div>
+    </div>
 </div>
-<div id="viz-photos-taken-impact"></div>
 
 <div class="row">
-    <div class="col">
+    <div class="col-lg-9">
         <h3> App Usage and Installs <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
+        <div id="viz-num-app-installs"></div>
     </div>
     @{if (myAccountModel.isAccountLoggedIn)
         {
-            <div class="col-1" >
+            <div class="col-1">
                 <label for="id-of-input4" class="custom-checkbox favorite-graph">
                     <input type="checkbox" id="id-of-input4" class="favorites" />
                     <i class="fa fa-star fa-stack-1x favorited"></i>
@@ -116,8 +134,30 @@
                 </label>
             </div>}
         else { }}
+
+    <div class="col my-auto">
+        <div class="card impact-card">
+            <div class="card-body p-3 text-center">
+                <div class="text-right primary-color">
+                    4%
+                    <i class="fa fa-chevron-up"></i>
+                </div>
+                <div class="h1 m-0" id="active-users">9</div>
+                <div class="text-muted mb-4">Active Users</div>
+            </div>
+        </div>
+        <div class="card impact-card">
+            <div class="card-body p-3 text-center">
+                <div class="text-right primary-color">
+                    12%
+                    <i class="fa fa-chevron-up"></i>
+                </div>
+                <div class="h1 m-0" id="new-installs">10</div>
+                <div class="text-muted mb-4">New Installs</div>
+            </div>
+        </div>
+    </div>
 </div>
-<div id="viz-num-app-installs"></div>
 
 <script>
 
@@ -167,15 +207,23 @@
     function drawVizWithinDateRange(start, end) {
         //Get data
         dataInDateRange = getDatabyDate(start, end);
+        zerofilledData = zeroFillbyDate(dataInDateRange, start, end);
         updateGraphTitlesWithDate(start, end);
 
-        //Remove old graph and add app users
-        $("#viz-app-users").empty();
-        drawAppUsersGraph(dataInDateRange, "#viz-app-users");
+        //Remove old graph and add photos taken
+        $("#viz-photos-taken-impact").empty();
+        drawPhotosValidandInvalidGraph(dataInDateRange, "#viz-photos-taken-impact", start, end);
 
         //Remove old graph and add new installs
         $("#viz-num-app-installs").empty();
         drawInstallGraph(dataInDateRange, "#viz-num-app-installs");
+
+        //Update summary cards starting with photo count
+        photos = getTotalPhotoCount(dataInDateRange, start, end);
+        totalPhotos = photos[0];
+        percentChange = photos[1];
+        $("#total-photos").text(totalPhotos);
+        $("#total-photos-perc").html(percentChange + "% ");
 
     }
 
@@ -185,7 +233,7 @@
             data = [
             @{
                 foreach (var item in Model.UserViewModel.UserList){
-                    var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", date: \"" + item.Date.ToShortDateString() + "\", value: " + item.Value + ", installs: "+ item.Installs + "},");
+                    var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", date: \"" + item.Date.ToShortDateString() + "\", value: " + item.Value + ", installs: "+ item.Installs + ", validphotos: " + item.ValidPhotoCount + ", invalidphotos: " + item.PhotoRetakeCount + " },");
                     @outputString
                 }
             }
@@ -196,13 +244,123 @@
                 var date = new moment(d.date);
                 return (start <= date && date <= end);
             });
-        console.log("pulled from server");
-        console.log(currentData);
         return currentData;
     };
 
     //Defualt views
     $("#week").trigger('click');
 
+
+    //Check if all date ranges have val if not fill it
+    function zeroFillbyDate(totals, start, end) {
+
+        //Iterate through date range and fill if zero
+        for (var d = moment(start, "MM/DD/YYYY"); d <= end; d.add(1, 'days')) {
+            
+            //If it exists add to total
+            containsDateV = containsDateInData(d.format('L'), totals);
+            if (containsDateV != -1) {
+                console.log(d);
+            } else {
+                //TODO: Remove in production, just for demo
+                randInv = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
+                randValid = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
+                randInstall = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
+
+                totals.push({
+                    clinic: "Katsina Clinic",
+                    date: d.format('L'),
+                    value: randVal,
+                    installs: randInstall,
+                    validphotos: randValid,
+                    invalidphotos: randInv
+                });
+
+                randInv = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+                randValid = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
+                randInstall = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
+
+                totals.push({
+                    clinic: "Ijora Clinic",
+                    date: d.format('L'),
+                    value: randVal,
+                    installs: randInstall,
+                    validphotos: randValid,
+                    invalidphotos: randInv
+                });
+
+                randInv = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+                randValid = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
+                randInstall = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
+
+                totals.push({
+                    clinic: "Mashegu Clinic",
+                    date: d.format('L'),
+                    value: randVal,
+                    installs: randInstall,
+                    validphotos: randValid,
+                    invalidphotos: randInv
+                });
+
+                randInv = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
+                randValid = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
+                randInstall = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
+
+                totals.push({
+                    clinic: "Rawayau Clinic",
+                    date: d.format('L'),
+                    value: randVal,
+                    installs: randInstall,
+                    validphotos: randValid,
+                    invalidphotos: randInv
+                });
+            }
+        }
+        return totals;
+    }
+
+
+    //Check if date is in data set
+    function containsDateInData(obj, list) {
+        var i;
+        for (i = 0; i < list.length; i++) {
+            if (list[i].date === obj.date) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+
+    function getTotalPhotoCount(data, start, end) {
+
+        var totalPhotos = 0;
+        var percentChange = 0;
+        var s = moment(start, "MM/DD/YYYY").format('L');
+        var e = moment(end, "MM/DD/YYYY").format('L');
+        var startVal = 0;
+        var endVal = 0;
+
+        data.forEach(function (arrayItem) {
+            todaysPhotos = arrayItem.validphotos + arrayItem.invalidphotos;
+            totalPhotos += todaysPhotos;
+
+            var d = moment(arrayItem.date, "MM/DD/YYYY").format('L');
+            if (d == s) {
+                startVal += todaysPhotos;
+            }
+            else if (d == e) {
+                endVal += todaysPhotos;
+            }
+        });
+
+        percentChange = endVal - startVal / endVal;
+
+        return [totalPhotos, percentChange.toFixed(1) ];
+    }
 
 </script>

@@ -19,7 +19,8 @@
         .text("clinic")       // key to use for display text
         .x({
             "value": "date",
-            "grid": { "color": "#ffffff" }
+            "grid": { "color": "#ffffff" },
+            "zerofill": true
         })
         .y("value")
         .attrs(attributes)
@@ -66,10 +67,14 @@
             "filters": true,
             "labels": true
         })
+        .time({
+            "value": "date",
+            "format": d3.time.format("%x")
+        })
         .icon({
             "style": "knockout",
             "value": "image"
         })
-        .height(550)
+        .height(500)
         .draw()
 }

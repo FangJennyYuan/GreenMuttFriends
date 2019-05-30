@@ -71,7 +71,8 @@ function drawPhotosTakenGraph( currentPhotoData ) {
         })
         .height(495)
         .time({
-            "value": "date"
+            "value": "date",
+            "format": d3.time.format("%x")
         })
         .legend({
             "size": 30,
