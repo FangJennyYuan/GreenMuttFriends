@@ -1,4 +1,8 @@
-﻿
+﻿/**
+ * Draws the photos taken graph
+ * used on the performance page
+ * @param {any} currentPhotoData is data from the Photos Taken Model
+ */
 function drawPhotosTakenGraph( currentPhotoData ) {
 
     //Sort Data by Clinic

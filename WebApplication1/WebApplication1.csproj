@@ -217,6 +217,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Scripts\calculateStatistics.js" />
     <Content Include="Scripts\calendar.js" />
     <Content Include="Scripts\cookies.js" />
     <Content Include="Scripts\daterangepicker.js" />

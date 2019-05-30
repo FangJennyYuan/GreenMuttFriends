@@ -1,4 +1,11 @@
-﻿function drawInstallGraph(NumAppInstallData, viz) {
+﻿
+/**
+ * Draws the install and user graph  
+ * @param {any} data data from the User Model
+ * @param {any} viz the id of the div container
+ */
+function drawInstallGraph(data, viz) {
+
     //Create color attributes for chart
     var attributes = [
         { "clinic": "Ijora Clinic", "hex": "#5FBD73", "image": "/Content/img/IjoraI.png" },
@@ -10,7 +17,7 @@
     var vizInstall = d3plus.viz()
         .container(viz)
         .data({
-            "value": NumAppInstallData,
+            "value": data,
             "stroke": { "width": 3 }
 
         })
@@ -52,7 +59,7 @@
         .ui([
             {
                 "method": "y",
-                "value": ["value", "installs"]
+                "value": ["value", "installs"] //toggles the y axis
             }
         ])
         .ui({

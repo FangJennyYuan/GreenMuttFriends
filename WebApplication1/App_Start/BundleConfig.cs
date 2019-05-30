@@ -30,6 +30,7 @@ namespace WebApplication1
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/graphs").Include(
+                        "~/Scripts/calculateStatistics.js",
                         "~/Scripts/photosvalidandinvalidgraph.js",
                         "~/Scripts/AppInstallGraph.js",
                         "~/Scripts/photostakengraph.js",

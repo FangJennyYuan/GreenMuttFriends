@@ -1,4 +1,13 @@
-﻿function drawPhotosValidandInvalidGraph(data, viz, start, end) {
+﻿
+/**
+ * Draws the valid and invalid photos graph for
+ * the data within the range
+ * @param {any} data from the User Model
+ * @param {any} viz the id of the div container
+ * @param {any} start the starting day in the data range
+ * @param {any} end the ending day in the data range
+ */
+function drawPhotosValidandInvalidGraph(data, viz, start, end) {
     //Cast strings to dates
     data.forEach(function (arrayItem) {
         var d = moment(arrayItem.date, "MM/DD/YYYY").format('L');

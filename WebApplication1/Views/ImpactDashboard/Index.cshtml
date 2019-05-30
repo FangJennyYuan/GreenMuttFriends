@@ -219,7 +219,7 @@
         drawInstallGraph(dataInDateRange, "#viz-num-app-installs");
 
         //Update summary cards starting with photo count
-        photos = getTotalPhotoCount(dataInDateRange, start, end);
+        photos = calculateTotalPhotoCount(dataInDateRange, start, end);
         totalPhotos = photos[0];
         percentChange = photos[1];
         $("#total-photos").text(totalPhotos);
@@ -335,32 +335,5 @@
         return -1;
     }
 
-
-    function getTotalPhotoCount(data, start, end) {
-
-        var totalPhotos = 0;
-        var percentChange = 0;
-        var s = moment(start, "MM/DD/YYYY").format('L');
-        var e = moment(end, "MM/DD/YYYY").format('L');
-        var startVal = 0;
-        var endVal = 0;
-
-        data.forEach(function (arrayItem) {
-            todaysPhotos = arrayItem.validphotos + arrayItem.invalidphotos;
-            totalPhotos += todaysPhotos;
-
-            var d = moment(arrayItem.date, "MM/DD/YYYY").format('L');
-            if (d == s) {
-                startVal += todaysPhotos;
-            }
-            else if (d == e) {
-                endVal += todaysPhotos;
-            }
-        });
-
-        percentChange = endVal - startVal / endVal;
-
-        return [totalPhotos, percentChange.toFixed(1) ];
-    }
 
 </script>
