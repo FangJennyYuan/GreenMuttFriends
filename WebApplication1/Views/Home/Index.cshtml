@@ -61,13 +61,31 @@
 
 </div>
 
-<div id="image" style="display:none">
-    <div class="row">
-        <div class="col">
-            <h3> Photos Taken <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
+    <div class="row mt-3">
+        <div class="col-lg-7 ml-2" id="image" style="display:none">
+            <div class="row">
+                <div class="col">
+                    <h3> Photos Taken <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div id="viz-photos-taken-impact" style="width:600px"></div>
+            </div>
+            
         </div>
-    </div>
-    <div id="viz-photos-taken-impact"></div>
+        <div class="col" id="avgPhoto" style="display:none">
+            <div class="row">
+                <div class="col">
+                    <h3> Avg Photos Taken <span class="graph-filtered-by"> by Device </span></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div id="avg_photos_taken_chart"></div>
+                <p class="align-bottom ml-5 pl-4 text-center"> Avg # of Photos <span class="date"> from May 19th to May 25th</span></p>
+            </div>
+        </div>
+    
+    
 </div>
 
 
@@ -92,20 +110,28 @@
 
 <script>
     window.onload = function load() {
-        var checked = JSON.parse(localStorage.getItem('id-of-input3'));
-        console.log(checked);
-        if (checked) {
+        var photoTakenChecked = JSON.parse(localStorage.getItem('id-of-input3'));
+        var avgPhotoTakenChecked = JSON.parse(localStorage.getItem('id-of-input8')); 
+        
+        if (photoTakenChecked) {
             document.getElementById("image").style.display = "block";
         } else {
             document.getElementById("image").style.display = "none";
         }
+
+        if (avgPhotoTakenChecked) {
+            document.getElementById("avgPhoto").style.display = "block";
+        } else {
+            document.getElementById("avgPhoto").style.display = "none";
+        }
     }
     window.onload(drawPhotosTakenViz(moment().subtract(7, 'days'), moment()));
+    window.onload(drawAvgPhotosTakenViz(moment().subtract(7, 'days'), moment()));
 
         //Draw impact graphs within a date range
     function drawPhotosTakenViz(start, end) {
         //Get data
-        dataInDateRange = getDatabyDate(start, end);
+        dataInDateRange = getUserDatabyDate(start, end);
         zerofilledData = zeroFillbyDate(dataInDateRange, start, end);
         updateGraphTitlesWithDate(start, end);
 
@@ -201,7 +227,7 @@
     }
 
     //Get data by date
-    function getDatabyDate(start, end) {
+    function getUserDatabyDate(start, end) {
             data = [
             @{
                 foreach (var item in Model.UserViewModel.UserList){
@@ -219,6 +245,87 @@
         return currentData;
     };
 
-    
+    //Draw overview graphs on performance page
+    function drawAvgPhotosTakenViz(start, end) {
+        //Get data
+        currentPhotoData = getPhotoDatabyDate(start, end);
+        
+        updateGraphTitlesWithDate(start, end );
+
+        //Remove old graph and add new
+        $("#avg_photos_taken_chart").empty();
+        drawAvgPhotosTakenGraph(currentPhotoData, start, end);
+    }
+
+    //Get data by date
+    function getPhotoDatabyDate(start, end) {
+        photosData = [
+            @{
+                var myViewModel = new List<TotalPhotosTakenModel>();
+
+                //Calculate photo totals for each clinic on each day
+                var clinicPhotoTotals = new Dictionary<string, int>();
+                foreach (var item in Model.PhotoViewModel.PhotoList)
+                {
+                    int currentPhotoCount = 0;
+                    var clinicAndDate = item.ClinicName + "_" + item.RecordedDateTime.ToShortDateString();
+                    clinicPhotoTotals.TryGetValue(clinicAndDate, out currentPhotoCount);
+                    clinicPhotoTotals[clinicAndDate] = currentPhotoCount + 1;
+                }
+
+                //Add aggregate photo totals to model by date and clinic
+                foreach (KeyValuePair<string, int> entry in clinicPhotoTotals)
+                {
+                    string[] clinicByDate = entry.Key.Split('_');
+                    string clinic = clinicByDate[0];
+                    string date = clinicByDate[1];
+
+                    //Query data to Get the users for this clinic and date
+                    IEnumerable<PhotoModel> query = Model.PhotoViewModel.PhotoList.Where(
+                        c => c.ClinicName == clinic
+                        && c.RecordedDateTime.ToShortDateString() == date
+                    );
+
+                    //Get distinct user count
+                    List<string> users = (from t in query
+                                          select t.UserID).Distinct().ToList();
+                    int userCount = users.Count;
+
+                    myViewModel.Add(
+                        new TotalPhotosTakenModel
+                        {
+                            Clinic = clinic,
+                            Date = DateTime.Parse(date),
+                            Value = entry.Value,
+                            UserCount = userCount
+                        }
+                    );
+                }
+
+                foreach (var item in myViewModel)
+                {
+                    var photosTakenAmp = 0;
+                    //TODO: Remove in production, Just amplifying Ijora Clinic Results For Demo
+                    if (item.Clinic == "Ijora Clinic")
+                    {
+                        photosTakenAmp = Convert.ToInt32(item.Value * 2.3);
+                    }
+                    else{
+                        photosTakenAmp = item.Value;
+                    }
+
+                    var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", date: \"" + item.Date.ToShortDateString() + "\", value: " + photosTakenAmp + ", userCount: " + item.UserCount + " },");
+                    @outputString
+                }
+            }
+        ],
+            start = start,
+            end = end,
+            currentPhotoData = photosData.filter(d => {
+                var date = new moment(d.date);
+                return (start <= date && date <= end);
+            });
+        return currentPhotoData;
+    }
 
 </script>
