@@ -312,9 +312,18 @@ div .date-filter button:hover {
         margin-left:-2em;
     }
 }
+/**Formating card view on impact page*/
 .impact-card {
     border: 2px #B8B8B8 solid;
     margin: 15px;
     padding:2px;
 }
+
+/**Right align fav inside div*/
+#favorite-icon {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin-top: 10px;
+    margin-right: 15px;
 }
