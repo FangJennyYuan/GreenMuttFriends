@@ -11,5 +11,6 @@ namespace WebApplication1.Models
         /// List of Photos
         /// </summary>
         public List<PhotoModel> PhotoList { get; set; } = new List<PhotoModel>();
+        public List<TotalPhotosTakenModel> TotalPhotoList { get; set; } = new List<TotalPhotosTakenModel>();
     }
 }

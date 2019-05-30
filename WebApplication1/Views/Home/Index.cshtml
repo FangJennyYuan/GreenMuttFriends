@@ -5,7 +5,6 @@
 
 <script src="//d3plus.org/js/d3.js"></script>
 <script src="//d3plus.org/js/d3plus.js"></script>
-@Scripts.Render("~/Scripts/showGraph.js")
 
 @{
     ViewBag.Title = "Home Page";
@@ -27,7 +26,7 @@
         {
             <div class="col-1">
                 <label for="id-of-input5" class="custom-checkbox favorite-graph">
-                    <input type="checkbox" id="id-of-input5" class="favorites"/>
+                    <input type="checkbox" id="id-of-input5" class="favorites" />
                     <i class="fa fa-star fa-stack-1x favorited"></i>
                     <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                 </label>
@@ -62,11 +61,33 @@
 
 </div>
 
-<div id="image" style="display:none">
-    <img src="~/Content/img/PhotosTaken_MainPage.png" class="img-fluid ml-1 border" style="height:200px" />
+    <div class="row mt-3">
+        <div class="col-lg-7 ml-2" id="image" style="display:none">
+            <div class="row">
+                <div class="col">
+                    <h3> Photos Taken <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div id="viz-photos-taken-impact" style="width:600px"></div>
+            </div>
+            
+        </div>
+        <div class="col" id="avgPhoto" style="display:none">
+            <div class="row">
+                <div class="col">
+                    <h3> Avg Photos Taken <span class="graph-filtered-by"> by Device </span></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div id="avg_photos_taken_chart"></div>
+                <p class="align-bottom ml-5 pl-4 text-center"> Avg # of Photos <span class="date"> from May 19th to May 25th</span></p>
+            </div>
+        </div>
+    
+    
 </div>
 
-<div id="viz-app-users"></div>
 
 
 <div class="jumbotron-fluid">
@@ -74,27 +95,233 @@
 </div>
 <div class="row">
     <div class="col">
-        <h2>Impact Dashboard</h2>
-        <a href="/ImpactDashboard">
-            <img src="~/Content/img/ImpactDashboard.PNG" width="500" height="300" />
-        </a>
+        <h2><a href="/ImpactDashboard">Impact Dashboard</a></h2>
+        <iframe height="300px" width="100%" src="/ImpactDashboard"></iframe>
     </div>
     <div class="col">
-        <h2>Performance Dashboard</h2>
-        <a href="/Performance">
-            <img src="~/Content/img/PerformanceDashboard.PNG" width="500" height="300" />
-        </a>
+        <h2><a href="/Performance">Performance Dashboard</a></h2>
+        <iframe height="300px" width="100%" src="/Performance"></iframe>
     </div>
 </div>
 
 <script>
     window.onload = function load() {
-        var checked = JSON.parse(localStorage.getItem('id-of-input1'));
-        console.log(checked);
-        if (checked) {
+        var photoTakenChecked = JSON.parse(localStorage.getItem('id-of-input3'));
+        var avgPhotoTakenChecked = JSON.parse(localStorage.getItem('id-of-input8')); 
+        
+        if (photoTakenChecked) {
             document.getElementById("image").style.display = "block";
         } else {
             document.getElementById("image").style.display = "none";
         }
+
+        if (avgPhotoTakenChecked) {
+            document.getElementById("avgPhoto").style.display = "block";
+        } else {
+            document.getElementById("avgPhoto").style.display = "none";
+        }
     }
+    window.onload(drawPhotosTakenViz(moment().subtract(7, 'days'), moment()));
+    window.onload(drawAvgPhotosTakenViz(moment().subtract(7, 'days'), moment()));
+
+        //Draw impact graphs within a date range
+    function drawPhotosTakenViz(start, end) {
+        //Get data
+        dataInDateRange = getUserDatabyDate(start, end);
+        zerofilledData = zeroFillbyDate(dataInDateRange, start, end);
+        updateGraphTitlesWithDate(start, end);
+
+        //Remove old graph and add photos taken
+        $("#viz-photos-taken-impact").empty();
+        drawPhotosValidandInvalidGraph(dataInDateRange, "#viz-photos-taken-impact", start, end);
+
+    }
+
+    //Check if all date ranges have val if not fill it
+    function zeroFillbyDate(totals, start, end) {
+
+        //Iterate through date range and fill if zero
+        for (var d = moment(start, "MM/DD/YYYY"); d <= end; d.add(1, 'days')) {
+
+
+            //If it exists add to total
+            containsDateV = containsDateInData(d.format('L'), totals);
+            if (containsDateV != -1) {
+                console.log(d);
+            } else {
+                //TODO: Remove in production, just for demo
+                randInv = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
+                randValid = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
+                randInstall = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
+
+                totals.push({
+                    clinic: "Katsina Clinic",
+                    date: d.format('L'),
+                    value: randVal,
+                    installs: randInstall,
+                    validphotos: randValid,
+                    invalidphotos: randInv
+                });
+
+                randInv = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+                randValid = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
+                randInstall = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
+
+                totals.push({
+                    clinic: "Ijora Clinic",
+                    date: d.format('L'),
+                    value: randVal,
+                    installs: randInstall,
+                    validphotos: randValid,
+                    invalidphotos: randInv
+                });
+
+                randInv = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+                randValid = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
+                randInstall = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
+
+                totals.push({
+                    clinic: "Mashegu Clinic",
+                    date: d.format('L'),
+                    value: randVal,
+                    installs: randInstall,
+                    validphotos: randValid,
+                    invalidphotos: randInv
+                });
+
+                randInv = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
+                randValid = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
+                randInstall = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
+
+                totals.push({
+                    clinic: "Rawayau Clinic",
+                    date: d.format('L'),
+                    value: randVal,
+                    installs: randInstall,
+                    validphotos: randValid,
+                    invalidphotos: randInv
+                });
+            }
+        }
+        return totals;
+    }
+
+
+    //Check if date is in data set
+    function containsDateInData(obj, list) {
+        var i;
+        for (i = 0; i < list.length; i++) {
+            if (list[i].date === obj.date) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    //Get data by date
+    function getUserDatabyDate(start, end) {
+            data = [
+            @{
+                foreach (var item in Model.UserViewModel.UserList){
+                    var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", date: \"" + item.Date.ToShortDateString() + "\", value: " + item.Value + ", installs: "+ item.Installs + ", validphotos: " + item.ValidPhotoCount + ", invalidphotos: " + item.PhotoRetakeCount + " },");
+                    @outputString
+                }
+            }
+            ],
+            start = start,
+            end = end,
+            currentData = data.filter(d => {
+                var date = new moment(d.date);
+                return (start <= date && date <= end);
+            });
+        return currentData;
+    };
+
+    //Draw overview graphs on performance page
+    function drawAvgPhotosTakenViz(start, end) {
+        //Get data
+        currentPhotoData = getPhotoDatabyDate(start, end);
+        
+        updateGraphTitlesWithDate(start, end );
+
+        //Remove old graph and add new
+        $("#avg_photos_taken_chart").empty();
+        drawAvgPhotosTakenGraph(currentPhotoData, start, end);
+    }
+
+    //Get data by date
+    function getPhotoDatabyDate(start, end) {
+        photosData = [
+            @{
+                var myViewModel = new List<TotalPhotosTakenModel>();
+
+                //Calculate photo totals for each clinic on each day
+                var clinicPhotoTotals = new Dictionary<string, int>();
+                foreach (var item in Model.PhotoViewModel.PhotoList)
+                {
+                    int currentPhotoCount = 0;
+                    var clinicAndDate = item.ClinicName + "_" + item.RecordedDateTime.ToShortDateString();
+                    clinicPhotoTotals.TryGetValue(clinicAndDate, out currentPhotoCount);
+                    clinicPhotoTotals[clinicAndDate] = currentPhotoCount + 1;
+                }
+
+                //Add aggregate photo totals to model by date and clinic
+                foreach (KeyValuePair<string, int> entry in clinicPhotoTotals)
+                {
+                    string[] clinicByDate = entry.Key.Split('_');
+                    string clinic = clinicByDate[0];
+                    string date = clinicByDate[1];
+
+                    //Query data to Get the users for this clinic and date
+                    IEnumerable<PhotoModel> query = Model.PhotoViewModel.PhotoList.Where(
+                        c => c.ClinicName == clinic
+                        && c.RecordedDateTime.ToShortDateString() == date
+                    );
+
+                    //Get distinct user count
+                    List<string> users = (from t in query
+                                          select t.UserID).Distinct().ToList();
+                    int userCount = users.Count;
+
+                    myViewModel.Add(
+                        new TotalPhotosTakenModel
+                        {
+                            Clinic = clinic,
+                            Date = DateTime.Parse(date),
+                            Value = entry.Value,
+                            UserCount = userCount
+                        }
+                    );
+                }
+
+                foreach (var item in myViewModel)
+                {
+                    var photosTakenAmp = 0;
+                    //TODO: Remove in production, Just amplifying Ijora Clinic Results For Demo
+                    if (item.Clinic == "Ijora Clinic")
+                    {
+                        photosTakenAmp = Convert.ToInt32(item.Value * 2.3);
+                    }
+                    else{
+                        photosTakenAmp = item.Value;
+                    }
+
+                    var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", date: \"" + item.Date.ToShortDateString() + "\", value: " + photosTakenAmp + ", userCount: " + item.UserCount + " },");
+                    @outputString
+                }
+            }
+        ],
+            start = start,
+            end = end,
+            currentPhotoData = photosData.filter(d => {
+                var date = new moment(d.date);
+                return (start <= date && date <= end);
+            });
+        return currentPhotoData;
+    }
+
 </script>
