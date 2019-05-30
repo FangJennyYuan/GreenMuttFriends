@@ -114,6 +114,47 @@ function calculateAvgActiveUsers(data, start, end) {
     return [avgUsers.toFixed(0), percentChange.toFixed(1)];
 }
 
+/**
+ * 
+ * Get avg number of installs for data in range
+ * and return the total as well as the percent change
+ * @param {any} data from the user model
+ * @param {any} start the starting day in the data range
+ * @param {any} end the ending day in the data range
+ */
+function calculateAvgInstalls(data, start, end) {
+
+    var totalInstalls = 0;
+    var percentChange = 0;
+    var s = moment(start, "MM/DD/YYYY").format('L');
+    var e = moment(end, "MM/DD/YYYY").format('L');
+    var startVal = 0;
+    var endVal = 0;
+
+    //Add all users together and get first and last
+    data.forEach(function (arrayItem) {
+        todaysInstalls = arrayItem.installs;
+        totalInstalls += todaysInstalls;
+        //first and last 
+        var d = moment(arrayItem.date, "MM/DD/YYYY").format('L');
+        if (d == s) {
+            startVal += todaysInstalls;
+        }
+        else if (d == e) {
+            endVal += todaysInstalls;
+        }
+    });
+
+    //Calculate avg
+    days = getDateRange(start, end);
+    avgInstalls = totalInstalls / days;
+    endValAvg = endVal / days;
+    startValAvg = startVal / days;
+
+    //Percent change in total photos
+    percentChange = endValAvg - startValAvg / endValAvg;
+    return [avgInstalls.toFixed(0), percentChange.toFixed(1)];
+}
 
 //Adds data to the total photo card
 function setTotalPhotoCardsData(dataInDateRange, start, end) {
@@ -133,7 +174,6 @@ function setTotalValidPhotoCardsData(dataInDateRange, start, end) {
     $("#valid-photos-perc").html(percentChange + "% ");
 }
 
-
 //Adds data to the avg user card
 function setActiveUserCardsData(dataInDateRange, start, end) {
     users = calculateAvgActiveUsers(dataInDateRange, start, end);
@@ -143,6 +183,14 @@ function setActiveUserCardsData(dataInDateRange, start, end) {
     $("#active-users-perc").html(percentChange + "% ");
 }
 
+//Adds data to the avg new installs card
+function setNewInstallsCardsData(dataInDateRange, start, end) {
+    users = calculateAvgInstalls(dataInDateRange, start, end);
+    totalUsers = users[0];
+    percentChange = users[1];
+    $("#new-installs").text(totalUsers);
+    $("#new-installs-perc").html(percentChange + "% ");
+}
 
 //Get range in days 
 function getDateRange(start, end) {
