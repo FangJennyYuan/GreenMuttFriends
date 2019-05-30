@@ -312,6 +312,9 @@ div .date-filter button:hover {
         margin-left:-2em;
     }
 }
-.impact-card{
-    border:0px;
+.impact-card {
+    border: 2px #B8B8B8 solid;
+    margin: 15px;
+    padding:2px;
+}
 }
