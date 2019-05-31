@@ -7,7 +7,9 @@
 <script src="//d3plus.org/js/d3plus.js"></script>
 
 @{
-    ViewBag.Title = "Home Page";
+                /**/
+
+                ViewBag.Title = "Home Page";
 }
 
 @*Main page hearder*@
@@ -83,37 +85,41 @@
 </div>
 
 @*Fav button clicked on impact/performance page will show the graphs below*@
-<div class="row mt-3">
-    @*Impact page with photos taken graph will appear when checked*@
-    <div class="col-lg-7 ml-2" id="image" style="display:none">
-        <div class="row">
-            @*Photos Taken header*@
-            <div class="col">
-                <h3> Photos Taken <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
+@{
+    if (myAccountModel.isAccountLoggedIn)
+    {
+        <div class="row mt-3">
+            @*Impact page with photos taken graph will appear when checked*@
+            <div class="col-lg-7 ml-2" id="image" style="display:none">
+                <div class="row">
+                    @*Photos Taken header*@
+                    <div class="col">
+                        <h3> Photos Taken <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
+                    </div>
+                </div>
+                @*Using d3plus to draw the graph*@
+                <div class="row">
+                    <div id="viz-photos-taken-impact" style="width:600px"></div>
+                </div>
+            </div>
+            @*Avg photo graph*@
+            <div class="col" id="avgPhoto" style="display:none">
+                <div class="row">
+                    @*Graph header*@
+                    <div class="col">
+                        <h3> Avg Photos Taken <span class="graph-filtered-by"> by Device </span></h3>
+                    </div>
+                </div>
+                @*Avg photo graph*@
+                <div class="row">
+                    <div id="avg_photos_taken_chart"></div>
+                    <p class="align-bottom ml-5 pl-4 text-center"> Avg # of Photos <span class="date"> from May 19th to May 25th</span></p>
+                </div>
             </div>
         </div>
-        @*Using d3plus to draw the graph*@
-        <div class="row">
-            <div id="viz-photos-taken-impact" style="width:600px"></div>
-        </div>
-    </div>
-    @*Avg photo graph*@
-    <div class="col" id="avgPhoto" style="display:none">
-        <div class="row">
-            @*Graph header*@
-            <div class="col">
-                <h3> Avg Photos Taken <span class="graph-filtered-by"> by Device </span></h3>
-            </div>
-        </div>
-        @*Avg photo graph*@
-        <div class="row">
-            <div id="avg_photos_taken_chart"></div>
-            <p class="align-bottom ml-5 pl-4 text-center"> Avg # of Photos <span class="date"> from May 19th to May 25th</span></p>
-        </div>
-    </div>
+    }
+}
 
-
-</div>
 
 
 @*Preview to other Pages*@
@@ -134,11 +140,14 @@
 </div>
 
 <script>
+    //draw the total daily photos graph
+    window.onload = drawDailyPhotosTakenViz(moment().subtract(7, 'days'), moment());
+
     //on window load, load function checks if the fav buttons are checked on the impact and performance page
     window.onload = function load() {
         //checks impact page fav button
         var photoTakenChecked = JSON.parse(localStorage.getItem('id-of-input3'));
-        //checks performance page fav button 
+        //checks performance page fav button
         var avgPhotoTakenChecked = JSON.parse(localStorage.getItem('id-of-input8'));
 
         //if photoTaken fav button is checked, show the graph
@@ -160,9 +169,6 @@
 
     //draw the avg photo taken graph, but it doesn't get showed unless fav button is clicked
     window.onload(drawAvgPhotosTakenViz(moment().subtract(7, 'days'), moment()));
-
-    //draw the total daily photos graph
-    window.onload(drawDailyPhotosTakenViz(moment().subtract(7, 'days'), moment()));
 
     //Draw photo submitted line graph
     function drawDailyPhotosTakenViz(start, end) {
