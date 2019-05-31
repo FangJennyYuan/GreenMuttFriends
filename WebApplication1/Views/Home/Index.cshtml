@@ -16,7 +16,7 @@
 </div>
 
 <div class="row">
-    <div class="col-8">
+    <div class="col-10">
         <div class="row">
             <h3> Daily Photos Taken </h3>
         </div>
@@ -43,9 +43,19 @@
         }
     }
 
-    <div class="col  border" valign="bottom">
-        <img src="~/Content/img/UsersToday_MainPage.PNG" class="img-fluid mx-auto d-block " style="height:150px;margin-top:1.5em" />
+    <div class="col  my-auto">
+        <div class="card impact-card">
+            <div class="card-body text-center">
+                <div class="text-right primary-color">
+                    <span id="active-users-perc">6%</span>
+                    <i class="fa fa-chevron-up"></i>
+                </div>
+                <div class="h1 m-0" id="active-users">9</div>
+                <div class="text-muted mb-4">Active User</div>
+            </div>
+        </div>
     </div>
+
 
     @{
         if (myAccountModel.isAccountLoggedIn)
