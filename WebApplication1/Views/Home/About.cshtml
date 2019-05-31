@@ -9,10 +9,10 @@
 
 <script>
     var myClinics = [
-        { "name": "Ijora Clinic", "latitude": 6.477803, "longitude": 3.349594, "slug": "i" },
-        { "name": "Mashegu Clinic", "latitude": 9.127139, "longitude": 7.784681, "slug": "m" },
-        { "name": "Rawayau Clinic", "latitude": 6.528841, "longitude": 5.392641, "slug": "r" },
-        { "name": "Katsina Clinic", "latitude": 12.006016, "longitude": 8.752228, "slug": "k" }];
+        { "name": "Ijora Clinic", "latitude": 6.477803, "longitude": 3.349594, "my_size": 5, "slug": "i" },
+        { "name": "Mashegu Clinic", "latitude": 9.127139, "longitude": 7.784681, "my_size": 4, "slug": "m" },
+        { "name": "Rawayau Clinic", "latitude": 6.528841, "longitude": 5.392641, "my_size": 1, "slug": "r" },
+        { "name": "Katsina Clinic", "latitude": 12.006016, "longitude": 8.752228, "my_size": 2, "slug": "k" }];
 
     new d3plus.Geomap()
         .data(myClinics)
@@ -24,6 +24,11 @@
         .point(function (d) {
             return [d.longitude, d.latitude];
         })
+
+        .pointSize(function (d) {
+            return d.my_size;
+        })
+
         .render();
 
 
