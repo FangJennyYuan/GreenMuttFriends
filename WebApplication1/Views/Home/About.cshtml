@@ -1,7 +1,36 @@
 ﻿@{
     ViewBag.Title = "About";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+<script src="//d3plus.org/js/d3.js"></script>
+<script src="//d3plus.org/js/d3plus.js"></script>
+<script src="https://d3plus.org/js/d3plus-geomap.v0.6.full.min.js"></script>
 
-<p>Use this area to provide additional information.</p>
+<h1>Our Clinics</h1>
+
+<script>
+    var myClinics = [
+        { "name": "Ijora Clinic", "latitude": 6.477803, "longitude": 3.349594, "my_size": 5, "slug": "i" },
+        { "name": "Mashegu Clinic", "latitude": 9.127139, "longitude": 7.784681, "my_size": 4, "slug": "m" },
+        { "name": "Rawayau Clinic", "latitude": 6.528841, "longitude": 5.392641, "my_size": 1, "slug": "r" },
+        { "name": "Katsina Clinic", "latitude": 12.006016, "longitude": 8.752228, "my_size": 2, "slug": "k" }];
+
+    new d3plus.Geomap()
+        .data(myClinics)
+        .groupBy("slug")
+
+        .label(function (d) {
+            return d.name;
+        })
+        .point(function (d) {
+            return [d.longitude, d.latitude];
+        })
+
+        .pointSize(function (d) {
+            return d.my_size;
+        })
+
+        .render();
+
+
+
+</script>
