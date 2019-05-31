@@ -201,7 +201,7 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\avgphotostakengraph.js" />
+    <Content Include="Scripts\chartavgphotostaken.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -216,7 +216,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Scripts\calculateStatistics.js" />
+    <Content Include="Scripts\calculatestatistics.js" />
     <Content Include="Scripts\calendar.js" />
     <Content Include="Scripts\cookies.js" />
     <Content Include="Scripts\daterangepicker.js" />
@@ -256,13 +256,13 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\performancefiltering.js" />
-    <Content Include="Scripts\photostakengraph.js" />
-    <Content Include="Scripts\photosvalidandinvalidgraph.js" />
+    <Content Include="Scripts\chartphotostaken.js" />
+    <Content Include="Scripts\chartvalidandinvalid.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
-    <Content Include="Scripts\AppInstallGraph.js" />
+    <Content Include="Scripts\chartinstalls.js" />
     <Content Include="Scripts\showGraph.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />

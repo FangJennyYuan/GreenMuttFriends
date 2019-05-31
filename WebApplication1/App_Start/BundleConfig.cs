@@ -30,11 +30,11 @@ namespace WebApplication1
             ));
 
             bundles.Add(new ScriptBundle("~/bundles/graphs").Include(
-                        "~/Scripts/calculateStatistics.js",
-                        "~/Scripts/photosvalidandinvalidgraph.js",
-                        "~/Scripts/AppInstallGraph.js",
-                        "~/Scripts/photostakengraph.js",
-                        "~/Scripts/avgphotostakengraph.js"
+                        "~/Scripts/calculatestatistics.js",
+                        "~/Scripts/chartvalidandinvalid.js",
+                        "~/Scripts/chartinstalls.js",
+                        "~/Scripts/chartphotostaken.js",
+                        "~/Scripts/chartavgphotostaken.js"
                         ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
