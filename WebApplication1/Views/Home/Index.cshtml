@@ -17,7 +17,12 @@
 
 <div class="row">
     <div class="col-8">
-        <img src="~/Content/img/PhotosTaken_MainPage.png" class="img-fluid ml-1 border" style="height:200px" />
+        <div class="row">
+            <h3> Daily Photos Taken </h3>
+        </div>
+        <div class="row">
+            <div id="daily_photos_taken_chart"></div>
+        </div>
     </div>
 
     @{
@@ -123,8 +128,23 @@
     }
     window.onload(drawPhotosTakenViz(moment().subtract(7, 'days'), moment()));
     window.onload(drawAvgPhotosTakenViz(moment().subtract(7, 'days'), moment()));
+    window.onload(drawDailyPhotosTakenViz(moment().subtract(7, 'days'), moment()));
 
-        //Draw impact graphs within a date range
+    //Draw photo submitted line graph
+    function drawDailyPhotosTakenViz(start, end) {
+        //Get Data
+        dataInDateRange = getUserDatabyDate(start, end);
+        zeroFilledDate = zeroFillbyDate(dataInDateRange, start, end);
+        updateGraphTitlesWithDate(start, end);
+
+        //remove old graph and add photos taken
+        $("daily_photos_taken_chart").empty();
+        //redraw the graph
+        drawDailyPhotosTakenGraph(dataInDateRange, "#daily_photos_taken_chart", start, end);
+    }
+
+
+    //Draw impact graphs within a date range
     function drawPhotosTakenViz(start, end) {
         //Get data
         dataInDateRange = getUserDatabyDate(start, end);
@@ -134,7 +154,6 @@
         //Remove old graph and add photos taken
         $("#viz-photos-taken-impact").empty();
         drawPhotosValidandInvalidGraph(dataInDateRange, "#viz-photos-taken-impact", start, end);
-
     }
 
     //Check if all date ranges have val if not fill it

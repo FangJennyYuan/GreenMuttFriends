@@ -33,7 +33,8 @@ namespace WebApplication1
                         "~/Scripts/photosvalidandinvalidgraph.js",
                         "~/Scripts/AppInstallGraph.js",
                         "~/Scripts/photostakengraph.js",
-                        "~/Scripts/avgphotostakengraph.js"
+                        "~/Scripts/avgphotostakengraph.js",
+                        "~/Scripts/dailyPhotosTaken.js"
                         ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
