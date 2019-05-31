@@ -1172,7 +1172,7 @@ namespace WebApplication1.Backend
                 UserID = "006",
                 DeviceType = "Samsung Buddy",
                 OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t1.png"
+                ImageURL = "/Content/img/photo/tblur1.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -1269,17 +1269,6 @@ namespace WebApplication1.Backend
                 DeviceType = "Samsung Buddy",
                 OSVersion = "4.1",
                 ImageURL = "/Content/img/photo/t2.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Mashegu Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 1, 8, 11, 29),
-                PhoneNumber = "808-611-2109",
-                UserID = "017",
-                DeviceType = "Tecno Mobile",
-                OSVersion = "4.3",
-                ImageURL = "/Content/img/photo/t1.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -1436,7 +1425,7 @@ namespace WebApplication1.Backend
                 UserID = "018",
                 DeviceType = "Samsung Buddy",
                 OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t2.png"
+                ImageURL = "/Content/img/photo/tblur2.png"
             });
 
             dataset.Add(new PhotoModel
@@ -1460,7 +1449,7 @@ namespace WebApplication1.Backend
                 UserID = "018",
                 DeviceType = "Samsung Buddy",
                 OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t2.png"
+                ImageURL = "/Content/img/photo/tblur2.png"
             });
 
             dataset.Add(new PhotoModel
@@ -1732,7 +1721,7 @@ namespace WebApplication1.Backend
                 UserID = "017",
                 DeviceType = "Tecno Mobile",
                 OSVersion = "4.3",
-                ImageURL = "/Content/img/photo/t1.png"
+                ImageURL = "/Content/img/photo/tblur1.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -2040,7 +2029,7 @@ namespace WebApplication1.Backend
             {
                 ClinicName = "Ijora Clinic",
                 ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 30, 7, 5, 34),
+                RecordedDateTime = new DateTime(2019, 3, 30, 7, 5, 34),
                 PhoneNumber = "815-992-0000",
                 UserID = "010",
                 DeviceType = "Samsung Buddy",
@@ -2143,6 +2132,7 @@ namespace WebApplication1.Backend
                 OSVersion = "4.2",
                 ImageURL = "/Content/img/photo/t4.png"
             });
+
             dataset.Add(new PhotoModel
             {
                 ClinicName = "Ijora Clinic",
@@ -2190,7 +2180,7 @@ namespace WebApplication1.Backend
                 UserID = "006",
                 DeviceType = "Samsung Buddy",
                 OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t1.png"
+                ImageURL = "/Content/img/photo/tblur1.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -2297,7 +2287,7 @@ namespace WebApplication1.Backend
                 UserID = "017",
                 DeviceType = "Tecno Mobile",
                 OSVersion = "4.3",
-                ImageURL = "/Content/img/photo/t1.png"
+                ImageURL = "/Content/img/photo/tblur1.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -2454,7 +2444,7 @@ namespace WebApplication1.Backend
                 UserID = "018",
                 DeviceType = "Samsung Buddy",
                 OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t2.png"
+                ImageURL = "/Content/img/photo/tblur2.png"
             });
 
             dataset.Add(new PhotoModel
@@ -2478,7 +2468,7 @@ namespace WebApplication1.Backend
                 UserID = "018",
                 DeviceType = "Samsung Buddy",
                 OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t2.png"
+                ImageURL = "/Content/img/photo/tblur2.png"
             });
 
             dataset.Add(new PhotoModel
@@ -2750,7 +2740,7 @@ namespace WebApplication1.Backend
                 UserID = "017",
                 DeviceType = "Tecno Mobile",
                 OSVersion = "4.3",
-                ImageURL = "/Content/img/photo/t1.png"
+                ImageURL = "/Content/img/photo/tblur1.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -2980,7 +2970,7 @@ namespace WebApplication1.Backend
                 UserID = "017",
                 DeviceType = "Tecno Mobile",
                 OSVersion = "4.3",
-                ImageURL = "/Content/img/photo/t1.png"
+                ImageURL = "/Content/img/photo/tblur1.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -3027,7 +3017,7 @@ namespace WebApplication1.Backend
                 UserID = "006",
                 DeviceType = "Samsung Buddy",
                 OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t1.png"
+                ImageURL = "/Content/img/photo/tblur1.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -3247,7 +3237,7 @@ namespace WebApplication1.Backend
                 UserID = "005",
                 DeviceType = "Tecno Mobile",
                 OSVersion = "5.0",
-                ImageURL = "/Content/img/photo/t1.png"
+                ImageURL = "/Content/img/photo/tblur2.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -3283,7 +3273,7 @@ namespace WebApplication1.Backend
                 UserID = "005",
                 DeviceType = "Tecno Mobile",
                 OSVersion = "5.0",
-                ImageURL = "/Content/img/photo/t1.png"
+                ImageURL = "/Content/img/photo/tblur2.png"
             });
             dataset.Add(new PhotoModel
             {
