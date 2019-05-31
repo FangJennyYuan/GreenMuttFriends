@@ -1440,17 +1440,6 @@ namespace WebApplication1.Backend
                 OSVersion = "4.1",
                 ImageURL = "/Content/img/photo/t5.png"
             });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Mashegu Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 28, 7, 2, 40),
-                PhoneNumber = "842-701-5555",
-                UserID = "018",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/tblur2.png"
-            });
 
             dataset.Add(new PhotoModel
             {
@@ -1708,20 +1697,6 @@ namespace WebApplication1.Backend
                 DeviceType = "Tecno Mobile",
                 OSVersion = "4.3",
                 ImageURL = "/Content/img/photo/t5.png"
-            });
-
-
-
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Mashegu Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 12, 8, 11, 29),
-                PhoneNumber = "808-611-2109",
-                UserID = "017",
-                DeviceType = "Tecno Mobile",
-                OSVersion = "4.3",
-                ImageURL = "/Content/img/photo/tblur1.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -2174,17 +2149,6 @@ namespace WebApplication1.Backend
             dataset.Add(new PhotoModel
             {
                 ClinicName = "Mashegu Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 14, 7, 46, 9),
-                PhoneNumber = "815-901-1334",
-                UserID = "006",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/tblur1.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Mashegu Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
                 RecordedDateTime = new DateTime(2019, 5, 14, 9, 42, 12),
@@ -2433,18 +2397,6 @@ namespace WebApplication1.Backend
                 DeviceType = "Samsung Buddy",
                 OSVersion = "4.1",
                 ImageURL = "/Content/img/photo/t6.png"
-            });
-
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Mashegu Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 2, 7, 2, 40),
-                PhoneNumber = "842-701-5555",
-                UserID = "018",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/tblur2.png"
             });
 
             dataset.Add(new PhotoModel
