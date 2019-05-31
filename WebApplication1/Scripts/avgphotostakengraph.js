@@ -68,7 +68,7 @@ function drawAvgPhotosTakenGraph(currentPhotoData, start, end) {
             "position": "top",
             "align": "left",
             "font": {
-                "size": 19
+                "size": 18
             }
         })
         .legend({
