@@ -12,6 +12,7 @@
 }
 
 <div>
+
     <div class="row header-performance">
         <div class="col-lg-7">
             <h1>
@@ -60,95 +61,73 @@
     </div>
 </div>
 
-        @*<div class="row clinic-filter mt-2">
-                <div class="span3 ml-4 mr-2 filter-name">
-                    <span>filter by:</span>
-                </div>
-                <div class="span2 mr-2">
-                    <i class="fa fa-camera icon-inactive" aria-hidden="true"></i>
-                    <span class="primary-color">Photos Taken</span>
-                </div>
-                <div class="span2 mr-2">
-                    <i class="fa fa-camera icon-inactive" aria-hidden="true"></i>
-                    <span class="third-color">Device Details</span>
-                </div>
-                <div class="span2 mr-2">
-                    <img class="img-valign" src="~/content/img/clinic_mashegu.png" alt="mashegu" />
-                    <span class="fourth-color">mashegu clinic</span>
-                </div>
-                <div class="span2 mr-2">
-                    <img class="img-valign" src="~/content/img/clinic_rawayau.png" alt="rawayau" />
-                    <span class="secondary-color">rawayau clinic</span>
-                </div>
-            </div>*@
 
-        <div class="row mt-3 performance-graphs white-background">
-            <div class="col-lg-7 ml-2">
-                <div class="row ">
-                    <div class="col">
-                        <h3> Photos Taken <span class="graph-filtered-by date"> from May 19th to May 25th </span></h3>
-                    </div>
-                    <div class="col-1">
-                        @{
-                            var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
-                            if (myAccountModel.isAccountLoggedIn)
-                            {
-                                <label for="id-of-input7" class="custom-checkbox favorite-graph" >
-                                    <input type="checkbox" id="id-of-input7" class="favorites"/>
-                                    <i class="fa fa-star fa-stack-1x favorited"></i>
-                                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-                                </label>
-                            }
-                            else
-                            {
-
-                            }
-                        }
-                    </div>
-                </div>
-                <div id="photos_taken_chart"></div>
-            </div>
+<div class="row mt-3 performance-graphs white-background">
+    <div class="col-lg-7 ml-2">
+        <div class="row ">
             <div class="col">
-                <div class="row">
-                    <div class="col">
-                        <h3> Avg Photos Taken <span class="graph-filtered-by"> by Device </span></h3>
-                    </div>
-                    <div class="col-1">
-                        @{
-                            if (myAccountModel.isAccountLoggedIn)
-                            {
-                                <label for="id-of-input8" class="custom-checkbox favorite-graph" onload="load()">
-                                    <input type="checkbox" id="id-of-input8" class="favorites" onclick="save()" />
-                                    <i class="fa fa-star fa-stack-1x favorited"></i>
-                                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-                                </label>
-                            }
-                            else
-                            {
+                <h3> Photos Taken <span class="graph-filtered-by date"> from Month xxth to Month xxth </span></h3>
+            </div>
+            <div class="col-1">
+                @{
+                    var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
+                    if (myAccountModel.isAccountLoggedIn)
+                    {
+                        <label for="id-of-input7" class="custom-checkbox favorite-graph" >
+                            <input type="checkbox" id="id-of-input7" class="favorites"/>
+                            <i class="fa fa-star fa-stack-1x favorited"></i>
+                            <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
+                        </label>
+                    }
+                    else
+                    {
 
-                            }
-                        }
-                    </div>
-                </div>
-                <div id="avg_photos_taken_chart"></div>
-                <p class="align-bottom ml-5 pl-4 text-center"> Avg # of Photos <span class="date"> from May 19th to May 25th</span></p>
+                    }
+                }
             </div>
         </div>
+        <div id="photos_taken_chart"></div>
+    </div>
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <h3> Avg Photos <span class="graph-filtered-by date"> from Month xxth to Month xxth </span></h3>
+            </div>
+            <div class="col-1">
+                @{
+                    if (myAccountModel.isAccountLoggedIn)
+                    {
+                        <label for="id-of-input8" class="custom-checkbox favorite-graph" onload="load()">
+                            <input type="checkbox" id="id-of-input8" class="favorites" onclick="save()" />
+                            <i class="fa fa-star fa-stack-1x favorited"></i>
+                            <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
+                        </label>
+                    }
+                    else
+                    {
+
+                    }
+                }
+            </div>
+        </div>
+        <div id="avg_photos_taken_chart"></div>
+    </div>
+</div>
 
 
 
-        <script>
-            window.onload = function load() {
-                var checked = JSON.parse(localStorage.getItem('id-of-input8'));
-                console.log(checked);
-                document.getElementById("id-of-input8").checked = checked;
-            }
+<script>
+    window.onload = function load() {
+        var checked = JSON.parse(localStorage.getItem('id-of-input8'));
+        console.log(checked);
+        document.getElementById("id-of-input8").checked = checked;
+    }
 
-            function save() {
-                var checkbox = document.getElementById('id-of-input8');
-                console.log(checkbox.checked);
-                localStorage.setItem('id-of-input8', checkbox.checked);
-            }
+    function save() {
+        var checkbox = document.getElementById('id-of-input8');
+        console.log(checkbox.checked);
+        localStorage.setItem('id-of-input8', checkbox.checked);
+    }
 
 
     //Pull Photos Data on Week

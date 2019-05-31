@@ -124,7 +124,7 @@
     window.onload(drawPhotosTakenViz(moment().subtract(7, 'days'), moment()));
     window.onload(drawAvgPhotosTakenViz(moment().subtract(7, 'days'), moment()));
 
-        //Draw impact graphs within a date range
+     //Draw impact graphs within a date range
     function drawPhotosTakenViz(start, end) {
         //Get data
         dataInDateRange = getUserDatabyDate(start, end);
@@ -137,90 +137,7 @@
 
     }
 
-    //Check if all date ranges have val if not fill it
-    function zeroFillbyDate(totals, start, end) {
 
-        //Iterate through date range and fill if zero
-        for (var d = moment(start, "MM/DD/YYYY"); d <= end; d.add(1, 'days')) {
-
-
-            //If it exists add to total
-            containsDateV = containsDateInData(d.format('L'), totals);
-            if (containsDateV != -1) {
-                console.log(d);
-            } else {
-                //TODO: Remove in production, just for demo
-                randInv = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
-                randValid = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
-                randInstall = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
-
-                totals.push({
-                    clinic: "Katsina Clinic",
-                    date: d.format('L'),
-                    value: randVal,
-                    installs: randInstall,
-                    validphotos: randValid,
-                    invalidphotos: randInv
-                });
-
-                randInv = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-                randValid = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
-                randInstall = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
-                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
-
-                totals.push({
-                    clinic: "Ijora Clinic",
-                    date: d.format('L'),
-                    value: randVal,
-                    installs: randInstall,
-                    validphotos: randValid,
-                    invalidphotos: randInv
-                });
-
-                randInv = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-                randValid = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
-                randInstall = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
-                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
-
-                totals.push({
-                    clinic: "Mashegu Clinic",
-                    date: d.format('L'),
-                    value: randVal,
-                    installs: randInstall,
-                    validphotos: randValid,
-                    invalidphotos: randInv
-                });
-
-                randInv = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
-                randValid = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
-                randInstall = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
-
-                totals.push({
-                    clinic: "Rawayau Clinic",
-                    date: d.format('L'),
-                    value: randVal,
-                    installs: randInstall,
-                    validphotos: randValid,
-                    invalidphotos: randInv
-                });
-            }
-        }
-        return totals;
-    }
-
-
-    //Check if date is in data set
-    function containsDateInData(obj, list) {
-        var i;
-        for (i = 0; i < list.length; i++) {
-            if (list[i].date === obj.date) {
-                return i;
-            }
-        }
-        return -1;
-    }
 
     //Get data by date
     function getUserDatabyDate(start, end) {

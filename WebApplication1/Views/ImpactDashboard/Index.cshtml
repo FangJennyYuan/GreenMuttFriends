@@ -12,7 +12,6 @@
 <h1>Impact Dashboard</h1>
 
 
-
 <div class="row date-filter mt-1">
     <div class="overviewcard__icon ml-3">
         <i class="fa fa-calendar  filter-performance-ic img-valign" aria-hidden="true"></i>
@@ -31,52 +30,6 @@
         <input type="text" id="date-input" name="daterange" value="" />
     </div>
 </div>
-
-
-
-@*<div class="row mt-3 flexbox" style="height: 100px" >
-    <div class="col">
-        <img src="~/Content/img/Improvement.PNG" class="mx-auto d-block img-fluid " style="max-height: 90px"/>
-    </div>
-    @{var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
-        if (myAccountModel.isAccountLoggedIn)
-        {
-            <div class="col-1">
-                <label for="id-of-input" class="custom-checkbox favorite-graph">
-                    <input type="checkbox" id="id-of-input" class="favorites" />
-                    <i class="fa fa-star fa-stack-1x favorited"></i>
-                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-                </label>
-            </div>}
-        else { }}
-
-    <div class="col">
-        <img src="~/Content/img/AvgUsers.PNG" class="mx-auto d-block img-fluid " style="max-height: 90px"/>
-    </div>
-    @{if (myAccountModel.isAccountLoggedIn)
-        {
-            <div class="col-1">
-                <label for="id-of-input1" class="custom-checkbox favorite-graph">
-                    <input type="checkbox" id="id-of-input1" class="favorites" />
-                    <i class="fa fa-star fa-stack-1x favorited"></i>
-                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-                </label>
-            </div>}
-        else { }}
-    <div class="col">
-        <img src="~/Content/img/AvgInstalls.PNG" class="mx-auto d-block img-fluid " style="max-height: 90px"/>
-    </div>
-    @{if (myAccountModel.isAccountLoggedIn)
-        {
-            <div class="col-1">
-                <label for="id-of-input2" class="custom-checkbox favorite-graph">
-                    <input type="checkbox" id="id-of-input2" class="favorites" />
-                    <i class="fa fa-star fa-stack-1x favorited"></i>
-                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-                </label>
-            </div>}
-        else { }}
-</div>*@
 
 
 <div class="row mt-3">
@@ -253,78 +206,6 @@
     //Defualt views
     $("#week").trigger('click');
 
-
-    //Check if all date ranges have val if not fill it
-    function zeroFillbyDate(totals, start, end) {
-
-        //Iterate through date range and fill if zero
-        for (var d = moment(start, "MM/DD/YYYY"); d <= end; d.add(1, 'days')) {
-            
-            //If it exists add to total
-            containsDateV = containsDateInData(d.format('L'), totals);
-            if (containsDateV != -1) {
-                console.log(d);
-            } else {
-                //TODO: Remove in production, just for demo
-                randInv = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
-                randValid = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
-                randInstall = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
-
-                totals.push({
-                    clinic: "Katsina Clinic",
-                    date: d.format('L'),
-                    value: randVal,
-                    installs: randInstall,
-                    validphotos: randValid,
-                    invalidphotos: randInv
-                });
-
-                randInv = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-                randValid = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
-                randInstall = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
-                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
-
-                totals.push({
-                    clinic: "Ijora Clinic",
-                    date: d.format('L'),
-                    value: randVal,
-                    installs: randInstall,
-                    validphotos: randValid,
-                    invalidphotos: randInv
-                });
-
-                randInv = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-                randValid = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
-                randInstall = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
-                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
-
-                totals.push({
-                    clinic: "Mashegu Clinic",
-                    date: d.format('L'),
-                    value: randVal,
-                    installs: randInstall,
-                    validphotos: randValid,
-                    invalidphotos: randInv
-                });
-
-                randInv = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
-                randValid = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
-                randInstall = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
-
-                totals.push({
-                    clinic: "Rawayau Clinic",
-                    date: d.format('L'),
-                    value: randVal,
-                    installs: randInstall,
-                    validphotos: randValid,
-                    invalidphotos: randInv
-                });
-            }
-        }
-        return totals;
-    }
 
 
     //Check if date is in data set
