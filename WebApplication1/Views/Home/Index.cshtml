@@ -10,21 +10,26 @@
     ViewBag.Title = "Home Page";
 }
 
+@*Main page hearder*@
 <div class="jumbotron-fluid">
     <h1>Main</h1>
     @*<img src="../Content/img/Mumu.jpg" alt="Mumu" style="width:500px;height:600px;">*@
 </div>
 
+@*Daily photos taken graph with current active user statistics*@
 <div class="row">
     <div class="col-10">
+        @*Daily Photos Taken Header*@
         <div class="row">
             <h3> Daily Photos Taken </h3>
         </div>
+        @*Using d3plus to draw a bar graph. daily_photos_taken_chart is the tag to draw the graph.*@
         <div class="row">
             <div id="daily_photos_taken_chart"></div>
         </div>
     </div>
 
+    @*Fav star*@
     @{
         var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
         if (myAccountModel.isAccountLoggedIn)
@@ -43,6 +48,7 @@
         }
     }
 
+    @*Active user statistics *@
     <div class="col  my-auto">
         <div class="card impact-card">
             <div class="card-body text-center">
@@ -56,7 +62,7 @@
         </div>
     </div>
 
-
+    @*Fav button*@
     @{
         if (myAccountModel.isAccountLoggedIn)
         {
@@ -76,68 +82,86 @@
 
 </div>
 
-    <div class="row mt-3">
-        <div class="col-lg-7 ml-2" id="image" style="display:none">
-            <div class="row">
-                <div class="col">
-                    <h3> Photos Taken <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
-                </div>
-            </div>
-            <div class="row">
-                <div id="viz-photos-taken-impact" style="width:600px"></div>
-            </div>
-            
-        </div>
-        <div class="col" id="avgPhoto" style="display:none">
-            <div class="row">
-                <div class="col">
-                    <h3> Avg Photos Taken <span class="graph-filtered-by"> by Device </span></h3>
-                </div>
-            </div>
-            <div class="row">
-                <div id="avg_photos_taken_chart"></div>
-                <p class="align-bottom ml-5 pl-4 text-center"> Avg # of Photos <span class="date"> from May 19th to May 25th</span></p>
+@*Fav button clicked on impact/performance page will show the graphs below*@
+<div class="row mt-3">
+    @*Impact page with photos taken graph will appear when checked*@
+    <div class="col-lg-7 ml-2" id="image" style="display:none">
+        <div class="row">
+            @*Photos Taken header*@
+            <div class="col">
+                <h3> Photos Taken <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
             </div>
         </div>
-    
-    
+        @*Using d3plus to draw the graph*@
+        <div class="row">
+            <div id="viz-photos-taken-impact" style="width:600px"></div>
+        </div>
+    </div>
+    @*Avg photo graph*@
+    <div class="col" id="avgPhoto" style="display:none">
+        <div class="row">
+            @*Graph header*@
+            <div class="col">
+                <h3> Avg Photos Taken <span class="graph-filtered-by"> by Device </span></h3>
+            </div>
+        </div>
+        @*Avg photo graph*@
+        <div class="row">
+            <div id="avg_photos_taken_chart"></div>
+            <p class="align-bottom ml-5 pl-4 text-center"> Avg # of Photos <span class="date"> from May 19th to May 25th</span></p>
+        </div>
+    </div>
+
+
 </div>
 
 
-
+@*Preview to other Pages*@
 <div class="jumbotron-fluid">
     <h1>More Dashboards</h1>
 </div>
 <div class="row">
     <div class="col">
+        @*Impact Dashboard*@
         <h2><a href="/ImpactDashboard">Impact Dashboard</a></h2>
         <iframe height="300px" width="100%" src="/ImpactDashboard"></iframe>
     </div>
     <div class="col">
+        @*Performance Dashboard*@
         <h2><a href="/Performance">Performance Dashboard</a></h2>
         <iframe height="300px" width="100%" src="/Performance"></iframe>
     </div>
 </div>
 
 <script>
+    //on window load, load function checks if the fav buttons are checked on the impact and performance page
     window.onload = function load() {
+        //checks impact page fav button
         var photoTakenChecked = JSON.parse(localStorage.getItem('id-of-input3'));
-        var avgPhotoTakenChecked = JSON.parse(localStorage.getItem('id-of-input8')); 
-        
+        //checks performance page fav button 
+        var avgPhotoTakenChecked = JSON.parse(localStorage.getItem('id-of-input8'));
+
+        //if photoTaken fav button is checked, show the graph
         if (photoTakenChecked) {
             document.getElementById("image").style.display = "block";
         } else {
             document.getElementById("image").style.display = "none";
         }
 
+        //if avgPhotoTaken fav button is checked, show the graph
         if (avgPhotoTakenChecked) {
             document.getElementById("avgPhoto").style.display = "block";
         } else {
             document.getElementById("avgPhoto").style.display = "none";
         }
     }
+    //draw the photos taken graph, but it doesn't get showed unless we check if fav is clicked
     window.onload(drawPhotosTakenViz(moment().subtract(7, 'days'), moment()));
+
+    //draw the avg photo taken graph, but it doesn't get showed unless fav button is clicked
     window.onload(drawAvgPhotosTakenViz(moment().subtract(7, 'days'), moment()));
+
+    //draw the total daily photos graph
     window.onload(drawDailyPhotosTakenViz(moment().subtract(7, 'days'), moment()));
 
     //Draw photo submitted line graph
@@ -251,7 +275,7 @@
         return -1;
     }
 
-    //Get data by date
+    //Get User/Clinic data by date
     function getUserDatabyDate(start, end) {
             data = [
             @{
@@ -274,7 +298,7 @@
     function drawAvgPhotosTakenViz(start, end) {
         //Get data
         currentPhotoData = getPhotoDatabyDate(start, end);
-        
+
         updateGraphTitlesWithDate(start, end );
 
         //Remove old graph and add new
