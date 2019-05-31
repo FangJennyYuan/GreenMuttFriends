@@ -29,26 +29,27 @@
         <div class="row">
             <div id="daily_photos_taken_chart"></div>
         </div>
+        @*Fav star*@
+        @{
+            var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
+            if (myAccountModel.isAccountLoggedIn)
+            {
+                <div id="favorite-icon">
+                    <label for="id-of-input5" class="custom-checkbox favorite-graph">
+                        <input type="checkbox" id="id-of-input5" class="favorites" />
+                        <i class="fa fa-star fa-stack-1x favorited"></i>
+                        <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
+                    </label>
+                </div>
+            }
+            else
+            {
+
+            }
+        }
     </div>
 
-    @*Fav star*@
-    @{
-        var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
-        if (myAccountModel.isAccountLoggedIn)
-        {
-            <div class="col-1">
-                <label for="id-of-input5" class="custom-checkbox favorite-graph">
-                    <input type="checkbox" id="id-of-input5" class="favorites" />
-                    <i class="fa fa-star fa-stack-1x favorited"></i>
-                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-                </label>
-            </div>
-        }
-        else
-        {
 
-        }
-    }
 
     @*Active user statistics *@
     <div class="col  my-auto">
@@ -63,25 +64,6 @@
             </div>
         </div>
     </div>
-
-    @*Fav button*@
-    @{
-        if (myAccountModel.isAccountLoggedIn)
-        {
-            <div class="col-1">
-                <label for="id-of-input6" class="custom-checkbox favorite-graph">
-                    <input type="checkbox" id="id-of-input6" class="favorites" />
-                    <i class="fa fa-star fa-stack-1x favorited"></i>
-                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-                </label>
-            </div>
-        }
-        else
-        {
-
-        }
-    }
-
 </div>
 
 @*Fav button clicked on impact/performance page will show the graphs below*@
