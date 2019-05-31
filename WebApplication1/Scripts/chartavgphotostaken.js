@@ -1,4 +1,10 @@
 ﻿
+/**
+ * Draws the average photos taken graph
+ * @param {any} currentPhotoData from the Photos Taken Model
+ * @param {any} start the starting day in the data range
+ * @param {any} end the ending day in the data range
+ */
 function drawAvgPhotosTakenGraph(currentPhotoData, start, end) {
     //Calculate totals
     totals = calulateTotals(currentPhotoData);
@@ -62,7 +68,7 @@ function drawAvgPhotosTakenGraph(currentPhotoData, start, end) {
             "position": "top",
             "align": "left",
             "font": {
-                "size": 19
+                "size": 18
             }
         })
         .legend({

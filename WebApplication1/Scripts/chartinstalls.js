@@ -1,4 +1,11 @@
-﻿function drawAppUsersGraph(AppUsersdata, viz) {
+﻿
+/**
+ * Draws the install and user graph  
+ * @param {any} data data from the User Model
+ * @param {any} viz the id of the div container
+ */
+function drawInstallGraph(data, viz) {
+
     //Create color attributes for chart
     var attributes = [
         { "clinic": "Ijora Clinic", "hex": "#5FBD73", "image": "/Content/img/IjoraI.png" },
@@ -7,10 +14,10 @@
         { "clinic": "Rawayau Clinic", "hex": "#1C2C8C", "image": "/Content/img/RawayauI.png" }
     ]
 
-    var vizAppUser = d3plus.viz()
+    var vizInstall = d3plus.viz()
         .container(viz)
         .data({
-            "value": AppUsersdata,
+            "value": data,
             "stroke": { "width": 3 }
 
         })
@@ -19,7 +26,8 @@
         .text("clinic")       // key to use for display text
         .x({
             "value": "date",
-            "grid": { "color": "#ffffff" }
+            "grid": { "color": "#ffffff" },
+            "zerofill": true
         })
         .y("value")
         .attrs(attributes)
@@ -36,11 +44,29 @@
         })
         .format({
             "text": function (text, params) {
-                if (text === "value") {
+                if (text === "installs") {
+                    return "Total Installs";
+                } else if (text === "value") {
                     return "Total App Users";
+                } else if (text === "Y Axis") {
+                    return "Filter by ";
                 } else {
                     return d3plus.string.title(text, params);
                 }
+            }
+        })
+        .tooltip(["clinic", "value", "installs"])
+        .ui([
+            {
+                "method": "y",
+                "value": ["value", "installs"] //toggles the y axis
+            }
+        ])
+        .ui({
+            "position": "top",
+            "align": "left",
+            "font": {
+                "size": 19
             }
         })
         .legend({
@@ -48,10 +74,14 @@
             "filters": true,
             "labels": true
         })
+        .time({
+            "value": "date",
+            "format": d3.time.format("%x")
+        })
         .icon({
             "style": "knockout",
             "value": "image"
         })
-        .height(600)
+        .height(500)
         .draw()
 }

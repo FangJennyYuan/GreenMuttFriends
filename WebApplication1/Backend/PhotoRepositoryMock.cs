@@ -106,18 +106,10 @@ namespace WebApplication1.Backend
             // Read in data from csv
             ReadCSVData();
 
-            // Ijora Clinic data for scenario
+            // Clinic data
             dataset.Add(new PhotoModel { ClinicName = "Ijora Clinic", ResultIsValid = true, Bilirubin = "15", RecordedDateTime = new DateTime(2019, 5, 18, 16, 32, 3),
                 PhoneNumber = "815-991-1111", UserID = "003", DeviceType = "Samsung Buddy", OSVersion = "4.1",
                 ImageURL = "/Content/img/photo/t3.png"
-            });
-            dataset.Add(new PhotoModel { ClinicName = "Ijora Clinic", ResultIsValid = false, RecordedDateTime = new DateTime(2019, 5, 10, 12, 0, 52),
-                PhoneNumber = "815-992-0000", UserID = "010", DeviceType = "Samsung Buddy", OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur1.png"
-            });
-            dataset.Add(new PhotoModel { ClinicName = "Ijora Clinic", ResultIsValid = false, RecordedDateTime = new DateTime(2019, 5, 1, 17, 12, 5),
-                PhoneNumber = "815-992-0000", UserID = "010", DeviceType = "Samsung Buddy", OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur2.png"
             });
             dataset.Add(new PhotoModel { ClinicName = "Ijora Clinic", ResultIsValid = true, Bilirubin = "25", RecordedDateTime = new DateTime(2019, 4, 27, 10, 8, 49),
                 PhoneNumber = "815-991-1111", UserID = "003", DeviceType = "Samsung Buddy", OSVersion = "4.1",
@@ -127,20 +119,10 @@ namespace WebApplication1.Backend
                 PhoneNumber = "815-991-1111", UserID = "003", DeviceType = "Samsung Buddy", OSVersion = "4.1",
                 ImageURL = "/Content/img/photo/t4.png"
             });
-            dataset.Add(new PhotoModel { ClinicName = "Ijora Clinic", ResultIsValid = false, RecordedDateTime = new DateTime(2019, 5, 2, 20, 5, 34),
-                PhoneNumber = "815-992-0000", UserID = "010", DeviceType = "Samsung Buddy", OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur1.png"
-            });
-            dataset.Add(new PhotoModel { ClinicName = "Ijora Clinic", ResultIsValid = false,  RecordedDateTime = new DateTime(2019, 4, 19, 11, 54, 8),
-                PhoneNumber = "815-992-0000", UserID = "010", DeviceType = "Samsung Buddy", OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur2.png"
-            });
             dataset.Add(new PhotoModel { ClinicName = "Ijora Clinic", ResultIsValid = true, Bilirubin = "20", RecordedDateTime = new DateTime(2019, 5, 12, 13, 30, 3),
                 PhoneNumber = "815-991-1111", UserID = "003", DeviceType = "Samsung Buddy", OSVersion = "4.1",
                 ImageURL = "/Content/img/photo/t6.png"
             });
-
-            // Other clinic data
             dataset.Add(new PhotoModel { ClinicName = "Katsina Clinic", ResultIsValid = true, Bilirubin = "25", RecordedDateTime = new DateTime(2019, 5, 14, 12, 37, 43),
                 PhoneNumber = "719-991-1447", UserID = "005", DeviceType = "Tecno Mobile", OSVersion = "5.0",
                 ImageURL = "/Content/img/photo/t5.png"
@@ -264,17 +246,6 @@ namespace WebApplication1.Backend
             dataset.Add(new PhotoModel
             {
                 ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 25, 10, 10, 2),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/t3.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
                 RecordedDateTime = new DateTime(2019, 5, 24, 16, 32, 3),
@@ -287,17 +258,6 @@ namespace WebApplication1.Backend
             dataset.Add(new PhotoModel
             {
                 ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 24, 12, 0, 52),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/t3.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "30",
                 RecordedDateTime = new DateTime(2019, 5, 24, 15, 12, 3),
@@ -306,28 +266,6 @@ namespace WebApplication1.Backend
                 DeviceType = "Samsung Buddy",
                 OSVersion = "3.6",
                 ImageURL = "/Content/img/photo/t4.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 23, 12, 0, 52),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/t3.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 25, 17, 21, 2),
-                PhoneNumber = "813-777-1122",
-                UserID = "013",
-                DeviceType = "Tecno Mobile",
-                OSVersion = "5.1",
-                ImageURL = "/Content/img/photo/t1.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -944,17 +882,6 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 19, 11, 10, 52),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur1.png"
-            });
-            dataset.Add(new PhotoModel
-            {
                 ClinicName = "Mashegu Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
@@ -1141,17 +1068,6 @@ namespace WebApplication1.Backend
             dataset.Add(new PhotoModel
             {
                 ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 20, 13, 2, 43),
-                PhoneNumber = "842-305-4391",
-                UserID = "021",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t2.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
                 RecordedDateTime = new DateTime(2019, 5, 21, 11, 0, 8),
@@ -1179,17 +1095,6 @@ namespace WebApplication1.Backend
                 ResultIsValid = true,
                 Bilirubin = "30",
                 RecordedDateTime = new DateTime(2019, 5, 22, 9, 20, 44),
-                PhoneNumber = "842-305-4391",
-                UserID = "021",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t6.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 23, 10, 40, 2),
                 PhoneNumber = "842-305-4391",
                 UserID = "021",
                 DeviceType = "Samsung Buddy",
@@ -1267,7 +1172,7 @@ namespace WebApplication1.Backend
                 UserID = "006",
                 DeviceType = "Samsung Buddy",
                 OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t1.png"
+                ImageURL = "/Content/img/photo/tblur1.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -1364,17 +1269,6 @@ namespace WebApplication1.Backend
                 DeviceType = "Samsung Buddy",
                 OSVersion = "4.1",
                 ImageURL = "/Content/img/photo/t2.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Mashegu Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 1, 8, 11, 29),
-                PhoneNumber = "808-611-2109",
-                UserID = "017",
-                DeviceType = "Tecno Mobile",
-                OSVersion = "4.3",
-                ImageURL = "/Content/img/photo/t1.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -1531,7 +1425,7 @@ namespace WebApplication1.Backend
                 UserID = "018",
                 DeviceType = "Samsung Buddy",
                 OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t2.png"
+                ImageURL = "/Content/img/photo/tblur2.png"
             });
 
             dataset.Add(new PhotoModel
@@ -1545,17 +1439,6 @@ namespace WebApplication1.Backend
                 DeviceType = "Samsung Buddy",
                 OSVersion = "4.1",
                 ImageURL = "/Content/img/photo/t5.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Mashegu Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 28, 7, 2, 40),
-                PhoneNumber = "842-701-5555",
-                UserID = "018",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t2.png"
             });
 
             dataset.Add(new PhotoModel
@@ -1814,20 +1697,6 @@ namespace WebApplication1.Backend
                 DeviceType = "Tecno Mobile",
                 OSVersion = "4.3",
                 ImageURL = "/Content/img/photo/t5.png"
-            });
-
-
-
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Mashegu Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 12, 8, 11, 29),
-                PhoneNumber = "808-611-2109",
-                UserID = "017",
-                DeviceType = "Tecno Mobile",
-                OSVersion = "4.3",
-                ImageURL = "/Content/img/photo/t1.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -1892,29 +1761,6 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 25, 11, 10, 52),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur1.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 25, 12, 8, 16),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur1.png"
-            });
-
-            dataset.Add(new PhotoModel
-            {
                 ClinicName = "Rawayau Clinic",
                 ResultIsValid = true,
                 Bilirubin = "5",
@@ -1924,17 +1770,6 @@ namespace WebApplication1.Backend
                 DeviceType = "Tecno Mobile",
                 OSVersion = "5.1",
                 ImageURL = "/Content/img/photo/t3.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 20, 13, 2, 43),
-                PhoneNumber = "842-305-4391",
-                UserID = "021",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t2.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -1985,8 +1820,6 @@ namespace WebApplication1.Backend
                 OSVersion = "4.3",
                 ImageURL = "/Content/img/photo/t1.png"
             });
-
-            // Ijora Clinic data for scenario
             dataset.Add(new PhotoModel
             {
                 ClinicName = "Ijora Clinic",
@@ -1998,28 +1831,6 @@ namespace WebApplication1.Backend
                 DeviceType = "Samsung Buddy",
                 OSVersion = "4.1",
                 ImageURL = "/Content/img/photo/t3.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 10, 12, 0, 52),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur1.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 1, 17, 12, 5),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur2.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -2048,28 +1859,6 @@ namespace WebApplication1.Backend
             dataset.Add(new PhotoModel
             {
                 ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 2, 20, 5, 34),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur1.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 26, 11, 54, 8),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur2.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 12, 13, 30, 3),
@@ -2079,40 +1868,17 @@ namespace WebApplication1.Backend
                 OSVersion = "4.1",
                 ImageURL = "/Content/img/photo/t6.png"
             });
-            // Ijora Clinic data for scenario
             dataset.Add(new PhotoModel
             {
                 ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
-                RecordedDateTime = new DateTime(2019, 5, 17, 16, 32, 3),
+                RecordedDateTime = new DateTime(2019, 4, 15, 16, 32, 3),
                 PhoneNumber = "815-991-1111",
                 UserID = "003",
                 DeviceType = "Samsung Buddy",
                 OSVersion = "4.1",
                 ImageURL = "/Content/img/photo/t3.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 26, 12, 0, 52),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur1.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 26, 17, 12, 5),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur2.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -2141,17 +1907,6 @@ namespace WebApplication1.Backend
             dataset.Add(new PhotoModel
             {
                 ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 28, 11, 54, 8),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur2.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 29, 13, 30, 3),
@@ -2176,24 +1931,50 @@ namespace WebApplication1.Backend
             dataset.Add(new PhotoModel
             {
                 ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 27, 12, 0, 52),
-                PhoneNumber = "812-766-2891",
-                UserID = "032",
+                ResultIsValid = true,
+                Bilirubin = "25",
+                RecordedDateTime = new DateTime(2019, 4, 28, 10, 8, 49),
+                PhoneNumber = "815-991-1111",
+                UserID = "003",
                 DeviceType = "Samsung Buddy",
-                OSVersion = "3.6",
-                ImageURL = "/Content/img/photo/tblur1.png"
+                OSVersion = "4.1",
+                ImageURL = "/Content/img/photo/t1.png"
             });
             dataset.Add(new PhotoModel
             {
                 ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 27, 17, 12, 5),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
+                ResultIsValid = true,
+                Bilirubin = "15",
+                RecordedDateTime = new DateTime(2019, 4, 29, 7, 3, 12),
+                PhoneNumber = "812-766-2891",
+                UserID = "032",
                 DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur2.png"
+                OSVersion = "3.6",
+                ImageURL = "/Content/img/photo/t4.png"
+            });
+            dataset.Add(new PhotoModel
+            {
+                ClinicName = "Ijora Clinic",
+                ResultIsValid = true,
+                Bilirubin = "20",
+                RecordedDateTime = new DateTime(2019, 5, 31, 13, 30, 3),
+                PhoneNumber = "815-991-1111",
+                UserID = "003",
+                DeviceType = "Samsung Buddy",
+                OSVersion = "4.1",
+                ImageURL = "/Content/img/photo/t6.png"
+            });
+            dataset.Add(new PhotoModel
+            {
+                ClinicName = "Ijora Clinic",
+                ResultIsValid = true,
+                Bilirubin = "15",
+                RecordedDateTime = new DateTime(2019, 4, 17, 16, 32, 3),
+                PhoneNumber = "815-991-1111",
+                UserID = "003",
+                DeviceType = "Samsung Buddy",
+                OSVersion = "4.1",
+                ImageURL = "/Content/img/photo/t3.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -2212,34 +1993,23 @@ namespace WebApplication1.Backend
                 ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
-                RecordedDateTime = new DateTime(2019, 5, 29, 7, 3, 12),
-                PhoneNumber = "812-766-2891",
-                UserID = "032",
+                RecordedDateTime = new DateTime(2019, 5, 7, 7, 3, 12),
+                PhoneNumber = "815-991-1111",
+                UserID = "003",
                 DeviceType = "Samsung Buddy",
-                OSVersion = "3.6",
+                OSVersion = "4.1",
                 ImageURL = "/Content/img/photo/t4.png"
             });
             dataset.Add(new PhotoModel
             {
                 ClinicName = "Ijora Clinic",
                 ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 30, 7, 5, 34),
+                RecordedDateTime = new DateTime(2019, 3, 30, 7, 5, 34),
                 PhoneNumber = "815-992-0000",
                 UserID = "010",
                 DeviceType = "Samsung Buddy",
                 OSVersion = "3.4",
                 ImageURL = "/Content/img/photo/tblur1.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 30, 11, 54, 8),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur2.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -2268,120 +2038,6 @@ namespace WebApplication1.Backend
             dataset.Add(new PhotoModel
             {
                 ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 27, 12, 0, 52),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur1.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 27, 17, 12, 5),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur2.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = true,
-                Bilirubin = "25",
-                RecordedDateTime = new DateTime(2019, 5, 28, 10, 8, 49),
-                PhoneNumber = "815-991-1111",
-                UserID = "003",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t1.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = true,
-                Bilirubin = "15",
-                RecordedDateTime = new DateTime(2019, 5, 29, 7, 3, 12),
-                PhoneNumber = "815-991-1111",
-                UserID = "003",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t4.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 30, 7, 5, 34),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur1.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 30, 11, 54, 8),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur2.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = true,
-                Bilirubin = "20",
-                RecordedDateTime = new DateTime(2019, 5, 31, 13, 30, 3),
-                PhoneNumber = "815-991-1111",
-                UserID = "003",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t6.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = true,
-                Bilirubin = "15",
-                RecordedDateTime = new DateTime(2019, 5, 26, 16, 32, 3),
-                PhoneNumber = "815-991-1111",
-                UserID = "003",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t3.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 27, 12, 0, 52),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur1.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 27, 17, 12, 5),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur2.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "25",
                 RecordedDateTime = new DateTime(2019, 5, 28, 10, 8, 49),
@@ -2402,28 +2058,6 @@ namespace WebApplication1.Backend
                 DeviceType = "Samsung Buddy",
                 OSVersion = "4.1",
                 ImageURL = "/Content/img/photo/t4.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 30, 7, 5, 34),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur1.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 26, 11, 54, 8),
-                PhoneNumber = "815-992-0000",
-                UserID = "010",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "3.4",
-                ImageURL = "/Content/img/photo/tblur2.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -2452,28 +2086,6 @@ namespace WebApplication1.Backend
             dataset.Add(new PhotoModel
             {
                 ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 27, 12, 0, 52),
-                PhoneNumber = "840-601-1444",
-                UserID = "026",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "4.2",
-                ImageURL = "/Content/img/photo/tblur1.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 27, 17, 12, 5),
-                PhoneNumber = "840-601-1444",
-                UserID = "026",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "4.2",
-                ImageURL = "/Content/img/photo/tblur2.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "25",
                 RecordedDateTime = new DateTime(2019, 5, 28, 10, 8, 49),
@@ -2495,28 +2107,7 @@ namespace WebApplication1.Backend
                 OSVersion = "4.2",
                 ImageURL = "/Content/img/photo/t4.png"
             });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 30, 7, 5, 34),
-                PhoneNumber = "840-601-1444",
-                UserID = "026",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "4.2",
-                ImageURL = "/Content/img/photo/tblur1.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 31, 11, 54, 8),
-                PhoneNumber = "840-601-1444",
-                UserID = "026",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "4.2",
-                ImageURL = "/Content/img/photo/tblur2.png"
-            });
+
             dataset.Add(new PhotoModel
             {
                 ClinicName = "Ijora Clinic",
@@ -2554,17 +2145,6 @@ namespace WebApplication1.Backend
                 DeviceType = "Samsung Buddy",
                 OSVersion = "4.1",
                 ImageURL = "/Content/img/photo/t4.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Mashegu Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 14, 7, 46, 9),
-                PhoneNumber = "815-901-1334",
-                UserID = "006",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t1.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -2671,7 +2251,7 @@ namespace WebApplication1.Backend
                 UserID = "017",
                 DeviceType = "Tecno Mobile",
                 OSVersion = "4.3",
-                ImageURL = "/Content/img/photo/t1.png"
+                ImageURL = "/Content/img/photo/tblur1.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -2822,18 +2402,6 @@ namespace WebApplication1.Backend
             dataset.Add(new PhotoModel
             {
                 ClinicName = "Mashegu Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 2, 7, 2, 40),
-                PhoneNumber = "842-701-5555",
-                UserID = "018",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t2.png"
-            });
-
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Mashegu Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
                 RecordedDateTime = new DateTime(2019, 5, 12, 7, 2, 40),
@@ -2852,7 +2420,7 @@ namespace WebApplication1.Backend
                 UserID = "018",
                 DeviceType = "Samsung Buddy",
                 OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t2.png"
+                ImageURL = "/Content/img/photo/tblur2.png"
             });
 
             dataset.Add(new PhotoModel
@@ -3124,7 +2692,7 @@ namespace WebApplication1.Backend
                 UserID = "017",
                 DeviceType = "Tecno Mobile",
                 OSVersion = "4.3",
-                ImageURL = "/Content/img/photo/t1.png"
+                ImageURL = "/Content/img/photo/tblur1.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -3263,17 +2831,6 @@ namespace WebApplication1.Backend
             dataset.Add(new PhotoModel
             {
                 ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 20, 13, 2, 43),
-                PhoneNumber = "842-305-4391",
-                UserID = "021",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t2.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
                 RecordedDateTime = new DateTime(2019, 5, 21, 11, 0, 8),
@@ -3301,17 +2858,6 @@ namespace WebApplication1.Backend
                 ResultIsValid = true,
                 Bilirubin = "30",
                 RecordedDateTime = new DateTime(2019, 5, 22, 9, 20, 44),
-                PhoneNumber = "842-305-4391",
-                UserID = "021",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t6.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 23, 10, 40, 2),
                 PhoneNumber = "842-305-4391",
                 UserID = "021",
                 DeviceType = "Samsung Buddy",
@@ -3376,7 +2922,7 @@ namespace WebApplication1.Backend
                 UserID = "017",
                 DeviceType = "Tecno Mobile",
                 OSVersion = "4.3",
-                ImageURL = "/Content/img/photo/t1.png"
+                ImageURL = "/Content/img/photo/tblur1.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -3423,7 +2969,7 @@ namespace WebApplication1.Backend
                 UserID = "006",
                 DeviceType = "Samsung Buddy",
                 OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/t1.png"
+                ImageURL = "/Content/img/photo/tblur1.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -3643,7 +3189,7 @@ namespace WebApplication1.Backend
                 UserID = "005",
                 DeviceType = "Tecno Mobile",
                 OSVersion = "5.0",
-                ImageURL = "/Content/img/photo/t1.png"
+                ImageURL = "/Content/img/photo/tblur2.png"
             });
             dataset.Add(new PhotoModel
             {
@@ -3679,7 +3225,7 @@ namespace WebApplication1.Backend
                 UserID = "005",
                 DeviceType = "Tecno Mobile",
                 OSVersion = "5.0",
-                ImageURL = "/Content/img/photo/t1.png"
+                ImageURL = "/Content/img/photo/tblur2.png"
             });
             dataset.Add(new PhotoModel
             {

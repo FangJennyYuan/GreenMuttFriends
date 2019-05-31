@@ -1,4 +1,19 @@
-﻿function drawInstallGraph(NumAppInstallData, viz) {
+﻿/**
+ * Draws the photos taken graph
+ * used on the performance page
+ * @param {any} currentPhotoData is data from the Photos Taken Model
+ */
+function drawPhotosTakenGraph( currentPhotoData ) {
+
+    //Sort Data by Clinic
+    currentPhotoData.sort((a, b) => (a.clinic > b.clinic ) ? 1 : ((b.clinic > a.clinic) ? -1 : 0));
+
+    //Cast strings to dates
+    currentPhotoData.forEach(function (arrayItem) {
+        var d = moment(arrayItem.date, "MM/DD/YYYY").format('L');
+        arrayItem.date = d;
+    });
+
     //Create color attributes for chart
     var attributes = [
         { "clinic": "Ijora Clinic", "hex": "#5FBD73", "image": "/Content/img/IjoraI.png" },
@@ -7,12 +22,12 @@
         { "clinic": "Rawayau Clinic", "hex": "#1C2C8C", "image": "/Content/img/RawayauI.png" }
     ]
 
-    var vizInstall = d3plus.viz()
-        .container(viz)
+    //Draw Photos Taken Chart
+    var visualization = d3plus.viz()
+        .container("#photos_taken_chart")
         .data({
-            "value": NumAppInstallData,
+            "value": currentPhotoData,
             "stroke": { "width": 3 }
-
         })
         .type("line")
         .id("clinic")         // key for which our data is unique on
@@ -37,24 +52,20 @@
         })
         .format({
             "text": function (text, params) {
-                if (text === "installs") {
-                    return "Total Installs";
-                } else if (text === "value") {
-                    return "Total App Users";
-                } else if (text === "Y Axis") {
-                    return "Filter by ";
+                if (text === "value") {
+                    return "Total Photos Taken";
+                } else if (text === "userCount") {
+                    return "Active Users";
                 } else {
                     return d3plus.string.title(text, params);
                 }
             }
         })
-        .tooltip(["clinic", "value", "installs"])
-        .ui([
-            {
-                "method": "y",
-                "value": ["value", "installs"]
-            }
-        ])
+        .tooltip(["date", "value", "userCount"])
+        .ui([{
+            "method": "y",
+            "value": ["value", "userCount"]
+        }])
         .ui({
             "position": "top",
             "align": "left",
@@ -62,19 +73,19 @@
                 "size": 19
             }
         })
+        .height(495)
+        .time({
+            "value": "date",
+            "format": d3.time.format("%x")
+        })
         .legend({
             "size": 30,
             "filters": true,
             "labels": true
         })
-        .time({
-            "value": "date",
-            "format": d3.time.format("%x")
-        })
         .icon({
             "style": "knockout",
             "value": "image"
         })
-        .height(500)
         .draw()
 }

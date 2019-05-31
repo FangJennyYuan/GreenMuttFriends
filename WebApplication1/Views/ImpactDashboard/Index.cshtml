@@ -12,7 +12,6 @@
 <h1>Impact Dashboard</h1>
 
 
-
 <div class="row date-filter mt-1">
     <div class="overviewcard__icon ml-3">
         <i class="fa fa-calendar  filter-performance-ic img-valign" aria-hidden="true"></i>
@@ -33,68 +32,25 @@
 </div>
 
 
-
-@*<div class="row mt-3 flexbox" style="height: 100px" >
-    <div class="col">
-        <img src="~/Content/img/Improvement.PNG" class="mx-auto d-block img-fluid " style="max-height: 90px"/>
-    </div>
-    @{var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
-        if (myAccountModel.isAccountLoggedIn)
-        {
-            <div class="col-1">
-                <label for="id-of-input" class="custom-checkbox favorite-graph">
-                    <input type="checkbox" id="id-of-input" class="favorites" />
-                    <i class="fa fa-star fa-stack-1x favorited"></i>
-                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-                </label>
-            </div>}
-        else { }}
-
-    <div class="col">
-        <img src="~/Content/img/AvgUsers.PNG" class="mx-auto d-block img-fluid " style="max-height: 90px"/>
-    </div>
-    @{if (myAccountModel.isAccountLoggedIn)
-        {
-            <div class="col-1">
-                <label for="id-of-input1" class="custom-checkbox favorite-graph">
-                    <input type="checkbox" id="id-of-input1" class="favorites" />
-                    <i class="fa fa-star fa-stack-1x favorited"></i>
-                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-                </label>
-            </div>}
-        else { }}
-    <div class="col">
-        <img src="~/Content/img/AvgInstalls.PNG" class="mx-auto d-block img-fluid " style="max-height: 90px"/>
-    </div>
-    @{if (myAccountModel.isAccountLoggedIn)
-        {
-            <div class="col-1">
-                <label for="id-of-input2" class="custom-checkbox favorite-graph">
-                    <input type="checkbox" id="id-of-input2" class="favorites" />
-                    <i class="fa fa-star fa-stack-1x favorited"></i>
-                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-                </label>
-            </div>}
-        else { }}
-</div>*@
-
-
 <div class="row mt-3">
     <div class="col-lg-9">
         <h3> Photos Taken <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
-        <div id="viz-photos-taken-impact"></div>
+        <div class="row">
+            <div class="col-m-12" id="viz-photos-taken-impact"></div>
+            @{var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
+                if (myAccountModel.isAccountLoggedIn)
+                {
+                    <div id="favorite-icon">
+                        <label for="id-of-input3" class="custom-checkbox favorite-graph" onload="load()">
+                            <input type="checkbox" id="id-of-input3" class="favorites" onclick="save()" />
+                            <i class="fa fa-star fa-stack-1x favorited"></i>
+                            <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
+                        </label>
+                    </div>}
+                else { }}
+        </div>
     </div>
-    @{var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
-        if (myAccountModel.isAccountLoggedIn)
-        {
-            <div class="col-1">
-                <label for="id-of-input3" class="custom-checkbox favorite-graph" onload="load()">
-                    <input type="checkbox" id="id-of-input3" class="favorites" onclick="save()"/>
-                    <i class="fa fa-star fa-stack-1x favorited"></i>
-                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-                </label>
-            </div>}
-        else { }}
+
     <div class="col my-auto">
         <div class="card impact-card">
             <div class="card-body p-3 text-center">
@@ -109,7 +65,7 @@
         <div class="card impact-card">
             <div class="card-body p-3 text-center">
                 <div class="text-right primary-color">
-                    9%
+                    <span id="valid-photos-perc">6%</span>
                     <i class="fa fa-chevron-up"></i>
                 </div>
                 <div class="h1 m-0" id="valid-photos">39</div>
@@ -123,38 +79,39 @@
 <div class="row">
     <div class="col-lg-9">
         <h3> App Usage and Installs <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
-        <div id="viz-num-app-installs"></div>
+        <div class="row">
+            <div class="col-m-12" id="viz-num-app-installs"></div>
+            @{if (myAccountModel.isAccountLoggedIn)
+                {
+                    <div id="favorite-icon">
+                        <label for="id-of-input4" class="custom-checkbox favorite-graph">
+                            <input type="checkbox" id="id-of-input4" class="favorites" />
+                            <i class="fa fa-star fa-stack-1x favorited"></i>
+                            <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
+                        </label>
+                    </div>}
+                else { }}
+        </div>
     </div>
-    @{if (myAccountModel.isAccountLoggedIn)
-        {
-            <div class="col-1">
-                <label for="id-of-input4" class="custom-checkbox favorite-graph">
-                    <input type="checkbox" id="id-of-input4" class="favorites" />
-                    <i class="fa fa-star fa-stack-1x favorited"></i>
-                    <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-                </label>
-            </div>}
-        else { }}
-
     <div class="col my-auto">
         <div class="card impact-card">
             <div class="card-body p-3 text-center">
                 <div class="text-right primary-color">
-                    4%
+                    <span id="active-users-perc">6%</span>
                     <i class="fa fa-chevron-up"></i>
                 </div>
                 <div class="h1 m-0" id="active-users">9</div>
-                <div class="text-muted mb-4">Active Users</div>
+                <div class="text-muted mb-4">Avg Users per Day</div>
             </div>
         </div>
         <div class="card impact-card">
             <div class="card-body p-3 text-center">
                 <div class="text-right primary-color">
-                    12%
+                    <span id="new-installs-perc">6%</span>
                     <i class="fa fa-chevron-up"></i>
                 </div>
                 <div class="h1 m-0" id="new-installs">10</div>
-                <div class="text-muted mb-4">New Installs</div>
+                <div class="text-muted mb-4">Avg Installs per Day</div>
             </div>
         </div>
     </div>
@@ -220,12 +177,10 @@
         drawInstallGraph(dataInDateRange, "#viz-num-app-installs");
 
         //Update summary cards starting with photo count
-        photos = getTotalPhotoCount(dataInDateRange, start, end);
-        totalPhotos = photos[0];
-        percentChange = photos[1];
-        $("#total-photos").text(totalPhotos);
-        $("#total-photos-perc").html(percentChange + "% ");
-
+        setTotalPhotoCardsData(dataInDateRange, start, end);
+        setActiveUserCardsData(dataInDateRange, start, end);
+        setTotalValidPhotoCardsData(dataInDateRange, start, end);
+        setNewInstallsCardsData(dataInDateRange, start, end);
     }
 
 
@@ -252,78 +207,6 @@
     $("#week").trigger('click');
 
 
-    //Check if all date ranges have val if not fill it
-    function zeroFillbyDate(totals, start, end) {
-
-        //Iterate through date range and fill if zero
-        for (var d = moment(start, "MM/DD/YYYY"); d <= end; d.add(1, 'days')) {
-            
-            //If it exists add to total
-            containsDateV = containsDateInData(d.format('L'), totals);
-            if (containsDateV != -1) {
-                console.log(d);
-            } else {
-                //TODO: Remove in production, just for demo
-                randInv = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
-                randValid = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
-                randInstall = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
-
-                totals.push({
-                    clinic: "Katsina Clinic",
-                    date: d.format('L'),
-                    value: randVal,
-                    installs: randInstall,
-                    validphotos: randValid,
-                    invalidphotos: randInv
-                });
-
-                randInv = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-                randValid = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
-                randInstall = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
-                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
-
-                totals.push({
-                    clinic: "Ijora Clinic",
-                    date: d.format('L'),
-                    value: randVal,
-                    installs: randInstall,
-                    validphotos: randValid,
-                    invalidphotos: randInv
-                });
-
-                randInv = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-                randValid = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
-                randInstall = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
-                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
-
-                totals.push({
-                    clinic: "Mashegu Clinic",
-                    date: d.format('L'),
-                    value: randVal,
-                    installs: randInstall,
-                    validphotos: randValid,
-                    invalidphotos: randInv
-                });
-
-                randInv = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
-                randValid = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
-                randInstall = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-                randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
-
-                totals.push({
-                    clinic: "Rawayau Clinic",
-                    date: d.format('L'),
-                    value: randVal,
-                    installs: randInstall,
-                    validphotos: randValid,
-                    invalidphotos: randInv
-                });
-            }
-        }
-        return totals;
-    }
-
 
     //Check if date is in data set
     function containsDateInData(obj, list) {
@@ -336,32 +219,5 @@
         return -1;
     }
 
-
-    function getTotalPhotoCount(data, start, end) {
-
-        var totalPhotos = 0;
-        var percentChange = 0;
-        var s = moment(start, "MM/DD/YYYY").format('L');
-        var e = moment(end, "MM/DD/YYYY").format('L');
-        var startVal = 0;
-        var endVal = 0;
-
-        data.forEach(function (arrayItem) {
-            todaysPhotos = arrayItem.validphotos + arrayItem.invalidphotos;
-            totalPhotos += todaysPhotos;
-
-            var d = moment(arrayItem.date, "MM/DD/YYYY").format('L');
-            if (d == s) {
-                startVal += todaysPhotos;
-            }
-            else if (d == e) {
-                endVal += todaysPhotos;
-            }
-        });
-
-        percentChange = endVal - startVal / endVal;
-
-        return [totalPhotos, percentChange.toFixed(1) ];
-    }
 
 </script>
