@@ -34,7 +34,8 @@ namespace WebApplication1
                         "~/Scripts/chartvalidandinvalid.js",
                         "~/Scripts/chartinstalls.js",
                         "~/Scripts/chartphotostaken.js",
-                        "~/Scripts/chartavgphotostaken.js"
+                        "~/Scripts/chartavgphotostaken.js",
+                        "~/Scripts/dailyPhotosTaken.js"
                         ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
