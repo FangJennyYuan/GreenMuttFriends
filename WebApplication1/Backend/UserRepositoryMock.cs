@@ -169,9 +169,6 @@ namespace WebApplication1.Backend
             MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/31/2019"), Value = 14, Installs = 5, ValidPhotoCount = 17, PhotoRetakeCount = 1 });
             MyData.Add(new UserModel { Clinic = "Ijora Clinic", Date = DateTime.Parse("05/01/2019"), Value = 3, Installs = 1, ValidPhotoCount = 3, PhotoRetakeCount = 0 });
 
-
-
-
             // sort data in order by date
             OrderByDate();
         }
@@ -192,6 +189,7 @@ namespace WebApplication1.Backend
         {
             try
             {
+                //path of the file
                 string path = HttpContext.Current.Server.MapPath("~/App_Data/user_data.csv");
                 using (var reader = new StreamReader(path))
                 using (var csv = new CsvReader(reader))
@@ -204,8 +202,11 @@ namespace WebApplication1.Backend
                         {
                             Clinic = item.Clinic,
                             Date = item.Date,
-                            Value = item.Value
-                        });
+                            Value = item.Value,
+                            Installs = item.Installs,
+                            ValidPhotoCount = item.ValidPhotoCount,
+                            PhotoRetakeCount = item.PhotoRetakeCount
+                    });
                     }
                 }
             }
