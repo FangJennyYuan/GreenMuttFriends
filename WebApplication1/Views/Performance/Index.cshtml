@@ -12,7 +12,7 @@
 }
 
 <div>
-
+    @*header*@
     <div class="row header-performance">
         <div class="col-lg-7">
             <h1>
@@ -22,12 +22,14 @@
 
         <div class="col mr-4 align-self-end">
             <div class="row chart-filters ">
+                @*Overview icon*@
                 <div class="overviewcard col-lg-5 col-sm-4 ml-2 align-self-end active-charts" id="overview-charts">
                     <div class="overviewcard__icon">
                         <i class="fa fa-camera-retro  filter-performance-ic img-valign" aria-hidden="true"></i>
                         <span>Overview</span>
                     </div>
                 </div>
+                @*Userview icon*@
                 <div class="overviewcard col-lg-5 col-sm-4 ml-2" id="device-charts">
                     <div class="overviewcard__icon">
                         <i class="fa fa-server  filter-performance-ic img-valign" aria-hidden="true"></i>
@@ -39,60 +41,66 @@
         </div>
     </div>
 
-
+    @*Date filter row*@
     <div class="row date-filter mt-1">
+        @*Calender icon*@
         <div class="overviewcard__icon ml-3">
             <i class="fa fa-calendar  filter-performance-ic img-valign" aria-hidden="true"></i>
         </div>
+        @*Week filter*@
         <div class="col-lg-1 col-sm-3 mt-2 calendar-filter active-date-range">
             <button type="button" id="week" onclick="getWeeksDate()"> Week</button>
         </div>
+        @*Month filter*@
         <div class="col-lg-1 col-sm-3 mr-2 mt-2 calendar-filter">
             <button type="button" id="month" onclick="getMonthsDate()"> Month</button>
         </div>
+        @*All filter*@
         <div class="col-lg-1 col-sm-3 mt-2 calendar-filter">
             <button type="button" id="all-date" class="calendar-filter" onclick="getYearsDate()"> All</button>
         </div>
+        @*Date filter*@
         <div class="col-lg-4 mt-2">
             Date
             <input type="text" id="date-input" name="daterange" value="" />
         </div>
-
     </div>
 </div>
 
-
+@*Graph section*@
 <div class="row mt-3 performance-graphs white-background">
+    @*Photo taken graph*@
     <div class="col-lg-7 ml-2">
         <div class="row ">
+            @*Graph header that is changed based on date filter*@
             <div class="col">
                 <h3> Photos Taken <span class="graph-filtered-by date"> from Month xxth to Month xxth </span></h3>
             </div>
+            @*fav button*@
             <div class="col-1">
-                @{
-                    var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
+                @{var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
                     if (myAccountModel.isAccountLoggedIn)
                     {
-                        <label for="id-of-input7" class="custom-checkbox favorite-graph" >
-                            <input type="checkbox" id="id-of-input7" class="favorites"/>
+                        <label for="id-of-input7" class="custom-checkbox favorite-graph">
+                            <input type="checkbox" id="id-of-input7" class="favorites" />
                             <i class="fa fa-star fa-stack-1x favorited"></i>
                             <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
                         </label>
                     }
-                    else
-                    {
-
-                    }
-                }
+                    else { }}
             </div>
         </div>
+        @*photos taken graph*@
         <div id="photos_taken_chart"></div>
     </div>
+    @*Avg Photo based on device*@
     <div class="col">
         <div class="row">
+            @*Graph header that is changed based on date filter*@
             <div class="col">
                 <h3> Avg Photos <span class="graph-filtered-by date"> from Month xxth to Month xxth </span></h3>
             </div>
+            @*fav button*@
             <div class="col-1">
                 @{
                     if (myAccountModel.isAccountLoggedIn)
@@ -110,6 +118,7 @@
                 }
             </div>
         </div>
+        @*graph section*@
         <div id="avg_photos_taken_chart"></div>
     </div>
 </div>
@@ -117,18 +126,19 @@
 
 
 <script>
+    //load the fav checkbox id-of-input8 with what is stored in localstorage
     window.onload = function load() {
         var checked = JSON.parse(localStorage.getItem('id-of-input8'));
         console.log(checked);
         document.getElementById("id-of-input8").checked = checked;
     }
 
+    //save the fav checkbox id-of-input8 state into localstorage
     function save() {
         var checkbox = document.getElementById('id-of-input8');
         console.log(checkbox.checked);
         localStorage.setItem('id-of-input8', checkbox.checked);
     }
-
 
     //Pull Photos Data on Week
     $("#week").click(
