@@ -9,34 +9,44 @@
 @{
     ViewBag.Title = "Index";
 }
+
+@*Page header*@
 <h1>Impact Dashboard</h1>
 
-
+@*Date filter row*@
 <div class="row date-filter mt-1">
+    @*Calender icon*@
     <div class="overviewcard__icon ml-3">
         <i class="fa fa-calendar  filter-performance-ic img-valign" aria-hidden="true"></i>
     </div>
+    @*Week filter*@
     <div class="col-lg-1 col-sm-3 mt-2 calendar-filter active-date-range">
         <button type="button" id="week" onclick="getWeeksDate()"> Week</button>
     </div>
+    @*Month filter*@
     <div class="col-lg-1 col-sm-3 mr-2 mt-2 calendar-filter">
         <button type="button" id="month" onclick="getMonthsDate()"> Month</button>
     </div>
+    @*All filter*@
     <div class="col-lg-1 col-sm-3 mt-2 calendar-filter">
         <button type="button" id="all-date" class="calendar-filter" onclick="getYearsDate()"> All</button>
     </div>
+    @*Calender date filter*@
     <div class="col-lg-4 mt-2">
         Date
         <input type="text" id="date-input" name="daterange" value="" />
     </div>
 </div>
 
-
+@*Photos Taken Graph*@
 <div class="row mt-3">
     <div class="col-lg-9">
+        @*Photos Taken header that gets updated based on the date filter*@
         <h3> Photos Taken <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
         <div class="row">
+            @*draw graph using d3plus*@
             <div class="col-m-12" id="viz-photos-taken-impact"></div>
+            @*fav button, when clicked this graph appears on the home page*@
             @{var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
                 if (myAccountModel.isAccountLoggedIn)
                 {
@@ -51,7 +61,9 @@
         </div>
     </div>
 
+    @*Statistics card*@
     <div class="col my-auto">
+        @*Photos Taken card*@
         <div class="card impact-card">
             <div class="card-body p-3 text-center">
                 <div class="text-right primary-color" >
@@ -62,6 +74,7 @@
                 <div class="text-muted mb-4">Photos Taken</div>
             </div>
         </div>
+        @*valid photos taken card*@
         <div class="card impact-card">
             <div class="card-body p-3 text-center">
                 <div class="text-right primary-color">
@@ -74,13 +87,21 @@
         </div>
     </div>
 </div>
+
+@*space between the graphs*@
 <h1></h1>
 <h1></h1>
+
+@*App user graph*@
 <div class="row">
+    @*graph section*@
     <div class="col-lg-9">
+        @*graph header that gets updated with date filter*@
         <h3> App Usage and Installs <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
         <div class="row">
+            @*graph is updated by using the viz tag*@
             <div class="col-m-12" id="viz-num-app-installs"></div>
+            @*fav button*@
             @{if (myAccountModel.isAccountLoggedIn)
                 {
                     <div id="favorite-icon">
@@ -93,7 +114,9 @@
                 else { }}
         </div>
     </div>
+    @*Statistic card*@
     <div class="col my-auto">
+        @*active users card*@
         <div class="card impact-card">
             <div class="card-body p-3 text-center">
                 <div class="text-right primary-color">
@@ -104,6 +127,7 @@
                 <div class="text-muted mb-4">Avg Users per Day</div>
             </div>
         </div>
+        @*App install card*@
         <div class="card impact-card">
             <div class="card-body p-3 text-center">
                 <div class="text-right primary-color">
@@ -118,13 +142,14 @@
 </div>
 
 <script>
-
+    //load the state of id-of-input3 checkbox
     window.onload = function load() {
         var checked = JSON.parse(localStorage.getItem('id-of-input3'));
         console.log(checked);
         document.getElementById("id-of-input3").checked = checked;
     }
 
+    //save the state of the id-of-input3 checkbox
     function save() {
         var checkbox = document.getElementById('id-of-input3');
         console.log(checkbox.checked);
@@ -183,7 +208,6 @@
         setNewInstallsCardsData(dataInDateRange, start, end);
     }
 
-
     //Get data by date
     function getDatabyDate(start, end) {
             data = [
@@ -206,8 +230,6 @@
     //Defualt views
     $("#week").trigger('click');
 
-
-
     //Check if date is in data set
     function containsDateInData(obj, list) {
         var i;
@@ -218,6 +240,4 @@
         }
         return -1;
     }
-
-
 </script>
