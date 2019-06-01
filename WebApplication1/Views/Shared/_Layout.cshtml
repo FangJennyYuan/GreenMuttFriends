@@ -9,9 +9,10 @@
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/styles")
     @Scripts.Render("~/bundles/calendar")
     @Scripts.Render("~/bundles/graphs")
-    @Scripts.Render("~/bundles/styles")
+
 </head>
 <body>
 
@@ -23,35 +24,40 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto nav-link ml-3" id="nav-home">
-                <li>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })</li>
-                <li>@Html.ActionLink("Impact", "Index", "ImpactDashboard", null, new { @class = "nav-link" })</li>
-                <li>@Html.ActionLink("Performance", "Index", "Performance", null, new { @class = "nav-link" })</li>
+
+                <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "")">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "nav-link" })</li>
+                <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "ImpactDashboard" ? "active" : "")">@Html.ActionLink("Impact", "Index", "ImpactDashboard", null, new { @class = "nav-link" })</li>
+                <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Performance" ? "active" : "")">@Html.ActionLink("Performance", "Index", "Performance", null, new { @class = "nav-link" })</li>
+
                 @{
                     var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
                     if (myAccountModel.isAccountLoggedIn)
                     {
                         var ShowUserName = myAccountModel.AccountName;
-                        @Html.ActionLink("Library", "Index", "Library", null, new { @class = "nav-link" })
+                        <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Library" ? "active" : "")">@Html.ActionLink("Library", "Index", "Library", null, new { @class = "nav-link" })</li>
                     }
                     else
                     {
-                        
+
                     }
                 }
+
             </ul>
             <form class=" navbar-nav nav-link ml-3 form-inline" id="search-log-nav">
                 <input class="form-control mr-sm-2" type="search" id="search-nav" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" id="search-btn-nav" type="submit">Search</button>
                 @{
-                    
+
                     if (myAccountModel.isAccountLoggedIn)
                     {
                         var ShowUserName = myAccountModel.AccountName;
                         @Html.ActionLink(ShowUserName, "Login", "Account", null, new { @class = "nav-link" })
                     }
                     else
-                    {   
-                        @Html.ActionLink("Login", "LoginDialog", "Account", null, new { @class = "nav-link" })
+
+                    {
+                        <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Account" ? "active" : "")">@Html.ActionLink("Login", "LoginDialog", "Account", null, new { @class = "nav-link" })</li>
+
                     }
                 }
             </form>

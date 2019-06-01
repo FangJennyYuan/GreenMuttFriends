@@ -39,7 +39,7 @@ namespace WebApplication1
                         ));
 
             bundles.Add(new ScriptBundle("~/bundles/styles").Include(
-                        "~/Scripts/toggleStyle.js"
+                        "~/Scripts/togglestyle.js"
                         ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
