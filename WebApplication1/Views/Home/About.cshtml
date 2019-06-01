@@ -9,10 +9,10 @@
 
 <script>
     var myClinics = [
-        { "name": "Ijora Clinic", "latitude": 6.477803, "longitude": 3.349594, "my_size": 5, "slug": "i" },
-        { "name": "Mashegu Clinic", "latitude": 9.127139, "longitude": 7.784681, "my_size": 4, "slug": "m" },
-        { "name": "Rawayau Clinic", "latitude": 6.528841, "longitude": 5.392641, "my_size": 1, "slug": "r" },
-        { "name": "Katsina Clinic", "latitude": 12.006016, "longitude": 8.752228, "my_size": 2, "slug": "k" }];
+        { "name": "Ijora Clinic", "latitude": 6.477803, "longitude": 3.349594, "my_size": 5, color: "#5FBD73", "slug": "i" },
+        { "name": "Mashegu Clinic", "latitude": 7.493688, "longitude": 4.552210, "my_size": 4, color: "#71BDD3", "slug": "m" },
+        { "name": "Rawayau Clinic", "latitude": 6.528841, "longitude": 5.392641, "my_size": 1, color: "#1C2C8C", "slug": "r" },
+        { "name": "Katsina Clinic", "latitude": 7.941969, "longitude": 3.577003, "my_size": 2, color: "#6A5599", "slug": "k" }];
 
     new d3plus.Geomap()
         .data(myClinics)
@@ -27,6 +27,10 @@
 
         .pointSize(function (d) {
             return d.my_size;
+        })
+
+        .shapeConfig({
+            fill: function (d) { return d.color; },
         })
 
         .render();
