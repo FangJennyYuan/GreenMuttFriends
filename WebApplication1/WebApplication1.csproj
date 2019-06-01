@@ -145,6 +145,7 @@
     <Compile Include="Models\ImpactViewModel .cs" />
     <Compile Include="Models\LibraryViewModel.cs" />
     <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Models\PerformanceViewModel.cs" />
     <Compile Include="Models\TotalPhotosTakenModel.cs" />
     <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Models\UserModel.cs" />
@@ -263,6 +264,7 @@
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\chartinstalls.js" />
+    <Content Include="Scripts\toggleStyle.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />

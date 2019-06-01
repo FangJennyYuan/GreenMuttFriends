@@ -38,6 +38,10 @@ namespace WebApplication1
                         "~/Scripts/dailyPhotosTaken.js"
                         ));
 
+            bundles.Add(new ScriptBundle("~/bundles/styles").Include(
+                        "~/Scripts/toggleStyle.js"
+                        ));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/daterangepicker.css",

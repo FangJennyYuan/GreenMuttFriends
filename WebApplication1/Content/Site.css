@@ -81,7 +81,10 @@ body {
             color: #71BDD3;
             text-decoration: underline;
         }
-
+        .navbar-active {
+            color: #71BDD3;
+            text-decoration: underline;
+        }
     /*Headers*/
     h1 {
         font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;

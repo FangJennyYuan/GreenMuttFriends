@@ -1,5 +1,5 @@
 ﻿@using WebApplication1.Models;
-@model List<TotalPhotosTakenModel>
+@model PerformanceViewModel
 
 <!doctype html>
 <meta charset="utf-8">
@@ -170,17 +170,10 @@
         }
     );
 
-    //Select a chart series
-    $(".overviewcard").click(function () {
-        //remove all other selected
-        $(".overviewcard").removeClass("active-charts");
-        $(this).toggleClass("active-charts");
-    });
-
     //Draw overview graphs on performance page
     function drawPhotosTakenViz(start, end) {
         //Get data
-        currentPhotoData = getDatabyDate( start, end );
+        currentPhotoData = getPhotoDatabyDate( start, end );
         updateGraphTitlesWithDate(start, end );
 
         //Remove old graph and add new
@@ -191,28 +184,61 @@
         $("#avg_photos_taken_chart").empty();
         drawAvgPhotosTakenGraph(currentPhotoData, start, end);
     }
-
+    
     //Get data by date
-    function getDatabyDate(start, end) {
-            photosData = [
+    function getPhotoDatabyDate(start, end) {
+        photosData = [
             @{
-                foreach (var item in Model)
-                {
-                    var photosTakenAmp = 0;
-                    //TODO: Remove in production, Just amplifying Ijora Clinic Results For Demo
-                    if(item.Clinic == "Ijora Clinic")
-                    {
-                        photosTakenAmp = Convert.ToInt32(item.Value * 2.3);
-                    }
-                    else{
-                        photosTakenAmp = item.Value;
-                    }
+                var myViewModel = new List<TotalPhotosTakenModel>();
 
-                    var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", date: \"" + item.Date.ToShortDateString() + "\", value: " + photosTakenAmp + ", userCount: " + item.UserCount + " },");
+                //Calculate photo totals for each clinic on each day
+                var clinicPhotoTotals = new Dictionary<string, int>();
+                foreach (var item in Model.PhotoViewModel.PhotoList)
+                {
+                    int currentPhotoCount = 0;
+                    var clinicAndDate = item.ClinicName + "_" + item.RecordedDateTime.ToShortDateString();
+                    clinicPhotoTotals.TryGetValue(clinicAndDate, out currentPhotoCount);
+                    clinicPhotoTotals[clinicAndDate] = currentPhotoCount + 1;
+                }
+
+                //Add aggregate photo totals to model by date and clinic
+                foreach (KeyValuePair<string, int> entry in clinicPhotoTotals)
+                {
+                    string[] clinicByDate = entry.Key.Split('_');
+                    string clinic = clinicByDate[0];
+                    string date = clinicByDate[1];
+
+                    //Query data to Get the users for this clinic and date
+                    IEnumerable<PhotoModel> query = Model.PhotoViewModel.PhotoList.Where(
+                        c => c.ClinicName == clinic
+                        && c.RecordedDateTime.ToShortDateString() == date
+                    );
+
+                    //Get distinct user count
+                    List<string> users = (from t in query
+                                          select t.UserID).Distinct().ToList();
+                    int userCount = users.Count;
+
+                    myViewModel.Add(
+                        new TotalPhotosTakenModel
+                        {
+                            Clinic = clinic,
+                            Date = DateTime.Parse(date),
+                            Value = entry.Value,
+                            UserCount = userCount
+                        }
+                    );
+                }
+
+                foreach (var item in myViewModel)
+                {
+                    var photosTaken = item.Value;
+
+                    var outputString = Html.Raw("{ clinic: \"" + item.Clinic + "\", date: \"" + item.Date.ToShortDateString() + "\", value: " + photosTaken + ", userCount: " + item.UserCount + " },");
                     @outputString
                 }
             }
-            ],
+        ],
             start = start,
             end = end,
             currentPhotoData = photosData.filter(d => {
@@ -220,10 +246,11 @@
                 return (start <= date && date <= end);
             });
         return currentPhotoData;
-    };
+    }
 
 
     //Default views
     $("#overview-charts").trigger("click");
     $('#week').click(drawPhotosTakenViz(moment().subtract(7, 'days'), moment()));
+
 </script>
