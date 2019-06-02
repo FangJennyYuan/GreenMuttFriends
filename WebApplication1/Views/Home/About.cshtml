@@ -36,9 +36,10 @@
             return [d.longitude, d.latitude];
         })
 
-        .pointSize(function (d) {
-            return d.my_size;
-        })
+        // Changes size of points
+  //      .pointSize(function (d) {
+  //          return d.my_size;
+  //      })
 
         .shapeConfig({
             fill: function (d) { return d.color; },
