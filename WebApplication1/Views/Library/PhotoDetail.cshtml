@@ -4,6 +4,7 @@
     ViewBag.Title = "PhotoDetail";
 }
 
+
 <h1>
     Library Dashboard<br />
     Photo Details
@@ -50,9 +51,16 @@
                 <a href="/Library" class="btn btn-outline-info">Back</a><br />
             </p>
             <p>
-                <a class="btn btn-success" href="@Url.Action("ExportOneToCSV", new { id = Model.ID })">
-                    <i class="fa fa-download"></i> Download
-                </a>
+                <div class="dropdown show">
+                    <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-download"></i> Download
+                    </a>
+
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="@Url.Action("ExportOneToCSV", new { id = Model.ID })">Data</a>
+                        <a class="dropdown-item" href="@Html.DisplayFor(Model => Model.ImageURL)" download="@Model.ID">Image</a>
+                    </div>
+                </div>
             </p>
             <p>
                 <a href="mailto:?subject=Bilirubin%20Photo%20Result&body=@Request.Url.ToString()" class="btn btn-success"><i class="fa fa-envelope-o"></i> Email link</a>
