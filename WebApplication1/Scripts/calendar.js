@@ -96,10 +96,12 @@ $(function () {
     }, function (start, end, label) {
         var resultCount = searchLibraryTablebyDateRange(start, end);
         updateResultTitleWithDate(start, end, resultCount);
+        filterLibraryGalleryByDate(start, end);
 
         });
     var resultCount = searchLibraryTablebyDateRange(moment().startOf('month'), moment());
     updateResultTitleWithDate(moment().startOf('month'), moment(), resultCount);
+    filterLibraryGalleryByDate(moment().startOf('month'), moment());
 });
 
 /**Search Library table for a Date Range*/
@@ -130,6 +132,29 @@ function searchLibraryTablebyDateRange(start, end) {
     });
     return resultCount;
 }
+
+/*Filter Library Gallery results based on date*/
+function filterLibraryGalleryByDate(start, end) {
+    //Check each gallery div
+    $("#view-gal #item-gal").each(function () {
+        $myItem = $(this);
+
+        //Get dates
+        var idDate = $myItem.find("#date-time-gal").text().trim();
+        var dateSearch = moment(idDate, "M/D/YYYY");
+        console.log(idDate);
+
+        //Check if both clinic and date match
+        if (dateSearch >= start && dateSearch <= end) {
+            $myItem.show();
+        }
+        else {
+            $myItem.hide();
+        }
+    });
+};
+
+
 
 
 /* Apply button style to dates*/
