@@ -5,10 +5,19 @@
 <script src="//d3plus.org/js/d3plus.js"></script>
 <script src="https://d3plus.org/js/d3plus-geomap.v0.6.full.min.js"></script>
 
+<script src="https://d3js.org/d3-array.v1.min.js"></script>
+<script src="https://d3js.org/d3-geo.v1.min.js"></script>
+
+
+
 <h1>Our Clinics</h1>
 <div class="container" id="mapdiv" style="height: 500px;"></div>
 
 <script>
+    var projection = d3.geoEqualEarth(),
+        path = d3.geoPath(projection);
+
+
     var myClinics = [
         { "name": "Ijora Clinic", "latitude": 6.477803, "longitude": 3.349594, "my_size": 10, color: "#5FBD73", "slug": "i" },
         { "name": "Mashegu Clinic", "latitude": 7.493688, "longitude": 4.552210, "my_size": 8, color: "#71BDD3", "slug": "m" },
@@ -34,6 +43,9 @@
         .shapeConfig({
             fill: function (d) { return d.color; },
         })
+
+        .projectionPadding("200px") 
+
 
         .render();
 
