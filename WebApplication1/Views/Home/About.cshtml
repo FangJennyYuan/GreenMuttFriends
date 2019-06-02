@@ -3,13 +3,9 @@
 }
 
 <script src="https://d3plus.org/js/d3plus-geomap.v0.6.full.min.js"></script>
-
-<script src="https://d3js.org/d3-array.v1.min.js"></script>
 <script src="https://d3js.org/d3-geo.v1.min.js"></script>
 
-
-
-<h1>Our Clinics</h1>
+<h1>Clinics</h1>
 <div class="container" id="mapdiv" style="height: 500px;"></div>
 
 <script>
@@ -41,7 +37,7 @@
             return d.photos_in_year + d.staff;
         })
 
-        .projectionPadding("200px") 
+        .projectionPadding("200px")
 
         .tooltipConfig({
             body: function (d) {
