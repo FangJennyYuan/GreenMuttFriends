@@ -18,10 +18,10 @@
 
 
     var myClinics = [
-        { "name": "Ijora Clinic", "latitude": 6.477803, "longitude": 3.349594, "my_size": 10, color: "#5FBD73" },
-        { "name": "Mashegu Clinic", "latitude": 7.493688, "longitude": 4.552210, "my_size": 8, color: "#71BDD3" },
-        { "name": "Rawayau Clinic", "latitude": 6.528841, "longitude": 5.392641, "my_size": 6, color: "#1C2C8C" },
-        { "name": "Katsina Clinic", "latitude": 7.941969, "longitude": 3.577003, "my_size": 5, color: "#6A5599" }];
+        { "name": "Ijora Clinic", "latitude": 6.477803, "longitude": 3.349594, color: "#5FBD73", "first_photo": "1/23/2019", "staff": 19, "avg_photo": 3.57 },
+        { "name": "Mashegu Clinic", "latitude": 7.493688, "longitude": 4.552210, color: "#71BDD3", "first_photo": "1/20/2019", "staff": 15, "avg_photo": 3.29 },
+        { "name": "Rawayau Clinic", "latitude": 6.528841, "longitude": 5.392641, color: "#1C2C8C", "first_photo": "1/10/2019", "staff": 6, "avg_photo": 3.14 },
+        { "name": "Katsina Clinic", "latitude": 7.941969, "longitude": 3.577003, color: "#6A5599", "first_photo": "1/2/2019", "staff": 11, "avg_photo": 3.76 }];
 
     new d3plus.Geomap()
         .data(myClinics)
@@ -33,14 +33,25 @@
         .point(function (d) {
             return [d.longitude, d.latitude];
         })
-        // Changes size of points
-  //      .pointSize(function (d) {
-  //          return d.my_size;
-  //      })
         .shapeConfig({
             fill: function (d) { return d.color; },
         })
         .projectionPadding("200px") 
+
+        .tooltipConfig({
+            body: function (d) {
+                var stats = "<ul>"
+                stats += "<li>First photo taken: " + d.first_photo + "</li>"
+                stats += "<li>Number of trained staff: " + d.staff + "</li>"
+                stats += "<li>Average photos/month : " + d.avg_photo + "</li>"
+                stats += "</ul>"
+                return stats;
+            },
+            title: function (d) {
+                return d.name;
+            }
+        })
+
         .render();
 
 
