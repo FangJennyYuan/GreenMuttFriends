@@ -36,6 +36,11 @@
         .shapeConfig({
             fill: function (d) { return d.color; },
         })
+
+        .pointSize(function (d) {
+            return d.photos_in_year + d.staff;
+        })
+
         .projectionPadding("200px") 
 
         .tooltipConfig({
