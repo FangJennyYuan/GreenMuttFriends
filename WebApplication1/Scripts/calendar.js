@@ -142,7 +142,6 @@ function filterLibraryGalleryByDate(start, end) {
         //Get dates
         var idDate = $myItem.find("#date-time-gal").text().trim();
         var dateSearch = moment(idDate, "M/D/YYYY");
-        console.log(idDate);
 
         //Check if both clinic and date match
         if (dateSearch >= start && dateSearch <= end) {
