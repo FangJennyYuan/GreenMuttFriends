@@ -75,17 +75,22 @@ function updateResultTitleWithDate(start, end, resultCount) {
     addDateAttributes(start, end);
 }
 
-/**Update Range on Calendar for Performance and Impact*/
-$(function () {
-    $('input[name="daterange"]').daterangepicker({
-        opens: 'left',
-        startDate: moment().subtract(6, 'days'),
-        endDate: moment()
-    }, function (start, end, label) {
-        updateGraphTitlesWithDate(start, end);
-        });
-    updateGraphTitlesWithDate(moment().subtract(6, 'days'), moment());
-});
+///**Update Range on Calendar for Performance and Impact*/
+//$(function () {
+//    $('input[name="daterange"]').daterangepicker({
+//        opens: 'left',
+//        startDate: moment().subtract(6, 'days'),
+//        endDate: moment()
+//    }, function (start, end, label) {
+//        updateGraphTitlesWithDate(start, end);
+//        //TODO filter data
+//        dataInDateRange = getUserDatabyDate(start, end);
+//        zeroFilledDate = zeroFillbyDate(dataInDateRange, start, end);
+//        filterDataByDateCalendar(start, end, dataInDateRange);
+
+//        });
+//    updateGraphTitlesWithDate(moment().subtract(6, 'days'), moment());
+//});
 
 /**Update Date Range on Library Calendar*/
 $(function () {
@@ -142,6 +147,30 @@ function filterLibraryGalleryByDate(start, end) {
         //Get dates
         var idDate = $myItem.find("#date-time-gal").text().trim();
         var dateSearch = moment(idDate, "M/D/YYYY");
+
+        //Check if both clinic and date match
+        if (dateSearch >= start && dateSearch <= end) {
+            $myItem.show();
+        }
+        else {
+            $myItem.hide();
+        }
+    });
+};
+
+
+/*Filter data results based on date*/
+function filterDataByDateCalendar(start, end, data) {
+    console.log("pulled data");
+
+    //Check the data
+    $("#view-gal #item-gal").each(function () {
+        $myItem = $(this);
+
+        //Get dates
+        var idDate = $myItem.find("#date-time-gal").text().trim();
+        var dateSearch = moment(idDate, "M/D/YYYY");
+        console.log(dateSearch);
 
         //Check if both clinic and date match
         if (dateSearch >= start && dateSearch <= end) {

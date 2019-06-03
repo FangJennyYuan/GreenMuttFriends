@@ -20,8 +20,6 @@ function calculateTotalPhotoCount(data, start, end) {
     data.forEach(function (arrayItem) {
         todaysPhotos = arrayItem.validphotos + arrayItem.invalidphotos;
         totalPhotos += todaysPhotos;
-        console.log(arrayItem.date  + " " +arrayItem.clinic + " " + arrayItem.validphotos + " " + arrayItem.invalidphotos);
-
         var d = moment(arrayItem.date, "MM/DD/YYYY").format('L');
         if (d == s) {
             startVal += todaysPhotos;

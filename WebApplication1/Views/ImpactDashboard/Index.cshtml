@@ -226,8 +226,23 @@
             });
         return currentData;
     };
+    
 
-    //Defualt views
-    $("#week").trigger('click');
+    /**Update Range on Calendar for Impact*/
+    $(function () {
+        $('input[name="daterange"]').daterangepicker({
+            opens: 'left',
+            startDate: moment().subtract(6, 'days'),
+            endDate: moment()
+        }, function (start, end, label) {
+            updateGraphTitlesWithDate(start, end);
+            //Draw viz
+            drawVizWithinDateRange(start, end);
+            });
+        //Default view
+        updateGraphTitlesWithDate(moment().subtract(6, 'days'), moment());
+        drawVizWithinDateRange(moment().subtract(6, 'days'), moment());
+    });
+
 
 </script>
