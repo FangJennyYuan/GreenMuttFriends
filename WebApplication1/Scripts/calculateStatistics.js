@@ -20,6 +20,7 @@ function calculateTotalPhotoCount(data, start, end) {
     data.forEach(function (arrayItem) {
         todaysPhotos = arrayItem.validphotos + arrayItem.invalidphotos;
         totalPhotos += todaysPhotos;
+        console.log(arrayItem.date  + " " +arrayItem.clinic + " " + arrayItem.validphotos + " " + arrayItem.invalidphotos);
 
         var d = moment(arrayItem.date, "MM/DD/YYYY").format('L');
         if (d == s) {
@@ -205,18 +206,19 @@ function zeroFillbyDate(totals, start, end) {
 
     //Iterate through date range and fill if zero
     for (var d = moment(start, "MM/DD/YYYY"); d <= end; d.add(1, 'days')) {
+        //console.log(d.format('L'));
 
         //If it exists add to total
         containsDateV = containsDateInData(d, totals);
         if (containsDateV != -1) {
-            console.log(d);
+            //console.log(d);
         } else {
             //TODO: Remove in production, just for demo
-            randInv = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
-            randValid = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
-            randInstall = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
+            randInv = Math.floor(Math.random() * Math.floor(2));
+            randValid = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+            randInstall = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
             randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
-
+            //console.log("Kat: " + randInv + " " + randValid);
             totals.push({
                 clinic: "Katsina Clinic",
                 date: d.format('L'),
@@ -226,9 +228,9 @@ function zeroFillbyDate(totals, start, end) {
                 invalidphotos: randInv
             });
 
-            randInv = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-            randValid = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
-            randInstall = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+            randInv = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
+            randValid = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+            randInstall = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
             randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
 
             totals.push({
@@ -240,9 +242,9 @@ function zeroFillbyDate(totals, start, end) {
                 invalidphotos: randInv
             });
 
-            randInv = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-            randValid = Math.floor(Math.random() * (8 - 1 + 1)) + 1;
-            randInstall = Math.floor(Math.random() * (3 - 0 + 1)) + 0;
+            randInv = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
+            randValid = Math.floor(Math.random() * (2 - 1 + 1)) + 1;
+            randInstall = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
             randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
 
             totals.push({
@@ -255,7 +257,7 @@ function zeroFillbyDate(totals, start, end) {
             });
 
             randInv = Math.floor(Math.random() * (1 - 0 + 1)) + 0;
-            randValid = Math.floor(Math.random() * (4 - 1 + 1)) + 1;
+            randValid = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
             randInstall = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
             randVal = ((randValid - randInstall < 0) ? 1 : randValid - randInstall);
 
