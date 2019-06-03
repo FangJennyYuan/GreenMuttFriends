@@ -220,6 +220,8 @@
     <Content Include="Scripts\calculatestatistics.js" />
     <Content Include="Scripts\calendar.js" />
     <Content Include="Scripts\clinic_map.js" />
+    <Content Include="Scripts\d3-geo.v1.min.js" />
+    <Content Include="Scripts\d3plus-geomap.v0.6.full.min.js" />
     <Content Include="Scripts\dailyPhotosTaken.js" />
     <Content Include="Scripts\daterangepicker.js" />
     <Content Include="Scripts\libraryfiltersaver.js" />
