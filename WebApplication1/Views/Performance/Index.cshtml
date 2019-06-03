@@ -251,6 +251,20 @@
 
     //Default views
     $("#overview-charts").trigger("click");
-    $('#week').click(drawPhotosTakenViz(moment().subtract(7, 'days'), moment()));
 
+    /**Update Range on Calendar for Impact*/
+    $(function () {
+        $('input[name="daterange"]').daterangepicker({
+            opens: 'left',
+            startDate: moment().subtract(6, 'days'),
+            endDate: moment()
+        }, function (start, end, label) {
+            updateGraphTitlesWithDate(start, end);
+            //Draw viz
+            drawPhotosTakenViz(start, end);
+            });
+        //Default view
+        updateGraphTitlesWithDate(moment().subtract(6, 'days'), moment());
+        drawPhotosTakenViz(moment().subtract(6, 'days'), moment());
+    });
 </script>
