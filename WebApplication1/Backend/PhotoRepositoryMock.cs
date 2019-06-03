@@ -573,7 +573,7 @@ namespace WebApplication1.Backend
                 ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "10",
-                RecordedDateTime = new DateTime(2019, 5, 19, 11, 33, 0),
+                RecordedDateTime = new DateTime(2019, 5, 27, 11, 33, 0),
                 PhoneNumber = "815-992-0000",
                 UserID = "010",
                 DeviceType = "Samsung Buddy",
@@ -597,7 +597,7 @@ namespace WebApplication1.Backend
                 ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
-                RecordedDateTime = new DateTime(2019, 5, 21, 8, 39, 10),
+                RecordedDateTime = new DateTime(2019, 5, 27, 8, 39, 10),
                 PhoneNumber = "815-992-0000",
                 UserID = "010",
                 DeviceType = "Samsung Buddy",
@@ -609,7 +609,7 @@ namespace WebApplication1.Backend
                 ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "5",
-                RecordedDateTime = new DateTime(2019, 5, 21, 12, 30, 27),
+                RecordedDateTime = new DateTime(2019, 5, 27, 12, 30, 27),
                 PhoneNumber = "815-992-0000",
                 UserID = "010",
                 DeviceType = "Samsung Buddy",
@@ -690,10 +690,10 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "35",
-                RecordedDateTime = new DateTime(2019, 5, 17, 9, 0, 31),
+                RecordedDateTime = new DateTime(2019, 5, 27, 9, 0, 31),
                 PhoneNumber = "815-901-1334",
                 UserID = "006",
                 DeviceType = "Samsung Buddy",
@@ -741,7 +741,7 @@ namespace WebApplication1.Backend
                 ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
-                RecordedDateTime = new DateTime(2019, 5, 23, 16, 2, 41),
+                RecordedDateTime = new DateTime(2019, 5, 30, 16, 2, 41),
                 PhoneNumber = "815-992-0000",
                 UserID = "010",
                 DeviceType = "Samsung Buddy",
@@ -873,7 +873,7 @@ namespace WebApplication1.Backend
                 ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "25",
-                RecordedDateTime = new DateTime(2019, 5, 19, 12, 30, 29),
+                RecordedDateTime = new DateTime(2019, 5, 29, 12, 30, 29),
                 PhoneNumber = "815-991-1111",
                 UserID = "003",
                 DeviceType = "Samsung Buddy",
@@ -882,10 +882,10 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
-                RecordedDateTime = new DateTime(2019, 5, 19, 10, 53, 43),
+                RecordedDateTime = new DateTime(2019, 5, 27, 10, 53, 43),
                 PhoneNumber = "860-541-0007",
                 UserID = "019",
                 DeviceType = "Samsung Buddy",
@@ -894,7 +894,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "5",
                 RecordedDateTime = new DateTime(2019, 5, 20, 11, 2, 1),
@@ -906,7 +906,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 21, 9, 45, 6),
@@ -918,7 +918,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "10",
                 RecordedDateTime = new DateTime(2019, 5, 22, 13, 15, 8),
@@ -930,7 +930,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
                 RecordedDateTime = new DateTime(2019, 5, 23, 12, 50, 3),
@@ -943,10 +943,10 @@ namespace WebApplication1.Backend
 
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
-                RecordedDateTime = new DateTime(2019, 5, 19, 10, 2, 43),
+                RecordedDateTime = new DateTime(2019, 5, 29, 10, 2, 43),
                 PhoneNumber = "860-209-8891",
                 UserID = "020",
                 DeviceType = "Tecno Mobile",
@@ -956,7 +956,7 @@ namespace WebApplication1.Backend
 
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
                 RecordedDateTime = new DateTime(2019, 5, 22, 12, 50, 3),
@@ -968,7 +968,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "25",
                 RecordedDateTime = new DateTime(2019, 5, 23, 9, 21, 3),
@@ -981,7 +981,7 @@ namespace WebApplication1.Backend
 
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
                 RecordedDateTime = new DateTime(2019, 5, 18, 12, 50, 3),
@@ -994,10 +994,10 @@ namespace WebApplication1.Backend
 
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "25",
-                RecordedDateTime = new DateTime(2019, 5, 17, 10, 5, 0),
+                RecordedDateTime = new DateTime(2019, 5, 27, 10, 5, 0),
                 PhoneNumber = "860-209-8891",
                 UserID = "020",
                 DeviceType = "Tecno Mobile",
@@ -1009,7 +1009,7 @@ namespace WebApplication1.Backend
                 ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
-                RecordedDateTime = new DateTime(2019, 5, 17, 13, 2, 43),
+                RecordedDateTime = new DateTime(2019, 6, 5, 13, 2, 43),
                 PhoneNumber = "815-991-1111",
                 UserID = "003",
                 DeviceType = "Samsung Buddy",
@@ -1021,7 +1021,7 @@ namespace WebApplication1.Backend
                 ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "30",
-                RecordedDateTime = new DateTime(2019, 5, 18, 16, 32, 21),
+                RecordedDateTime = new DateTime(2019, 6, 3, 16, 32, 21),
                 PhoneNumber = "815-991-1111",
                 UserID = "003",
                 DeviceType = "Samsung Buddy",
@@ -1033,7 +1033,7 @@ namespace WebApplication1.Backend
                 ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
-                RecordedDateTime = new DateTime(2019, 5, 19, 13, 2, 41),
+                RecordedDateTime = new DateTime(2019, 6, 2, 13, 2, 41),
                 PhoneNumber = "815-991-1111",
                 UserID = "003",
                 DeviceType = "Samsung Buddy",
@@ -1045,7 +1045,7 @@ namespace WebApplication1.Backend
                 ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
-                RecordedDateTime = new DateTime(2019, 5, 20, 13, 00, 6),
+                RecordedDateTime = new DateTime(2019, 6, 1, 13, 00, 6),
                 PhoneNumber = "815-991-1111",
                 UserID = "003",
                 DeviceType = "Samsung Buddy",
@@ -1141,7 +1141,7 @@ namespace WebApplication1.Backend
 
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 12, 10, 2, 7),
@@ -1153,7 +1153,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 13, 9, 15, 1),
@@ -1165,9 +1165,9 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 5, 14, 7, 46, 9),
+                RecordedDateTime = new DateTime(2019, 6, 5, 7, 46, 9),
                 PhoneNumber = "815-901-1334",
                 UserID = "006",
                 DeviceType = "Samsung Buddy",
@@ -1176,10 +1176,10 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
-                RecordedDateTime = new DateTime(2019, 5, 14, 9, 42, 12),
+                RecordedDateTime = new DateTime(2019, 5, 27, 9, 42, 12),
                 PhoneNumber = "815-901-1334",
                 UserID = "006",
                 DeviceType = "Samsung Buddy",
@@ -1188,7 +1188,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "10",
                 RecordedDateTime = new DateTime(2019, 5, 15, 11, 20, 09),
@@ -1200,10 +1200,10 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
-                RecordedDateTime = new DateTime(2019, 5, 14, 10, 30, 1),
+                RecordedDateTime = new DateTime(2019, 5, 27, 10, 30, 1),
                 PhoneNumber = "815-901-1334",
                 UserID = "006",
                 DeviceType = "Samsung Buddy",
@@ -1212,7 +1212,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "10",
                 RecordedDateTime = new DateTime(2019, 5, 15, 12, 5, 40),
@@ -1224,7 +1224,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 16, 9, 15, 1),
@@ -1236,7 +1236,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 17, 7, 46, 9),
@@ -1248,7 +1248,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
                 RecordedDateTime = new DateTime(2019, 5, 18, 9, 42, 12),
@@ -1260,7 +1260,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "10",
                 RecordedDateTime = new DateTime(2019, 5, 19, 11, 20, 09),
@@ -1272,7 +1272,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "25",
                 RecordedDateTime = new DateTime(2019, 5, 2, 9, 5, 40),
@@ -1284,7 +1284,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "30",
                 RecordedDateTime = new DateTime(2019, 5, 3, 10, 6, 47),
@@ -1296,7 +1296,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 4, 11, 55, 4),
@@ -1309,7 +1309,7 @@ namespace WebApplication1.Backend
 
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "5",
                 RecordedDateTime = new DateTime(2019, 5, 5, 11, 55, 4),
@@ -1321,7 +1321,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 6, 11, 55, 4),
@@ -1333,7 +1333,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 7, 10, 1, 28),
@@ -1345,7 +1345,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 8, 10, 1, 28),
@@ -1357,7 +1357,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 9, 10, 1, 28),
@@ -1369,7 +1369,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 10, 10, 1, 28),
@@ -1381,7 +1381,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 11, 10, 1, 28),
@@ -1393,7 +1393,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "5",
                 RecordedDateTime = new DateTime(2019, 5, 19, 7, 2, 40),
@@ -1405,7 +1405,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "10",
                 RecordedDateTime = new DateTime(2019, 5, 20, 7, 2, 40),
@@ -1418,7 +1418,7 @@ namespace WebApplication1.Backend
 
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = false,
                 RecordedDateTime = new DateTime(2019, 5, 2, 7, 2, 40),
                 PhoneNumber = "842-701-5555",
@@ -1430,7 +1430,7 @@ namespace WebApplication1.Backend
 
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
                 RecordedDateTime = new DateTime(2019, 5, 12, 7, 2, 40),
@@ -1443,7 +1443,7 @@ namespace WebApplication1.Backend
 
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
                 RecordedDateTime = new DateTime(2019, 5, 29, 7, 2, 40),
@@ -1455,7 +1455,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
                 RecordedDateTime = new DateTime(2019, 5, 30, 7, 2, 40),
@@ -1468,7 +1468,7 @@ namespace WebApplication1.Backend
 
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "5",
                 RecordedDateTime = new DateTime(2019, 4, 29, 1, 12, 32),
@@ -1480,7 +1480,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 16, 9, 42, 12),
@@ -1492,10 +1492,10 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "25",
-                RecordedDateTime = new DateTime(2019, 5, 16, 8, 53, 43),
+                RecordedDateTime = new DateTime(2019, 6, 4, 8, 53, 43),
                 PhoneNumber = "815-901-1334",
                 UserID = "006",
                 DeviceType = "Samsung Buddy",
@@ -1504,7 +1504,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 25, 8, 23, 43),
@@ -1516,7 +1516,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 25, 10, 21, 40),
@@ -1528,10 +1528,10 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "5",
-                RecordedDateTime = new DateTime(2019, 5, 25, 11, 34, 8),
+                RecordedDateTime = new DateTime(2019, 6, 4, 11, 34, 8),
                 PhoneNumber = "815-901-1334",
                 UserID = "006",
                 DeviceType = "Samsung Buddy",
@@ -1540,7 +1540,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "5",
                 RecordedDateTime = new DateTime(2019, 5, 16, 10, 34, 5),
@@ -1552,7 +1552,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "35",
                 RecordedDateTime = new DateTime(2019, 5, 17, 9, 0, 31),
@@ -1564,7 +1564,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 19, 10, 53, 43),
@@ -1576,7 +1576,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "5",
                 RecordedDateTime = new DateTime(2019, 5, 20, 11, 2, 1),
@@ -1588,7 +1588,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 21, 9, 45, 6),
@@ -1600,7 +1600,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "10",
                 RecordedDateTime = new DateTime(2019, 5, 22, 13, 15, 8),
@@ -1612,10 +1612,10 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
-                RecordedDateTime = new DateTime(2019, 5, 23, 12, 50, 3),
+                RecordedDateTime = new DateTime(2019, 5, 31, 12, 50, 3),
                 PhoneNumber = "860-541-0007",
                 UserID = "019",
                 DeviceType = "Samsung Buddy",
@@ -1625,10 +1625,10 @@ namespace WebApplication1.Backend
 
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
-                RecordedDateTime = new DateTime(2019, 5, 19, 10, 2, 43),
+                RecordedDateTime = new DateTime(2019, 5, 28, 10, 2, 43),
                 PhoneNumber = "860-209-8891",
                 UserID = "020",
                 DeviceType = "Tecno Mobile",
@@ -1638,10 +1638,10 @@ namespace WebApplication1.Backend
 
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
-                RecordedDateTime = new DateTime(2019, 5, 22, 12, 50, 3),
+                RecordedDateTime = new DateTime(2019, 5, 24, 12, 50, 3),
                 PhoneNumber = "860-209-8891",
                 UserID = "020",
                 DeviceType = "Tecno Mobile",
@@ -1650,7 +1650,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "25",
                 RecordedDateTime = new DateTime(2019, 5, 23, 9, 21, 3),
@@ -1663,10 +1663,10 @@ namespace WebApplication1.Backend
 
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
-                RecordedDateTime = new DateTime(2019, 5, 18, 12, 50, 3),
+                RecordedDateTime = new DateTime(2019, 5, 31, 12, 50, 3),
                 PhoneNumber = "860-209-8891",
                 UserID = "020",
                 DeviceType = "Tecno Mobile",
@@ -1676,7 +1676,7 @@ namespace WebApplication1.Backend
 
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "25",
                 RecordedDateTime = new DateTime(2019, 5, 17, 10, 5, 0),
@@ -1688,7 +1688,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "25",
                 RecordedDateTime = new DateTime(2019, 5, 30, 9, 5, 49),
@@ -1700,10 +1700,10 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "25",
-                RecordedDateTime = new DateTime(2019, 5, 13, 9, 5, 40),
+                RecordedDateTime = new DateTime(2019, 5, 31, 9, 5, 40),
                 PhoneNumber = "808-611-2109",
                 UserID = "017",
                 DeviceType = "Tecno Mobile",
@@ -1712,10 +1712,10 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "30",
-                RecordedDateTime = new DateTime(2019, 5, 14, 10, 6, 47),
+                RecordedDateTime = new DateTime(2019, 6, 3, 10, 6, 47),
                 PhoneNumber = "808-611-2109",
                 UserID = "017",
                 DeviceType = "Tecno Mobile",
@@ -1724,10 +1724,10 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
-                RecordedDateTime = new DateTime(2019, 5, 15, 11, 55, 4),
+                RecordedDateTime = new DateTime(2019, 6, 4, 11, 55, 4),
                 PhoneNumber = "808-611-2109",
                 UserID = "017",
                 DeviceType = "Tecno Mobile",
@@ -1737,10 +1737,10 @@ namespace WebApplication1.Backend
 
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "5",
-                RecordedDateTime = new DateTime(2019, 5, 16, 11, 55, 4),
+                RecordedDateTime = new DateTime(2019, 6, 4, 11, 55, 4),
                 PhoneNumber = "808-611-2109",
                 UserID = "017",
                 DeviceType = "Tecno Mobile",
@@ -1749,10 +1749,10 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
-                RecordedDateTime = new DateTime(2019, 5, 17, 11, 55, 4),
+                RecordedDateTime = new DateTime(2019, 5, 31, 11, 55, 4),
                 PhoneNumber = "808-611-2109",
                 UserID = "017",
                 DeviceType = "Tecno Mobile",
@@ -1810,7 +1810,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
                 RecordedDateTime = new DateTime(2019, 5, 25, 8, 11, 29),
@@ -2120,11 +2120,11 @@ namespace WebApplication1.Backend
                 OSVersion = "4.2",
                 ImageURL = "/Content/img/photo/t6.png"
             });
-            //More for Mashegu
+            //More for Ijora
 
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 12, 10, 2, 7),
@@ -2136,7 +2136,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 13, 9, 15, 1),
@@ -2148,7 +2148,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
                 RecordedDateTime = new DateTime(2019, 5, 14, 9, 42, 12),
@@ -2160,7 +2160,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "10",
                 RecordedDateTime = new DateTime(2019, 5, 15, 11, 20, 09),
@@ -2172,7 +2172,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
                 RecordedDateTime = new DateTime(2019, 5, 14, 10, 30, 1),
@@ -2184,7 +2184,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "10",
                 RecordedDateTime = new DateTime(2019, 5, 15, 12, 5, 40),
@@ -2196,7 +2196,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 16, 9, 15, 1),
@@ -2208,7 +2208,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 17, 7, 46, 9),
@@ -2220,7 +2220,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
                 RecordedDateTime = new DateTime(2019, 5, 18, 9, 42, 12),
@@ -2232,7 +2232,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "10",
                 RecordedDateTime = new DateTime(2019, 5, 19, 11, 20, 09),
@@ -2244,7 +2244,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = false,
                 RecordedDateTime = new DateTime(2019, 5, 1, 8, 11, 29),
                 PhoneNumber = "808-611-2109",
@@ -2255,7 +2255,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "25",
                 RecordedDateTime = new DateTime(2019, 5, 2, 9, 5, 40),
@@ -2267,7 +2267,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "30",
                 RecordedDateTime = new DateTime(2019, 5, 3, 10, 6, 47),
@@ -2279,7 +2279,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 4, 11, 55, 4),
@@ -2292,7 +2292,7 @@ namespace WebApplication1.Backend
 
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "5",
                 RecordedDateTime = new DateTime(2019, 5, 5, 11, 55, 4),
@@ -2304,7 +2304,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 6, 11, 55, 4),
@@ -2316,7 +2316,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 7, 10, 1, 28),
@@ -2328,7 +2328,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 8, 10, 1, 28),
@@ -2340,7 +2340,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 9, 10, 1, 28),
@@ -2352,7 +2352,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 10, 10, 1, 28),
@@ -2364,7 +2364,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 11, 10, 1, 28),
@@ -2376,7 +2376,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "5",
                 RecordedDateTime = new DateTime(2019, 5, 19, 7, 2, 40),
@@ -2388,7 +2388,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "10",
                 RecordedDateTime = new DateTime(2019, 5, 20, 7, 2, 40),
@@ -2401,7 +2401,7 @@ namespace WebApplication1.Backend
 
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
                 RecordedDateTime = new DateTime(2019, 5, 12, 7, 2, 40),
@@ -2413,7 +2413,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = false,
                 RecordedDateTime = new DateTime(2019, 5, 28, 7, 2, 40),
                 PhoneNumber = "842-701-5555",
@@ -2425,7 +2425,7 @@ namespace WebApplication1.Backend
 
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
                 RecordedDateTime = new DateTime(2019, 5, 29, 7, 2, 40),
@@ -2437,7 +2437,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
                 RecordedDateTime = new DateTime(2019, 5, 30, 7, 2, 40),
@@ -2450,7 +2450,7 @@ namespace WebApplication1.Backend
 
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "5",
                 RecordedDateTime = new DateTime(2019, 4, 29, 1, 12, 32),
@@ -2462,7 +2462,7 @@ namespace WebApplication1.Backend
             });
             dataset.Add(new PhotoModel
             {
-                ClinicName = "Mashegu Clinic",
+                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "20",
                 RecordedDateTime = new DateTime(2019, 5, 16, 9, 42, 12),
