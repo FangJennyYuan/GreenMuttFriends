@@ -47,6 +47,11 @@ namespace WebApplication1
                       "~/Content/daterangepicker.css",
                       "~/Content/font-awesome.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/library").Include(
+                    "~/Scripts/librarysearch.js",
+                    "~/Scripts/libraryfiltersaver.js"
+                    ));
         }
     }
 }
