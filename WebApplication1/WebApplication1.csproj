@@ -243,6 +243,7 @@
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="App_Data\photo_data.csv" />
     <Content Include="App_Data\user_data.csv" />
+    <Content Include="App_Data\UserData.csv" />
     <None Include="Properties\PublishProfiles\VisibleImpact - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
