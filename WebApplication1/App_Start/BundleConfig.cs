@@ -52,6 +52,12 @@ namespace WebApplication1
                     "~/Scripts/librarysearch.js",
                     "~/Scripts/libraryfiltersaver.js"
                     ));
+
+            bundles.Add(new ScriptBundle("~/bundles/map").Include(
+                    "~/Scripts/d3-geo.v1.min.js",
+                    "~/Scripts/d3plus-geomap.v0.6.full.min.js",
+                    "~/Scripts/clinic_map.js"
+                    ));
         }
     }
 }
