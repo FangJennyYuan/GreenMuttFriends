@@ -157,8 +157,10 @@ $(function () {
 //Filter results when date range is changed
 $(function () {
     $("#date-input").change(function () {
-        filterLibraryTable();
-        filterLibraryGallery();
+        if (document.getElementById('valid-checkbox')) {
+            filterLibraryTable();
+            filterLibraryGallery();
+        }
     });
 });
 
