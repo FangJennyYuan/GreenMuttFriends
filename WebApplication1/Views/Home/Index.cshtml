@@ -7,9 +7,9 @@
 <script src="//d3plus.org/js/d3plus.js"></script>
 
 @{
-                /**/
+    /**/
 
-                ViewBag.Title = "Home Page";
+    ViewBag.Title = "Home Page";
 }
 
 @*Main page hearder*@
@@ -46,12 +46,18 @@
         </div>
     </div>
 </div>
+<h3>
+
+</h3>
 
 @*Fav button clicked on impact/performance page will show the graphs below*@
 @{
     var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
     if (myAccountModel.isAccountLoggedIn)
     {
+        <div class="row">
+            <h3> Favourite Graphs </h3>
+        </div>
         <div class="row mt-3">
             @*Impact page with photos taken graph will appear when checked*@
             <div class="col-lg-7 ml-2" id="image" style="display:none">
@@ -159,7 +165,7 @@
         $("#viz-photos-taken-impact").empty();
         drawPhotosValidandInvalidGraph(dataInDateRange, "#viz-photos-taken-impact", start, end);
     }
-    
+
     //Get User/Clinic data by date
     function getUserDatabyDate(start, end) {
             data = [
