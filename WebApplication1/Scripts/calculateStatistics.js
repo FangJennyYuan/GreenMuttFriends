@@ -207,7 +207,7 @@ function zeroFillbyDate(totals, start, end) {
     for (var d = moment(start, "MM/DD/YYYY"); d <= end; d.add(1, 'days')) {
 
         //If it exists add to total
-        containsDateV = containsDateInData(d.format('L'), totals);
+        containsDateV = containsDateInData(d, totals);
         if (containsDateV != -1) {
             console.log(d);
         } else {
@@ -276,8 +276,11 @@ function zeroFillbyDate(totals, start, end) {
 //Check if date is in data set
 function containsDateInData(obj, list) {
     var i;
+    objDate = moment(obj, "MM/DD/YYYY").format('L');
+
     for (i = 0; i < list.length; i++) {
-        if (list[i].date === obj.date) {
+        listDate = moment(list[i].date, "MM/DD/YYYY").format('L');
+        if (listDate === objDate) {
             return i;
         }
     }
