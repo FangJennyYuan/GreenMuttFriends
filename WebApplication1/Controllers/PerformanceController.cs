@@ -21,5 +21,13 @@ namespace WebApplication1.Controllers
 
             return View(myViewModel);
         }
+
+
+        public ActionResult About()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
     }
 }
