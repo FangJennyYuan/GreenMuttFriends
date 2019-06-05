@@ -284,6 +284,10 @@ div .date-filter button:hover {
         color: #71BDD3;
     }
 
+.chart-filters a{
+    color: black;
+}
+
 .active-charts span {
     color: #71BDD3;
     border-bottom: .12rem solid;
