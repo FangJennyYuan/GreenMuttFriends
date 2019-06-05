@@ -179,12 +179,14 @@
     <Content Include="Content\img\KatsinaI.png" />
     <Content Include="Content\img\MasheguI.png" />
     <Content Include="Content\img\MonthofMay.PNG" />
+    <Content Include="Content\img\NewImpactDashboard.PNG" />
     <Content Include="Content\img\PerformanceDashboard.PNG" />
     <Content Include="Content\img\Logo_Med.png" />
     <Content Include="Content\img\Mumu.jpg" />
     <Content Include="Content\img\PhotosTaken_MainPage.png" />
     <Content Include="Content\img\PhotosTaken_May19to25_All.png" />
     <Content Include="Content\img\PhotosTaken_May19to25_Ijowa.png" />
+    <Content Include="Content\img\NewPerformanceDashboard.PNG" />
     <Content Include="Content\img\photo\t1.png" />
     <Content Include="Content\img\photo\t2.png" />
     <Content Include="Content\img\photo\t3.png" />
@@ -302,6 +304,7 @@
     <Content Include="Views\Performance\Index.cshtml" />
     <Content Include="Views\Library\PhotoDetail.cshtml" />
     <Content Include="Views\Account\LoginDialog.cshtml" />
+    <Content Include="Views\Performance\About.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

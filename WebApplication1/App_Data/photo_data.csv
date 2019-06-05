@@ -1,4 +1,9 @@
 ID,ClinicName,ResultIsValid,Bilirubin,RecordedDateTime,PhoneNumber,UserID,DeviceType,OSVersion,ImageURL
+8e67aa18-9632-4728-8244-f28a6914cbe1,Ijora Clinic,FALSE,,6/5/2019 15:01,815-992-0000,10,Samsung Buddy,3.4,/Content/img/photo/tblur1.png
+8e67aa18-9632-4728-8244-f28a6914cbe1,Ijora Clinic,FALSE,,6/4/2019 3:34,815-992-0000,10,Samsung Buddy,3.4,/Content/img/photo/tblur2.png
+8e67aa18-9632-4728-8244-f28a6914cbe1,Ijora Clinic,FALSE,,6/5/2019 15:10,815-992-0000,10,Samsung Buddy,3.4,/Content/img/photo/tblur1.png
+8e67aa18-9632-4728-8244-f28a6914cbe1,Ijora Clinic,FALSE,,6/4/2019 3:46,815-992-0000,10,Samsung Buddy,3.4,/Content/img/photo/tblur2.png
+8e67aa18-9632-4728-8244-f28a6914cbe1,Ijora Clinic,FALSE,,6/5/2019 15:29,815-992-0000,10,Samsung Buddy,3.4,/Content/img/photo/tblur1.png
 af7e0700-00e0-476f-a805-e1830a0d3cac,Ijora Clinic,TRUE,0,4/25/2019 17:21,813-777-1122,13,Tecno Mobile,5.1,/Content/img/photo/t1.png
 3c8699cb-3eb4-4f6c-a161-3d91181f66fb,Rawayau Clinic,TRUE,25,4/25/2019 15:00,860-346-9901,12,Tecno Mobile,5.1,/Content/img/photo/t1.png
 1725eed2-fb02-4dfb-85e0-169e1191dddb,Ijora Clinic,TRUE,10,4/19/2019 14:50,813-777-1122,13,Tecno Mobile,5.1,/Content/img/photo/t1.png
@@ -176,3 +181,16 @@ bd86337b-90bf-4d49-8771-f63f91782e1d,Rawayau Clinic,TRUE,20,6/5/2019 4:32,866-28
 838f4173-e596-4958-9ccb-227a9e72fece,Ijora Clinic,TRUE,20,5/29/2019 10:31,813-777-1122,3,Tecno Mobile,5.1,/Content/img/photo/t4.png
 838f4173-e596-4958-9ccb-227a9e72fece,Ijora Clinic,TRUE,10,5/29/2019 10:54,813-777-1122,3,Tecno Mobile,5.1,/Content/img/photo/t4.png
 838f4173-e596-4958-9ccb-227a9e72fece,Ijora Clinic,TRUE,4, 2/29/2019 18:17,813-777-1122,3,Tecno Mobile,5.1,/Content/img/photo/t4.png
+af7e0700-00e0-476f-a805-e1830a0d3cac,Katsina Clinic,TRUE,10,6/5/2019 9:43,813-777-1122,13,Tecno Mobile,5.1,/Content/img/photo/t1.png
+3c8699cb-3eb4-4f6c-a161-3d91181f66fb,Rawayau Clinic,TRUE,15,6/5/2019 13:14,860-346-9901,12,Tecno Mobile,5.1,/Content/img/photo/t1.png
+1725eed2-fb02-4dfb-85e0-169e1191dddb,Katsina Clinic,TRUE,5,6/5/2019 12:10,813-777-1122,13,Tecno Mobile,5.1,/Content/img/photo/t1.png
+b7424fda-fabd-4ae1-a814-4d042f0d2033,Mashegu Clinic,TRUE,0,6/5/2019 11:43,815-901-1334,6,Samsung Buddy,4.1,/Content/img/photo/t4.png
+838f4173-e596-4958-9ccb-227a9e72fece,Ijora Clinic,TRUE,10,6/5/2019 12:01,813-777-1122,3,Tecno Mobile,5.1,/Content/img/photo/t4.png
+838f4173-e596-4958-9ccb-227a9e72fece,Ijora Clinic,TRUE,0,6/5/2019 17:32,813-777-1122,3,Tecno Mobile,5.1,/Content/img/photo/t4.png
+838f4173-e596-4958-9ccb-227a9e72fece,Ijora Clinic,TRUE,20,6/5/2019 17:54,813-777-1122,3,Tecno Mobile,5.1,/Content/img/photo/t4.png
+bd86337b-90bf-4d49-8771-f63f91782e1d,Rawayau Clinic,TRUE,20,6/5/2019 16:09,866-284-4120,14,Tecno Mobile,5.1,/Content/img/photo/t1.png
+0bd837b8-1855-4faa-8daa-39b9803abe0b,Mashegu Clinic,TRUE,20,6/5/2019 10:55,815-901-1334,6,Samsung Buddy,4.1,/Content/img/photo/t1.png
+838f4173-e596-4958-9ccb-227a9e72fece,Katsina,TRUE,20,6/5/2019 8:43,813-777-1122,3,Tecno Mobile,5.1,/Content/img/photo/t4.png
+838f4173-e596-4958-9ccb-227a9e72fece,Ijora Clinic,TRUE,10,6/5/2019 6:54,813-777-1122,3,Tecno Mobile,5.1,/Content/img/photo/t4.png
+838f4173-e596-4958-9ccb-227a9e72fece,Ijora Clinic,TRUE,15,6/5/2019 11:17,813-777-1122,3,Tecno Mobile,5.1,/Content/img/photo/t4.png
+af7e0700-00e0-476f-a805-e1830a0d3cac,Katsina Clinic,TRUE,10,6/5/2019 13:12,813-777-1122,13,Tecno Mobile,5.1,/Content/img/photo/t1.png
