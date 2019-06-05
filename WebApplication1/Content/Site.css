@@ -125,6 +125,10 @@ textarea {
         color: #737572;
         margin-top: .8em;
     }
+    h5 {
+        font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+        font-size: 1.15em;
+    }
     h6 {
         color: #737572;
     }

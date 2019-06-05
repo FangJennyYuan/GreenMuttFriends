@@ -19,10 +19,13 @@ $(document).ready(function () {
             })
             .shapeConfig({
                 fill: function (d) { return d.color; },
+                labelConfig: {
+                    fontFamily: "'Century Gothic', Helvetica, Arial, sans-serif",
+                    fontMax: 100
+                }
             })
-
             .pointSize(function (d) {
-                return d.photos_in_year + d.staff;
+                return d.photos_in_year;
             })
 
             // Zooms out graph so more of area around points is visible
@@ -31,11 +34,10 @@ $(document).ready(function () {
             // Add clinic stats to map points
             .tooltipConfig({
                 body: function (d) {
-                    var stats = "<ul>"
-                    stats += "<li>First photo taken: " + d.first_photo + "</li>"
-                    stats += "<li>Number of trained staff: " + d.staff + "</li>"
-                    stats += "<li>Photos this year: " + d.photos_in_year + "</li>"
-                    stats += "</ul>"
+                    var stats = "<h5 class='mt-3'>Photos Taken in 2019:  <span class='ml-2'>" + d.photos_in_year + "</span></h5>"
+                    stats += "<h5>Number of Trained Staff:  <span class='ml-2'>" + d.staff + "</span></h5>"
+                    stats += "<h5>First Photo Taken:  <span class='ml-2'>" + d.first_photo + "</span></h5>"
+              
                     return stats;
                 },
                 title: function (d) {
