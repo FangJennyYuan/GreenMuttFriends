@@ -30,17 +30,19 @@
                     </div>
                 </div>
                 @*Userview icon*@
-                <div class="overviewcard col-lg-5 col-sm-4 ml-2" id="device-charts">
+                <div class="overviewcard col-lg-5 col-sm-4 ml-2 map-charts" id="device-charts">
                     <div class="overviewcard__icon">
                         <i class="fa fa-server  filter-performance-ic img-valign" aria-hidden="true"></i>
-                        <span>User view</span>
+                        <span>Map view</span>
                     </div>
                 </div>
 
             </div>
         </div>
     </div>
+</div>
 
+<div class="graphs">
     @*Date filter row*@
     <div class="row date-filter mt-1">
         @*Calender icon*@
@@ -65,67 +67,84 @@
             <input type="text" id="date-input" name="daterange" value="" />
         </div>
     </div>
+
+    @*Graph section*@
+    <div class="row mt-3 ">
+
+        @*Photo taken graph*@
+        <div class="col-lg-7 ml-2">
+            <div class="row ">
+                @*Graph header that is changed based on date filter*@
+                <div class="col">
+                    <h3> Photos Taken <span class="graph-filtered-by date"> from Month xxth to Month xxth </span></h3>
+                </div>
+                @*fav button*@
+                <div class="col-1">
+                    @{var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
+                        if (myAccountModel.isAccountLoggedIn)
+                        {
+                            <label for="id-of-input7" class="custom-checkbox favorite-graph">
+                                <input type="checkbox" id="id-of-input7" class="favorites" />
+                                <i class="fa fa-star fa-stack-1x favorited"></i>
+                                <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
+                            </label>
+                        }
+                        else { }}
+                </div>
+            </div>
+            @*photos taken graph*@
+            <div id="photos_taken_chart"></div>
+        </div>
+        @*Avg Photo based on device*@
+        <div class="col">
+            <div class="row">
+                @*Graph header that is changed based on date filter*@
+                <div class="col">
+                    <h3> Avg Photos <span class="graph-filtered-by date"> from Month xxth to Month xxth </span></h3>
+                </div>
+                @*fav button*@
+                <div class="col-1">
+                    @{
+                        if (myAccountModel.isAccountLoggedIn)
+                        {
+                            <label for="id-of-input8" class="custom-checkbox favorite-graph" onload="load()">
+                                <input type="checkbox" id="id-of-input8" class="favorites" onclick="save()" />
+                                <i class="fa fa-star fa-stack-1x favorited"></i>
+                                <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
+                            </label>
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                </div>
+            </div>
+            @*graph section*@
+            <div id="avg_photos_taken_chart"></div>
+        </div>
+    </div>
 </div>
 
-@*Graph section*@
-<div class="row mt-3 performance-graphs ">
-    @*Photo taken graph*@
-    <div class="col-lg-7 ml-2">
-        <div class="row ">
-            @*Graph header that is changed based on date filter*@
-            <div class="col">
-                <h3> Photos Taken <span class="graph-filtered-by date"> from Month xxth to Month xxth </span></h3>
-            </div>
-            @*fav button*@
-            <div class="col-1">
-                @{var myAccountModel = WebApplication1.Backend.AccountBackend.Instance.GetActiveUser();
-                    if (myAccountModel.isAccountLoggedIn)
-                    {
-                        <label for="id-of-input7" class="custom-checkbox favorite-graph">
-                            <input type="checkbox" id="id-of-input7" class="favorites" />
-                            <i class="fa fa-star fa-stack-1x favorited"></i>
-                            <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-                        </label>
-                    }
-                    else { }}
-            </div>
-        </div>
-        @*photos taken graph*@
-        <div id="photos_taken_chart"></div>
-    </div>
-    @*Avg Photo based on device*@
-    <div class="col">
-        <div class="row">
-            @*Graph header that is changed based on date filter*@
-            <div class="col">
-                <h3> Avg Photos <span class="graph-filtered-by date"> from Month xxth to Month xxth </span></h3>
-            </div>
-            @*fav button*@
-            <div class="col-1">
-                @{
-                    if (myAccountModel.isAccountLoggedIn)
-                    {
-                        <label for="id-of-input8" class="custom-checkbox favorite-graph" onload="load()">
-                            <input type="checkbox" id="id-of-input8" class="favorites" onclick="save()" />
-                            <i class="fa fa-star fa-stack-1x favorited"></i>
-                            <i class="fa fa-star-o fa-stack-1x not-favorited"></i>
-                        </label>
-                    }
-                    else
-                    {
-
-                    }
-                }
-            </div>
-        </div>
-        @*graph section*@
-        <div id="avg_photos_taken_chart"></div>
-    </div>
+<div class="map">
+    <h5>Clinics Map</h5>
+    <div class="container" id="mapdiv" style="height: 500px;"></div>
 </div>
 
 
 
 <script>
+    $('.map').hide();
+    $('.active-charts').click(function () {
+        $('.map').hide();
+        $('.graphs').show();
+    });
+    $('.map-charts').click(function () {
+        $('.map').show();
+        $('.graphs').hide();
+    });
+
+
     //load the fav checkbox id-of-input8 with what is stored in localstorage
     window.onload = function load() {
         var checked = JSON.parse(localStorage.getItem('id-of-input8'));
@@ -184,7 +203,7 @@
         $("#avg_photos_taken_chart").empty();
         drawAvgPhotosTakenGraph(currentPhotoData, start, end);
     }
-    
+
     //Get data by date
     function getPhotoDatabyDate(start, end) {
         photosData = [
