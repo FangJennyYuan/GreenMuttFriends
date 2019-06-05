@@ -11,9 +11,9 @@
     ViewBag.Title = "Performance Dashboard";
 }
 
-<div>
+<div class="sticky-top white-background">
     @*header*@
-    <div class="row sticky-top">
+    <div class="row ">
         <div class="col-lg-7">
             <h1>
                 Performance Dashboard
@@ -31,7 +31,7 @@
                 </div>
                 @*Map view *@
                 <div class="overviewcard col-lg-5 col-sm-4 ml-2 map-charts" id="device-charts">
-                    <a href="/Performance/About">
+                    <a href="/Performance/Map">
                         <div class="overviewcard__icon">
                             <i class="fa fa-server  filter-performance-ic img-valign" aria-hidden="true"></i>
                             <span>Map view</span>
@@ -42,9 +42,6 @@
             </div>
         </div>
     </div>
-</div>
-
-<div class="graphs">
     @*Date filter row*@
     <div class="row date-filter mt-1">
         @*Calender icon*@
@@ -69,7 +66,9 @@
             <input type="text" id="date-input" name="daterange" value="" />
         </div>
     </div>
+</div>
 
+<div class="graphs">
     @*Graph section*@
     <div class="row mt-3 ">
 

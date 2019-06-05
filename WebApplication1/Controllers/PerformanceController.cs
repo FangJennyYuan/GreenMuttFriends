@@ -23,7 +23,7 @@ namespace WebApplication1.Controllers
         }
 
 
-        public ActionResult About()
+        public ActionResult Map()
         {
             ViewBag.Message = "Your application description page.";
 
