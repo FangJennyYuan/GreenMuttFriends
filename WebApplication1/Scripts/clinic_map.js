@@ -63,7 +63,9 @@ $(document).ready(function () {
                     return stats;
                 },
                 title: function (d) {
-                    return d.name;
+                    var title = "<h2 style='color: " + d.color + "'>" + d.name + "</h2>";
+                    title += "<p class='mt-1'> lat: " + d.latitude + " long: " + d.longitude + "</p>";
+                    return title;
                 }
             })
 
