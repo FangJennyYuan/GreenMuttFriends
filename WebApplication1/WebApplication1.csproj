@@ -303,6 +303,7 @@
     <Content Include="Views\Performance\Index.cshtml" />
     <Content Include="Views\Library\PhotoDetail.cshtml" />
     <Content Include="Views\Account\LoginDialog.cshtml" />
+    <Content Include="Views\Performance\About.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
