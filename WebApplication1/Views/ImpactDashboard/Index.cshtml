@@ -10,9 +10,12 @@
     ViewBag.Title = "Impact Dashboard";
 }
 
-    <div class="sticky-top" style="background-color:white; margin-left:-10px">
-            @*Page header*@
-            <h1>Impact Dashboard</h1>
+    <div class="sticky-top white-background" style="margin-left:-10px">
+        <div class="flex-sm-row">
+            <h1>
+                Impact Dashboard
+            </h1>
+        </div>
 
         @*Date filter row*@
         <div class="row date-filter mt-1">
@@ -46,8 +49,8 @@
     </div>
 
     @*Photos Taken Graph*@
-    <div class="row mt-3">
-        <div class="col-lg-9">
+    <div class="row mt-3 white-background">
+        <div class="col-lg-9 ml-2">
             @*Photos Taken header that gets updated based on the date filter*@
             <div class="row">
                 <h3> Photos Taken <span class="graph-filtered-by date"> from May 19 to May 25th </span></h3>
