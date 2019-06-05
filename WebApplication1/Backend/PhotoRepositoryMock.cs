@@ -1166,17 +1166,6 @@ namespace WebApplication1.Backend
             dataset.Add(new PhotoModel
             {
                 ClinicName = "Ijora Clinic",
-                ResultIsValid = false,
-                RecordedDateTime = new DateTime(2019, 6, 5, 7, 46, 9),
-                PhoneNumber = "815-901-1334",
-                UserID = "006",
-                DeviceType = "Samsung Buddy",
-                OSVersion = "4.1",
-                ImageURL = "/Content/img/photo/tblur1.png"
-            });
-            dataset.Add(new PhotoModel
-            {
-                ClinicName = "Ijora Clinic",
                 ResultIsValid = true,
                 Bilirubin = "15",
                 RecordedDateTime = new DateTime(2019, 5, 27, 9, 42, 12),
