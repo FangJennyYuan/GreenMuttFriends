@@ -129,25 +129,9 @@
     </div>
 </div>
 
-<div class="map">
-    <h5>Clinics Map</h5>
-    <div class="container" id="mapdiv" style="height: 500px;"></div>
-</div>
-
 
 
 <script>
-    $('.map').hide();
-    $('.active-charts').click(function () {
-        $('.map').hide();
-        $('.graphs').show();
-    });
-    $('.map-charts').click(function () {
-        $('.map').show();
-        $('.graphs').hide();
-    });
-
-
     //load the fav checkbox id-of-input8 with what is stored in localstorage
     window.onload = function load() {
         var checked = JSON.parse(localStorage.getItem('id-of-input8'));
