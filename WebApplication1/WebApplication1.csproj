@@ -248,6 +248,7 @@
     <Content Include="App_Data\UserData.csv" />
     <Content Include="Content\nigeria.json" />
     <None Include="Properties\PublishProfiles\VisibleImpact - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\VisibleImpacts - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
