@@ -17,6 +17,9 @@ Every child deserves a healthy start. Neonatal jaundice occurs in more than 60% 
 
 Our solution is this reporting system which measures the app's impact and brings visibility to the mission of saving children.  This system collects app data and features a dashboard full of reports that analyze the performance, impact, and adoption of the application. It reports on device data like camera quality, device type, and OS, that could impact the diagnostic results. Photo errors related to a particular device and location are highlighted on the dashboard so that administrators can contact clinics to address user issues immediately.  Additionally, the reports give a snapshot of app usage trends like the number of installs or launches and include the option to drill down on details like the time of day or clinic location. 
 
+This is a demo of the reporting system, no integration with the jaundice detection phone app has occurred yet.
+
+![performance](https://user-images.githubusercontent.com/8409484/59455257-a738bd80-8dc8-11e9-94bd-e4a8249c1b0f.png)
 
 ----
 ## Technologies
