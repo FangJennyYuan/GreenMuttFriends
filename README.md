@@ -1,5 +1,4 @@
-# Visible Impact: Mobile Analytics to Ensure Every Child has a Healthy Start
-
+# Visible Impact: Mobile Analytics for Neonatal Jaundice Detection
 
 *Team: GreenMuttFriends*
 
